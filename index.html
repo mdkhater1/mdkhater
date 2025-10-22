@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative English Project Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+        }
+        .highlight-name {
+            background: linear-gradient(120deg, #FFEB3B 0%, #FFC107 100%);
+            color: #003B46;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+            display: inline-block;
+            margin: 2px;
+            font-size: 0.9em;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .project-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        .project-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border: 2px solid #e2e8f0;
+        }
+        .teacher-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .teacher-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .card {
+                padding: 15px;
+                margin-bottom: 15px;
+                border-radius: 12px;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .project-card {
+                padding: 12px;
+            }
+            
+            .project-image {
+                height: 140px;
+            }
+            
+            .teacher-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            .teacher-avatar {
+                width: 70px;
+                height: 70px;
+            }
+            
+            /* Adjust font sizes for mobile */
+            h1 {
+                font-size: 2rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            h2 {
+                font-size: 1.5rem !important;
+            }
+            
+            h3 {
+                font-size: 1.1rem !important;
+            }
+            
+            p {
+                font-size: 0.9rem !important;
+                line-height: 1.4 !important;
+            }
+            
+            .requirements-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+            }
+            
+            .requirement-item {
+                padding: 15px !important;
+            }
+            
+            .icon {
+                font-size: 2.5rem !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 8px;
+            }
+            
+            .card {
+                padding: 12px;
+                border-radius: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8rem !important;
+            }
+            
+            h2 {
+                font-size: 1.3rem !important;
+            }
+            
+            .project-image {
+                height: 120px;
+            }
+            
+            .teacher-avatar {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="card text-center">
+            <h1 style="font-size: 2.5rem; font-weight: bold; color: #003B46; margin-bottom: 8px; line-height: 1.3;">
+                🎨 Creative English Project Guide 🎨
+            </h1>
+            <p style="font-size: 1.1rem; color: #07575B; margin-bottom: 15px;">
+                Your Step-by-Step Guide to an Amazing School Showcase!
+            </p>
+            <div style="background: #e3f2fd; padding: 12px; border-radius: 8px; border-left: 4px solid #2196F3;">
+                <p style="margin: 0; color: #1565C0; font-weight: 600; font-size: 0.95rem;">
+                    📍 All projects will be displayed in school corridors and classrooms!
+                </p>
+            </div>
+        </div>
+
+        <!-- Project Requirements -->
+        <div class="card">
+            <h2 style="font-size: 1.8rem; color: #003B46; margin-bottom: 20px; text-align: center;">
+                📋 Project Requirements
+            </h2>
+            <div class="requirements-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div class="requirement-item" style="text-align: center; padding: 15px;">
+                    <div class="icon" style="font-size: 2.8rem; margin-bottom: 12px;">👤</div>
+                    <h3 style="color: #07575B; margin-bottom: 8px; font-size: 1.1rem;">Your Name</h3>
+                    <p style="color: #666; font-size: 0.9rem;">Write your full name clearly on the front</p>
+                </div>
+                <div class="requirement-item" style="text-align: center; padding: 15px;">
+                    <div class="icon" style="font-size: 2.8rem; margin-bottom: 12px;">👨‍🏫</div>
+                    <h3 style="color: #07575B; margin-bottom: 8px; font-size: 1.1rem;">Teacher's Name</h3>
+                    <p style="color: #666; font-size: 0.9rem;">Include: <span class="highlight-name">Mr. Khater</span></p>
+                </div>
+                <div class="requirement-item" style="text-align: center; padding: 15px;">
+                    <div class="icon" style="font-size: 2.8rem; margin-bottom: 12px;">🏫</div>
+                    <h3 style="color: #07575B; margin-bottom: 8px; font-size: 1.1rem;">School Logo</h3>
+                    <p style="color: #666; font-size: 0.9rem;">Add the official school logo</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project Ideas -->
+        <div class="card">
+            <h2 style="font-size: 1.8rem; color: #003B46; margin-bottom: 20px; text-align: center;">
+                💡 Creative Project Ideas
+            </h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3 style="color: #667eea; margin-bottom: 12px; font-size: 1.1rem;">📊 Charts & Diagrams</h3>
+                    <img src="https://i.imgur.com/JarFpud.jpeg" 
+                         alt="Sample chart showing story elements" 
+                         class="project-image">
+                    <p style="font-size: 0.9rem; line-height: 1.4;">Create colorful flowcharts showing story plots, character relationships, or grammar rules. Use arrows, boxes, and images to make complex ideas easy to understand.</p>
+                </div>
+                <div class="project-card">
+                    <h3 style="color: #667eea; margin-bottom: 12px; font-size: 1.1rem;">🔤 3D Words & Models</h3>
+                    <img src="https://i.imgur.com/fcGXUgH.jpeg" 
+                         alt="Sample 3D letters and models" 
+                         class="project-image">
+                    <p style="font-size: 0.9rem; line-height: 1.4;">Build vocabulary words using clay, cardboard, or recycled materials. Create pop-up scenes from stories or make moving parts that demonstrate action verbs.</p>
+                </div>
+                <div class="project-card">
+                    <h3 style="color: #667eea; margin-bottom: 12px; font-size: 1.1rem;">🏰 Dioramas & Scenes</h3>
+                    <img src="https://i.imgur.com/8yorNxy.jpeg" 
+                         alt="Sample diorama in a box" 
+                         class="project-image">
+                    <p style="font-size: 0.9rem; line-height: 1.4;">Construct detailed 3D scenes in shoeboxes showing key moments from stories. Include characters, settings, and props that bring literary scenes to life.</p>
+                </div>
+                <div class="project-card">
+                    <h3 style="color: #667eea; margin-bottom: 12px; font-size: 1.1rem;">🌍 Literary Globes</h3>
+                    <img src="https://i.imgur.com/eWBVdvs.jpeg" 
+                         alt="Sample decorated globe" 
+                         class="project-image">
+                    <p style="font-size: 0.9rem; line-height: 1.4;">Transform globes to map story journeys, character origins, or English-speaking countries. Add flags, routes, and information tags connecting geography with literature.</p>
+                </div>
+                <div class="project-card">
+                    <h3 style="color: #667eea; margin-bottom: 12px; font-size: 1.1rem;">📝 Writing Samples</h3>
+                    <img src="https://i.imgur.com/szpHoMt.jpeg" 
+                         alt="Sample writing portfolio" 
+                         class="project-image">
+                    <p style="font-size: 0.9rem; line-height: 1.4;">Create collections showcasing different writing styles - poems, short stories, dialogues, or news articles. Display them in creative folders or on themed boards.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Teacher's Message -->
+        <div class="teacher-section">
+            <img src="https://placehold.co/120x120/003B46/FFFFFF?text=Mr.+Khater" 
+                 alt="Mr. Khater" 
+                 class="teacher-avatar">
+            <div>
+                <h2 style="font-size: 1.5rem; margin-bottom: 12px;">
+                    A Message from <span style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 6px;">Mr. Khater</span>
+                </h2>
+                <p style="font-size: 0.95rem; line-height: 1.5; opacity: 0.9;">
+                    "I am incredibly excited to see the wonderful and imaginative projects you will create. 
+                    Remember to have fun while showcasing your English skills. Your creativity and effort 
+                    are what truly matter. Let's fill our school with amazing work that inspires everyone!"
+                </p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="card text-center">
+            <h3 style="color: #003B46; margin-bottom: 12px; font-size: 1.2rem;">Ready to Create Something Amazing?</h3>
+            <p style="color: #666; margin-bottom: 15px; font-size: 0.9rem;">
+                Choose your favorite project idea and start creating today! Remember to include all required elements.
+            </p>
+            <div style="background: #e8f5e9; padding: 12px; border-radius: 8px; border: 2px dashed #4CAF50;">
+                <p style="margin: 0; color: #2E7D32; font-weight: 600; font-size: 0.9rem;">
+                    🎯 Don't forget: Your Name + <span class="highlight-name">Mr. Khater</span> + School Logo
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation for highlighted name
+        document.addEventListener('DOMContentLoaded', function() {
+            const highlightedNames = document.querySelectorAll('.highlight-name');
+            highlightedNames.forEach(name => {
+                name.style.animation = 'pulse 2s infinite';
+            });
+        });
+    </script>
+
+    <style>
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</body>
+</html>
