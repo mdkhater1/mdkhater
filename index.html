@@ -12,11 +12,14 @@
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            position: relative;
         }
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 15px;
+            position: relative;
+            z-index: 1;
         }
         .card {
             background: white;
@@ -79,6 +82,24 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.2);
         }
         
+        /* Logo Styles */
+        .school-logo {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 120px;
+            height: auto;
+            z-index: 1000;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            background: white;
+            padding: 8px;
+            transition: transform 0.3s ease;
+        }
+        .school-logo:hover {
+            transform: scale(1.05);
+        }
+        
         /* Mobile-specific styles */
         @media (max-width: 768px) {
             .container {
@@ -114,6 +135,16 @@
             .teacher-avatar {
                 width: 70px;
                 height: 70px;
+            }
+            
+            /* Logo adjustments for mobile */
+            .school-logo {
+                position: relative;
+                top: auto;
+                right: auto;
+                width: 100px;
+                margin: 0 auto 15px auto;
+                display: block;
             }
             
             /* Adjust font sizes for mobile */
@@ -175,10 +206,27 @@
                 width: 60px;
                 height: 60px;
             }
+            
+            .school-logo {
+                width: 90px;
+                padding: 6px;
+            }
+        }
+        
+        /* For very small screens */
+        @media (max-width: 360px) {
+            .school-logo {
+                width: 80px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- School Logo -->
+    <img src="https://i.imgur.com/bYe1AJe.png" 
+         alt="School Logo" 
+         class="school-logo">
+
     <div class="container">
         <!-- Header Section -->
         <div class="card text-center">
