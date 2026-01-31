@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Opinion Essay – Study Sheet</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #f0f7ff, #ffffff);
+      margin: 0;
+      padding: 0;
+      color: #222;
+    }
+    .page {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      padding: 25px 30px 35px;
+    }
+    h1 {
+      text-align: center;
+      color: #1f4e79;
+      margin-top: 0;
+      font-size: 2rem;
+    }
+    h1 span.icon {
+      margin-right: 8px;
+    }
+    h2 {
+      color: #205b2f;
+      border-left: 6px solid #2f855a;
+      padding-left: 10px;
+      margin-top: 25px;
+      font-size: 1.25rem;
+    }
+    h3 {
+      margin-top: 18px;
+      margin-bottom: 6px;
+      color: #1f4e79;
+      font-size: 1.05rem;
+    }
+    p {
+      line-height: 1.6;
+      margin: 8px 0 10px;
+    }
+    .tagline {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      border-radius: 10px;
+      padding: 12px 15px;
+      margin: 12px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .card .emoji {
+      font-size: 1.4rem;
+      margin-top: 2px;
+    }
+    .card.blue {
+      background: #e3f2fd;
+      border-left: 5px solid #1976d2;
+    }
+    .card.green {
+      background: #e8f5e9;
+      border-left: 5px solid #2e7d32;
+    }
+    .card.orange {
+      background: #fff3e0;
+      border-left: 5px solid #fb8c00;
+    }
+    .card.pink {
+      background: #fce4ec;
+      border-left: 5px solid #c2185b;
+    }
+    .card.purple {
+      background: #ede7f6;
+      border-left: 5px solid #5e35b1;
+    }
+
+    .parts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 10px;
+    }
+    .part-box {
+      border-radius: 10px;
+      padding: 12px 14px 14px;
+      background: #f7fafc;
+      border: 1px solid #d2e3fc;
+      position: relative;
+      overflow: hidden;
+    }
+    .part-box h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      color: #1f4e79;
+    }
+    .part-label {
+      position: absolute;
+      top: -10px;
+      right: -35px;
+      background: #3182ce;
+      color: #fff;
+      transform: rotate(35deg);
+      width: 120px;
+      text-align: center;
+      font-size: 0.7rem;
+      padding: 3px 0;
+      opacity: 0.85;
+    }
+    ul {
+      margin: 5px 0 5px 18px;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 3px;
+    }
+
+    .highlight {
+      background: #fffde7;
+      border-left: 4px solid #fdd835;
+      padding: 8px 10px;
+      border-radius: 6px;
+      margin: 10px 0;
+      font-size: 0.95rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border: 1px solid #e2e8f0;
+      padding: 6px 8px;
+      text-align: left;
+    }
+    th {
+      background: #edf2ff;
+      color: #1a365d;
+    }
+    .badge {
+      display: inline-block;
+      background: #edf2ff;
+      color: #1a365d;
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 0.8rem;
+      margin-bottom: 4px;
+    }
+
+    .example-box {
+      background: #f1f8e9;
+      border-left: 4px solid #7cb342;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+    .example-title {
+      font-weight: bold;
+      color: #33691e;
+      margin-bottom: 4px;
+    }
+
+    .practice-box {
+      background: #e8eaf6;
+      border-left: 4px solid #3949ab;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+    .practice-title {
+      font-weight: bold;
+      color: #1a237e;
+      margin-bottom: 3px;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: 18px;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+      .page {
+        box-shadow: none;
+        margin: 0;
+        border-radius: 0;
+      }
+      .part-label {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1><span class="icon">📝</span>Opinion Essay Study Sheet</h1>
+    <div class="tagline">
+      Grade 9 – How to organise your ideas and express your opinion clearly.
+    </div>
+
+    <!-- 1. What is an opinion essay? -->
+    <h2>1. What is an opinion essay?</h2>
+    <div class="card blue">
+      <div class="emoji">💡</div>
+      <div>
+        <p><strong>Opinion essay</strong> = a piece of writing where you say what you think about a topic and explain <em>why</em>.</p>
+        <ul>
+          <li>You give your <strong>opinion</strong> clearly.</li>
+          <li>You support it with <strong>reasons</strong> and <strong>examples</strong>.</li>
+          <li>You usually use a <strong>formal</strong> style (no slang, careful grammar).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2. Basic structure -->
+    <h2>2. Basic structure (4–5 paragraphs)</h2>
+    <div class="card green">
+      <div class="emoji">📚</div>
+      <div>
+        <p>A typical opinion essay has the following parts:</p>
+        <ul>
+          <li>Paragraph 1 – <strong>Introduction</strong></li>
+          <li>Paragraph 2 – <strong>Body 1</strong> (Reason 1)</li>
+          <li>Paragraph 3 – <strong>Body 2</strong> (Reason 2)</li>
+          <li>Paragraph 4 – <strong>Conclusion</strong></li>
+        </ul>
+        <p>You can think: <strong>Intro → Reasons → Conclusion</strong>.</p>
+      </div>
+    </div>
+
+    <!-- 3. Parts of an opinion essay -->
+    <h2>3. Parts of an opinion essay</h2>
+    <div class="parts-grid">
+
+      <!-- Introduction -->
+      <div class="part-box">
+        <div class="part-label">START</div>
+        <h3>Introduction</h3>
+        <span class="badge">Paragraph 1</span>
+        <ul>
+          <li>Introduce the topic (1–2 sentences).</li>
+          <li>Give some background information.</li>
+          <li>Write a clear <strong>thesis statement</strong> = your opinion.</li>
+        </ul>
+        <div class="example-box">
+          <div class="example-title">Example:</div>
+          <p>“Today, many animal species are in danger of extinction. In my opinion, it is essential to protect endangered animals like the yaki macaques because they are a vital part of our planet.”</p>
+        </div>
+      </div>
+
+      <!-- Body 1 -->
+      <div class="part-box">
+        <div class="part-label">REASON 1</div>
+        <h3>Body Paragraph 1</h3>
+        <span class="badge">Paragraph 2</span>
+        <ul>
+          <li>Topic sentence = your first main reason.</li>
+          <li>Explain the reason in more detail.</li>
+          <li>Give an example or evidence.</li>
+          <li>Use linking words: <em>Firstly, For example, In addition</em>.</li>
+        </ul>
+        <div class="example-box">
+          <div class="example-title">Example topic sentence:</div>
+          <p>“Firstly, endangered animals help keep the balance of nature, so losing them can damage entire ecosystems.”</p>
+        </div>
+      </div>
+
+      <!-- Body 2 -->
+      <div class="part-box">
+        <div class="part-label">REASON 2</div>
+        <h3>Body Paragraph 2</h3>
+        <span class="badge">Paragraph 3</span>
+        <ul>
+          <li>Topic sentence = your second main reason.</li>
+          <li>Add explanation and details.</li>
+          <li>Give another example or illustration.</li>
+          <li>Use linking words: <em>Secondly, Moreover, However</em>.</li>
+        </ul>
+        <div class="example-box">
+          <div class="example-title">Example topic sentence:</div>
+          <p>“Secondly, we have a moral responsibility to protect animals, especially when humans are the main cause of their problems.”</p>
+        </div>
+      </div>
+
+      <!-- Conclusion -->
+      <div class="part-box">
+        <div class="part-label">END</div>
+        <h3>Conclusion</h3>
+        <span class="badge">Paragraph 4</span>
+        <ul>
+          <li>Summarise your main reasons (no new ideas).</li>
+          <li>Restate your opinion using different words.</li>
+          <li>Finish with a strong final sentence.</li>
+        </ul>
+        <div class="example-box">
+          <div class="example-title">Example:</div>
+          <p>“In conclusion, protecting endangered animals like the yaki macaques is essential for the environment and for future generations. For these reasons, I believe we must act now before it is too late.”</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Useful language -->
+    <h2>4. Useful language</h2>
+    <div class="card orange">
+      <div class="emoji">🔗</div>
+      <div>
+        <p><strong>Giving your opinion:</strong></p>
+        <ul>
+          <li>In my opinion, …</li>
+          <li>I strongly believe that …</li>
+          <li>From my point of view, …</li>
+        </ul>
+        <p><strong>Organising your ideas:</strong></p>
+        <ul>
+          <li>Firstly, Secondly, Finally</li>
+          <li>In addition, Moreover, Also</li>
+          <li>However, On the other hand</li>
+          <li>For example, For instance</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5. Checklist -->
+    <h2>5. Quick checklist before you submit</h2>
+    <div class="highlight">
+      Use this checklist after you finish your draft. Tick ✓ when you are happy with each point.
+    </div>
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Question</th>
+        <th>✓</th>
+      </tr>
+      <tr>
+        <td>Structure</td>
+        <td>Do I have 4–5 paragraphs (intro, 2 body, conclusion)?</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Opinion</td>
+        <td>Is my opinion clear from beginning to end?</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Reasons</td>
+        <td>Does each body paragraph explain <strong>one main reason</strong> with an example?</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Linking words</td>
+        <td>Did I use linking words (Firstly, However, For example, In conclusion)?</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Language</td>
+        <td>Did I write in a formal style with correct grammar, spelling and punctuation?</td>
+        <td></td>
+      </tr>
+    </table>
+
+    <!-- 6. Topic samples and practice -->
+    <h2>6. Topic samples and practice</h2>
+
+    <!-- Topic 1 -->
+    <h3>Topic 1 – Endangered animals (yaki macaques)</h3>
+    <div class="card purple">
+      <div class="emoji">🐒</div>
+      <div>
+        <p><strong>Question:</strong> “In your opinion, is it important to protect endangered animals like the ‘yaki’ macaques? How can we help them?”</p>
+      </div>
+    </div>
+    <div class="example-box">
+      <div class="example-title">Sample body paragraph (around 80–100 words):</div>
+      <p>
+        In my opinion, protecting endangered animals like the yaki macaques is extremely important because they are a key part of their ecosystem. When one species disappears, many other plants and animals can be affected. For example, macaques help spread seeds in the forest, which allows new trees to grow and keeps the environment healthy. If we lose them, the balance of nature may be damaged, and future generations will never see these unique animals. For this reason, I believe we must take action now to protect them.
+      </p>
+    </div>
+    <div class="practice-box">
+      <div class="practice-title">Practice – Write your own paragraph:</div>
+      <p>Write a second body paragraph for this topic. Include:</p>
+      <ul>
+        <li>A topic sentence about <strong>how humans can help</strong> endangered animals.</li>
+        <li>At least two ideas (laws, charities, education, etc.).</li>
+        <li>One example of something <strong>students</strong> can do.</li>
+      </ul>
+    </div>
+
+    <!-- Topic 2 -->
+    <h3>Topic 2 – Is a computer “just a tool” for an artist?</h3>
+    <div class="card purple">
+      <div class="emoji">🎨</div>
+      <div>
+        <p><strong>Question:</strong> “Do you agree with Max that a computer is ‘just a tool’ for a real artist? Why or why not?”</p>
+      </div>
+    </div>
+    <div class="example-box">
+      <div class="example-title">Sample body paragraph (around 80–100 words):</div>
+      <p>
+        I mostly agree that a computer is just a tool for an artist, because it cannot create real art without human creativity. A drawing tablet or design program only follows the choices that the artist makes, such as which colours to use or how to arrange shapes. For instance, two artists using the same software will still produce very different pictures, because their ideas and styles are not the same. This shows that the most important element in art is the person behind the screen, not the machine itself.
+      </p>
+    </div>
+    <div class="practice-box">
+      <div class="practice-title">Practice – Support or contrast:</div>
+      <p>Write another body paragraph for this topic. Choose one option:</p>
+      <ul>
+        <li><strong>Option A:</strong> Explain how computers make art <strong>better or easier</strong> (editing, sharing online, special effects).</li>
+        <li><strong>Option B:</strong> Explain how computers can sometimes be a <strong>problem</strong> for art (copying, no original style, too much focus on technology).</li>
+      </ul>
+      <p>Use linking words like <em>Secondly, Moreover, However, On the other hand</em>.</p>
+    </div>
+
+    <!-- Topic 3 -->
+    <h3>Topic 3 – Social media, selfies and art</h3>
+    <div class="card purple">
+      <div class="emoji">📱</div>
+      <div>
+        <p><strong>Question:</strong> “Do you think social media and the ‘selfie’ culture have changed the way we enjoy art and photography? Is this a good or bad thing?”</p>
+      </div>
+    </div>
+    <div class="example-box">
+      <div class="example-title">Sample body paragraph (around 80–100 words):</div>
+      <p>
+        Social media and the selfie culture have definitely changed the way we enjoy art and photography, and in some ways this is a positive development. Today, anyone with a smartphone can take photos, edit them and share them with the world in a few seconds. This has encouraged many young people to be more creative and to experiment with colours, filters and different styles. In addition, we can easily discover new artists and museums online, even if we live far away from them. As a result, more people than ever before are able to see and create art.
+      </p>
+    </div>
+    <div class="practice-box">
+      <div class="practice-title">Practice – Give the other side:</div>
+      <p>Write a contrasting body paragraph for the same topic. Include:</p>
+      <ul>
+        <li>One or two <strong>negative effects</strong> of selfie culture (e.g. focus on looks, dangerous selfies, pressure to be perfect).</li>
+        <li>At least one example to support your idea.</li>
+        <li>A sentence that answers: “Is this good or bad for how we enjoy art?”</li>
+      </ul>
+    </div>
+
+    <div class="footer-note">
+      Teacher tip: You can print this page, project it in class, or upload it to your LMS as a colourful study and practice sheet.
+    </div>
+  </div>
+</body>
+</html>
