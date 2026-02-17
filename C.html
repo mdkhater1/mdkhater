@@ -1,0 +1,1865 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ContaKids • Zuzanna Matysiewicz</title>
+  <meta name="description" content="ContaKids — playful movement practice for parents and children. Classes with Zuzanna Matysiewicz." />
+  <meta property="og:title" content="ContaKids • Zuzanna Matysiewicz" />
+  <meta property="og:description" content="Play, move, connect. Parent–child movement classes inspired by ContaKids." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.pexels.com/photos/2701585/pexels-photo-2701585.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+  <meta name="theme-color" content="#fff7fb" />
+
+  <style>
+    :root{
+      --bg1:#fff7fb; --bg2:#fffceb;
+      --panel:#ffffff; --panel2:#fff9fb;
+      --text:#1f2937; --muted:#6b7280;
+      --pink:#fb7185; --peach:#fdba74; --yellow:#facc15; --mint:#34d399; --sky:#38bdf8;
+      --ring: rgba(251,113,133,.26);
+      --shadow: 0 12px 30px rgba(17,24,39,.10);
+      --radius: 16px; --radius2: 26px; --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 15% -10%, rgba(251,113,133,.18), transparent 60%),
+        radial-gradient(900px 520px at 85% -10%, rgba(56,189,248,.18), transparent 60%),
+        radial-gradient(1000px 700px at 50% 110%, rgba(250,204,21,.18), transparent 60%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      overflow-x:hidden;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:20px}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,.80);
+      border-bottom: 1px solid rgba(17,24,39,.07);
+      box-shadow: 0 2px 10px rgba(17,24,39,.05);
+    }
+    .nav{
+      max-width:var(--max); margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      padding:14px 20px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
+    .logo{
+      width:44px; height:44px; border-radius:14px;
+      background: radial-gradient(circle at 30% 30%, rgba(251,113,133,1), rgba(250,204,21,1));
+      box-shadow: 0 8px 18px rgba(251,113,133,.22);
+      position:relative;
+    }
+    .logo:after{
+      content:""; position:absolute; inset:10px; border-radius:12px;
+      background: radial-gradient(circle at 30% 30%, rgba(56,189,248,.9), rgba(52,211,153,.85));
+      opacity:.9; mix-blend-mode: multiply;
+    }
+    .brand h1{margin:0; font-size:15px; font-weight:750; letter-spacing:.2px}
+    .brand p{margin:0; font-size:12px; color:var(--muted)}
+    .navlinks{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
+    .chip{
+      text-decoration:none;
+      padding:9px 14px;
+      border-radius:999px;
+      background: rgba(17,24,39,.04);
+      border:1px solid rgba(17,24,39,.06);
+      font-size:13.5px;
+      transition:.18s transform, .18s background, .18s border, .18s box-shadow;
+      display:inline-flex; align-items:center; gap:8px;
+      cursor:pointer; user-select:none; white-space:nowrap;
+    }
+    .chip:hover{transform:translateY(-1px); background: rgba(17,24,39,.06); border-color: rgba(251,113,133,.25)}
+    .chip.active{
+      background: rgba(251,113,133,.14);
+      border-color: rgba(251,113,133,.30);
+      box-shadow: 0 0 0 4px var(--ring);
+    }
+    .rightControls{display:flex; align-items:center; gap:10px}
+    select, button{font:inherit; color:inherit}
+    .select{
+      background: rgba(17,24,39,.04);
+      border:1px solid rgba(17,24,39,.09);
+      border-radius:999px;
+      padding:9px 12px;
+      outline:none;
+    }
+    .btn{
+      border:1px solid rgba(17,24,39,.10);
+      border-radius:999px;
+      padding:10px 14px;
+      background: linear-gradient(135deg, rgba(250,204,21,.45), rgba(251,113,133,.35));
+      cursor:pointer;
+      transition:.18s transform, .18s border, .18s filter;
+      box-shadow: 0 8px 16px rgba(251,113,133,.12);
+    }
+    .btn:hover{transform:translateY(-2px); border-color: rgba(251,113,133,.35); filter:saturate(1.05)}
+    .btn.primary{
+      color:#fff;
+      background: linear-gradient(135deg, rgba(251,113,133,.95), rgba(250,204,21,.85));
+      border-color: rgba(251,113,133,.40);
+    }
+    .hero{
+      padding:28px 0 10px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){
+      .hero{grid-template-columns:1fr}
+      .nav{flex-wrap:wrap}
+      .rightControls{width:100%; justify-content:flex-end}
+    }
+    .card{
+      background: var(--panel);
+      border:1px solid rgba(17,24,39,.07);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .pad{padding:22px}
+    .headline{
+      margin:0 0 12px;
+      font-size:38px;
+      line-height:1.05;
+      letter-spacing:-.6px;
+      font-weight:850;
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.65;
+      max-width: 72ch;
+    }
+    .kpis{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px;}
+    .kpi{
+      padding:9px 12px;
+      border-radius: 14px;
+      background: var(--panel2);
+      border:1px solid rgba(17,24,39,.06);
+      font-size:13px;
+      display:flex; align-items:center; gap:8px;
+    }
+    .dot{width:10px; height:10px; border-radius:999px; background: var(--mint); box-shadow: 0 0 0 4px rgba(52,211,153,.18);}
+    .dot.pink{background:var(--pink); box-shadow: 0 0 0 4px rgba(251,113,133,.18)}
+    .dot.sky{background:var(--sky); box-shadow: 0 0 0 4px rgba(56,189,248,.18)}
+    .dot.yellow{background:var(--yellow); box-shadow: 0 0 0 4px rgba(250,204,21,.20)}
+    .tagRow{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
+    .tag{
+      font-size:12px; padding:7px 10px; border-radius:999px;
+      border:1px solid rgba(17,24,39,.08); background: rgba(17,24,39,.04);
+    }
+    .tag.good{border-color: rgba(52,211,153,.35); background: rgba(52,211,153,.14)}
+    .tag.warm{border-color: rgba(250,204,21,.40); background: rgba(250,204,21,.18)}
+    .tag.rose{border-color: rgba(251,113,133,.35); background: rgba(251,113,133,.14)}
+    .heroMedia{position:relative; min-height:290px}
+    .heroMedia img{width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.03) contrast(1.02);}
+    .badge{position:absolute; inset:auto 14px 14px 14px; display:flex; gap:10px; flex-wrap:wrap;}
+    .pill{
+      padding:7px 10px; border-radius:999px; font-size:12px;
+      background: rgba(255,255,255,.82); border:1px solid rgba(17,24,39,.08);
+      backdrop-filter: blur(8px);
+    }
+    .grid{
+      display:grid; grid-template-columns: repeat(12, 1fr);
+      gap: 16px; margin: 18px 0 40px;
+    }
+    .col-12{grid-column: span 12}
+    .col-8{grid-column: span 8}
+    .col-6{grid-column: span 6}
+    .col-4{grid-column: span 4}
+    @media (max-width: 920px){ .col-8,.col-6,.col-4{grid-column: span 12} }
+    .sectionTitle{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin: 6px 0 10px;}
+    .sectionTitle h2{margin:0; font-size:18px; font-weight:800; letter-spacing:.2px}
+    .sectionTitle p{margin:0; font-size:13px; color:var(--muted)}
+    .list{display:grid; gap:12px; margin-top:10px}
+    .item{
+      padding:16px 16px; border-radius: var(--radius);
+      background: var(--panel2); border:1px solid rgba(17,24,39,.06);
+    }
+    .item b{display:block; margin-bottom:6px; font-weight:800}
+    .item p{margin:0; color:var(--muted); line-height:1.6; font-size:14px}
+    .gallery{
+      display:grid; grid-template-columns: repeat(12, 1fr);
+      gap:12px; margin-top: 12px;
+    }
+    .g{
+      grid-column: span 4; border-radius: 18px; overflow:hidden;
+      border:1px solid rgba(17,24,39,.08);
+      cursor:pointer; background: var(--panel2);
+      min-height: 190px;
+      box-shadow: 0 10px 18px rgba(17,24,39,.06);
+      transition:.18s transform, .18s box-shadow;
+    }
+    .g:hover{transform:translateY(-2px); box-shadow: 0 16px 26px rgba(17,24,39,.08)}
+    .g img{width:100%; height:100%; object-fit:cover; display:block}
+    @media (max-width: 920px){ .g{grid-column: span 6} }
+    @media (max-width: 520px){ .g{grid-column: span 12} }
+    .faq details{
+      background: var(--panel2);
+      border:1px solid rgba(17,24,39,.06);
+      border-radius: 16px;
+      padding: 12px 14px;
+    }
+    .faq summary{cursor:pointer; font-weight:800}
+    .faq p{margin:10px 0 0; color:var(--muted); line-height:1.65; font-size:14px}
+    footer{
+      padding: 26px 0 50px;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid rgba(17,24,39,.06);
+    }
+    .backdrop{
+      position:fixed; inset:0;
+      background: rgba(17,24,39,.45);
+      display:none; align-items:flex-end; justify-content:center;
+      z-index:100;
+    }
+    .backdrop.open{display:flex}
+    .modal{
+      width: min(980px, 96vw);
+      border-radius: 22px 22px 0 0;
+      background: var(--panel);
+      border:1px solid rgba(17,24,39,.08);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      max-height: 86vh;
+      display:flex; flex-direction:column;
+    }
+    .modalHeader{
+      padding: 14px 16px;
+      display:flex; align-items:center; justify-content:space-between;
+      border-bottom:1px solid rgba(17,24,39,.07);
+      background: linear-gradient(135deg, rgba(251,113,133,.08), rgba(250,204,21,.08));
+    }
+    .modalHeader b{font-size:15px; font-weight:900}
+    .modalBody{padding: 16px; overflow:auto}
+    .x{
+      border:1px solid rgba(17,24,39,.10);
+      background: rgba(17,24,39,.04);
+      border-radius: 12px;
+      padding: 8px 10px;
+      cursor:pointer;
+    }
+    .form{display:grid; gap:12px}
+    .row{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    @media (max-width: 700px){
+      .row{grid-template-columns:1fr}
+      .backdrop{align-items:stretch}
+      .modal{border-radius:0}
+    }
+    input, textarea{
+      width:100%;
+      border-radius: 14px;
+      padding: 12px 12px;
+      border:1px solid rgba(17,24,39,.12);
+      background: var(--panel2);
+      color: var(--text);
+      outline:none;
+    }
+    input:focus, textarea:focus{box-shadow: 0 0 0 4px var(--ring); border-color: rgba(251,113,133,.40);}
+    textarea{min-height: 120px; resize: vertical}
+    .helper{font-size:12px; color:var(--muted); line-height:1.5}
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .btnGhost{
+      background: rgba(17,24,39,.04);
+      border:1px solid rgba(17,24,39,.10);
+      border-radius:999px;
+      padding:10px 12px;
+      cursor:pointer;
+    }
+    .lightbox{
+      position:fixed; inset:0;
+      display:none; place-items:center;
+      background: rgba(17,24,39,.72);
+      z-index:110; padding: 18px;
+    }
+    .lightbox.open{display:grid}
+    .lightbox figure{
+      margin:0;
+      max-width: min(1100px, 96vw);
+      max-height: 86vh;
+      background: var(--panel);
+      border:1px solid rgba(17,24,39,.12);
+      border-radius: 18px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+    }
+    .lightbox img{
+      width:100%; height:auto; max-height: 72vh;
+      display:block; object-fit:contain; background:#fff;
+    }
+    .lightbox figcaption{
+      padding: 10px 12px;
+      font-size: 13px; color: var(--muted);
+      display:flex; justify-content:space-between; gap:10px; align-items:center;
+    }
+    .lbNav{display:flex; gap:8px}
+    .lbBtn{
+      background: rgba(17,24,39,.04);
+      border:1px solid rgba(17,24,39,.12);
+      border-radius: 12px;
+      padding: 7px 10px;
+      cursor:pointer;
+    }
+    body.rtl{direction:rtl}
+    body.rtl .nav{flex-direction:row-reverse}
+    body.rtl .navlinks{justify-content:flex-start}
+    body.rtl .sectionTitle{flex-direction:row-reverse}
+    body.rtl .badge{justify-content:flex-end}
+  
+    /* Admin panel */
+    .adminWrap{display:grid; gap:14px}
+    .adminTop{display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap}
+    .adminCard{background: var(--panel); border:1px solid rgba(17,24,39,.08); border-radius: 18px; box-shadow: var(--shadow); overflow:hidden}
+    .adminCard .pad{padding:18px}
+    .adminGrid{display:grid; grid-template-columns: repeat(12, 1fr); gap:12px}
+    .adminCol6{grid-column: span 6}
+    .adminCol12{grid-column: span 12}
+    @media (max-width: 920px){ .adminCol6{grid-column: span 12} }
+    .label{font-size:12px; color:var(--muted); margin:0 0 6px}
+    .rowBtns{display:flex; gap:10px; flex-wrap:wrap}
+    .mini{font-size:12px; padding:8px 10px}
+    .warn{background: rgba(250,204,21,.18); border-color: rgba(250,204,21,.40)}
+    .danger{background: rgba(251,113,133,.14); border-color: rgba(251,113,133,.35)}
+    .adminTable{width:100%; border-collapse:separate; border-spacing:0 8px}
+    .adminTable td{background: var(--panel2); border:1px solid rgba(17,24,39,.08); padding:10px; border-radius: 14px; vertical-align:top}
+    .adminTable input{background: #fff}
+
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="nav">
+      <a class="brand" href="#/home" aria-label="Home">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1 id="t_siteTitle">ContaKids • Zuzanna Matysiewicz</h1>
+          <p id="t_siteTag">Move • Play • Connect</p>
+        </div>
+      </a>
+      <div class="navlinks" id="navlinks"></div>
+      <div class="rightControls">
+        <select class="select" id="lang" aria-label="Language">
+          <option value="en">EN</option>
+          <option value="pl">PL</option>
+          <option value="ar">AR</option>
+        </select>
+        <button class="btn primary" id="bookNow">Book / Ask</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap" id="app"></main>
+
+  <footer class="wrap">
+    <div id="t_footerLine1">© <span id="year"></span> • ContaKids with Zuzanna Matysiewicz</div>
+    <div id="t_footerLine2" style="margin-top:6px">
+      Photos are free stock images (Pexels). Replace with your own permitted class photos when ready.
+    </div>
+  </footer>
+
+  <div class="backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-label="Booking">
+    <div class="modal">
+      <div class="modalHeader">
+        <b id="t_modalTitle">Book a class / Ask a question</b>
+        <button class="x" id="modalClose" aria-label="Close">✕</button>
+      </div>
+      <div class="modalBody">
+        <div class="helper" id="t_modalHelper"></div>
+        <div style="height:10px"></div>
+        <form class="form" id="mailForm" onsubmit="return false;">
+          <div class="row">
+            <div><input id="f_name" placeholder="Your name" autocomplete="name" /></div>
+            <div><input id="f_email" placeholder="Your email" autocomplete="email" /></div>
+          </div>
+          <div class="row">
+            <div><input id="f_city" placeholder="City (optional)" /></div>
+            <div><input id="f_age" placeholder="Child age (optional)" /></div>
+          </div>
+          <input id="f_subject" placeholder="Subject" />
+          <textarea id="f_msg" placeholder="Message"></textarea>
+          <div class="actions">
+            <button type="button" class="btn primary" id="sendMail"></button>
+            <button type="button" class="btnGhost" id="copyMsg"></button>
+          </div>
+          <div class="helper" id="t_modalNote" style="margin-top:8px"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-label="Image viewer">
+    <figure>
+      <img id="lbImg" alt="" />
+      <figcaption>
+        <span id="lbCap"></span>
+        <span class="lbNav">
+          <button class="lbBtn" id="lbPrev">◀</button>
+          <button class="lbBtn" id="lbNext">▶</button>
+          <button class="lbBtn" id="lbClose">Close</button>
+        </span>
+      </figcaption>
+    </figure>
+  </div>
+
+<script>
+    const CONFIG = {
+    instructorName: "Zuzanna Matysiewicz",
+    instructorTagline: "Movement & dance educator • ContaKids practice",
+
+    // Main social links
+    instagramLink: "https://www.instagram.com/contakids.warsaw/",
+    facebookLink: "https://www.facebook.com/profile.php?id=61557670836394",
+
+    // Regional contacts (Poland + Saudi Arabia)
+    contacts: {
+      pl: {
+        label: "Poland",
+        phoneDisplay: "+48 888 697 333",
+        phoneE164: "+48888697333",
+        email: "ContakidsPL@gmail.com"
+      },
+      ksa: {
+        label: "Saudi Arabia",
+        phoneDisplay: "+966 54 706 4424",
+        phoneE164: "+966547064424",
+        email: "ContakidsKSA@gmail.com"
+      }
+    },
+
+    // Default email used by the booking modal (you can change this)
+    contactEmail: "ContakidsKSA@gmail.com",
+
+    cityBase: "Warsaw / Jeddah (update)",
+
+    heroImage: "https://images.pexels.com/photos/2701585/pexels-photo-2701585.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    gallery: [
+      { src:"https://images.pexels.com/photos/2701585/pexels-photo-2701585.jpeg?auto=compress&cs=tinysrgb&w=1600", cap_en:"Parent & child playing outdoors", cap_pl:"Rodzic i dziecko podczas zabawy na zewnątrz", cap_ar:"والد/والدة وطفل يلعبان في الخارج" },
+      { src:"https://images.pexels.com/photos/5093601/pexels-photo-5093601.jpeg?auto=compress&cs=tinysrgb&w=1600", cap_en:"Gentle stretch & movement at home", cap_pl:"Delikatny stretching i ruch w domu", cap_ar:"تمارين تمدد وحركة لطيفة في المنزل" },
+      { src:"https://images.pexels.com/photos/6219948/pexels-photo-6219948.jpeg?auto=compress&cs=tinysrgb&w=1600", cap_en:"Lift, trust and laughter", cap_pl:"Podnoszenie, zaufanie i śmiech", cap_ar:"حمل آمن وثقة وضحك" },
+      { src:"https://images.pexels.com/photos/9275225/pexels-photo-9275225.jpeg?auto=compress&cs=tinysrgb&w=1600", cap_en:"Playful connection in nature", cap_pl:"Radosny kontakt w naturze", cap_ar:"تواصل مرح في الطبيعة" },
+      { src:"https://images.pexels.com/photos/1589216/pexels-photo-1589216.jpeg?auto=compress&cs=tinysrgb&w=1600", cap_en:"Family play & togetherness", cap_pl:"Zabawa i bliskość w rodzinie", cap_ar:"لعب ودفء عائلي" },
+      { src:"https://images.pexels.com/photos/1648377/pexels-photo-1648377.jpeg?auto=compress&cs=tinysrgb&w=1600", cap_en:"Joyful movement moment", cap_pl:"Radosny moment ruchu", cap_ar:"لحظة حركة مليئة بالفرح" }
+    ]
+  };
+
+  const I18N = {
+    en: {
+      siteTitle: "ContaKids • Zuzanna Matysiewicz",
+      siteTag: "Move • Play • Connect",
+      bookBtn: "Book / Ask",
+      nav: [["home","Home"],["about","About ContaKids"],["zuzanna","About Zuzanna"],["classes","Classes"],["gallery","Gallery"],["faq","FAQ"],["contact","Contact"]],
+      heroTitle: "Playful movement for parents & children.",
+      heroText: "ContaKids is a practice where an adult and a child move together through play, touch, balance, and imagination — building trust, communication, and joy.",
+      kpi1: "Family-friendly", kpi2: "Movement + play", kpi3: "Trust & confidence", kpi4: "Body awareness",
+      badge1: "Gentle • guided", badge2: "Creative • playful", badge3: "Safety & consent",
+      highlightsTitle: "Highlights", highlightsSub: "What you can expect",
+      hi1t: "Connection through movement", hi1d: "Simple games that build trust, cooperation, and shared attention.",
+      hi2t: "Confidence & coordination", hi2d: "Balance, rolling, and safe carrying ideas — adapted to each family.",
+      hi3t: "Calm landing", hi3d: "A soft ending that helps children regulate and feel grounded.",
+      safetyTitle: "Safety guidelines", safetySub: "Clear boundaries + consent",
+      s1t: "Consent & choice", s1d: "The child can always say no. The adult listens, adjusts, and respects boundaries.",
+      s2t: "Safe environment", s2d: "Soft floor/mats, clear space, and instructor guidance. No risky lifts without support.",
+      s3t: "Warm-up & cool-down", s3d: "We prepare joints and attention, then finish with calming closure.",
+      aboutTitle: "What is ContaKids?",
+      aboutText: "ContaKids is a playful movement practice for an adult and a child. The focus is on connection through touch, balance, and cooperative play, supporting communication, confidence, and joy.",
+      aboutFounderTitle: "Founder", aboutFounderText: "ContaKids was founded by Itay Yatuv.",
+      aboutClassFeelTitle: "How a class feels",
+      aboutClassFeelText: "You can expect guided games, rolling and balancing ideas, playful variations of carrying and weight-sharing, and lots of laughter — always with safety and consent as the foundation.",
+      zuTitle: "About Zuzanna",
+      zuBio: "Zuzanna Matysiewicz is a movement and dance educator with contemporary dance education (Warsaw Dance Department and Trinity Laban Conservatoire in London). She also teaches kids yoga and pilates. Through ContaKids, she helps families find freedom in movement expression and joy in playing together in contact.",
+      zuLangTitle: "Languages", zuLangText: "Polish • English • Arabic",
+      zuBaseTitle: "Base", zuBaseText: () => CONFIG.cityBase,
+      classesTitle: "Classes & formats",
+      classesText: "Choose a format below. Weekly groups, workshops, and special events can be designed for schools, studios, festivals, and community spaces.",
+      c1t: "Weekly class", c1d: "A consistent rhythm: warm-up, playful skill building, and a calm landing.",
+      c2t: "Workshop (60–90 min)", c2d: "A deeper exploration with themes such as balance, rolling, trust games, and creativity.",
+      c3t: "Private family session", c3d: "Personalized support for your family goals, child age, and comfort level.",
+      cCTA: "Open booking form",
+      galleryTitle: "Gallery",
+      galleryText: "These are free stock images (Pexels) that match the spirit of the practice. Replace them with Zuzanna’s permitted class photos whenever ready.",
+      faqTitle: "FAQ",
+      q1: "What age is it for?", a1: "It is commonly for one adult + one child. Age ranges depend on the group (often around 2–9). Choose what fits your child’s development and comfort.",
+      q2: "Do we need dance experience?", a2: "No. Everything is playful, guided, and adapted to your family.",
+      q3: "What should we wear?", a3: "Comfortable clothes you can move in. Barefoot or soft socks are common.",
+      q4: "Is it safe?", a4: "Safety is central: consent, clear boundaries, soft surfaces, and instructor guidance.",
+      contactTitle: "Contact",
+      contactText: "Use the button below to open an email draft. You can also add WhatsApp/Instagram links in the CONFIG section to show them here.",
+      contactBtn: "Book / Ask",
+      quickLinksTitle: "Quick links",
+      emailLabel: "Email", waLabel: "WhatsApp", igLabel: "Instagram",
+      addLinkHint: "Add link in CONFIG",
+      modalTitle: "Book a class / Ask a question",
+      modalHelper: "Fill the form. The “Send Email” button opens your email app with the message pre-filled (no data stored on this page).",
+      modalNote: "Tip: add WhatsApp/Instagram links in the CONFIG section in this file.",
+      sendEmail: "Send Email", copyMsg: "Copy Message", copied: "Copied!", copyFail: "Copy failed — please copy manually.",      fbLabel: "Facebook",
+      contactByCountry: "Contacts by country",
+      contactRegionsTitle: "Contacts",      socialGalleryTitle: 'Social media moments',
+      socialGalleryText: 'Live embeds from Instagram/Facebook (no images are stored on this website).',
+      socialInstaNote: 'If the Instagram post doesn’t load, open the Instagram link below.',
+      socialFbNote: 'Facebook timeline embed (you can scroll).',
+      socialFbPhotoLink: 'Open a featured photo',      adminNav: "Admin",
+      adminTitle: "Admin settings",
+      adminSub: "Edit colors, fonts, images, sections \u2014 saved in this browser",
+      adminDisclaimer: "Security note: this is a static offline admin page. It protects casual access only. For real security, host behind server-side authentication.",
+      adminLoginTitle: "Admin login",
+      adminUser: "Username",
+      adminPass: "Password",
+      adminLogin: "Sign in",
+      adminLogout: "Sign out",
+      adminWrong: "Wrong username or password.",
+      adminTheme: "Theme",
+      adminTypography: "Typography",
+      adminMedia: "Media & Email",
+      adminSections: "Sections",
+      adminGallery: "Gallery items",
+      adminAddImage: "Add image",
+      adminRemove: "Remove",
+      adminShow: "Show",
+      adminHide: "Hide",
+      adminSave: "Save changes",
+      adminReset: "Reset to default",
+      adminExport: "Export settings",
+      adminImport: "Import settings",
+      adminChangePass: "Change password",
+      adminNewPass: "New password",
+      adminConfirmPass: "Confirm new password",
+      adminUpdatePass: "Update password",
+      adminPassMismatch: "Passwords do not match.",
+      adminPassUpdated: "Password updated.",
+      adminSaved: "Saved.",
+      adminImported: "Imported.",
+      adminInvalidJSON: "Invalid JSON.",
+      adminPrimaryEmail: "Default email for the booking form",      instaEmbedNote: "Instagram embeds often do not load in local (file://) websites. Use the button to open Instagram, or add your own thumbnails below.",
+      openInstagram: "Open Instagram",
+      adminTextOverrides: "Text (easy edit)",
+      adminLang: "Language",
+      adminEditTexts: "Edit site texts",
+      adminPasteJSON: "Paste JSON overrides (advanced)",
+      adminApply: "Apply",
+      adminCustomPages: "Extra pages",
+      adminAddPage: "Add page",
+      adminPageLabel: "Menu label",
+      adminPageTitle: "Page title",
+      adminPageBody: "Page content",
+      adminDelete: "Delete",
+
+
+
+
+      footer1: "© {year} • ContaKids with Zuzanna Matysiewicz",
+      footer2: "Photos are free stock images (Pexels). Replace with your own permitted class photos when ready.",
+      noteChildren: "Note: If you include real photos of children, ensure you have written consent from parents/guardians."
+    },
+    pl: {
+      siteTitle: "ContaKids • Zuzanna Matysiewicz",
+      siteTag: "Ruch • Zabawa • Kontakt",
+      bookBtn: "Zapis / Pytanie",
+      nav: [["home","Start"],["about","O ContaKids"],["zuzanna","O Zuzannie"],["classes","Zajęcia"],["gallery","Galeria"],["faq","FAQ"],["contact","Kontakt"]],
+      heroTitle: "Radosny ruch dla rodzica i dziecka.",
+      heroText: "ContaKids to praktyka, w której dorosły i dziecko poruszają się razem poprzez zabawę, dotyk, równowagę i wyobraźnię — budując zaufanie, komunikację i radość.",
+      kpi1: "Dla rodzin", kpi2: "Ruch + zabawa", kpi3: "Zaufanie i pewność", kpi4: "Świadomość ciała",
+      badge1: "Łagodnie • z prowadzeniem", badge2: "Kreatywnie • radośnie", badge3: "Bezpieczeństwo i zgoda",
+      highlightsTitle: "Najważniejsze elementy", highlightsSub: "Czego możesz się spodziewać",
+      hi1t: "Kontakt poprzez ruch", hi1d: "Proste gry rozwijające zaufanie, współpracę i wspólną uwagę.",
+      hi2t: "Pewność siebie i koordynacja", hi2d: "Równowaga, turlanie i bezpieczne noszenie — dopasowane do każdej rodziny.",
+      hi3t: "Spokojne zakończenie", hi3d: "Miękki finał pomaga dzieciom się wyciszyć i ugruntować.",
+      safetyTitle: "Zasady bezpieczeństwa", safetySub: "Granice + zgoda",
+      s1t: "Zgoda i wybór", s1d: "Dziecko zawsze może odmówić. Dorosły słucha, dostosowuje się i szanuje granice.",
+      s2t: "Bezpieczna przestrzeń", s2d: "Miękka podłoga/maty, wolna przestrzeń i prowadzenie instruktorki. Bez ryzykownych podnoszeń bez wsparcia.",
+      s3t: "Rozgrzewka i wyciszenie", s3d: "Przygotowujemy ciało i uwagę, a na końcu spokojnie domykamy zajęcia.",
+      aboutTitle: "Czym jest ContaKids?",
+      aboutText: "ContaKids to praktyka ruchowa dla dorosłego i dziecka. Skupia się na budowaniu więzi poprzez dotyk, równowagę i zabawę we współpracy — wspierając komunikację, pewność siebie i radość.",
+      aboutFounderTitle: "Założyciel", aboutFounderText: "ContaKids zostało stworzone przez Itay’a Yatuva.",
+      aboutClassFeelTitle: "Jak wyglądają zajęcia",
+      aboutClassFeelText: "Zajęcia obejmują gry prowadzone, pomysły na turlanie i równowagę, zabawy z bezpiecznym przenoszeniem i dzieleniem ciężaru oraz dużo śmiechu — zawsze z naciskiem na bezpieczeństwo i zgodę.",
+      zuTitle: "O Zuzannie",
+      zuBio: "Zuzanna Matysiewicz jest edukatorką ruchu i tańca z wykształceniem w tańcu współczesnym (Warsaw Dance Department oraz Trinity Laban Conservatoire w Londynie). Prowadzi także jogę dla dzieci i pilates. Poprzez ContaKids wspiera rodziny w odnajdywaniu swobody ekspresji ruchowej i radości ze wspólnej zabawy w kontakcie.",
+      zuLangTitle: "Języki", zuLangText: "Polski • Angielski • Arabski",
+      zuBaseTitle: "Baza", zuBaseText: () => CONFIG.cityBase,
+      classesTitle: "Zajęcia i formaty",
+      classesText: "Wybierz format poniżej. Możliwe są grupy cykliczne, warsztaty i wydarzenia specjalne dla szkół, studiów, festiwali i społeczności lokalnych.",
+      c1t: "Zajęcia cykliczne", c1d: "Stały rytm: rozgrzewka, budowanie umiejętności poprzez zabawę i spokojne zakończenie.",
+      c2t: "Warsztat (60–90 min)", c2d: "Głębsza eksploracja tematu: równowaga, turlanie, gry zaufania i kreatywność.",
+      c3t: "Sesja prywatna dla rodziny", c3d: "Indywidualne wsparcie dopasowane do wieku dziecka, celu i komfortu rodziny.",
+      cCTA: "Otwórz formularz",
+      galleryTitle: "Galeria",
+      galleryText: "To darmowe zdjęcia stockowe (Pexels) dobrane do charakteru praktyki. W każdej chwili możesz je zastąpić zdjęciami z zajęć Zuzanny (za zgodą).",
+      faqTitle: "FAQ",
+      q1: "Dla jakiego wieku?", a1: "Najczęściej: jeden dorosły + jedno dziecko. Zakres wieku zależy od grupy (często ok. 2–9). Wybierz to, co pasuje do rozwoju i komfortu dziecka.",
+      q2: "Czy potrzebne jest doświadczenie taneczne?", a2: "Nie. Wszystko jest radosne, prowadzone i dostosowane do Was.",
+      q3: "W co się ubrać?", a3: "Wygodne ubrania do ruchu. Zwykle boso lub w miękkich skarpetkach.",
+      q4: "Czy to bezpieczne?", a4: "Bezpieczeństwo jest kluczowe: zgoda, jasne granice, miękka przestrzeń i prowadzenie.",
+      contactTitle: "Kontakt",
+      contactText: "Kliknij przycisk, aby otworzyć szkic wiadomości e-mail. Linki WhatsApp/Instagram możesz dodać w sekcji CONFIG i wyświetlić je tutaj.",
+      contactBtn: "Zapis / Pytanie",
+      quickLinksTitle: "Szybkie linki",
+      emailLabel: "E-mail", waLabel: "WhatsApp", igLabel: "Instagram",
+      addLinkHint: "Dodaj link w CONFIG",
+      modalTitle: "Zapis / Pytanie",
+      modalHelper: "Wypełnij formularz. Przycisk „Wyślij e-mail” otworzy Twoją pocztę z gotową treścią (strona niczego nie zapisuje).",
+      modalNote: "Wskazówka: dodaj WhatsApp/Instagram w sekcji CONFIG.",
+      sendEmail: "Wyślij e-mail", copyMsg: "Kopiuj wiadomość", copied: "Skopiowano!", copyFail: "Nie udało się skopiować — skopiuj ręcznie.",
+      footer1: "© {year} • ContaKids • Zuzanna Matysiewicz",
+      footer2: "Zdjęcia to darmowe obrazy stockowe (Pexels). Zastąp je własnymi zdjęciami z zajęć (za zgodą).",
+      noteChildren: "Uwaga: Jeśli używasz zdjęć dzieci z zajęć, upewnij się, że masz pisemną zgodę rodziców/opiekunów."
+    },
+    ar: {
+      siteTitle: "كونتاكيدز • زوزانا ماتيشيفيتش",
+      siteTag: "حركة • لعب • تواصل",
+      bookBtn: "حجز / سؤال",
+      nav: [["home","الرئيسية"],["about","عن كونتاكيدز"],["zuzanna","عن زوزانا"],["classes","الحصص"],["gallery","الصور"],["faq","الأسئلة الشائعة"],["contact","تواصل"]],
+      heroTitle: "حركة ممتعة للوالد/الوالدة مع الطفل.",
+      heroText: "كونتاكيدز ممارسة حركية يجتمع فيها البالغ والطفل عبر اللعب واللمس والتوازن والخيال — لبناء الثقة والتواصل والفرح.",
+      kpi1: "مناسب للعائلة", kpi2: "حركة + لعب", kpi3: "ثقة وثبات", kpi4: "وعي بالجسم",
+      badge1: "لطيف • بإرشاد", badge2: "إبداعي • مرح", badge3: "سلامة وموافقة",
+      highlightsTitle: "أهم المميزات", highlightsSub: "ماذا ستتوقع",
+      hi1t: "تواصل عبر الحركة", hi1d: "ألعاب بسيطة تنمّي الثقة والتعاون والانتباه المشترك.",
+      hi2t: "ثقة وتناسق", hi2d: "توازن ودحرجة وأفكار حمل آمنة — بما يناسب كل عائلة.",
+      hi3t: "نهاية هادئة", hi3d: "ختام لطيف يساعد الطفل على الهدوء والشعور بالاستقرار.",
+      safetyTitle: "إرشادات السلامة", safetySub: "حدود واضحة + موافقة",
+      s1t: "الموافقة والاختيار", s1d: "للطفل الحق في الرفض دائمًا. البالغ يستمع ويُعدّل ويحترم الحدود.",
+      s2t: "بيئة آمنة", s2d: "أرضية/بساط ناعم ومساحة واضحة وتوجيه من المُدرّبة. لا رفع خطِر بدون دعم وإرشاد.",
+      s3t: "إحماء وتهدئة", s3d: "نبدأ بإحماء للجسم والانتباه، وننهي بتهدئة وخاتمة مريحة.",
+      aboutTitle: "ما هي كونتاكيدز؟",
+      aboutText: "كونتاكيدز ممارسة حركية لِبالغ مع طفل. تركّز على بناء الاتصال عبر اللمس والتوازن واللعب التعاوني — لدعم التواصل والثقة والفرح.",
+      aboutFounderTitle: "المؤسس", aboutFounderText: "أسّس كونتاكيدز إيتاي ياتوف.",
+      aboutClassFeelTitle: "كيف تكون الحصة؟",
+      aboutClassFeelText: "ستجد ألعابًا بإرشاد، أفكارًا للدحرجة والتوازن، خيارات حمل ومشاركة وزن بطريقة آمنة، ومرحًا كثيرًا — مع اعتبار السلامة والموافقة أساسًا دائمًا.",
+      zuTitle: "عن زوزانا",
+      zuBio: "زوزانا ماتيشيفيتش مُعلّمة حركة ورقص بخلفية في الرقص المعاصر (Warsaw Dance Department وTrinity Laban Conservatoire في لندن). كما تُدرّس يوغا الأطفال والبيلاتس. من خلال كونتاكيدز تساعد العائلات على حرية التعبير الحركي والاستمتاع باللعب معًا عبر التواصل الجسدي.",
+      zuLangTitle: "اللغات", zuLangText: "العربية • الإنجليزية • البولندية",
+      zuBaseTitle: "المكان", zuBaseText: () => CONFIG.cityBase,
+      classesTitle: "الحصص والأنواع",
+      classesText: "اختر النوع المناسب. يمكن تنظيم حصص أسبوعية، ورش عمل، وفعاليات خاصة للمدارس والاستديوهات والمهرجانات والمراكز المجتمعية.",
+      c1t: "حصة أسبوعية", c1d: "إيقاع ثابت: إحماء، مهارات عبر اللعب، ثم خاتمة هادئة.",
+      c2t: "ورشة (60–90 دقيقة)", c2d: "تعمّق في موضوعات مثل: التوازن، الدحرجة، ألعاب الثقة، والإبداع.",
+      c3t: "جلسة خاصة للعائلة", c3d: "دعم مخصص حسب عمر الطفل وهدف العائلة ومستوى الراحة.",
+      cCTA: "افتح نموذج الحجز",
+      galleryTitle: "الصور",
+      galleryText: "هذه صور مجانية (Pexels) تعكس روح الممارسة. يمكنك استبدالها لاحقًا بصور حصص زوزانا (بإذن).",
+      faqTitle: "الأسئلة الشائعة",
+      q1: "لأي عمر؟", a1: "غالبًا تكون الحصة لبالغ واحد + طفل واحد. يختلف العمر حسب المجموعة (كثيرًا بين 2–9). اختر ما يناسب نمو الطفل وراحته.",
+      q2: "هل نحتاج خبرة رقص؟", a2: "لا. كل شيء مرح وبإرشاد ومناسب للعائلة.",
+      q3: "ماذا نلبس؟", a3: "ملابس مريحة للحركة. غالبًا بدون حذاء أو بجوارب خفيفة.",
+      q4: "هل هو آمن؟", a4: "السلامة أساسية: موافقة، حدود واضحة، أرضية ناعمة، وتوجيه من المُدرّبة.",
+      contactTitle: "تواصل",
+      contactText: "اضغط الزر لفتح رسالة بريد جاهزة. يمكنك إضافة روابط واتساب/إنستغرام في قسم CONFIG لإظهارها هنا.",
+      contactBtn: "حجز / سؤال",
+      quickLinksTitle: "روابط سريعة",
+      emailLabel: "البريد", waLabel: "واتساب", igLabel: "إنستغرام",
+      addLinkHint: "أضف الرابط في CONFIG",
+      modalTitle: "حجز / سؤال",
+      modalHelper: "املأ النموذج. زر «إرسال بريد» يفتح بريدك برسالة جاهزة (لا يتم حفظ أي بيانات على الصفحة).",
+      modalNote: "نصيحة: أضف روابط واتساب/إنستغرام داخل CONFIG.",
+      sendEmail: "إرسال بريد", copyMsg: "نسخ الرسالة", copied: "تم النسخ!", copyFail: "فشل النسخ — انسخ يدويًا.",      fbLabel: "\u0641\u064a\u0633\u0628\u0648\u0643",
+      contactByCountry: "\u0627\u0644\u062a\u0648\u0627\u0635\u0644 \u062d\u0633\u0628 \u0627\u0644\u062f\u0648\u0644\u0629",
+      contactRegionsTitle: "\u0628\u064a\u0627\u0646\u0627\u062a \u0627\u0644\u062a\u0648\u0627\u0635\u0644",      socialGalleryTitle: 'لحظات من السوشيال ميديا',
+      socialGalleryText: 'محتوى مضمّن من إنستغرام/فيسبوك (لا يتم حفظ الصور داخل الموقع).',
+      socialInstaNote: 'إذا لم يظهر منشور إنستغرام، افتح الرابط مباشرة.',
+      socialFbNote: 'مخطط/تايملاين فيسبوك مضمّن (يمكنك التمرير).',
+      socialFbPhotoLink: 'فتح صورة مميزة',      adminNav: "\u0627\u0644\u0625\u062f\u0627\u0631\u0629",
+      adminTitle: "\u0625\u0639\u062f\u0627\u062f\u0627\u062a \u0627\u0644\u0625\u062f\u0627\u0631\u0629",
+      adminSub: "\u062a\u0639\u062f\u064a\u0644 \u0627\u0644\u0623\u0644\u0648\u0627\u0646 \u0648\u0627\u0644\u062e\u0637\u0648\u0637 \u0648\u0627\u0644\u0635\u0648\u0631 \u0648\u0627\u0644\u0623\u0642\u0633\u0627\u0645 \u2014 \u062a\u064f\u062d\u0641\u0638 \u0641\u064a \u0647\u0630\u0627 \u0627\u0644\u0645\u062a\u0635\u0641\u062d",
+      adminDisclaimer: "\u062a\u0646\u0628\u064a\u0647 \u0623\u0645\u0646\u064a: \u0647\u0630\u0647 \u0635\u0641\u062d\u0629 \u062b\u0627\u0628\u062a\u0629 \u0628\u062f\u0648\u0646 \u062e\u0627\u062f\u0645. \u062a\u062d\u0645\u064a \u0641\u0642\u0637 \u0645\u0646 \u0627\u0644\u0648\u0635\u0648\u0644 \u0627\u0644\u0639\u064e\u0631\u064e\u0636\u064a. \u0644\u0644\u0623\u0645\u0627\u0646 \u0627\u0644\u062d\u0642\u064a\u0642\u064a \u0627\u0633\u062a\u062e\u062f\u0645 \u062a\u0633\u062c\u064a\u0644 \u062f\u062e\u0648\u0644 \u0639\u0644\u0649 \u0627\u0644\u062e\u0627\u062f\u0645.",
+      adminLoginTitle: "\u062a\u0633\u062c\u064a\u0644 \u062f\u062e\u0648\u0644 \u0627\u0644\u0625\u062f\u0627\u0631\u0629",
+      adminUser: "\u0627\u0633\u0645 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645",
+      adminPass: "\u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0631\u0648\u0631",
+      adminLogin: "\u062f\u062e\u0648\u0644",
+      adminLogout: "\u062e\u0631\u0648\u062c",
+      adminWrong: "\u0627\u0633\u0645 \u0627\u0644\u0645\u0633\u062a\u062e\u062f\u0645 \u0623\u0648 \u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0631\u0648\u0631 \u063a\u064a\u0631 \u0635\u062d\u064a\u062d\u0629.",
+      adminTheme: "\u0627\u0644\u0623\u0644\u0648\u0627\u0646",
+      adminTypography: "\u0627\u0644\u062e\u0637\u0648\u0637",
+      adminMedia: "\u0627\u0644\u0648\u0633\u0627\u0626\u0637 \u0648\u0627\u0644\u0628\u0631\u064a\u062f",
+      adminSections: "\u0627\u0644\u0623\u0642\u0633\u0627\u0645",
+      adminGallery: "\u0635\u0648\u0631 \u0627\u0644\u0645\u0639\u0631\u0636",
+      adminAddImage: "\u0625\u0636\u0627\u0641\u0629 \u0635\u0648\u0631\u0629",
+      adminRemove: "\u062d\u0630\u0641",
+      adminShow: "\u0625\u0638\u0647\u0627\u0631",
+      adminHide: "\u0625\u062e\u0641\u0627\u0621",
+      adminSave: "\u062d\u0641\u0638",
+      adminReset: "\u0625\u0631\u062c\u0627\u0639 \u0627\u0644\u0627\u0641\u062a\u0631\u0627\u0636\u064a",
+      adminExport: "\u062a\u0635\u062f\u064a\u0631",
+      adminImport: "\u0627\u0633\u062a\u064a\u0631\u0627\u062f",
+      adminChangePass: "\u062a\u063a\u064a\u064a\u0631 \u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0631\u0648\u0631",
+      adminNewPass: "\u0643\u0644\u0645\u0629 \u0645\u0631\u0648\u0631 \u062c\u062f\u064a\u062f\u0629",
+      adminConfirmPass: "\u062a\u0623\u0643\u064a\u062f \u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0631\u0648\u0631",
+      adminUpdatePass: "\u062a\u062d\u062f\u064a\u062b \u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0631\u0648\u0631",
+      adminPassMismatch: "\u0643\u0644\u0645\u062a\u0627 \u0627\u0644\u0645\u0631\u0648\u0631 \u063a\u064a\u0631 \u0645\u062a\u0637\u0627\u0628\u0642\u062a\u064a\u0646.",
+      adminPassUpdated: "\u062a\u0645 \u062a\u062d\u062f\u064a\u062b \u0643\u0644\u0645\u0629 \u0627\u0644\u0645\u0631\u0648\u0631.",
+      adminSaved: "\u062a\u0645 \u0627\u0644\u062d\u0641\u0638.",
+      adminImported: "\u062a\u0645 \u0627\u0644\u0627\u0633\u062a\u064a\u0631\u0627\u062f.",
+      adminInvalidJSON: "JSON \u063a\u064a\u0631 \u0635\u0627\u0644\u062d.",
+      adminPrimaryEmail: "\u0627\u0644\u0628\u0631\u064a\u062f \u0627\u0644\u0627\u0641\u062a\u0631\u0627\u0636\u064a \u0644\u0646\u0645\u0648\u0630\u062c \u0627\u0644\u062d\u062c\u0632",      instaEmbedNote: "\u062a\u0636\u0645\u064a\u0646 \u0625\u0646\u0633\u062a\u063a\u0631\u0627\u0645 \u063a\u0627\u0644\u0628\u064b\u0627 \u0644\u0627 \u064a\u0639\u0645\u0644 \u0641\u064a \u0627\u0644\u0645\u0648\u0627\u0642\u0639 \u0627\u0644\u0645\u062d\u0644\u064a\u0629 (file://). \u0627\u0633\u062a\u062e\u062f\u0645 \u0627\u0644\u0632\u0631 \u0644\u0641\u062a\u062d \u0625\u0646\u0633\u062a\u063a\u0631\u0627\u0645 \u0623\u0648 \u0623\u0636\u0641 \u0635\u0648\u0631\u064b\u0627 \u0645\u0635\u063a\u0651\u0631\u0629 \u0628\u0627\u0644\u0623\u0633\u0641\u0644.",
+      openInstagram: "\u0641\u062a\u062d \u0625\u0646\u0633\u062a\u063a\u0631\u0627\u0645",
+      adminTextOverrides: "\u0627\u0644\u0646\u0635\u0648\u0635 (\u062a\u0639\u062f\u064a\u0644 \u0633\u0647\u0644)",
+      adminLang: "\u0627\u0644\u0644\u063a\u0629",
+      adminEditTexts: "\u062a\u0639\u062f\u064a\u0644 \u0646\u0635\u0648\u0635 \u0627\u0644\u0645\u0648\u0642\u0639",
+      adminPasteJSON: "\u0627\u0644\u0635\u0642 JSON (\u0645\u062a\u0642\u062f\u0645)",
+      adminApply: "\u062a\u0637\u0628\u064a\u0642",
+      adminCustomPages: "\u0635\u0641\u062d\u0627\u062a \u0625\u0636\u0627\u0641\u064a\u0629",
+      adminAddPage: "\u0625\u0636\u0627\u0641\u0629 \u0635\u0641\u062d\u0629",
+      adminPageLabel: "\u0627\u0633\u0645 \u0627\u0644\u0635\u0641\u062d\u0629 \u0641\u064a \u0627\u0644\u0642\u0627\u0626\u0645\u0629",
+      adminPageTitle: "\u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u0635\u0641\u062d\u0629",
+      adminPageBody: "\u0645\u062d\u062a\u0648\u0649 \u0627\u0644\u0635\u0641\u062d\u0629",
+      adminDelete: "\u062d\u0630\u0641",
+
+
+
+
+      footer1: "© {year} • كونتاكيدز • زوزانا ماتيشيفيتش",
+      footer2: "الصور مجانية (Pexels). استبدلها بصور حصص حقيقية عند توفر الإذن.",
+      noteChildren: "تنبيه: عند استخدام صور أطفال من الحصص، تأكد من وجود موافقة مكتوبة من أولياء الأمور/الأوصياء."
+    }
+  };
+
+  const PAGES = {
+    home: () => `
+      <section class="hero">
+        <div class="card">
+          <div class="pad">
+            <h2 class="headline" id="t_heroTitle"></h2>
+            <p class="sub" id="t_heroText"></p>
+            <div class="kpis">
+              <div class="kpi"><span class="dot pink"></span><b id="t_kpi1"></b></div>
+              <div class="kpi"><span class="dot sky"></span><b id="t_kpi2"></b></div>
+              <div class="kpi"><span class="dot"></span><b id="t_kpi3"></b></div>
+              <div class="kpi"><span class="dot yellow"></span><b id="t_kpi4"></b></div>
+            </div>
+            <div class="tagRow">
+              <span class="tag rose" id="t_badge1"></span>
+              <span class="tag warm" id="t_badge2"></span>
+              <span class="tag good" id="t_badge3"></span>
+            </div>
+            <div class="actions" style="margin-top:18px">
+              <button class="btn primary" onclick="openBooking()"><span id="t_cCTA"></span></button>
+              <a class="chip" href="#/classes">→ <span id="t_nav_classes"></span></a>
+            </div>
+            <div class="helper" style="margin-top:12px" id="t_noteChildren"></div>
+          </div>
+        </div>
+        <div class="card heroMedia">
+          <img id="heroImg" alt="Hero photo" />
+          <div class="badge">
+            <span class="pill">${escapeHTML(CONFIG.instructorName)}</span>
+            <span class="pill">${escapeHTML(CONFIG.instructorTagline)}</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="col-6 card">
+          <div class="pad">
+            <div class="sectionTitle">
+              <h2 id="t_highlightsTitle"></h2>
+              <p id="t_highlightsSub"></p>
+            </div>
+            <div class="list">
+              <div class="item"><b id="t_hi1t"></b><p id="t_hi1d"></p></div>
+              <div class="item"><b id="t_hi2t"></b><p id="t_hi2d"></p></div>
+              <div class="item"><b id="t_hi3t"></b><p id="t_hi3d"></p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 card">
+          <div class="pad">
+            <div class="sectionTitle">
+              <h2 id="t_safetyTitle"></h2>
+              <p id="t_safetySub"></p>
+            </div>
+            <div class="faq">
+              <details open><summary id="t_s1t"></summary><p id="t_s1d"></p></details>
+              <div style="height:10px"></div>
+              <details><summary id="t_s2t"></summary><p id="t_s2d"></p></details>
+              <div style="height:10px"></div>
+              <details><summary id="t_s3t"></summary><p id="t_s3d"></p></details>
+            </div>
+          </div>
+        </div>
+      </section>
+    `,
+    about: () => `
+      <section class="grid">
+        <div class="col-8 card">
+          <div class="pad">
+            <div class="sectionTitle">
+              <h2 id="t_aboutTitle"></h2>
+              <p class="muted">ContaKids</p>
+            </div>
+            <p class="sub" id="t_aboutText"></p>
+            <div style="height:16px"></div>
+            <div class="sectionTitle">
+              <h2 id="t_aboutFounderTitle"></h2>
+              <p class="muted">Official</p>
+            </div>
+            <p class="sub" id="t_aboutFounderText"></p>
+            <div style="height:16px"></div>
+            <div class="sectionTitle">
+              <h2 id="t_aboutClassFeelTitle"></h2>
+              <p class="muted">Experience</p>
+            </div>
+            <p class="sub" id="t_aboutClassFeelText"></p>
+            <div class="actions" style="margin-top:18px">
+              <button class="btn primary" onclick="openBooking()"><span id="t_contactBtn2"></span></button>
+              <a class="chip" href="#/faq">→ <span id="t_nav_faq"></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 card">
+          <div class="pad">
+            <div class="sectionTitle">
+              <h2>Notes</h2><p class="muted">Customize</p>
+            </div>
+            <div class="list">
+              <div class="item"><b>Schedule</b><p>Put day/time/location/price on the Classes page.</p></div>
+              <div class="item"><b>Photos</b><p>Replace stock photos with permitted class photos later.</p></div>
+              <div class="item"><b>Links</b><p>Add WhatsApp/Instagram in CONFIG.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    `,
+    zuzanna: () => `
+      <section class="grid">
+        <div class="col-8 card">
+          <div class="pad">
+            <div class="sectionTitle">
+              <h2 id="t_zuTitle"></h2>
+              <p class="muted">${escapeHTML(CONFIG.instructorName)}</p>
+            </div>
+            <p class="sub" id="t_zuBio"></p>
+            <div style="height:14px"></div>
+            <div class="grid" style="margin:0">
+              <div class="col-6 item"><b id="t_zuLangTitle"></b><p id="t_zuLangText"></p></div>
+              <div class="col-6 item"><b id="t_zuBaseTitle"></b><p id="t_zuBaseText"></p></div>
+            </div>
+            <div class="actions" style="margin-top:16px">
+              <button class="btn primary" onclick="openBooking()"><span id="t_contactBtn3"></span></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-4 card">
+          <div class="pad">
+            <div class="sectionTitle">
+              <h2 id="t_quickLinksTitleB"></h2><p class="muted">Social</p>
+            </div>
+            <div class="list">
+              <div class="item">
+                <b id="t_contactRegionsTitle"></b>
+                <p class="muted" style="margin:0">
+                  <span style="display:inline-block; margin-right:8px"><b>PL:</b> <a href="mailto:${escapeAttr(CONFIG.contacts.pl.email)}">${escapeHTML(CONFIG.contacts.pl.email)}</a> • <a href="tel:${escapeAttr(CONFIG.contacts.pl.phoneE164)}">${escapeHTML(CONFIG.contacts.pl.phoneDisplay)}</a></span>
+                  <span><b>KSA:</b> <a href="mailto:${escapeAttr(CONFIG.contacts.ksa.email)}">${escapeHTML(CONFIG.contacts.ksa.email)}</a> • <a href="tel:${escapeAttr(CONFIG.contacts.ksa.phoneE164)}">${escapeHTML(CONFIG.contacts.ksa.phoneDisplay)}</a></span>
+                </p>
+              </div>
+              <div class="item">
+                <b id="t_igLabel"></b>
+                <p><a href="${escapeAttr(CONFIG.instagramLink)}" target="_blank" rel="noreferrer">${escapeHTML(CONFIG.instagramLink)}</a></p>
+              </div>
+              <div class="item">
+                <b id="t_fbLabel"></b>
+                <p><a href="${escapeAttr(CONFIG.facebookLink)}" target="_blank" rel="noreferrer">${escapeHTML(CONFIG.facebookLink)}</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    `,
+    classes: () => `
+      <section class="grid">
+        <div class="col-12 card">
+          <div class="pad">
+            <div class="sectionTitle">
+              <h2 id="t_classesTitle"></h2>
+              <p id="t_classesText"></p>
+            </div>
+            <div class="grid" style="margin-top:8px">
+              <div class="col-4 item"><b id="t_c1t"></b><p id="t_c1d"></p></div>
+              <div class="col-4 item"><b id="t_c2t"></b><p id="t_c2d"></p></div>
+              <div class="col-4 item"><b id="t_c3t"></b><p id="t_c3d"></p></div>
+            </div>
+            <div class="actions" style="margin-top:16px">
+              <button class="btn primary" onclick="openBooking()"><span id="t_cCTA2"></span></button>
+              <a class="chip" href="#/gallery">→ <span id="t_nav_gallery"></span></a>
+            </div>
+            <div class="helper" style="margin-top:12px"><b>Tip:</b> Add a schedule table here (day / time / address / price).</div>
+          </div>
+        </div>
+      </section>
+    `,
+    gallery: () => `
+
+      <section class="grid">
+        <div class="col-12 card">
+          <div class="pad">
+            <div class="sectionTitle">
+              <h2 id="t_galleryTitle"></h2>
+              <p id="t_galleryText"></p>
+            </div>
+            <div class="gallery" id="galleryGrid"></div>
+            <div style="height:18px"></div>
+
+            <div class="sectionTitle">
+              <h2 id="t_socialGalleryTitle"></h2>
+              <p id="t_socialGalleryText"></p>
+            </div>
+
+            <div class="grid" style="margin-top:10px">
+              <div class="col-6 item" style="padding:14px">
+                <b>Instagram</b>
+                <div class="helper" style="margin:6px 0 10px" id="t_socialInstaNote"></div>
+                <div class="muted" id="t_instaEmbedNote"></div>
+<div class="rowBtns" style="margin-top:10px">
+  <a class="btn primary" href="${escapeAttr(CONFIG.instagramLink)}" target="_blank" rel="noreferrer" id="t_openInstagramBtn"></a>
+</div>
+<div style="height:10px"></div>
+<div class="gallery" id="instaThumbs"></div>
+              </div>
+
+              <div class="col-6 item" style="padding:14px">
+                <b>Facebook</b>
+                <div class="helper" style="margin:6px 0 10px" id="t_socialFbNote"></div>
+                <iframe
+                  src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F61557670836394%2F&tabs=timeline&width=560&height=420&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+                  width="100%"
+                  height="420"
+                  style="border:none;overflow:hidden;border-radius:16px"
+                  scrolling="no"
+                  frameborder="0"
+                  allowfullscreen="true"
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                </iframe>
+                <div class="helper" style="margin-top:10px">
+                  <a href="https://www.facebook.com/61557670836394/photos/122144662448255694/" target="_blank" rel="noreferrer" id="t_socialFbPhotoLink"></a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    
+    `,
+    faq: () => `
+      <section class="grid">
+        <div class="col-12 card">
+          <div class="pad">
+            <div class="sectionTitle">
+              <h2 id="t_faqTitle"></h2>
+              <p class="muted">Info</p>
+            </div>
+            <div class="faq">
+              <details open><summary id="t_q1"></summary><p id="t_a1"></p></details>
+              <div style="height:10px"></div>
+              <details><summary id="t_q2"></summary><p id="t_a2"></p></details>
+              <div style="height:10px"></div>
+              <details><summary id="t_q3"></summary><p id="t_a3"></p></details>
+              <div style="height:10px"></div>
+              <details><summary id="t_q4"></summary><p id="t_a4"></p></details>
+            </div>
+          </div>
+        </div>
+      </section>
+    `,
+    contact: () => `
+      <section class="grid">
+        <div class="col-8 card">
+          <div class="pad">
+            <div class="sectionTitle">
+              <h2 id="t_contactTitle"></h2>
+              <p class="muted">${escapeHTML(CONFIG.instructorName)}</p>
+            </div>
+            <p class="sub" id="t_contactText"></p>
+            <div class="actions" style="margin-top:16px">
+              <button class="btn primary" onclick="openBooking()"><span id="t_contactBtn"></span></button>
+              <a class="chip" href="#/classes">→ <span id="t_nav_classes2"></span></a>
+            </div>
+            <div class="helper" style="margin-top:12px">Email is set to: <b>${escapeHTML(CONFIG.contactEmail)}</b> (edit in CONFIG).</div>
+          </div>
+        </div>
+        <div class="col-4 card">
+          <div class="pad">
+            <div class="sectionTitle">
+              <h2 id="t_quickLinksTitle"></h2>
+              <p class="muted">${escapeHTML(CONFIG.instructorName)}</p>
+            </div>
+            <div class="list">
+              <div class="item">
+                <b id="t_contactByCountry"></b>
+                <p class="muted" style="margin:0; line-height:1.9">
+                  <span style="display:inline-block; min-width: 78px"><b>PL</b></span>
+                  <a href="tel:${escapeAttr(CONFIG.contacts.pl.phoneE164)}">${escapeHTML(CONFIG.contacts.pl.phoneDisplay)}</a>
+                  <span class="muted"> • </span>
+                  <a href="mailto:${escapeAttr(CONFIG.contacts.pl.email)}">${escapeHTML(CONFIG.contacts.pl.email)}</a>
+                  <br/>
+                  <span style="display:inline-block; min-width: 78px"><b>KSA</b></span>
+                  <a href="tel:${escapeAttr(CONFIG.contacts.ksa.phoneE164)}">${escapeHTML(CONFIG.contacts.ksa.phoneDisplay)}</a>
+                  <span class="muted"> • </span>
+                  <a href="mailto:${escapeAttr(CONFIG.contacts.ksa.email)}">${escapeHTML(CONFIG.contacts.ksa.email)}</a>
+                </p>
+              </div>
+              <div class="item">
+                <b id="t_igLabel2"></b>
+                <p><a href="${escapeAttr(CONFIG.instagramLink)}" target="_blank" rel="noreferrer">${escapeHTML(CONFIG.instagramLink)}</a></p>
+              </div>
+              <div class="item">
+                <b id="t_fbLabel2"></b>
+                <p><a href="${escapeAttr(CONFIG.facebookLink)}" target="_blank" rel="noreferrer">${escapeHTML(CONFIG.facebookLink)}</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    `,
+
+    admin: () => `
+      <section class="grid">
+        <div class="col-12 card">
+          <div class="pad">
+            <div class="sectionTitle">
+              <h2 id="t_adminTitle"></h2>
+              <p id="t_adminSub"></p>
+            </div>
+            <div id="adminArea" class="adminWrap"></div>
+            <div class="helper" style="margin-top:14px" id="t_adminDisclaimer"></div>
+          </div>
+        </div>
+      </section>
+    `
+  };
+
+  let currentLang = "en";
+  function t(key, fallback){
+    const dict = I18N[currentLang] || I18N.en;
+    const val = dict[key];
+    return (val === undefined) ? (fallback ?? key) : val;
+  }
+  function escapeHTML(s){ return String(s).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch])); }
+  function escapeAttr(s){ return escapeHTML(s).replace(/`/g,"&#96;"); }
+
+  // ------------------------------
+  // Admin + Settings (localStorage)
+  // ------------------------------
+  const ADMIN_USER = "Safwat";
+  const ADMIN_DEFAULT_PASS = "27824@MZ";
+  const LS_ADMIN_HASH = "ck_admin_hash_v1";
+  const LS_ADMIN_SESSION = "ck_admin_session_v1";
+  const LS_SETTINGS = "ck_site_settings_v1";
+
+  async function sha256(text){
+    const enc = new TextEncoder().encode(text);
+    const buf = await crypto.subtle.digest("SHA-256", enc);
+    return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,"0")).join("");
+  }
+  async function ensureAdminHash(){
+    const existing = localStorage.getItem(LS_ADMIN_HASH);
+    if(existing) return existing;
+    const h = await sha256(ADMIN_USER + ":" + ADMIN_DEFAULT_PASS);
+    localStorage.setItem(LS_ADMIN_HASH, h);
+    return h;
+  }
+  function isAdminAuthed(){ return localStorage.getItem(LS_ADMIN_SESSION) === "1"; }
+  function setAdminAuthed(v){ localStorage.setItem(LS_ADMIN_SESSION, v ? "1" : "0"); }
+
+  const DEFAULT_SETTINGS = {
+    theme: {
+      bg1: "#fff7fb", bg2:"#fffceb",
+      pink:"#fb7185", peach:"#fdba74", yellow:"#facc15", mint:"#34d399", sky:"#38bdf8",
+      text:"#1f2937", muted:"#6b7280",
+      radius: 16, radius2: 26
+    },
+    typography: {
+      fontFamily: 'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji"',
+      baseFontSize: 16,
+      headlineSize: 38
+    },
+    media: { heroImage: "" },
+    sections: { home:true, about:true, zuzanna:true, classes:true, gallery:true, faq:true, contact:true },
+    contactEmail: "",
+    gallery: [],
+    instaThumbs: [
+      {img:"https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=1200", url:"https://www.instagram.com/contakids.warsaw/", cap_en:"ContaKids Warsaw", cap_pl:"ContaKids Warszawa", cap_ar:"كونتاكيدز وارسو"},
+      {img:"https://images.pexels.com/photos/4144099/pexels-photo-4144099.jpeg?auto=compress&cs=tinysrgb&w=1200", url:"https://www.instagram.com/contakids.warsaw/", cap_en:"Parent–child play", cap_pl:"Zabawa rodzic–dziecko", cap_ar:"لعب بين الوالد/الوالدة والطفل"}
+    ],
+    textOverrides: { en:{}, pl:{}, ar:{} },
+    customPages: []
+  };
+
+  function getDefaultSettings(){
+    const s = JSON.parse(JSON.stringify(DEFAULT_SETTINGS));
+    s.media.heroImage = CONFIG.heroImage;
+    s.contactEmail = CONFIG.contactEmail;
+    s.gallery = CONFIG.gallery.map(x=>({...x}));
+    // keep extra editable parts
+    return s;
+  }
+  function loadSettings(){
+    try{
+      const raw = localStorage.getItem(LS_SETTINGS);
+      if(!raw) return getDefaultSettings();
+      const obj = JSON.parse(raw);
+      const base = getDefaultSettings();
+      return {
+        ...base, ...obj,
+        theme: {...base.theme, ...(obj.theme||{})},
+        typography: {...base.typography, ...(obj.typography||{})},
+        media: {...base.media, ...(obj.media||{})},
+        sections: {...base.sections, ...(obj.sections||{})},
+        gallery: Array.isArray(obj.gallery) ? obj.gallery : base.gallery
+      };
+    }catch{ return getDefaultSettings(); }
+  }
+  function saveSettings(s){ localStorage.setItem(LS_SETTINGS, JSON.stringify(s)); }
+
+  function applySettings(s){
+    const r = document.documentElement.style;
+    Object.entries(s.theme||{}).forEach(([k,v])=>{
+      if(k==="radius" || k==="radius2") r.setProperty("--"+k, v+"px");
+      else r.setProperty("--"+k, v);
+    });
+    document.body.style.fontFamily = (s.typography && s.typography.fontFamily) || DEFAULT_SETTINGS.typography.fontFamily;
+    document.body.style.fontSize = ((s.typography && s.typography.baseFontSize) || 16) + "px";
+    let st = document.getElementById("dynHeadSize");
+    if(!st){ st = document.createElement("style"); st.id="dynHeadSize"; document.head.appendChild(st); }
+    st.textContent = `.headline{font-size:${(s.typography && s.typography.headlineSize) || 38}px}`;
+
+    // Apply media + email + gallery back into CONFIG
+    if(s.media && s.media.heroImage) CONFIG.heroImage = s.media.heroImage;
+    if(s.contactEmail) CONFIG.contactEmail = s.contactEmail;
+    if(Array.isArray(s.gallery) && s.gallery.length) CONFIG.gallery = s.gallery;
+  }
+
+
+  function renderInstaThumbs(){
+    const grid = document.getElementById("instaThumbs");
+    if(!grid) return;
+    const s = window.__settings || {};
+    const items = Array.isArray(s.instaThumbs) ? s.instaThumbs : [];
+    if(!items.length){ grid.innerHTML = ""; return; }
+    grid.innerHTML = items.map(it => `
+      <a class="gItem" href="${escapeAttr(it.url||CONFIG.instagramLink)}" target="_blank" rel="noreferrer" style="text-decoration:none">
+        <img src="${escapeAttr(it.img||"")}" alt="" loading="lazy"/>
+        <div class="gCap">${escapeHTML((LANG==="ar"? it.cap_ar : LANG==="pl"? it.cap_pl : it.cap_en) || "")}</div>
+      </a>
+    `).join("");
+  }
+
+  function filteredNav(baseNav){
+    const s = window.__settings || getDefaultSettings();
+    const sec = s.sections || DEFAULT_SETTINGS.sections;
+    return (Array.isArray(baseNav)? baseNav: []).filter(([k]) => sec[k] !== false);
+  }
+
+  function clampNum(v,min,max,fallback){
+    const n = Number(v);
+    if(Number.isNaN(n)) return fallback;
+    return Math.max(min, Math.min(max, n));
+  }
+
+  function adminLoginView(){
+    const a = document.getElementById("adminArea");
+    if(!a) return;
+    a.innerHTML = `
+      <div class="adminCard">
+        <div class="pad">
+          <div class="sectionTitle">
+            <h2>${escapeHTML(t("adminLoginTitle"))}</h2>
+            <p class="muted">${escapeHTML(t("adminSub"))}</p>
+          </div>
+          <div class="adminGrid">
+            <div class="adminCol6">
+              <p class="label">${escapeHTML(t("adminUser"))}</p>
+              <input id="ad_user" autocomplete="username" />
+            </div>
+            <div class="adminCol6">
+              <p class="label">${escapeHTML(t("adminPass"))}</p>
+              <input id="ad_pass" type="password" autocomplete="current-password" />
+            </div>
+            <div class="adminCol12 rowBtns">
+              <button class="btn primary" id="ad_login">${escapeHTML(t("adminLogin"))}</button>
+              <span class="helper" id="ad_err"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    document.getElementById("ad_login").onclick = adminDoLogin;
+  }
+
+  async function adminDoLogin(){
+    const u = (document.getElementById("ad_user").value||"").trim();
+    const p = (document.getElementById("ad_pass").value||"");
+    await ensureAdminHash();
+    const stored = localStorage.getItem(LS_ADMIN_HASH);
+    const h = await sha256(u + ":" + p);
+    if(u === ADMIN_USER && h === stored){
+      setAdminAuthed(true);
+      renderNav(); render();
+    }else{
+      const e = document.getElementById("ad_err");
+      if(e) e.textContent = t("adminWrong");
+    }
+  }
+
+  function adminLogout(){ setAdminAuthed(false); renderNav(); render(); }
+
+  function adminPanelView(){
+    const a = document.getElementById("adminArea");
+    if(!a) return;
+    const s = window.__settings;
+
+    const secRows = Object.keys(DEFAULT_SETTINGS.sections).map(k=>`
+      <tr>
+        <td><b>${escapeHTML(k)}</b></td>
+        <td style="width:160px">
+          <button class="btnGhost mini ${s.sections[k] ? "" : "danger"}" data-sec="${escapeAttr(k)}">
+            ${escapeHTML(s.sections[k] ? t("adminShow") : t("adminHide"))}
+          </button>
+        </td>
+      </tr>
+    `).join("");
+
+    const galRows = (s.gallery||[]).map((g,i)=>`
+      <tr>
+        <td>
+          <p class="label">Image URL</p>
+          <input data-gidx="${i}" data-gkey="src" value="${escapeAttr(g.src||"")}" />
+          <div style="height:8px"></div>
+          <p class="label">Caption EN</p>
+          <input data-gidx="${i}" data-gkey="cap_en" value="${escapeAttr(g.cap_en||"")}" />
+          <div style="height:8px"></div>
+          <p class="label">Caption PL</p>
+          <input data-gidx="${i}" data-gkey="cap_pl" value="${escapeAttr(g.cap_pl||"")}" />
+          <div style="height:8px"></div>
+          <p class="label">Caption AR</p>
+          <input data-gidx="${i}" data-gkey="cap_ar" value="${escapeAttr(g.cap_ar||"")}" />
+        </td>
+        <td style="width:140px">
+          <button class="btnGhost mini danger" data-gremove="${i}">${escapeHTML(t("adminRemove"))}</button>
+        </td>
+      </tr>
+    `).join("");
+
+    a.innerHTML = `
+      <div class="adminTop">
+        <div class="rowBtns">
+          <button class="btnGhost mini" id="ad_logout">${escapeHTML(t("adminLogout"))}</button>
+          <button class="btnGhost mini" id="ad_export">${escapeHTML(t("adminExport"))}</button>
+          <button class="btnGhost mini" id="ad_import">${escapeHTML(t("adminImport"))}</button>
+        </div>
+        <div class="helper" id="ad_status"></div>
+      </div>
+
+      <div class="adminCard"><div class="pad">
+        <div class="sectionTitle"><h2>${escapeHTML(t("adminTheme"))}</h2><p class="muted">Colors</p></div>
+        <div class="adminGrid">
+          ${adminColor("bg1","Background 1", s.theme.bg1)}
+          ${adminColor("bg2","Background 2", s.theme.bg2)}
+          ${adminColor("pink","Pink", s.theme.pink)}
+          ${adminColor("sky","Sky", s.theme.sky)}
+          ${adminColor("mint","Mint", s.theme.mint)}
+          ${adminColor("yellow","Yellow", s.theme.yellow)}
+          ${adminColor("text","Text", s.theme.text)}
+          ${adminColor("muted","Muted", s.theme.muted)}
+          ${adminNum("radius","Radius", s.theme.radius, 8, 28)}
+          ${adminNum("radius2","Radius (big)", s.theme.radius2, 14, 40)}
+        </div>
+      </div></div>
+
+      <div class="adminCard"><div class="pad">
+        <div class="sectionTitle"><h2>${escapeHTML(t("adminTypography"))}</h2><p class="muted">Fonts</p></div>
+        <div class="adminGrid">
+          <div class="adminCol12">
+            <p class="label">Font family</p>
+            <input id="ad_font" value="${escapeAttr(s.typography.fontFamily)}" />
+          </div>
+          <div class="adminCol6">
+            <p class="label">Base font size (12–22)</p>
+            <input id="ad_base" type="number" value="${escapeAttr(s.typography.baseFontSize)}" min="12" max="22" />
+          </div>
+          <div class="adminCol6">
+            <p class="label">Headline size (28–56)</p>
+            <input id="ad_head" type="number" value="${escapeAttr(s.typography.headlineSize)}" min="28" max="56" />
+          </div>
+        </div>
+      </div></div>
+
+      <div class="adminCard"><div class="pad">
+        <div class="sectionTitle"><h2>${escapeHTML(t("adminMedia"))}</h2><p class="muted">${escapeHTML(t("adminPrimaryEmail"))}</p></div>
+        <div class="adminGrid">
+          <div class="adminCol6">
+            <p class="label">Hero image URL</p>
+            <input id="ad_hero" value="${escapeAttr(s.media.heroImage||"")}" />
+          </div>
+          <div class="adminCol6">
+            <p class="label">${escapeHTML(t("adminPrimaryEmail"))}</p>
+            <input id="ad_email" value="${escapeAttr(s.contactEmail||"")}" />
+          </div>
+        </div>
+      </div></div>
+
+      <div class="adminCard"><div class="pad">
+        <div class="sectionTitle"><h2>${escapeHTML(t("adminSections"))}</h2><p class="muted">Show/Hide pages</p></div>
+        <table class="adminTable">${secRows}</table>
+      </div></div>
+
+      <div class="adminCard"><div class="pad">
+        <div class="sectionTitle"><h2>${escapeHTML(t("adminGallery"))}</h2><p class="muted">Add/remove</p></div>
+        <table class="adminTable" id="ad_gtable">${galRows}</table>
+        <div class="rowBtns" style="margin-top:10px">
+          <button class="btnGhost mini" id="ad_gadd">${escapeHTML(t("adminAddImage"))}</button>
+        </div>
+      </div></div>
+
+      
+      <div class="adminCard"><div class="pad">
+        <div class="sectionTitle"><h2>${escapeHTML(t("adminTextOverrides"))}</h2><p class="muted">${escapeHTML(t("adminEditTexts"))}</p></div>
+        <div class="adminGrid">
+          <div class="adminCol6">
+            <p class="label">${escapeHTML(t("adminLang"))}</p>
+            <select id="ad_lang">
+              <option value="en">English</option>
+              <option value="pl">Polski</option>
+              <option value="ar">العربية</option>
+            </select>
+            <div class="helper">${escapeHTML(t("adminPasteJSON"))}: {"heroTitle":"...", "aboutText":"..."}</div>
+          </div>
+          <div class="adminCol12">
+            <p class="label">${escapeHTML(t("adminPasteJSON"))}</p>
+            <textarea id="ad_textjson" rows="6" style="width:100%; padding:12px; border-radius:14px; border:1px solid rgba(17,24,39,.12)"></textarea>
+          </div>
+          <div class="adminCol12 rowBtns">
+            <button class="btnGhost mini warn" id="ad_applyText">${escapeHTML(t("adminApply"))}</button>
+            <span class="helper" id="ad_textmsg"></span>
+          </div>
+        </div>
+      </div></div>
+
+      <div class="adminCard"><div class="pad">
+        <div class="sectionTitle"><h2>${escapeHTML(t("adminCustomPages"))}</h2><p class="muted">Add pages (menu + content)</p></div>
+        <div id="ad_pages"></div>
+        <div class="rowBtns" style="margin-top:10px">
+          <button class="btnGhost mini" id="ad_addPage">${escapeHTML(t("adminAddPage"))}</button>
+        </div>
+      </div></div>
+<div class="adminCard"><div class="pad">
+        <div class="sectionTitle"><h2>${escapeHTML(t("adminChangePass"))}</h2><p class="muted">Local only</p></div>
+        <div class="adminGrid">
+          <div class="adminCol6">
+            <p class="label">${escapeHTML(t("adminNewPass"))}</p>
+            <input id="ad_np1" type="password" autocomplete="new-password" />
+          </div>
+          <div class="adminCol6">
+            <p class="label">${escapeHTML(t("adminConfirmPass"))}</p>
+            <input id="ad_np2" type="password" autocomplete="new-password" />
+          </div>
+          <div class="adminCol12 rowBtns">
+            <button class="btnGhost mini warn" id="ad_updpass">${escapeHTML(t("adminUpdatePass"))}</button>
+            <span class="helper" id="ad_pmsg"></span>
+          </div>
+        </div>
+      </div></div>
+
+      <div class="rowBtns">
+        <button class="btn primary" id="ad_save">${escapeHTML(t("adminSave"))}</button>
+        <button class="btnGhost mini danger" id="ad_reset">${escapeHTML(t("adminReset"))}</button>
+      </div>
+    `;
+
+    // wire
+    document.getElementById("ad_logout").onclick = adminLogout;
+    document.getElementById("ad_save").onclick = adminSave;
+    document.getElementById("ad_reset").onclick = adminReset;
+    document.getElementById("ad_export").onclick = adminExport;
+    document.getElementById("ad_import").onclick = adminImport;
+    document.getElementById("ad_gadd").onclick = adminGalleryAdd;
+    document.getElementById("ad_updpass").onclick = adminUpdatePassword;
+    const ap = document.getElementById("ad_applyText"); if(ap) ap.onclick = adminApplyTextOverrides;
+    const addp = document.getElementById("ad_addPage"); if(addp) addp.onclick = adminAddCustomPage;
+    adminRenderCustomPages();
+    // Prefill text override JSON box
+    const ls = document.getElementById("ad_lang"); const tb = document.getElementById("ad_textjson");
+    function loadBox(){ const l = (ls && ls.value) || "en"; const ov = (window.__settings.textOverrides && window.__settings.textOverrides[l]) || {}; if(tb) tb.value = JSON.stringify(ov, null, 2); }
+    if(ls) ls.onchange = loadBox; loadBox();
+
+    // color sync
+    ["bg1","bg2","pink","sky","mint","yellow","text","muted"].forEach(k=>{
+      const picker = document.getElementById("ad_c_"+k);
+      const txt = document.getElementById("ad_ct_"+k);
+      if(picker && txt){
+        picker.oninput = ()=>{ txt.value = picker.value; s.theme[k]=picker.value; };
+        txt.oninput = ()=>{ const v=txt.value.trim(); if(/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.test(v)){ picker.value=v; s.theme[k]=v; } };
+      }
+    });
+
+    // section toggles
+    a.querySelectorAll("button[data-sec]").forEach(btn=>{
+      btn.onclick = ()=>{ const k=btn.getAttribute("data-sec"); s.sections[k]=!s.sections[k]; adminPanelView(); };
+    });
+
+    // gallery edits
+    a.querySelectorAll("input[data-gidx]").forEach(inp=>{
+      inp.oninput = ()=>{ const i=Number(inp.getAttribute("data-gidx")); const key=inp.getAttribute("data-gkey"); s.gallery[i][key]=inp.value; };
+    });
+    a.querySelectorAll("button[data-gremove]").forEach(btn=>{
+      btn.onclick = ()=>{ const i=Number(btn.getAttribute("data-gremove")); s.gallery.splice(i,1); adminPanelView(); };
+    });
+  }
+
+  function adminColor(key,label,val){
+    return `
+      <div class="adminCol6">
+        <p class="label">${escapeHTML(label)}</p>
+        <div class="rowBtns">
+          <input id="ad_c_${escapeAttr(key)}" type="color" value="${escapeAttr(val)}" style="width:56px;height:42px;padding:0;border-radius:12px;border:1px solid rgba(17,24,39,.12)" />
+          <input id="ad_ct_${escapeAttr(key)}" value="${escapeAttr(val)}" />
+        </div>
+      </div>`;
+  }
+  function adminNum(key,label,val,min,max){
+    return `
+      <div class="adminCol6">
+        <p class="label">${escapeHTML(label)} (${min}-${max})</p>
+        <input id="ad_n_${escapeAttr(key)}" type="number" value="${escapeAttr(val)}" min="${min}" max="${max}" />
+      </div>`;
+  }
+
+  function adminCollect(){
+    const s = window.__settings;
+    const r1 = document.getElementById("ad_n_radius");
+    const r2 = document.getElementById("ad_n_radius2");
+    if(r1) s.theme.radius = clampNum(r1.value, 8, 28, s.theme.radius);
+    if(r2) s.theme.radius2 = clampNum(r2.value, 14, 40, s.theme.radius2);
+
+    const ff = document.getElementById("ad_font");
+    const b = document.getElementById("ad_base");
+    const h = document.getElementById("ad_head");
+    if(ff) s.typography.fontFamily = ff.value.trim() || s.typography.fontFamily;
+    if(b) s.typography.baseFontSize = clampNum(b.value, 12, 22, s.typography.baseFontSize);
+    if(h) s.typography.headlineSize = clampNum(h.value, 28, 56, s.typography.headlineSize);
+
+    const hero = document.getElementById("ad_hero");
+    const em = document.getElementById("ad_email");
+    if(hero) s.media.heroImage = hero.value.trim() || s.media.heroImage;
+    if(em) s.contactEmail = em.value.trim() || s.contactEmail;
+
+    return s;
+  }
+
+  function adminSave(){
+    adminCollect();
+    saveSettings(window.__settings);
+    applySettings(window.__settings);
+    renderNav(); render();
+    const st = document.getElementById("ad_status");
+    if(st) st.textContent = t("adminSaved");
+  }
+  function adminReset(){
+    if(!confirm("Reset to default settings?")) return;
+    window.__settings = getDefaultSettings();
+    saveSettings(window.__settings);
+    applySettings(window.__settings);
+    renderNav(); render();
+  }
+  function adminGalleryAdd(){
+    window.__settings.gallery.push({src:"", cap_en:"New image", cap_pl:"Nowe zdjęcie", cap_ar:"صورة جديدة"});
+    adminPanelView();
+  }
+  function adminExport(){
+    adminCollect();
+    const blob = new Blob([JSON.stringify(window.__settings, null, 2)], {type:"application/json"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = "contakids-settings.json";
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  }
+  function adminImport(){
+    const inp = document.createElement("input");
+    inp.type="file"; inp.accept="application/json";
+    inp.onchange = async ()=>{
+      const f = inp.files && inp.files[0];
+      if(!f) return;
+      try{
+        const obj = JSON.parse(await f.text());
+        const base = getDefaultSettings();
+        const merged = {
+          ...base, ...obj,
+          theme:{...base.theme, ...(obj.theme||{})},
+          typography:{...base.typography, ...(obj.typography||{})},
+          media:{...base.media, ...(obj.media||{})},
+          sections:{...base.sections, ...(obj.sections||{})},
+          gallery: Array.isArray(obj.gallery) ? obj.gallery : base.gallery
+        };
+        window.__settings = merged;
+        saveSettings(window.__settings);
+        applySettings(window.__settings);
+        renderNav(); render();
+        const st = document.getElementById("ad_status");
+        if(st) st.textContent = t("adminImported");
+      }catch{ alert(t("adminInvalidJSON")); }
+    };
+    inp.click();
+  }
+  
+  function adminRenderCustomPages(){
+    const wrap = document.getElementById("ad_pages");
+    if(!wrap) return;
+    const pages = window.__settings.customPages || [];
+    if(!pages.length){
+      wrap.innerHTML = `<div class="helper">No extra pages yet.</div>`;
+      return;
+    }
+    wrap.innerHTML = pages.map((p,i)=>`
+      <div class="adminCard" style="margin-top:10px">
+        <div class="pad">
+          <div class="adminGrid">
+            <div class="adminCol6">
+              <p class="label">${escapeHTML(t("adminPageLabel"))} (EN)</p>
+              <input data-pi="${i}" data-pk="label_en" value="${escapeAttr(p.label_en||"Extra")}" />
+              <div style="height:8px"></div>
+              <p class="label">${escapeHTML(t("adminPageLabel"))} (PL)</p>
+              <input data-pi="${i}" data-pk="label_pl" value="${escapeAttr(p.label_pl||"Dodatkowe")}" />
+              <div style="height:8px"></div>
+              <p class="label">${escapeHTML(t("adminPageLabel"))} (AR)</p>
+              <input data-pi="${i}" data-pk="label_ar" value="${escapeAttr(p.label_ar||"إضافي")}" />
+            </div>
+            <div class="adminCol6">
+              <p class="label">${escapeHTML(t("adminPageTitle"))} (EN)</p>
+              <input data-pi="${i}" data-pk="title_en" value="${escapeAttr(p.title_en||"Extra page")}" />
+              <div style="height:8px"></div>
+              <p class="label">${escapeHTML(t("adminPageTitle"))} (PL)</p>
+              <input data-pi="${i}" data-pk="title_pl" value="${escapeAttr(p.title_pl||"Strona")}" />
+              <div style="height:8px"></div>
+              <p class="label">${escapeHTML(t("adminPageTitle"))} (AR)</p>
+              <input data-pi="${i}" data-pk="title_ar" value="${escapeAttr(p.title_ar||"صفحة")}" />
+            </div>
+            <div class="adminCol12">
+              <p class="label">${escapeHTML(t("adminPageBody"))} (EN) — supports simple HTML</p>
+              <textarea data-pi="${i}" data-pk="body_en" rows="4" style="width:100%; padding:12px; border-radius:14px; border:1px solid rgba(17,24,39,.12)">${escapeHTML(p.body_en||"")}</textarea>
+              <div style="height:8px"></div>
+              <p class="label">${escapeHTML(t("adminPageBody"))} (PL)</p>
+              <textarea data-pi="${i}" data-pk="body_pl" rows="4" style="width:100%; padding:12px; border-radius:14px; border:1px solid rgba(17,24,39,.12)">${escapeHTML(p.body_pl||"")}</textarea>
+              <div style="height:8px"></div>
+              <p class="label">${escapeHTML(t("adminPageBody"))} (AR)</p>
+              <textarea data-pi="${i}" data-pk="body_ar" rows="4" style="width:100%; padding:12px; border-radius:14px; border:1px solid rgba(17,24,39,.12)">${escapeHTML(p.body_ar||"")}</textarea>
+            </div>
+            <div class="adminCol12 rowBtns">
+              <button class="btnGhost mini danger" data-pdel="${i}">${escapeHTML(t("adminDelete"))}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join("");
+
+    wrap.querySelectorAll("input[data-pi],textarea[data-pi]").forEach(el=>{
+      el.oninput = ()=>{
+        const i = Number(el.getAttribute("data-pi"));
+        const k = el.getAttribute("data-pk");
+        window.__settings.customPages[i][k] = el.value;
+      };
+    });
+    wrap.querySelectorAll("button[data-pdel]").forEach(btn=>{
+      btn.onclick = ()=>{
+        const i = Number(btn.getAttribute("data-pdel"));
+        window.__settings.customPages.splice(i,1);
+        adminRenderCustomPages();
+      };
+    });
+  }
+
+  function adminAddCustomPage(){
+    const id = "extra-" + Math.random().toString(16).slice(2,8);
+    (window.__settings.customPages ||= []).push({
+      id,
+      label_en:"Extra", label_pl:"Dodatkowe", label_ar:"إضافي",
+      title_en:"Extra page", title_pl:"Strona dodatkowa", title_ar:"صفحة إضافية",
+      body_en:"<p>Add your content here.</p>",
+      body_pl:"<p>Dodaj treść tutaj.</p>",
+      body_ar:"<p>أضف المحتوى هنا.</p>"
+    });
+    adminRenderCustomPages();
+  }
+
+  function adminApplyTextOverrides(){
+    const langSel = document.getElementById("ad_lang");
+    const box = document.getElementById("ad_textjson");
+    const msg = document.getElementById("ad_textmsg");
+    const lang = (langSel && langSel.value) || "en";
+    try{
+      const obj = JSON.parse(box.value || "{}");
+      window.__settings.textOverrides ||= {en:{},pl:{},ar:{}};
+      window.__settings.textOverrides[lang] = obj;
+      if(msg) msg.textContent = t("adminSaved");
+      applySettings(window.__settings);
+      renderNav(); render();
+      // Keep admin open
+      location.hash = "#/admin";
+    }catch{
+      if(msg) msg.textContent = t("adminInvalidJSON");
+    }
+  }
+
+async function adminUpdatePassword(){
+    const p1 = document.getElementById("ad_np1").value || "";
+    const p2 = document.getElementById("ad_np2").value || "";
+    const msg = document.getElementById("ad_pmsg");
+    if(p1 !== p2){ if(msg) msg.textContent = t("adminPassMismatch"); return; }
+    if(!p1 || p1.length < 6){ if(msg) msg.textContent = "Min 6 characters."; return; }
+    const h = await sha256(ADMIN_USER + ":" + p1);
+    localStorage.setItem(LS_ADMIN_HASH, h);
+    if(msg) msg.textContent = t("adminPassUpdated");
+    document.getElementById("ad_np1").value=""; document.getElementById("ad_np2").value="";
+  }
+
+  function setText(id, value){
+    const el = document.getElementById(id);
+    if(!el) return;
+    el.textContent = (typeof value === "function") ? value() : value;
+  }
+  function setLang(lang){
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.body.classList.toggle("rtl", lang === "ar");
+    document.getElementById("bookNow").textContent = t("bookBtn", "Book / Ask");
+    renderNav(); render();
+  }
+  function currentRoute(){
+    const h = location.hash || "#/home";
+    const parts = h.replace("#/","").split("/");
+    return parts[0] || "home";
+  }
+  function renderNav(){
+    const navBase = filteredNav(t("nav"));
+    const nav = navBase.concat((window.__settings && Array.isArray(window.__settings.customPages) ? window.__settings.customPages.map(p=>[p.id, (LANG==="ar"?p.label_ar:LANG==="pl"?p.label_pl:p.label_en)||"Extra"]) : [])).concat([["admin", t("adminNav","Admin")]]);
+    const route = currentRoute();
+    const wrap = document.getElementById("navlinks");
+    wrap.innerHTML = nav.map(([key,label]) => {
+      const cls = `chip ${key===route ? "active":""}`;
+      return `<a class="${cls}" href="#/${key}">${escapeHTML(label)}</a>`;
+    }).join("");
+    setText("t_siteTitle", t("siteTitle"));
+    setText("t_siteTag", t("siteTag"));
+  }
+  function galleryCaption(g){
+    if(currentLang === "ar") return g.cap_ar || g.cap_en || "";
+    if(currentLang === "pl") return g.cap_pl || g.cap_en || "";
+    return g.cap_en || "";
+  }
+  function render(){
+    const route = currentRoute();
+    const page = PAGES[route] || PAGES.home;
+    document.getElementById("app").innerHTML = page();
+    const hero = document.getElementById("heroImg");
+    if(hero) hero.src = CONFIG.heroImage;
+
+    setText("t_heroTitle", t("heroTitle"));
+    setText("t_heroText", t("heroText"));
+    setText("t_kpi1", t("kpi1")); setText("t_kpi2", t("kpi2")); setText("t_kpi3", t("kpi3")); setText("t_kpi4", t("kpi4"));
+    setText("t_badge1", t("badge1")); setText("t_badge2", t("badge2")); setText("t_badge3", t("badge3"));
+    setText("t_highlightsTitle", t("highlightsTitle")); setText("t_highlightsSub", t("highlightsSub"));
+    setText("t_hi1t", t("hi1t")); setText("t_hi1d", t("hi1d"));
+    setText("t_hi2t", t("hi2t")); setText("t_hi2d", t("hi2d"));
+    setText("t_hi3t", t("hi3t")); setText("t_hi3d", t("hi3d"));
+    setText("t_safetyTitle", t("safetyTitle")); setText("t_safetySub", t("safetySub"));
+    setText("t_s1t", t("s1t")); setText("t_s1d", t("s1d"));
+    setText("t_s2t", t("s2t")); setText("t_s2d", t("s2d"));
+    setText("t_s3t", t("s3t")); setText("t_s3d", t("s3d"));
+    setText("t_cCTA", t("cCTA")); setText("t_cCTA2", t("cCTA"));
+    setText("t_noteChildren", t("noteChildren"));
+
+    setText("t_aboutTitle", t("aboutTitle"));
+    setText("t_aboutText", t("aboutText"));
+    setText("t_aboutFounderTitle", t("aboutFounderTitle"));
+    setText("t_aboutFounderText", t("aboutFounderText"));
+    setText("t_aboutClassFeelTitle", t("aboutClassFeelTitle"));
+    setText("t_aboutClassFeelText", t("aboutClassFeelText"));
+
+    setText("t_zuTitle", t("zuTitle"));
+    setText("t_zuBio", t("zuBio"));
+    setText("t_zuLangTitle", t("zuLangTitle"));
+    setText("t_zuLangText", t("zuLangText"));
+    setText("t_zuBaseTitle", t("zuBaseTitle"));
+    setText("t_zuBaseText", t("zuBaseText"));
+
+    setText("t_classesTitle", t("classesTitle"));
+    setText("t_classesText", t("classesText"));
+    setText("t_c1t", t("c1t")); setText("t_c1d", t("c1d"));
+    setText("t_c2t", t("c2t")); setText("t_c2d", t("c2d"));
+    setText("t_c3t", t("c3t")); setText("t_c3d", t("c3d"));
+
+    setText("t_galleryTitle", t("galleryTitle"));
+    setText("t_galleryText", t("galleryText"));
+    setText("t_instaEmbedNote", t("instaEmbedNote"));
+    const ob2 = document.getElementById("t_openInstagramBtn"); if(ob2) ob2.textContent = t("openInstagram");
+    const gg = document.getElementById("galleryGrid");
+    if(gg){
+      gg.innerHTML = CONFIG.gallery.map((g, idx) => `
+        <div class="g" role="button" tabindex="0" aria-label="Open image"
+             onclick="openLightbox(${idx})"
+             onkeydown="if(event.key==='Enter'){openLightbox(${idx})}">
+          <img src="${escapeAttr(g.src)}" alt="${escapeAttr(galleryCaption(g))}" loading="lazy" />
+        </div>
+      `).join("");
+    }
+
+    setText("t_faqTitle", t("faqTitle"));
+    setText("t_q1", t("q1")); setText("t_a1", t("a1"));
+    setText("t_q2", t("q2")); setText("t_a2", t("a2"));
+    setText("t_q3", t("q3")); setText("t_a3", t("a3"));
+    setText("t_q4", t("q4")); setText("t_a4", t("a4"));
+
+    setText("t_contactTitle", t("contactTitle"));
+    setText("t_contactText", t("contactText"));
+    setText("t_adminTitle", t("adminTitle"));
+    setText("t_adminSub", t("adminSub"));
+    setText("t_adminDisclaimer", t("adminDisclaimer"));
+    setText("t_contactBtn", t("contactBtn"));
+    setText("t_contactBtn2", t("contactBtn"));
+    setText("t_contactBtn3", t("contactBtn"));
+
+    setText("t_quickLinksTitle", t("quickLinksTitle"));
+    setText("t_quickLinksTitleB", t("quickLinksTitle"));
+    setText("t_emailLabel", t("emailLabel"));
+    setText("t_igLabel", t("igLabel"));
+    setText("t_emailLabel2", t("emailLabel"));
+    setText("t_igLabel2", t("igLabel"));
+    setText("t_addLinkHint1", t("addLinkHint"));
+    setText("t_addLinkHint2", t("addLinkHint"));
+    setText("t_addLinkHint3", t("addLinkHint"));
+    setText("t_addLinkHint4", t("addLinkHint"));
+
+    const navBase = filteredNav(t("nav"));
+    const nav = navBase.concat([["admin", t("adminNav","Admin")]]);
+    const getNav = (key) => (nav.find(x=>x[0]===key) || ["", key])[1];
+    setText("t_nav_classes", getNav("classes"));
+    setText("t_nav_classes2", getNav("classes"));
+    setText("t_nav_gallery", getNav("gallery"));
+    setText("t_nav_faq", getNav("faq"));
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const f1 = t("footer1").replace("{year}", new Date().getFullYear());
+    setText("t_footerLine1", f1);
+    setText("t_footerLine2", t("footer2"));
+
+    // Admin page content
+    if(route === "admin"){
+      if(isAdminAuthed()) adminPanelView(); else adminLoginView();
+    }
+    // Gallery extras
+    if(route === "gallery"){ renderInstaThumbs(); }
+  }
+
+  const modalBackdrop = document.getElementById("modalBackdrop");
+  const modalClose = document.getElementById("modalClose");
+  const bookNow = document.getElementById("bookNow");
+
+  function openBooking(){
+    document.getElementById("t_modalTitle").textContent = t("modalTitle");
+    document.getElementById("t_modalHelper").textContent = t("modalHelper");
+    document.getElementById("t_modalNote").textContent = t("modalNote");
+    document.getElementById("sendMail").textContent = t("sendEmail");
+    document.getElementById("copyMsg").textContent = t("copyMsg");
+
+    modalBackdrop.classList.add("open");
+    document.getElementById("f_subject").value = document.getElementById("f_subject").value || "ContaKids – Booking / Question";
+
+    const defaultMsg =
+      (currentLang === "ar") ? (
+        "مرحباً زوزانا،\nأود الاستفسار/الحجز لحصة كونتاكيدز.\nعمر الطفل: \nالمدينة/الحي: \nالأيام المناسبة: \nعدد المشاركين: \nشكراً!"
+      ) : (currentLang === "pl") ? (
+        "Cześć Zuzanna,\nChciał(a)bym zapytać / zapisać się na ContaKids.\nWiek dziecka: \nMiasto/dzielnica: \nPreferowane dni: \nLiczba uczestników: \nDziękuję!"
+      ) : (
+        "Hi Zuzanna,\nI’d like to ask / book a ContaKids class.\nChild age: \nCity/area: \nPreferred days: \nNumber of participants: \nThank you!"
+      );
+
+    document.getElementById("f_msg").value = document.getElementById("f_msg").value || defaultMsg;
+    setTimeout(()=>document.getElementById("f_name").focus(), 50);
+  }
+  function closeBooking(){ modalBackdrop.classList.remove("open"); }
+  bookNow.addEventListener("click", openBooking);
+  modalClose.addEventListener("click", closeBooking);
+  modalBackdrop.addEventListener("click", (e)=>{ if(e.target === modalBackdrop) closeBooking(); });
+  window.openBooking = openBooking;
+
+  document.getElementById("sendMail").addEventListener("click", () => {
+    const name = document.getElementById("f_name").value.trim();
+    const email = document.getElementById("f_email").value.trim();
+    const city = document.getElementById("f_city").value.trim();
+    const age  = document.getElementById("f_age").value.trim();
+    const subject = document.getElementById("f_subject").value.trim() || "ContaKids – Booking / Question";
+    const msg = document.getElementById("f_msg").value.trim();
+
+    const lines = [
+      name ? (currentLang==="ar" ? `الاسم: ${name}` : currentLang==="pl" ? `Imię: ${name}` : `Name: ${name}`) : "",
+      email ? (currentLang==="ar" ? `البريد: ${email}` : currentLang==="pl" ? `E-mail: ${email}` : `Email: ${email}`) : "",
+      city ? (currentLang==="ar" ? `المدينة: ${city}` : currentLang==="pl" ? `Miasto: ${city}` : `City: ${city}`) : "",
+      age  ? (currentLang==="ar" ? `عمر الطفل: ${age}` : currentLang==="pl" ? `Wiek dziecka: ${age}` : `Child age: ${age}`) : "",
+      "",
+      msg
+    ].filter(Boolean).join("\n");
+
+    const mailto = `mailto:${encodeURIComponent(CONFIG.contactEmail)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines)}`;
+    window.location.href = mailto;
+  });
+
+  document.getElementById("copyMsg").addEventListener("click", async () => {
+    const subject = document.getElementById("f_subject").value.trim() || "ContaKids – Booking / Question";
+    const msg = document.getElementById("f_msg").value.trim();
+    const text = `${subject}\n\n${msg}`;
+    try{ await navigator.clipboard.writeText(text); alert(t("copied")); }
+    catch{ alert(t("copyFail")); }
+  });
+
+  const lightbox = document.getElementById("lightbox");
+  const lbImg = document.getElementById("lbImg");
+  const lbCap = document.getElementById("lbCap");
+  let lbIndex = 0;
+
+  function openLightbox(i){
+    lbIndex = i;
+    const g = CONFIG.gallery[lbIndex];
+    lbImg.src = g.src;
+    const cap = galleryCaption(g);
+    lbImg.alt = cap;
+    lbCap.textContent = cap;
+    lightbox.classList.add("open");
+  }
+  function closeLightbox(){ lightbox.classList.remove("open"); }
+  function nextLb(){ openLightbox((lbIndex+1) % CONFIG.gallery.length); }
+  function prevLb(){ openLightbox((lbIndex-1+CONFIG.gallery.length) % CONFIG.gallery.length); }
+
+  document.getElementById("lbClose").addEventListener("click", closeLightbox);
+  document.getElementById("lbNext").addEventListener("click", nextLb);
+  document.getElementById("lbPrev").addEventListener("click", prevLb);
+  lightbox.addEventListener("click", (e)=>{ if(e.target === lightbox) closeLightbox(); });
+  window.openLightbox = openLightbox;
+
+  window.addEventListener("keydown", (e)=>{
+    if(modalBackdrop.classList.contains("open") && e.key==="Escape") closeBooking();
+    if(lightbox.classList.contains("open")){
+      if(e.key==="Escape") closeLightbox();
+      if(e.key==="ArrowRight") nextLb();
+      if(e.key==="ArrowLeft") prevLb();
+    }
+  });
+
+  document.getElementById("lang").addEventListener("change", (e)=>setLang(e.target.value));
+  window.addEventListener("hashchange", ()=>{ renderNav(); render(); });
+
+  window.__settings = loadSettings();
+  applySettings(window.__settings);
+  ensureAdminHash();
+  if(!location.hash) location.hash = "#/home";
+  setLang("en"); renderNav(); render();
+</script>
+</body>
+</html>

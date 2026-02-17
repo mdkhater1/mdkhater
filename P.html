@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ContaKids by Zuzanna Matysiewicz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Baloo+2:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #ff7a8a;
+      --secondary: #ffe07a;
+      --accent: #75c9b7;
+      --dark: #333333;
+      --light: #ffffff;
+      --bg: #fff8f1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      scroll-behavior: smooth;
+    }
+
+    body[dir="rtl"] {
+      font-family: "Baloo 2", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 248, 241, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #ffe6e9, #ff7a8a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light);
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 10px rgba(255, 122, 138, 0.4);
+    }
+
+    .logo-text {
+      font-family: "Baloo 2", cursive;
+      font-size: 1.4rem;
+      line-height: 1.1;
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: 0.8rem;
+      color: #555;
+      font-weight: 400;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 0.25rem 0.5rem;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: var(--primary);
+      color: var(--light);
+    }
+
+    .lang-switcher button {
+      border: none;
+      background: transparent;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-left: 0.25rem;
+      cursor: pointer;
+      padding: 0.25rem 0.45rem;
+      border-radius: 999px;
+      color: #666;
+    }
+
+    .lang-switcher button.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .burger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--dark);
+      border-radius: 999px;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    section {
+      padding: 3rem 0 2rem;
+      border-bottom: 1px dashed rgba(0, 0, 0, 0.06);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      gap: 1rem;
+    }
+
+    .section-header h2 {
+      font-family: "Baloo 2", cursive;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-tag {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: var(--secondary);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      color: #5b4b1a;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: var(--accent);
+      color: white;
+    }
+
+    .pill span {
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-family: "Baloo 2", cursive;
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      margin-bottom: 0.8rem;
+      line-height: 1.1;
+    }
+
+    .hero-text p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff7a8a, #ff9f95);
+      color: white;
+      box-shadow: 0 8px 18px rgba(255, 122, 138, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(255, 122, 138, 0.6);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid rgba(0, 0, 0, 0.12);
+      color: var(--dark);
+    }
+
+    .hero-visual {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero-main-card {
+      border-radius: 24px;
+      padding: 1rem;
+      background: linear-gradient(145deg, #ffe6ec, #fffdf8);
+      box-shadow: 0 20px 35px rgba(255, 122, 138, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main-card img {
+      border-radius: 20px;
+      object-fit: cover;
+      height: 260px;
+      width: 100%;
+    }
+
+    .hero-bubble {
+      position: absolute;
+      border-radius: 999px;
+      padding: 0.5rem 0.8rem;
+      font-size: 0.75rem;
+      background: #75c9b7;
+      color: white;
+      box-shadow: 0 8px 18px rgba(117, 201, 183, 0.4);
+    }
+
+    .hero-bubble.b1 {
+      top: 8%;
+      right: 4%;
+    }
+
+    .hero-bubble.b2 {
+      bottom: 10%;
+      left: -8%;
+      background: #ffe07a;
+      color: #5b4b1a;
+    }
+
+    /* About / Zuzanna / Classes */
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .card {
+      background: var(--light);
+      border-radius: 18px;
+      padding: 1.25rem 1.3rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .chip {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: #f5f1ff;
+      color: #5a4f94;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 0.6rem;
+    }
+
+    ul.clean {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.5rem 0 0;
+    }
+
+    ul.clean li {
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+      display: flex;
+      gap: 0.35rem;
+      align-items: flex-start;
+    }
+
+    ul.clean li span.icon {
+      font-size: 0.8rem;
+      margin-top: 0.15rem;
+    }
+
+    .info-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.7rem;
+    }
+
+    .info-badge {
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px dashed rgba(0, 0, 0, 0.15);
+      font-size: 0.75rem;
+      background: #fffdf7;
+    }
+
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+    }
+
+    .class-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .class-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .class-meta {
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+
+    .class-meta span {
+      display: inline-block;
+      margin-right: 0.35rem;
+    }
+
+    .class-age-pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 0.15rem 0.5rem;
+      font-size: 0.75rem;
+      background: rgba(255, 122, 138, 0.08);
+      color: #b6485d;
+    }
+
+    .class-card button {
+      margin-top: 0.75rem;
+      align-self: flex-start;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 4 / 3;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s, filter 0.3s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.07);
+      filter: brightness(1.05);
+    }
+
+    .gallery-label {
+      position: absolute;
+      inset-inline: 0.5rem;
+      bottom: 0.5rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.35);
+      color: white;
+      font-size: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      justify-content: space-between;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      margin-bottom: 0.7rem;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .faq-item h3 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .faq-item p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Contact */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .contact-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.2rem 1.3rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+    }
+
+    .contact-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-row {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .contact-row strong {
+      font-weight: 600;
+    }
+
+    .social-links {
+      margin-top: 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    .social-links a {
+      color: #444;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    form {
+      display: grid;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      padding: 0.45rem 0.5rem;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      font-family: inherit;
+      font-size: 0.9rem;
+      width: 100%;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer {
+      background: #fff;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 1.2rem 1rem 1.9rem;
+      margin-top: 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    /* Modal / Lightbox */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1rem;
+    }
+
+    .overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      background: #fffaf4;
+      border-radius: 18px;
+      max-width: 460px;
+      width: 100%;
+      padding: 1rem 1.2rem 1.2rem;
+      position: relative;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.8rem;
+    }
+
+    .modal-title {
+      font-family: "Baloo 2", cursive;
+      font-size: 1.25rem;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 1.3rem;
+      line-height: 1;
+      padding: 0.1rem 0.3rem;
+      border-radius: 999px;
+    }
+
+    .modal-close:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .lightbox-img {
+      max-height: 80vh;
+      width: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+      background: #000;
+    }
+
+    .lightbox-caption {
+      font-size: 0.8rem;
+      margin-top: 0.4rem;
+      color: #eee;
+      text-align: center;
+    }
+
+    .lightbox-modal {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 1rem;
+      border-radius: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-visual {
+        order: -1;
+      }
+      .two-column,
+      .faq-list,
+      .contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(255, 248, 241, 0.97);
+        position: absolute;
+        inset-inline: 0;
+        top: 100%;
+        padding: 0.6rem 1rem 0.8rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      }
+
+      nav ul.open {
+        display: flex;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-main-card img {
+        height: 210px;
+      }
+      .hero-text p {
+        font-size: 0.95rem;
+      }
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">
+        <div class="logo-badge">CK</div>
+        <div class="logo-text">
+          ContaKids
+          <span>by Zuzanna</span>
+        </div>
+      </div>
+
+      <nav>
+        <div class="burger" id="burger">
+          <span></span><span></span><span></span>
+        </div>
+        <ul id="nav-links">
+          <li><a href="#home" class="nav-link active" data-i18n="nav.home"></a></li>
+          <li><a href="#about" class="nav-link" data-i18n="nav.about"></a></li>
+          <li><a href="#zuzanna" class="nav-link" data-i18n="nav.zuzanna"></a></li>
+          <li><a href="#classes" class="nav-link" data-i18n="nav.classes"></a></li>
+          <li><a href="#gallery" class="nav-link" data-i18n="nav.gallery"></a></li>
+          <li><a href="#faq" class="nav-link" data-i18n="nav.faq"></a></li>
+          <li><a href="#contact" class="nav-link" data-i18n="nav.contact"></a></li>
+        </ul>
+      </nav>
+
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="pl">PL</button>
+        <button class="lang-btn" data-lang="ar">ع</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="home">
+      <div class="hero">
+        <div class="hero-text">
+          <div class="section-tag" data-i18n="home.tag"></div>
+          <h1 data-i18n="home.title"></h1>
+          <p data-i18n="home.subtitle"></p>
+
+          <div class="hero-badges">
+            <span class="pill"><span>👣</span><span data-i18n="home.pill1"></span></span>
+            <span class="pill" style="background:#ffb6c6;"><span>🎨</span><span data-i18n="home.pill2"></span></span>
+            <span class="pill" style="background:#ffd46b;"><span>💛</span><span data-i18n="home.pill3"></span></span>
+          </div>
+
+          <div class="hero-cta">
+            <button class="btn btn-primary" id="open-booking" data-i18n="home.bookBtn"></button>
+            <a href="#classes" class="btn btn-outline" data-i18n="home.classesBtn"></a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-main-card">
+            <!-- Hero placeholder image (replace later with Zuzanna's image if you have rights) -->
+            <img src="https://images.pexels.com/photos/3662772/pexels-photo-3662772.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Parent and child dancing together" />
+          </div>
+          <div class="hero-bubble b1" data-i18n="home.bubble1"></div>
+          <div class="hero-bubble b2" data-i18n="home.bubble2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-header">
+        <h2>ContaKids</h2>
+        <span class="section-tag" data-i18n="about.tag"></span>
+      </div>
+
+      <div class="two-column">
+        <div class="card">
+          <div class="chip-row">
+            <span class="chip" data-i18n="about.chip1"></span>
+            <span class="chip" data-i18n="about.chip2"></span>
+            <span class="chip" data-i18n="about.chip3"></span>
+          </div>
+          <h3 data-i18n="about.whatTitle"></h3>
+          <p data-i18n="about.what1"></p>
+          <p data-i18n="about.what2"></p>
+
+          <ul class="clean">
+            <li><span class="icon">🌀</span><span data-i18n="about.point1"></span></li>
+            <li><span class="icon">🤝</span><span data-i18n="about.point2"></span></li>
+            <li><span class="icon">🗣</span><span data-i18n="about.point3"></span></li>
+            <li><span class="icon">💞</span><span data-i18n="about.point4"></span></li>
+          </ul>
+
+          <div class="info-badges">
+            <span class="info-badge" data-i18n="about.badge1"></span>
+            <span class="info-badge" data-i18n="about.badge2"></span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 data-i18n="about.whoTitle"></h3>
+          <p data-i18n="about.who1"></p>
+          <p data-i18n="about.who2"></p>
+
+          <ul class="clean">
+            <li><span class="icon">👶</span><span data-i18n="about.whoPoint1"></span></li>
+            <li><span class="icon">👨‍👩‍👧</span><span data-i18n="about.whoPoint2"></span></li>
+            <li><span class="icon">🧸</span><span data-i18n="about.whoPoint3"></span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZUZANNA -->
+    <section id="zuzanna">
+      <div class="section-header">
+        <h2 data-i18n="zuzanna.title"></h2>
+        <span class="section-tag" data-i18n="zuzanna.tag"></span>
+      </div>
+
+      <div class="two-column">
+        <div class="card">
+          <div class="chip-row">
+            <span class="chip" data-i18n="zuzanna.chip1"></span>
+            <span class="chip" data-i18n="zuzanna.chip2"></span>
+            <span class="chip" data-i18n="zuzanna.chip3"></span>
+          </div>
+          <h3 data-i18n="zuzanna.header1"></h3>
+          <p data-i18n="zuzanna.bio1"></p>
+          <p data-i18n="zuzanna.bio2"></p>
+          <p data-i18n="zuzanna.bio3"></p>
+
+          <ul class="clean">
+            <li><span class="icon">🎓</span><span data-i18n="zuzanna.point1"></span></li>
+            <li><span class="icon">🧘‍♀️</span><span data-i18n="zuzanna.point2"></span></li>
+            <li><span class="icon">🎭</span><span data-i18n="zuzanna.point3"></span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <!-- Placeholder portrait / group photo -->
+          <img src="https://images.pexels.com/photos/3662973/pexels-photo-3662973.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Dance teacher with children in studio" style="border-radius:14px; margin-bottom:0.8rem;" />
+          <p style="font-size:0.88rem; color:#666;" data-i18n="zuzanna.photoNote"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLASSES -->
+    <section id="classes">
+      <div class="section-header">
+        <h2 data-i18n="classes.title"></h2>
+        <span class="section-tag" data-i18n="classes.tag"></span>
+      </div>
+
+      <div class="classes-grid">
+        <div class="class-card">
+          <div>
+            <h3 data-i18n="classes.c1.title"></h3>
+            <div class="class-meta">
+              <span class="class-age-pill" data-i18n="classes.c1.age"></span>
+              <span data-i18n="classes.c1.meta"></span>
+            </div>
+            <p data-i18n="classes.c1.desc"></p>
+          </div>
+          <button class="btn btn-primary open-booking-small" data-i18n="classes.bookBtn"></button>
+        </div>
+
+        <div class="class-card">
+          <div>
+            <h3 data-i18n="classes.c2.title"></h3>
+            <div class="class-meta">
+              <span class="class-age-pill" data-i18n="classes.c2.age"></span>
+              <span data-i18n="classes.c2.meta"></span>
+            </div>
+            <p data-i18n="classes.c2.desc"></p>
+          </div>
+          <button class="btn btn-primary open-booking-small" data-i18n="classes.bookBtn"></button>
+        </div>
+
+        <div class="class-card">
+          <div>
+            <h3 data-i18n="classes.c3.title"></h3>
+            <div class="class-meta">
+              <span class="class-age-pill" data-i18n="classes.c3.age"></span>
+              <span data-i18n="classes.c3.meta"></span>
+            </div>
+            <p data-i18n="classes.c3.desc"></p>
+          </div>
+          <button class="btn btn-primary open-booking-small" data-i18n="classes.bookBtn"></button>
+        </div>
+      </div>
+
+      <p style="margin-top:1rem; font-size:0.9rem; color:#666;" data-i18n="classes.note"></p>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="section-header">
+        <h2 data-i18n="gallery.title"></h2>
+        <span class="section-tag" data-i18n="gallery.tag"></span>
+      </div>
+
+      <p style="margin-bottom:0.8rem; font-size:0.95rem;" data-i18n="gallery.intro"></p>
+
+      <div class="gallery-grid">
+        <!-- Replace src/href with Zuzanna's approved images later -->
+        <div class="gallery-item" data-img="https://images.pexels.com/photos/3662665/pexels-photo-3662665.jpeg?auto=compress&cs=tinysrgb&w=1600" data-caption="Parents and children rolling on the floor">
+          <img src="https://images.pexels.com/photos/3662665/pexels-photo-3662665.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Family movement play on the floor" />
+          <div class="gallery-label">
+            <span>✨</span>
+            <span data-i18n="gallery.lbl1"></span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-img="https://images.pexels.com/photos/3661385/pexels-photo-3661385.jpeg?auto=compress&cs=tinysrgb&w=1600" data-caption="Circle time in the studio">
+          <img src="https://images.pexels.com/photos/3661385/pexels-photo-3661385.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Circle of parents and children" />
+          <div class="gallery-label">
+            <span>💛</span>
+            <span data-i18n="gallery.lbl2"></span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-img="https://images.pexels.com/photos/3663010/pexels-photo-3663010.jpeg?auto=compress&cs=tinysrgb&w=1600" data-caption="Lifting and trust games">
+          <img src="https://images.pexels.com/photos/3663010/pexels-photo-3663010.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Trust and lifting games" />
+          <div class="gallery-label">
+            <span>🤸‍♀️</span>
+            <span data-i18n="gallery.lbl3"></span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-img="https://images.pexels.com/photos/3662999/pexels-photo-3662999.jpeg?auto=compress&cs=tinysrgb&w=1600" data-caption="Studio improvisation">
+          <img src="https://images.pexels.com/photos/3662999/pexels-photo-3662999.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Kids running in the studio" />
+          <div class="gallery-label">
+            <span>🎶</span>
+            <span data-i18n="gallery.lbl4"></span>
+          </div>
+        </div>
+
+        <!-- Extra placeholders intended for social-media-style shots -->
+        <div class="gallery-item" data-img="https://images.pexels.com/photos/3661361/pexels-photo-3661361.jpeg?auto=compress&cs=tinysrgb&w=1600" data-caption="Playful stretching and hugs">
+          <img src="https://images.pexels.com/photos/3661361/pexels-photo-3661361.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Parent stretching with child" />
+          <div class="gallery-label">
+            <span>🧡</span>
+            <span data-i18n="gallery.lbl5"></span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-img="https://images.pexels.com/photos/3663027/pexels-photo-3663027.jpeg?auto=compress&cs=tinysrgb&w=1600" data-caption="Parents observing children explore">
+          <img src="https://images.pexels.com/photos/3663027/pexels-photo-3663027.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Family in movement exploration" />
+          <div class="gallery-label">
+            <span>📸</span>
+            <span data-i18n="gallery.lbl6"></span>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top:0.7rem; font-size:0.9rem; color:#666;">
+        Instagram:
+        <a href="https://www.instagram.com/contakids.warsaw/" target="_blank" rel="noopener">contakids.warsaw</a>
+        &nbsp;•&nbsp; Facebook:
+        <a href="https://www.facebook.com/profile.php?id=61557670836394" target="_blank" rel="noopener">ContaKids Warsaw</a>
+      </p>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="section-header">
+        <h2 data-i18n="faq.title"></h2>
+        <span class="section-tag" data-i18n="faq.tag"></span>
+      </div>
+
+      <div class="faq-list">
+        <div>
+          <div class="faq-item">
+            <h3 data-i18n="faq.q1"></h3>
+            <p data-i18n="faq.a1"></p>
+          </div>
+          <div class="faq-item">
+            <h3 data-i18n="faq.q2"></h3>
+            <p data-i18n="faq.a2"></p>
+          </div>
+          <div class="faq-item">
+            <h3 data-i18n="faq.q3"></h3>
+            <p data-i18n="faq.a3"></p>
+          </div>
+        </div>
+
+        <div>
+          <div class="faq-item">
+            <h3 data-i18n="faq.q4"></h3>
+            <p data-i18n="faq.a4"></p>
+          </div>
+          <div class="faq-item">
+            <h3 data-i18n="faq.q5"></h3>
+            <p data-i18n="faq.a5"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-header">
+        <h2 data-i18n="contact.title"></h2>
+        <span class="section-tag" data-i18n="contact.tag"></span>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-card">
+          <h3 data-i18n="contact.channels"></h3>
+          <div class="contact-row">
+            <strong>Poland:</strong> +48 888 697 333 •
+            <a href="mailto:ContakidsPL@gmail.com">ContakidsPL@gmail.com</a>
+          </div>
+          <div class="contact-row">
+            <strong>KSA:</strong> +966 54 706 4424 •
+            <a href="mailto:ContakidsKSA@gmail.com">ContakidsKSA@gmail.com</a>
+          </div>
+          <p style="font-size:0.86rem; color:#777; margin-top:0.3rem;" data-i18n="contact.emailNote"></p>
+
+          <div class="social-links">
+            <div><strong>Instagram</strong></div>
+            <div>
+              <a href="https://www.instagram.com/contakids.warsaw/" target="_blank" rel="noopener">
+                https://www.instagram.com/contakids.warsaw/
+              </a>
+            </div>
+            <div style="margin-top:0.5rem;"><strong>Facebook</strong></div>
+            <div>
+              <a href="https://www.facebook.com/profile.php?id=61557670836394" target="_blank" rel="noopener">
+                https://www.facebook.com/profile.php?id=61557670836394
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3 data-i18n="contact.formTitle"></h3>
+          <p style="font-size:0.9rem; margin-bottom:0.5rem;" data-i18n="contact.formIntro"></p>
+
+          <form id="contact-form">
+            <div>
+              <label for="cf-name" data-i18n="contact.form.nameLabel"></label>
+              <input type="text" id="cf-name" name="name" required />
+            </div>
+            <div>
+              <label for="cf-email" data-i18n="contact.form.emailLabel"></label>
+              <input type="email" id="cf-email" name="email" required />
+            </div>
+            <div>
+              <label for="cf-location" data-i18n="contact.form.locationLabel"></label>
+              <select id="cf-location" name="location">
+                <option value="poland" data-i18n="contact.form.optionPoland"></option>
+                <option value="ksa" data-i18n="contact.form.optionKSA"></option>
+                <option value="other" data-i18n="contact.form.optionOther"></option>
+              </select>
+            </div>
+            <div>
+              <label for="cf-message" data-i18n="contact.form.messageLabel"></label>
+              <textarea id="cf-message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit"></button>
+            <p id="cf-status" style="font-size:0.8rem; color:#666; margin-top:0.3rem;"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>&copy; <span id="year"></span> ContaKids by Zuzanna Matysiewicz.</div>
+      <div data-i18n="footer.note"></div>
+    </div>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div class="overlay" id="booking-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title" data-i18n="booking.title"></div>
+        <button class="modal-close" id="booking-close" aria-label="Close">×</button>
+      </div>
+      <p style="font-size:0.9rem; margin-bottom:0.6rem;" data-i18n="booking.intro"></p>
+
+      <form id="booking-form" style="display:grid; gap:0.6rem; margin-top:0.3rem;">
+        <div>
+          <label for="bk-parent" data-i18n="booking.parentLabel"></label>
+          <input type="text" id="bk-parent" required />
+        </div>
+        <div>
+          <label for="bk-child" data-i18n="booking.childLabel"></label>
+          <input type="text" id="bk-child" required />
+        </div>
+        <div>
+          <label for="bk-age" data-i18n="booking.ageLabel"></label>
+          <input type="text" id="bk-age" required />
+        </div>
+        <div>
+          <label for="bk-location" data-i18n="booking.locationLabel"></label>
+          <select id="bk-location">
+            <option value="warsaw" data-i18n="booking.optionWarsaw"></option>
+            <option value="ksa" data-i18n="booking.optionKSA"></option>
+          </select>
+        </div>
+        <div>
+          <label for="bk-notes" data-i18n="booking.notesLabel"></label>
+          <textarea id="bk-notes"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" data-i18n="booking.submit"></button>
+        <p id="bk-status" style="font-size:0.8rem; color:#666; margin-top:0.2rem;"></p>
+        <p style="font-size:0.8rem; color:#888;" data-i18n="booking.emailHint"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- GALLERY LIGHTBOX -->
+  <div class="overlay" id="lightbox-overlay">
+    <div class="lightbox-modal">
+      <img id="lightbox-img" class="lightbox-img" src="" alt="" />
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <script>
+    // Basic nav active state
+    const navLinks = document.querySelectorAll(".nav-link");
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+        document.getElementById("nav-links").classList.remove("open");
+      });
+    });
+
+    // Burger menu
+    const burger = document.getElementById("burger");
+    const navList = document.getElementById("nav-links");
+    burger.addEventListener("click", () => {
+      navList.classList.toggle("open");
+    });
+
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Language packs
+    const translations = {
+      en: {
+        "nav.home": "Home",
+        "nav.about": "About",
+        "nav.zuzanna": "Zuzanna",
+        "nav.classes": "Classes",
+        "nav.gallery": "Gallery",
+        "nav.faq": "FAQ",
+        "nav.contact": "Contact",
+
+        "home.tag": "Movement • Play • Connection",
+        "home.title": "Playful movement classes for parents and children.",
+        "home.subtitle": "ContaKids with Zuzanna invites you to roll, jump and dance together, so that your child discovers confidence and you rediscover your inner child.",
+        "home.pill1": "2–5 years (siblings welcome)",
+        "home.pill2": "Contemporary dance + kids play",
+        "home.pill3": "Safe, soft and joyful space",
+        "home.bookBtn": "Book your spot",
+        "home.classesBtn": "Explore classes",
+        "home.bubble1": "Warsaw & Saudi Arabia",
+        "home.bubble2": "Bare feet, big smiles",
+
+        "about.tag": "What is ContaKids?",
+        "about.chip1": "Parent–child bonding",
+        "about.chip2": "Contact improvisation",
+        "about.chip3": "Creative play",
+        "about.whatTitle": "What happens in a ContaKids class?",
+        "about.what1": "ContaKids is a method that builds deep trust between parent and child through physical contact, shared movement and spontaneous play.",
+        "about.what2": "We roll, slide, balance on each other, fall safely and laugh together. The child becomes more independent, and the adult learns to follow, not lead all the time.",
+        "about.point1": "Explore movement: rolling, jumping, climbing and gentle challenges in a safe studio.",
+        "about.point2": "Build trust: listen to each other, negotiate boundaries and practice letting go.",
+        "about.point3": "Communicate beyond words: discover how much you can say with touch and weight.",
+        "about.point4": "Strengthen your bond: be true partners in play instead of \"teacher and student\".",
+        "about.badge1": "Small groups • cosy atmosphere",
+        "about.badge2": "No dance experience needed",
+
+        "about.whoTitle": "Who is ContaKids for?",
+        "about.who1": "ContaKids is created mainly for children from about 2 to 5 years old, together with one participating adult (parent, grandparent, caregiver).",
+        "about.who2": "Older siblings or slightly younger children are also welcome – Zuzanna adapts the dynamics so every body can feel included.",
+        "about.whoPoint1": "Toddlers and preschoolers who love to move, roll and climb.",
+        "about.whoPoint2": "Parents who want quality, screen‑free time together.",
+        "about.whoPoint3": "Families open to barefoot play, improvisation and a little bit of chaos.",
+
+        "zuzanna.title": "Zuzanna Matysiewicz",
+        "zuzanna.tag": "ContaKids instructor",
+        "zuzanna.chip1": "Contemporary dance",
+        "zuzanna.chip2": "Movement educator",
+        "zuzanna.chip3": "Parent–child work",
+        "zuzanna.header1": "Meet Zuzanna",
+        "zuzanna.bio1": "Zuzanna is a movement and dance educator with a strong background in contemporary dance and somatic practices.",
+        "zuzanna.bio2": "She studied contemporary dance in Warsaw and London and has been involved for many years in educational and artistic projects for children and families.",
+        "zuzanna.bio3": "As a certified ContaKids teacher, she creates safe, playful spaces where adults and children can meet as equal partners in movement.",
+        "zuzanna.point1": "Graduated in contemporary dance education and cultural projects.",
+        "zuzanna.point2": "Experience in working with children through dance, yoga and creative movement.",
+        "zuzanna.point3": "Believes that play and art are powerful tools for building self‑confidence and empathy.",
+        "zuzanna.photoNote": "Photo placeholder – replace with Zuzanna’s official pictures from her social media or photo archive.",
+
+        "classes.title": "Classes & formats",
+        "classes.tag": "Choose your flow",
+        "classes.c1.title": "Regular ContaKids cycle",
+        "classes.c1.age": "Age: 2–5 years",
+        "classes.c1.meta": "Weekly class • 60 minutes",
+        "classes.c1.desc": "A series of meetings in a fixed group where trust slowly grows. We repeat games so children feel safe, while leaving space for improvisation and new discoveries.",
+        "classes.c2.title": "Weekend workshops",
+        "classes.c2.age": "Age: 2–7 years",
+        "classes.c2.meta": "Intensive • 90 minutes",
+        "classes.c2.desc": "Perfect if you are travelling, have a busy week, or want to invite friends. Longer sessions allow deep play, gentle breaks and time to land together at the end.",
+        "classes.c3.title": "Special events & collaborations",
+        "classes.c3.age": "Families",
+        "classes.c3.meta": "Festivals • museums • schools",
+        "classes.c3.desc": "ContaKids can be part of family festivals, cultural programmes or school events. Zuzanna designs each session in dialogue with the space and community.",
+        "classes.bookBtn": "Book this class",
+        "classes.note": "To see current schedule for Warsaw and Saudi Arabia, please contact Zuzanna directly via email or WhatsApp.",
+
+        "gallery.title": "Gallery",
+        "gallery.tag": "Moments in motion",
+        "gallery.intro": "A glimpse of the energy in ContaKids classes: rolling bodies, tangled hugs, concentration, and sudden bursts of laughter. For more, visit our Instagram and Facebook.",
+        "gallery.lbl1": "Rolling and balancing",
+        "gallery.lbl2": "Circle & group games",
+        "gallery.lbl3": "Lifts and trust",
+        "gallery.lbl4": "Running and chasing",
+        "gallery.lbl5": "Stretching & cuddles",
+        "gallery.lbl6": "Quiet observation",
+
+        "faq.title": "FAQ",
+        "faq.tag": "Good to know",
+        "faq.q1": "Do I need any dance experience?",
+        "faq.a1": "Not at all. ContaKids is about connection and curiosity, not performance. Comfortable clothes and willingness to play are enough.",
+        "faq.q2": "Can I bring more than one child?",
+        "faq.a2": "Yes, siblings are welcome. Depending on the group size, Zuzanna may invite another adult to join so each child has enough support.",
+        "faq.q3": "What should we wear and bring?",
+        "faq.a3": "Come in soft, stretchy clothes, barefoot or in non‑slip socks. Bring water and, if needed, a small blanket for resting.",
+        "faq.q4": "Is ContaKids suitable for very energetic children?",
+        "faq.a4": "Yes. The structure offers clear frames where high energy can be expressed safely. Together you learn how to regulate through movement and rest.",
+        "faq.q5": "Which language are the classes in?",
+        "faq.a5": "In Warsaw classes are usually in Polish and English mixed. In Saudi Arabia Zuzanna adapts to the group, using English and simple Polish phrases and collaborating with Arabic‑speaking hosts when needed.",
+
+        "contact.title": "Contact & booking",
+        "contact.tag": "Say hello",
+        "contact.channels": "Direct contact",
+        "contact.emailNote": "Email is set to: ContakidsKSA@gmail.com",
+        "contact.formTitle": "Quick message form",
+        "contact.formIntro": "Use the form below to send a short message. You will receive a reply from the appropriate email address (Poland or KSA).",
+        "contact.form.nameLabel": "Your name",
+        "contact.form.emailLabel": "Your email",
+        "contact.form.locationLabel": "Where are you based?",
+        "contact.form.optionPoland": "Poland",
+        "contact.form.optionKSA": "Saudi Arabia",
+        "contact.form.optionOther": "Other / online",
+        "contact.form.messageLabel": "Your message",
+        "contact.form.submit": "Send message",
+
+        "footer.note": "Created with love for families who move, play and rest together.",
+
+        "booking.title": "Book your ContaKids class",
+        "booking.intro": "Fill in your details and Zuzanna will contact you to confirm dates, studio location and payment.",
+        "booking.parentLabel": "Parent / caregiver name",
+        "booking.childLabel": "Child’s name",
+        "booking.ageLabel": "Child’s age",
+        "booking.locationLabel": "Preferred city",
+        "booking.optionWarsaw": "Warsaw",
+        "booking.optionKSA": "KSA (Saudi Arabia)",
+        "booking.notesLabel": "Notes (language, special needs, schedule)",
+        "booking.submit": "Send booking request",
+        "booking.emailHint": "For Poland write to ContakidsPL@gmail.com • For KSA write to ContakidsKSA@gmail.com"
+      },
+
+      pl: {
+        "nav.home": "Start",
+        "nav.about": "O zajęciach",
+        "nav.zuzanna": "Zuzanna",
+        "nav.classes": "Zajęcia",
+        "nav.gallery": "Galeria",
+        "nav.faq": "Pytania",
+        "nav.contact": "Kontakt",
+
+        "home.tag": "Ruch • Zabawa • Bliskość",
+        "home.title": "Radosne zajęcia ruchowe dla dzieci i dorosłych.",
+        "home.subtitle": "ContaKids z Zuzanną zaprasza do turlania, skakania i tańca, aby dziecko nabierało pewności, a dorosły mógł znów pobawić się jak dziecko.",
+        "home.pill1": "Dla dzieci 2–5 lat (rodzeństwo mile widziane)",
+        "home.pill2": "Taniec współczesny + zabawa",
+        "home.pill3": "Bezpieczna, ciepła przestrzeń",
+        "home.bookBtn": "Zarezerwuj miejsce",
+        "home.classesBtn": "Zobacz zajęcia",
+        "home.bubble1": "Warszawa i Arabia Saudyjska",
+        "home.bubble2": "Bose stopy, szerokie uśmiechy",
+
+        "about.tag": "Czym jest ContaKids?",
+        "about.chip1": "Więź rodzic–dziecko",
+        "about.chip2": "Improwizacja kontaktowa",
+        "about.chip3": "Kreatywna zabawa",
+        "about.whatTitle": "Co robimy na zajęciach?",
+        "about.what1": "ContaKids to metoda budowania głębokiego zaufania między dzieckiem a dorosłym poprzez kontakt fizyczny, wspólny ruch i swobodną zabawę.",
+        "about.what2": "Turlamy się, ślizgamy, utrzymujemy równowagę na sobie nawzajem, bezpiecznie upadamy i dużo się śmiejemy. Dziecko uczy się samodzielności, a dorosły – odpuszczania kontroli.",
+        "about.point1": "Eksplorujemy ruch: turlanie, skakanie, wspinanie się i delikatne wyzwania w bezpiecznej przestrzeni.",
+        "about.point2": "Budujemy zaufanie: słuchamy siebie nawzajem i uczymy się stawiania granic.",
+        "about.point3": "Komunikujemy się poza słowami: odkrywamy, jak dużo można powiedzieć dotykiem i ciężarem.",
+        "about.point4": "Wzmacniamy więź: jesteśmy partnerami w zabawie, a nie nauczycielem i uczniem.",
+        "about.badge1": "Małe grupy • kameralna atmosfera",
+        "about.badge2": "Brak wymaganego doświadczenia tanecznego",
+
+        "about.whoTitle": "Dla kogo są zajęcia?",
+        "about.who1": "Zajęcia są przeznaczone głównie dla dzieci w wieku około 2–5 lat wraz z jednym dorosłym (rodzicem, dziadkiem, opiekunem).",
+        "about.who2": "Starsze rodzeństwo lub młodsze dzieci są mile widziane – Zuzanna dostosowuje dynamikę tak, by wszyscy czuli się włączeni.",
+        "about.whoPoint1": "Dla maluchów i przedszkolaków, które lubią ruch i turlanie.",
+        "about.whoPoint2": "Dla rodziców, którzy chcą jakościowego, bezekranowego czasu razem.",
+        "about.whoPoint3": "Dla rodzin otwartych na boso, improwizację i odrobinę twórczego chaosu.",
+
+        "zuzanna.title": "Zuzanna Matysiewicz",
+        "zuzanna.tag": "Instruktorka ContaKids",
+        "zuzanna.chip1": "Taniec współczesny",
+        "zuzanna.chip2": "Edukacja ruchowa",
+        "zuzanna.chip3": "Praca z rodzinami",
+        "zuzanna.header1": "Poznaj Zuzannę",
+        "zuzanna.bio1": "Zuzanna jest edukatorką ruchu i tańca z doświadczeniem w tańcu współczesnym i praktykach somatycznych.",
+        "zuzanna.bio2": "Kształciła się w dziedzinie tańca w Warszawie i Londynie oraz od lat współtworzy projekty artystyczno‑edukacyjne dla dzieci i rodzin.",
+        "zuzanna.bio3": "Jako certyfikowana nauczycielka ContaKids tworzy bezpieczne, pełne zabawy przestrzenie, w których dzieci i dorośli spotykają się jak równi partnerzy.",
+        "zuzanna.point1": "Wykształcenie w dziedzinie tańca współczesnego i projektów kulturowych.",
+        "zuzanna.point2": "Doświadczenie w pracy z dziećmi poprzez taniec, jogę i twórczy ruch.",
+        "zuzanna.point3": "Wierzy, że zabawa i sztuka wzmacniają pewność siebie oraz empatię.",
+        "zuzanna.photoNote": "Zdjęcie poglądowe – wstaw w to miejsce oficjalne fotografie Zuzanny z jej archiwum lub mediów społecznościowych.",
+
+        "classes.title": "Zajęcia i formaty",
+        "classes.tag": "Wybierz swój rytm",
+        "classes.c1.title": "Regularny cykl ContaKids",
+        "classes.c1.age": "Wiek: 2–5 lat",
+        "classes.c1.meta": "Zajęcia cotygodniowe • 60 minut",
+        "classes.c1.desc": "Spotkania w stałej grupie, w której z czasem rośnie zaufanie. Powtarzamy znane zabawy, zostawiając miejsce na improwizację i nowe odkrycia.",
+        "classes.c2.title": "Warsztaty weekendowe",
+        "classes.c2.age": "Wiek: 2–7 lat",
+        "classes.c2.meta": "Intensywne • 90 minut",
+        "classes.c2.desc": "Idealne dla rodzin w podróży, zapracowanych w tygodniu lub chcących przyjść w większej grupie. Dłuższy czas pozwala wejść głęboko w zabawę i spokojnie zakończyć.",
+        "classes.c3.title": "Wydarzenia specjalne i współprace",
+        "classes.c3.age": "Rodziny",
+        "classes.c3.meta": "Festiwale • instytucje kultury • szkoły",
+        "classes.c3.desc": "ContaKids może być częścią festiwali rodzinnych, programów edukacyjnych i wydarzeń w instytucjach kultury. Zajęcia są projektowane we współpracy z organizatorami.",
+        "classes.bookBtn": "Rezerwacja zajęć",
+        "classes.note": "Aby zobaczyć aktualny grafik w Warszawie i Arabii Saudyjskiej, skontaktuj się z Zuzanną mailowo lub przez WhatsApp.",
+
+        "gallery.title": "Galeria",
+        "gallery.tag": "Chwile w ruchu",
+        "gallery.intro": "Fragment atmosfery na zajęciach: turlające się ciała, splątane uściski, skupienie i wybuchy śmiechu. Więcej zdjęć znajdziesz na Instagramie i Facebooku.",
+        "gallery.lbl1": "Turlanie i równowaga",
+        "gallery.lbl2": "Zabawy w kole",
+        "gallery.lbl3": "Podnoszenia i zaufanie",
+        "gallery.lbl4": "Bieganie i gonitwy",
+        "gallery.lbl5": "Rozciąganie i przytulanie",
+        "gallery.lbl6": "Chwila obserwacji",
+
+        "faq.title": "Najczęstsze pytania",
+        "faq.tag": "Przed pierwszym spotkaniem",
+        "faq.q1": "Czy muszę mieć doświadczenie taneczne?",
+        "faq.a1": "Nie. Liczy się chęć bycia w ruchu z dzieckiem. Wystarczą wygodne ubrania i otwartość na zabawę.",
+        "faq.q2": "Czy mogę przyjść z więcej niż jednym dzieckiem?",
+        "faq.a2": "Tak, rodzeństwo jest mile widziane. Przy większej liczbie dzieci Zuzanna może zaprosić drugiego dorosłego, aby każde dziecko miało wsparcie.",
+        "faq.q3": "Co zabrać na zajęcia?",
+        "faq.a3": "Wygodne, elastyczne ubrania, bose stopy lub skarpetki antypoślizgowe, wodę do picia i, w razie potrzeby, mały kocyk.",
+        "faq.q4": "Czy ContaKids jest dla bardzo energicznych dzieci?",
+        "faq.a4": "Tak. Struktura zajęć pomaga bezpiecznie ukierunkować dużą energię. Uczycie się razem regulacji między ruchem a odpoczynkiem.",
+        "faq.q5": "W jakim języku są prowadzone zajęcia?",
+        "faq.a5": "W Warszawie najczęściej po polsku z elementami angielskiego. W innych krajach Zuzanna dopasowuje język do grupy i współpracuje z lokalnymi gospodarzami.",
+
+        "contact.title": "Kontakt i zapisy",
+        "contact.tag": "Napisz lub zadzwoń",
+        "contact.channels": "Bezpośredni kontakt",
+        "contact.emailNote": "Email jest ustawiony na: ContakidsKSA@gmail.com",
+        "contact.formTitle": "Krótka wiadomość",
+        "contact.formIntro": "Możesz też zostawić wiadomość w formularzu. Odezwiemy się z odpowiedniego adresu mailowego (Polska lub KSA).",
+        "contact.form.nameLabel": "Imię i nazwisko",
+        "contact.form.emailLabel": "Adres e‑mail",
+        "contact.form.locationLabel": "Gdzie mieszkasz?",
+        "contact.form.optionPoland": "Polska",
+        "contact.form.optionKSA": "Arabia Saudyjska",
+        "contact.form.optionOther": "Inne / online",
+        "contact.form.messageLabel": "Twoja wiadomość",
+        "contact.form.submit": "Wyślij",
+
+        "footer.note": "Stworzone z myślą o rodzinach, które lubią być razem w ruchu i w odpoczynku.",
+
+        "booking.title": "Rezerwacja zajęć ContaKids",
+        "booking.intro": "Podaj kilka informacji, a Zuzanna skontaktuje się z Tobą w sprawie terminu, miejsca zajęć i płatności.",
+        "booking.parentLabel": "Imię i nazwisko dorosłego",
+        "booking.childLabel": "Imię dziecka",
+        "booking.ageLabel": "Wiek dziecka",
+        "booking.locationLabel": "Miasto",
+        "booking.optionWarsaw": "Warszawa",
+        "booking.optionKSA": "KSA (Arabia Saudyjska)",
+        "booking.notesLabel": "Uwagi (język, potrzeby szczególne, godziny)",
+        "booking.submit": "Wyślij zgłoszenie",
+        "booking.emailHint": "W sprawie zajęć w Polsce pisz na ContakidsPL@gmail.com • w KSA na ContakidsKSA@gmail.com"
+      },
+
+      ar: {
+        "nav.home": "الرئيسية",
+        "nav.about": "عن كونتاكيدز",
+        "nav.zuzanna": "زوزانا",
+        "nav.classes": "الحصص",
+        "nav.gallery": "الصور",
+        "nav.faq": "الأسئلة",
+        "nav.contact": "التواصل",
+
+        "home.tag": "حركة • لعب • قرب",
+        "home.title": "حصص حركة مرحة للأهل والأطفال معًا.",
+        "home.subtitle": "كونتاكيدز مع زوزانا تدعوكم إلى التدحرج والقفز والرقص معًا، ليكتشف طفلك الثقة ويجد جسدك مساحة للراحة واللعب.",
+        "home.pill1": "للأطفال من ٢ إلى ٥ سنوات (الأشقاء مرحب بهم)",
+        "home.pill2": "رقص معاصر + لعب حر",
+        "home.pill3": "مساحة آمنة ودافئة",
+        "home.bookBtn": "احجزوا مكانكم",
+        "home.classesBtn": "تعرّفوا على الحصص",
+        "home.bubble1": "وارسو • المملكة العربية السعودية",
+        "home.bubble2": "أقدام حافية وابتسامات كبيرة",
+
+        "about.tag": "ما هي كونتاكيدز؟",
+        "about.chip1": "تقوية علاقة الأهل بالطفل",
+        "about.chip2": "حركة بالتلامس",
+        "about.chip3": "لعب إبداعي",
+        "about.whatTitle": "ماذا نفعل في الحصة؟",
+        "about.what1": "كونتاكيدز طريقة تبني الثقة العميقة بين الطفل والبالغ من خلال التلامس الجسدي والحركة المشتركة واللعب الحر.",
+        "about.what2": "نتدحرج، ننزلق، نتوازن على أجساد بعضنا البعض، نسقط بأمان ونضحك كثيرًا. يتعلم الطفل الاستقلالية، ويتعلم البالغ أن يخفف من السيطرة.",
+        "about.point1": "استكشاف الحركة: تدحرج، قفز، تسلّق وتحديات لطيفة في مساحة آمنة.",
+        "about.point2": "بناء الثقة: الإصغاء لبعضنا البعض وتعلّم الحدود.",
+        "about.point3": "التواصل بلا كلمات: الحديث باللمس والوزن والتنفس.",
+        "about.point4": "تقوية الرابط: أن نكون شركاء حقيقيين في اللعب، لا معلّمًا وتلميذًا.",
+        "about.badge1": "مجموعات صغيرة • جو حميمي",
+        "about.badge2": "لا حاجة لأي خبرة في الرقص",
+
+        "about.whoTitle": "لمن تناسب كونتاكيدز؟",
+        "about.who1": "الحصص مخصّصة أساسًا للأطفال من عمر سنتين إلى خمس سنوات مع شخص بالغ مشارك (أم، أب، جد/ة أو مُربي/ة).",
+        "about.who2": "الأشقاء الأكبر أو الأصغر مرحّب بهم أيضًا، وتقوم زوزانا بضبط الإيقاع بحيث يشعر الجميع بالاندماج.",
+        "about.whoPoint1": "للأطفال الذين يحبّون الحركة والتدحرج والتسلّق.",
+        "about.whoPoint2": "للأهل الذين يبحثون عن وقت نوعي بعيدًا عن الشاشات.",
+        "about.whoPoint3": "للأُسر المنفتحة على اللعب الحافي والإبداع والحركة الحرة.",
+
+        "zuzanna.title": "زوزانا ماتيشييفيتش",
+        "zuzanna.tag": "مدرّبة كونتاكيدز",
+        "zuzanna.chip1": "رقص معاصر",
+        "zuzanna.chip2": "تعليم الحركة",
+        "zuzanna.chip3": "عمل مع العائلات",
+        "zuzanna.header1": "تعرفوا على زوزانا",
+        "zuzanna.bio1": "زوزانا مُعلِّمة حركة ورقص بخلفية قوية في الرقص المعاصر والمقاربات الجسدية الهادئة.",
+        "zuzanna.bio2": "درست الرقص في وارسو ولندن وشاركت لسنوات في مشاريع فنية وتعليمية موجهة للأطفال والعائلات.",
+        "zuzanna.bio3": "بصفتها مدرّبة معتمدة في كونتاكيدز، تخلق مساحات آمنة ومرحة يلتقي فيها الكبار والأطفال على قدم المساواة.",
+        "zuzanna.point1": "دراسة متخصصة في الرقص المعاصر والمشاريع الثقافية.",
+        "zuzanna.point2": "خبرة في العمل مع الأطفال من خلال الرقص واليوغا والحركة الإبداعية.",
+        "zuzanna.point3": "تؤمن بأن اللعب والفن يساعدان الأطفال والبالغين على الشعور بالثقة والتواصل.",
+        "zuzanna.photoNote": "صورة توضيحية – يمكن استبدالها بصور رسمية لزوزانا من حساباتها أو أرشيفها الشخصي.",
+
+        "classes.title": "أنواع الحصص",
+        "classes.tag": "اختاروا ما يناسبكم",
+        "classes.c1.title": "سلسلة أسبوعية منتظمة",
+        "classes.c1.age": "العمر: ٢–٥ سنوات",
+        "classes.c1.meta": "حصة أسبوعية • ٦٠ دقيقة",
+        "classes.c1.desc": "مجموعة ثابتة نلتقي فيها بانتظام، ومع الوقت تنمو الثقة بين الأطفال والأهل. نكرّر الألعاب المألوفة ونترك مساحة للاكتشاف.",
+        "classes.c2.title": "ورشات نهاية الأسبوع",
+        "classes.c2.age": "العمر: ٢–٧ سنوات",
+        "classes.c2.meta": "مكثفة • ٩٠ دقيقة",
+        "classes.c2.desc": "مناسبة للعائلات التي لا تستطيع الحضور أسبوعيًا أو ترغب في تجربة أعمق مع الأصدقاء والأقارب.",
+        "classes.c3.title": "فعاليات خاصة وتعاونات",
+        "classes.c3.age": "العائلات",
+        "classes.c3.meta": "مهرجانات • مدارس • مراكز ثقافية",
+        "classes.c3.desc": "يمكن دمج كونتاكيدز في برامج عائلية أو مدرسية أو مهرجانات. يتم تصميم كل حصة بالتعاون مع الجهة المستضيفة.",
+        "classes.bookBtn": "احجزوا هذه الحصة",
+        "classes.note": "للإطلاع على المواعيد الحالية في وارسو والمملكة العربية السعودية، يُرجى التواصل مع زوزانا عبر البريد الإلكتروني أو الواتساب.",
+
+        "gallery.title": "الصور",
+        "gallery.tag": "لحظات في الحركة",
+        "gallery.intro": "لقطات من أجواء الحصص: أجساد تتدحرج، عناق، تركيز، وضحك عالٍ. يمكنكم مشاهدة المزيد على إنستغرام وفيسبوك.",
+        "gallery.lbl1": "تدحرج وتوازن",
+        "gallery.lbl2": "ألعاب في دائرة",
+        "gallery.lbl3": "حمل وثقة",
+        "gallery.lbl4": "جري ومطاردة",
+        "gallery.lbl5": "تمدد واحتضان",
+        "gallery.lbl6": "لحظة هدوء ومراقبة",
+
+        "faq.title": "الأسئلة المتكررة",
+        "faq.tag": "قبل أول حصة",
+        "faq.q1": "هل أحتاج لخبرة في الرقص؟",
+        "faq.a1": "لا حاجة لأي خبرة. المهم أن تكونوا مستعدين للحركة واللعب مع أطفالكم.",
+        "faq.q2": "هل يمكن أن يأتي أكثر من طفل مع نفس البالغ؟",
+        "faq.a2": "نعم، الأشقاء مرحّب بهم. قد تقترح زوزانا وجود شخص بالغ إضافي حتى يحصل كل طفل على الاهتمام الكافي.",
+        "faq.q3": "ماذا نرتدي؟ وماذا نحضر؟",
+        "faq.a3": "ملابس مريحة ومرنة، أقدام حافية أو جوارب مانعة للانزلاق، وقارورة ماء. يمكن إحضار غطاء خفيف للراحة.",
+        "faq.q4": "هل تناسب كونتاكيدز الأطفال ذوي الحركة العالية جدًا؟",
+        "faq.a4": "نعم. إطار الحصة يساعد على توجيه الطاقة العالية بشكل آمن، مع لحظات للتهدئة والتنفس.",
+        "faq.q5": "بأي لغة تُقدَّم الحصص؟",
+        "faq.a5": "في وارسو غالبًا باللغة البولندية مع بعض الإنجليزية. في السعودية تعتمد اللغة على المجموعة، مع استخدام الإنجليزية والتعاون مع شركاء ناطقين بالعربية عند الحاجة.",
+
+        "contact.title": "التواصل والحجز",
+        "contact.tag": "يسعدنا لقاؤكم",
+        "contact.channels": "قنوات التواصل المباشر",
+        "contact.emailNote": "سيتم إرسال الرسائل من البريد التالي: ContakidsKSA@gmail.com",
+        "contact.formTitle": "نموذج رسالة سريعة",
+        "contact.formIntro": "املؤوا النموذج لترك رسالة قصيرة، وسيتم التواصل معكم من البريد المناسب (بولندا أو السعودية).",
+        "contact.form.nameLabel": "الاسم",
+        "contact.form.emailLabel": "البريد الإلكتروني",
+        "contact.form.locationLabel": "البلد / المدينة",
+        "contact.form.optionPoland": "بولندا",
+        "contact.form.optionKSA": "المملكة العربية السعودية",
+        "contact.form.optionOther": "دولة أخرى / أونلاين",
+        "contact.form.messageLabel": "نص الرسالة",
+        "contact.form.submit": "إرسال الرسالة",
+
+        "footer.note": "موقع مُصمَّم للعائلات التي تحب أن تتحرك وتستريح وتلعب معًا.",
+
+        "booking.title": "طلب حجز حصة كونتاكيدز",
+        "booking.intro": "يرجى تعبئة البيانات التالية، وستتواصل معكم زوزانا لتأكيد الوقت والمكان وطريقة الدفع.",
+        "booking.parentLabel": "اسم الشخص البالغ",
+        "booking.childLabel": "اسم الطفل",
+        "booking.ageLabel": "عمر الطفل",
+        "booking.locationLabel": "المدينة المفضّلة",
+        "booking.optionWarsaw": "وارسو",
+        "booking.optionKSA": "المملكة العربية السعودية",
+        "booking.notesLabel": "ملاحظات (اللغة المفضلة، احتياجات خاصة، مواعيد مناسبة)",
+        "booking.submit": "إرسال طلب الحجز",
+        "booking.emailHint": "لحصص بولندا: ContakidsPL@gmail.com • لحصص السعودية: ContakidsKSA@gmail.com"
+      }
+    };
+
+    let currentLang = "en";
+
+    function applyTranslations() {
+      const dict = translations[currentLang];
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key]) {
+          el.textContent = dict[key];
+        }
+      });
+
+      // RTL / LTR
+      if (currentLang === "ar") {
+        document.body.setAttribute("dir", "rtl");
+      } else {
+        document.body.setAttribute("dir", "ltr");
+      }
+    }
+
+    // Language switch
+    const langButtons = document.querySelectorAll(".lang-btn");
+    langButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        langButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentLang = btn.dataset.lang;
+        applyTranslations();
+      });
+    });
+
+    // Initialize
+    applyTranslations();
+
+    // Booking modal
+    const bookingOverlay = document.getElementById("booking-overlay");
+    const bookingClose = document.getElementById("booking-close");
+    const bookingOpenMain = document.getElementById("open-booking");
+    const bookingOpenSmall = document.querySelectorAll(".open-booking-small");
+    const bookingForm = document.getElementById("booking-form");
+    const bkStatus = document.getElementById("bk-status");
+
+    function openBooking() {
+      bookingOverlay.classList.add("active");
+      bkStatus.textContent = "";
+    }
+
+    bookingOpenMain.addEventListener("click", openBooking);
+    bookingOpenSmall.forEach(btn => btn.addEventListener("click", openBooking));
+
+    bookingClose.addEventListener("click", () => {
+      bookingOverlay.classList.remove("active");
+    });
+
+    bookingOverlay.addEventListener("click", (e) => {
+      if (e.target === bookingOverlay) bookingOverlay.classList.remove("active");
+    });
+
+    bookingForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      bkStatus.textContent = currentLang === "pl"
+        ? "Dziękujemy za zgłoszenie! Skontaktujemy się wkrótce."
+        : currentLang === "ar"
+        ? "شكرًا على الطلب! سيتم التواصل معكم قريبًا."
+        : "Thank you for your request! You will hear from us soon.";
+      bookingForm.reset();
+    });
+
+    // Contact form (front‑end only)
+    const contactForm = document.getElementById("contact-form");
+    const cfStatus = document.getElementById("cf-status");
+
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      cfStatus.textContent = currentLang === "pl"
+        ? "Wiadomość została zapisana lokalnie (demonstracja). Skontaktujemy się mailowo."
+        : currentLang === "ar"
+        ? "تم حفظ رسالتكم محليًا (عرض تجريبي). سيتم التواصل معكم عبر البريد."
+        : "Your message was stored locally (demo only). We will reply by email.";
+      contactForm.reset();
+    });
+
+    // Gallery lightbox
+    const lightboxOverlay = document.getElementById("lightbox-overlay");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxCaption = document.getElementById("lightbox-caption");
+
+    document.querySelectorAll(".gallery-item").forEach(item => {
+      item.addEventListener("click", () => {
+        const src = item.getAttribute("data-img");
+        const caption = item.getAttribute("data-caption");
+        lightboxImg.src = src;
+        lightboxCaption.textContent = caption || "";
+        lightboxOverlay.classList.add("active");
+      });
+    });
+
+    lightboxOverlay.addEventListener("click", (e) => {
+      if (e.target === lightboxOverlay) {
+        lightboxOverlay.classList.remove("active");
+        lightboxImg.src = "";
+      }
+    });
+
+    // Keyboard ESC to close overlays
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        bookingOverlay.classList.remove("active");
+        lightboxOverlay.classList.remove("active");
+        lightboxImg.src = "";
+      }
+    });
+  </script>
+</body>
+</html>
+
