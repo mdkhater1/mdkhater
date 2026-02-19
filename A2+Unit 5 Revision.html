@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Interactive Study Worksheet (Vocab + Grammar + Reading)</title>
+  <title>U5A2+ Interactive Worksheet (Vocabulary + Grammar + Reading)</title>
   <style>
     :root{
       --bg:#f6fbff;
@@ -11,7 +11,6 @@
       --ink:#1f2a37;
       --muted:#5b6b7a;
       --primary:#5aa7ff;
-      --primary2:#7dd3fc;
       --accent:#a7f3d0;
       --warn:#fde68a;
       --good:#86efac;
@@ -30,16 +29,12 @@
       color:var(--ink);
       line-height:1.45;
     }
-    header{
-      padding:28px 18px 10px;
-      max-width:1100px;
-      margin:0 auto;
-    }
+    header{ padding:28px 18px 10px; max-width:1100px; margin:0 auto; }
     .hero{
       background: linear-gradient(135deg, rgba(90,167,255,.18), rgba(167,243,208,.22));
       border:1px solid var(--border);
       border-radius:24px;
-      padding:18px 18px;
+      padding:18px;
       box-shadow: var(--shadow);
       position:relative;
       overflow:hidden;
@@ -53,9 +48,23 @@
       transform: rotate(12deg);
     }
     h1{margin:0 0 6px; font-size: clamp(20px, 3vw, 30px);}
-    .sub{color:var(--muted); margin:0 0 10px; max-width:70ch;}
-    .toprow{
-      display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;
+    .sub{color:var(--muted); margin:0 0 10px; max-width:90ch;}
+    .toprow{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between; }
+    nav{ display:flex; gap:10px; flex-wrap:wrap; margin:10px 0 0; }
+    .tab{
+      cursor:pointer; user-select:none;
+      padding:10px 14px; border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.72);
+      color:var(--muted); font-weight:800;
+      box-shadow: 0 6px 16px rgba(31,42,55,.05);
+      transition: transform .08s ease, background .2s ease;
+    }
+    .tab:hover{transform: translateY(-1px);}
+    .tab.active{
+      background: linear-gradient(135deg, rgba(90,167,255,.22), rgba(167,243,208,.22));
+      color:var(--ink);
+      border-color: rgba(90,167,255,.35);
     }
     .pill{
       display:inline-flex; gap:8px; align-items:center;
@@ -67,46 +76,11 @@
       font-size:13px;
       backdrop-filter: blur(8px);
     }
-    main{
-      max-width:1100px;
-      margin:16px auto 70px;
-      padding:0 18px;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:14px;
-    }
+    main{ max-width:1100px; margin:16px auto 70px; padding:0 18px; }
+    .grid{ display:grid; grid-template-columns: 1fr; gap:14px; }
     @media (min-width: 900px){
-      .grid{
-        grid-template-columns: 1.6fr .9fr;
-        gap:16px;
-        align-items:start;
-      }
+      .grid{ grid-template-columns: 1.6fr .9fr; gap:16px; align-items:start; }
     }
-    nav{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin:10px 0 0;
-    }
-    .tab{
-      cursor:pointer;
-      user-select:none;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.72);
-      color:var(--muted);
-      font-weight:600;
-      box-shadow: 0 6px 16px rgba(31,42,55,.05);
-      transition: transform .08s ease, background .2s ease;
-    }
-    .tab:hover{transform: translateY(-1px);}
-    .tab.active{
-      background: linear-gradient(135deg, rgba(90,167,255,.22), rgba(167,243,208,.22));
-      color:var(--ink);
-      border-color: rgba(90,167,255,.35);
-    }
-
     .card{
       background:var(--card);
       border:1px solid var(--border);
@@ -116,6 +90,7 @@
     }
     .card h2{margin:0 0 8px; font-size:18px;}
     .muted{color:var(--muted)}
+    .small{font-size:13px}
     .row{display:flex; gap:12px; flex-wrap:wrap; align-items:center;}
     .btn{
       cursor:pointer;
@@ -123,7 +98,7 @@
       border-radius:12px;
       border:1px solid var(--border);
       background: linear-gradient(180deg, #fff, #f7fbff);
-      font-weight:700;
+      font-weight:900;
       color:var(--ink);
       box-shadow: 0 6px 16px rgba(31,42,55,.06);
       transition: transform .08s ease;
@@ -154,6 +129,8 @@
     .bar{height:100%; width:0%; background: linear-gradient(90deg, var(--primary), var(--accent));}
     .scoreLine{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:8px; color:var(--muted); font-size:13px}
 
+    .divider{height:1px; background:var(--border); margin:12px 0;}
+
     .q{
       border:1px solid var(--border);
       border-radius:16px;
@@ -161,10 +138,8 @@
       background: linear-gradient(180deg, rgba(255,255,255,1), rgba(246,251,255,.7));
       margin:10px 0;
     }
-    .qhead{
-      display:flex; gap:10px; align-items:flex-start; justify-content:space-between;
-    }
-    .qtitle{ margin:0; font-weight:800; }
+    .qhead{ display:flex; gap:10px; align-items:flex-start; justify-content:space-between; }
+    .qtitle{ margin:0; font-weight:950; }
     .tag{
       font-size:12px;
       padding:6px 10px;
@@ -178,7 +153,7 @@
     .choice{
       border:1px solid var(--border);
       border-radius:14px;
-      padding:10px 10px;
+      padding:10px;
       background:rgba(255,255,255,.85);
       display:flex; gap:10px; align-items:flex-start;
       cursor:pointer;
@@ -200,14 +175,9 @@
     .q.correct .explain{display:block; border-color: rgba(134,239,172,.7); background: rgba(134,239,172,.12);}
     .q.wrong .explain{display:block; border-color: rgba(252,165,165,.8); background: rgba(252,165,165,.12);}
 
-    .vocabGrid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:12px;
-    }
-    @media (min-width: 700px){
-      .vocabGrid{ grid-template-columns: repeat(2, 1fr); }
-    }
+    /* Vocabulary cards */
+    .vocabGrid{ display:grid; grid-template-columns: 1fr; gap:12px; }
+    @media (min-width: 700px){ .vocabGrid{ grid-template-columns: repeat(2, 1fr); } }
     .vcard{
       display:grid;
       grid-template-columns: 92px 1fr;
@@ -226,26 +196,15 @@
       overflow:hidden;
       box-shadow: 0 10px 22px rgba(31,42,55,.10);
       display:flex; align-items:center; justify-content:center;
-      position:relative;
     }
-    .vimg img{width:100%; height:100%; object-fit:cover; display:block;}
-    .vimg .fallback{
-      position:absolute; inset:0;
-      display:flex; align-items:center; justify-content:center;
-      font-size:12px;
-      color:var(--muted);
-      background: linear-gradient(135deg, rgba(90,167,255,.12), rgba(167,243,208,.18));
-      text-align:center;
-      padding:8px;
-    }
-    .vword{margin:0; font-size:16px; font-weight:900;}
+    .vword{margin:0; font-size:16px; font-weight:1000;}
     .vdef{margin:4px 0 0; color:var(--muted); font-size:13px;}
     .vex{margin:6px 0 0; font-size:13px;}
-    .small{font-size:13px}
 
+    /* Grammar mini graphics */
     .gGraphic{
       width:100%;
-      height:120px;
+      height:130px;
       border-radius:18px;
       border:1px solid var(--border);
       background: linear-gradient(135deg, rgba(253,230,138,.30), rgba(90,167,255,.14));
@@ -254,7 +213,6 @@
       margin:10px 0;
     }
     .gGraphic svg{width:100%; height:100%}
-    .divider{height:1px; background:var(--border); margin:12px 0;}
 
     textarea{
       width:100%;
@@ -275,9 +233,7 @@
       color:var(--muted);
       font-size:13px;
     }
-    .sideCardTitle{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-    }
+    .sideCardTitle{display:flex; align-items:center; justify-content:space-between; gap:12px;}
     .kbd{
       font-size:12px;
       padding:4px 8px;
@@ -287,6 +243,16 @@
       color:var(--muted);
     }
     .footerNote{ margin-top:10px; color:var(--muted); font-size:12px; }
+
+    .hint{
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(253,230,138,.7);
+      background: rgba(253,230,138,.25);
+      color:var(--muted);
+      font-size:13px;
+      margin-top:10px;
+    }
   </style>
 </head>
 <body>
@@ -295,15 +261,18 @@
   <div class="hero">
     <div class="toprow">
       <div>
-        <h1>Interactive Study Worksheet</h1>
-        <p class="sub">Practice <b>Vocabulary</b>, <b>Grammar</b>, and <b>Reading Comprehension</b>. Get instant feedback and an offline “AI-like” coach.</p>
+        <h1>U5A2+ Interactive Study Worksheet</h1>
+        <p class="sub">
+          Vocabulary: <b>rooms & furniture</b> + <b>your environment</b> + <b>phrasal verbs</b>.
+          Grammar: <b>will</b> (predictions), <b>might</b>, <b>first</b> & <b>zero conditional</b>.
+        </p>
         <nav>
           <div class="tab active" data-tab="vocab">Vocabulary</div>
           <div class="tab" data-tab="grammar">Grammar</div>
           <div class="tab" data-tab="reading">Reading</div>
         </nav>
       </div>
-      <div class="pill" title="Works offline once saved">✅ Offline friendly • ⚡ Instant grading • 🧠 Coach feedback</div>
+      <div class="pill" title="Works offline once saved">✅ Offline • ⚡ Instant grading • 🧠 Coach</div>
     </div>
 
     <div class="progressWrap" aria-label="Progress">
@@ -323,8 +292,8 @@
 
       <!-- VOCAB TAB -->
       <div class="card tabPane" id="pane-vocab">
-        <h2>Vocabulary Study</h2>
-        <p class="muted small">First, study the words (with visuals). Then answer the MCQ questions like the exam.</p>
+        <h2>Vocabulary (U5A2+)</h2>
+        <p class="muted small">Study the words, then answer the MCQs. Icons are built-in (offline).</p>
 
         <div class="divider"></div>
 
@@ -333,20 +302,20 @@
 
         <div class="divider"></div>
 
-        <h3 style="margin:0 0 10px;">Vocabulary MCQ (20 Questions)</h3>
+        <h3 style="margin:0 0 10px;">Vocabulary MCQ (36 Questions)</h3>
         <div id="vocabQuiz"></div>
 
         <div class="row" style="margin-top:12px;">
           <button class="btn primary" onclick="gradeSection('vocab')">Grade Vocabulary</button>
           <button class="btn" onclick="resetSection('vocab')">Reset Vocabulary</button>
         </div>
-        <p class="footerNote">Tip: Click a choice to select it. Feedback appears after grading.</p>
+        <p class="footerNote">Tip: Choose an option, then press Grade.</p>
       </div>
 
       <!-- GRAMMAR TAB -->
       <div class="card tabPane" id="pane-grammar" style="display:none;">
-        <h2>Grammar Review</h2>
-        <p class="muted small">Read each rule, look at the graphic, then answer the MCQs (30 questions total).</p>
+        <h2>Grammar (U5A2+)</h2>
+        <p class="muted small">Rules + 30 MCQs: <b>will</b> predictions, <b>might</b>, <b>first</b> & <b>zero conditional</b>.</p>
 
         <div id="grammarBlocks"></div>
 
@@ -354,12 +323,17 @@
           <button class="btn primary" onclick="gradeSection('grammar')">Grade Grammar</button>
           <button class="btn" onclick="resetSection('grammar')">Reset Grammar</button>
         </div>
+
+        <div class="hint">
+          <b>First conditional</b>: If + present simple, will + verb (possible future result).<br/>
+          <b>Zero conditional</b>: If + present simple, present simple (facts/rules).
+        </div>
       </div>
 
       <!-- READING TAB -->
       <div class="card tabPane" id="pane-reading" style="display:none;">
-        <h2>Reading Comprehension</h2>
-        <p class="muted small">Read the passages and answer questions. MCQs are auto-graded. Short answers get “coach” feedback offline.</p>
+        <h2>Reading Comprehension (2 Passages)</h2>
+        <p class="muted small">Answer MCQs + short answers. Short answers get offline coach feedback.</p>
 
         <div id="readingBlocks"></div>
 
@@ -378,13 +352,13 @@
         <span class="kbd">No Internet</span>
       </div>
       <p class="muted small" style="margin-top:6px;">
-        This “coach” gives hints using patterns and rubrics (works offline). It is not a real AI model, but it helps students improve.
+        Paste any sentence or short answer. The coach checks punctuation, length, and U5A2+ grammar patterns.
       </p>
 
       <div class="divider"></div>
 
-      <label class="muted small"><b>Paste any sentence or short answer here:</b></label>
-      <textarea id="coachInput" placeholder="Type a sentence…"></textarea>
+      <label class="muted small"><b>Write here:</b></label>
+      <textarea id="coachInput" placeholder="Example: If we recycle plastic, we will reduce waste."></textarea>
       <div class="row" style="margin-top:10px;">
         <button class="btn good" onclick="runCoach()">Get Coach Feedback</button>
         <button class="btn" onclick="document.getElementById('coachInput').value=''; document.getElementById('coachOut').innerHTML='';">Clear</button>
@@ -395,7 +369,7 @@
       <div class="divider"></div>
 
       <button class="btn warn" onclick="gradeAll()">Grade Everything</button>
-      <p class="footerNote">Teacher tip: Save this file and share it. It will still work offline.</p>
+      <p class="footerNote">Teacher tip: To edit content, change only the lists in the DATA section.</p>
     </aside>
 
   </div>
@@ -403,147 +377,220 @@
 
 <script>
 /* =========================================================
-   DATA (Edit these to match your Word/PDF materials)
+   DATA — U5A2+ (Vocabulary + Grammar + Reading)
    ========================================================= */
 
 const vocabList = [
-  { word:"vibrant", def:"full of energy and bright color", ex:"The market was vibrant and full of life.", img:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=60" },
-  { word:"archaeological", def:"related to studying ancient history using objects and ruins", ex:"They visited an archaeological site in the desert.", img:"https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=600&q=60" },
-  { word:"must-see", def:"very important to visit or watch", ex:"The museum is a must-see for tourists.", img:"https://images.unsplash.com/photo-1529421308418-eab98863cee4?auto=format&fit=crop&w=600&q=60" },
-  { word:"like-minded", def:"sharing similar interests or opinions", ex:"She met like-minded students in the art club.", img:"https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=60" },
-  { word:"spare", def:"extra; not needed right now", ex:"Do you have a spare pen I can borrow?", img:"https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=600&q=60" },
-  { word:"favorite", def:"liked more than all others", ex:"My favorite dessert is ice cream.", img:"https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=600&q=60" }
+  // Rooms
+  { word:"bathroom", def:"a room with a shower/bath and a sink", ex:"The basin is in the bathroom.", icon:"🛁", hue:205 },
+  { word:"bedroom", def:"a room where you sleep", ex:"My curtains are thin in my bedroom.", icon:"🛏️", hue:165 },
+  { word:"garden", def:"an outdoor area with plants/grass", ex:"We plant a tree in the garden.", icon:"🌿", hue:135 },
+  { word:"garage", def:"a place where you keep a car", ex:"The bike is in the garage.", icon:"🚗", hue:40 },
+  { word:"hall", def:"the main space near the front door", ex:"Shoes are in the hall.", icon:"🚪", hue:25 },
+  { word:"kitchen", def:"a room where you cook", ex:"The fridge is in the kitchen.", icon:"🍳", hue:15 },
+  { word:"living room", def:"a room where people relax", ex:"There’s an armchair in the living room.", icon:"🛋️", hue:210 },
+  { word:"office", def:"a room for working/studying", ex:"My mum works in the office.", icon:"💻", hue:250 },
+  { word:"stairs", def:"steps between floors in a house", ex:"Be careful on the stairs.", icon:"🪜", hue:300 },
+
+  // Furniture & items (from the unit list)
+  { word:"armchair", def:"a comfortable chair for one person", ex:"I read in the armchair.", icon:"🪑", hue:200 },
+  { word:"basin", def:"a sink in a bathroom for washing hands/face", ex:"Wash your hands in the basin.", icon:"🚰", hue:190 },
+  { word:"bin", def:"a container for rubbish/waste", ex:"Put the bottle in the bin.", icon:"🗑️", hue:95 },
+  { word:"bookshelf", def:"furniture for keeping books", ex:"The dictionary is on the bookshelf.", icon:"📚", hue:120 },
+  { word:"carpet", def:"a thick fabric covering on the floor", ex:"The carpet is soft.", icon:"🧶", hue:15 },
+  { word:"cooker", def:"a machine for cooking food", ex:"The cooker is next to the sink.", icon:"🔥", hue:10 },
+  { word:"cupboard", def:"a cabinet for storing things", ex:"Cups are in the cupboard.", icon:"🗄️", hue:45 },
+  { word:"curtains", def:"cloth that covers a window", ex:"Close the curtains at night.", icon:"🪟", hue:55 },
+  { word:"fridge", def:"a cold place to keep food fresh", ex:"Milk is in the fridge.", icon:"🧊", hue:210 },
+  { word:"sink", def:"a basin where you wash things (kitchen/bathroom)", ex:"I wash up in the sink.", icon:"🫧", hue:195 },
+  { word:"sofa", def:"a large seat for two or more people", ex:"We sit on the sofa.", icon:"🛋️", hue:180 },
+  { word:"wardrobe", def:"a tall cupboard for clothes", ex:"My clothes are in the wardrobe.", icon:"👕", hue:330 },
+  { word:"washing machine", def:"a machine for washing clothes", ex:"The washing machine is noisy.", icon:"🧺", hue:215 },
+
+  // Environment words (from tips/definitions)
+  { word:"pollution", def:"dangerous material in air/water", ex:"Cars cause air pollution.", icon:"🏭", hue:0 },
+  { word:"waste", def:"material we do not need", ex:"We must reduce waste.", icon:"🧻", hue:25 },
+  { word:"plant", def:"to put trees/flowers in the ground", ex:"We plant a tree at school.", icon:"🌱", hue:120 },
+  { word:"reuse", def:"to use something again", ex:"We reuse old boxes.", icon:"🔁", hue:160 },
+  { word:"reduce", def:"to make something less", ex:"We reduce plastic use.", icon:"📉", hue:215 },
+  { word:"recycling bins", def:"places to put paper/plastic/glass for recycling", ex:"Put bottles in recycling bins.", icon:"🟦", hue:190 },
+  { word:"recycle", def:"to change materials to use again", ex:"We recycle paper and plastic.", icon:"♻️", hue:140 },
+  { word:"litter", def:"rubbish on the ground", ex:"Pick up litter in the park.", icon:"🍬", hue:35 },
+
+  // Phrasal verbs (box in the unit)
+  { word:"turn off", def:"stop a device using power", ex:"Turn off your computer.", icon:"⏻", hue:220 },
+  { word:"turn on", def:"start a device using power", ex:"Turn on the lights.", icon:"💡", hue:60 },
+  { word:"turn up", def:"make something stronger/louder/higher", ex:"Don’t turn up the heating.", icon:"🔊", hue:20 },
+  { word:"turn down", def:"make something weaker/quieter/lower", ex:"Turn down the music.", icon:"🔉", hue:35 },
+  { word:"give up", def:"stop doing something", ex:"Give up using plastic straws.", icon:"🛑", hue:5 },
+  { word:"pick up", def:"collect from the ground", ex:"Pick up paper and cans.", icon:"🖐️", hue:40 },
+  { word:"throw away", def:"discard; put in the bin", ex:"Don’t throw away useful boxes.", icon:"🧺", hue:300 },
+  { word:"cut down", def:"remove by cutting (trees)", ex:"They cut down trees.", icon:"🪓", hue:100 }
 ];
 
-// Vocab MCQs (20)
+/* 36 Vocabulary MCQs — covers all vocabulary words */
 const vocabMCQ = [
-  mkQ("vocab", "V1", "The city looked ______ at night with colorful lights.", ["spare","vibrant","favorite","like-minded"], 1, "Vibrant = bright and full of energy."),
-  mkQ("vocab", "V2", "A ______ place is one you should definitely visit.", ["must-see","spare","archaeological","like-minded"], 0, "Must-see = very important to visit."),
-  mkQ("vocab", "V3", "They found old coins at an ______ site.", ["favorite","vibrant","archaeological","spare"], 2, "Archaeological relates to ancient sites and objects."),
-  mkQ("vocab", "V4", "He joined a club to meet ______ people who love chess.", ["like-minded","spare","must-see","vibrant"], 0, "Like-minded = similar interests/opinions."),
-  mkQ("vocab", "V5", "I forgot my pencil. Do you have a ______ one?", ["vibrant","spare","must-see","archaeological"], 1, "Spare = extra."),
-  mkQ("vocab", "V6", "Her ______ subject is English.", ["favorite","spare","like-minded","archaeological"], 0, "Favorite = liked the most."),
-  mkQ("vocab", "V7", "The festival was ______ with music and dancing.", ["vibrant","spare","must-see","favorite"], 0, "Vibrant describes lively energy."),
-  mkQ("vocab", "V8", "The pyramids are a ______ attraction.", ["like-minded","must-see","spare","favorite"], 1, "Must-see = strongly recommended."),
-  mkQ("vocab", "V9", "An ______ discovery can teach us about ancient life.", ["archaeological","favorite","spare","vibrant"], 0, "Archaeological = ancient remains."),
-  mkQ("vocab", "V10", "They are ______ friends because they both love art.", ["like-minded","spare","must-see","vibrant"], 0, "Like-minded = similar ideas."),
-  mkQ("vocab", "V11", "We kept a ______ charger in the car.", ["spare","vibrant","favorite","archaeological"], 0, "Spare = extra."),
-  mkQ("vocab", "V12", "His ______ hobby is photography.", ["favorite","like-minded","must-see","spare"], 0, "Favorite = most liked."),
-  mkQ("vocab", "V13", "The painting used ______ colors.", ["vibrant","spare","archaeological","like-minded"], 0, "Vibrant colors are bright."),
-  mkQ("vocab", "V14", "Visiting the old ruins was an ______ experience.", ["archaeological","spare","favorite","vibrant"], 0, "Archaeological relates to ruins."),
-  mkQ("vocab", "V15", "This book is a ______ for anyone who loves mysteries.", ["must-see","must-read","spare","like-minded"], 1, "“Must-read” fits books (exam-style trick)."),
-  mkQ("vocab", "V16", "She found ______ students who also enjoy science.", ["like-minded","vibrant","spare","archaeological"], 0, "Like-minded = same interests."),
-  mkQ("vocab", "V17", "Do you have a ______ seat next to you?", ["spare","favorite","must-see","vibrant"], 0, "Spare = available/extra."),
-  mkQ("vocab", "V18", "The museum is my ______ place in the city.", ["favorite","archaeological","spare","like-minded"], 0, "Favorite = most liked."),
-  mkQ("vocab", "V19", "The guide explained the ______ findings carefully.", ["archaeological","vibrant","spare","favorite"], 0, "Findings from ancient sites = archaeological."),
-  mkQ("vocab", "V20", "The parade was ______ and exciting.", ["vibrant","spare","must-see","like-minded"], 0, "Vibrant = lively & energetic.")
+  // Rooms (9)
+  mkQ("vocab","V1","The room where you cook is the ____.", ["hall","kitchen","garden","office"], 1, "Kitchen = room where you cook."),
+  mkQ("vocab","V2","A room where you sleep is a ____.", ["bedroom","bathroom","garage","hall"], 0, "Bedroom = where you sleep."),
+  mkQ("vocab","V3","A room with a shower and a basin is the ____.", ["office","bathroom","living room","garden"], 1, "Bathroom = shower/bath + basin."),
+  mkQ("vocab","V4","The main space near the front door is the ____.", ["hall","garden","stairs","garage"], 0, "Hall = space near the entrance."),
+  mkQ("vocab","V5","An outdoor place with plants is the ____.", ["kitchen","office","garden","bathroom"], 2, "Garden = outdoor plants/grass."),
+  mkQ("vocab","V6","You keep your car in the ____.", ["garage","kitchen","hall","bedroom"], 0, "Garage = place for a car."),
+  mkQ("vocab","V7","You relax and watch TV in the ____.", ["office","living room","bathroom","stairs"], 1, "Living room = relax."),
+  mkQ("vocab","V8","A room for working and a computer desk is an ____.", ["office","hall","garden","garage"], 0, "Office = work/study room."),
+  mkQ("vocab","V9","You go up and down these to reach another floor: ____.", ["curtains","stairs","carpet","cupboard"], 1, "Stairs = steps between floors."),
+
+  // Furniture & items (13)
+  mkQ("vocab","V10","A comfortable chair for one person is an ____.", ["armchair","sofa","bin","basin"], 0, "Armchair = comfortable chair."),
+  mkQ("vocab","V11","A large seat for 2–3 people is a ____.", ["sofa","wardrobe","bookshelf","carpet"], 0, "Sofa = large seat."),
+  mkQ("vocab","V12","You store clothes in a ____.", ["cupboard","wardrobe","fridge","sink"], 1, "Wardrobe = for clothes."),
+  mkQ("vocab","V13","You store cups/plates in a ____.", ["cupboard","carpet","stairs","garden"], 0, "Cupboard = storage cabinet."),
+  mkQ("vocab","V14","You keep books on a ____.", ["bookshelf","cooker","basin","bin"], 0, "Bookshelf = for books."),
+  mkQ("vocab","V15","A thick cover on the floor is a ____.", ["carpet","curtains","sink","fridge"], 0, "Carpet = floor covering."),
+  mkQ("vocab","V16","Cloth that covers a window is ____.", ["curtains","carpet","stairs","cupboard"], 0, "Curtains cover windows."),
+  mkQ("vocab","V17","A machine that keeps food cold is the ____.", ["cooker","fridge","basin","bookshelf"], 1, "Fridge keeps food cold."),
+  mkQ("vocab","V18","A machine you use to cook food is a ____.", ["cooker","bin","wardrobe","carpet"], 0, "Cooker = cook food."),
+  mkQ("vocab","V19","You wash plates and cups in the ____.", ["sink","basin","wardrobe","garage"], 0, "Sink (kitchen) for washing up."),
+  mkQ("vocab","V20","In the bathroom, you wash your hands in a ____.", ["basin","sofa","bookshelf","cooker"], 0, "Basin = bathroom sink."),
+  mkQ("vocab","V21","A container for rubbish is a ____.", ["bin","fridge","stairs","curtains"], 0, "Bin = rubbish container."),
+  mkQ("vocab","V22","A machine for washing clothes is a ____.", ["washing machine","cooker","wardrobe","armchair"], 0, "Washing machine = wash clothes."),
+
+  // Environment (8)
+  mkQ("vocab","V23","Cars are one of the main causes of air ____.", ["litter","pollution","carpet","cupboard"], 1, "Pollution = dangerous material in air/water."),
+  mkQ("vocab","V24","Material we do not need is called ____.", ["waste","stairs","basin","office"], 0, "Waste = material we don’t need."),
+  mkQ("vocab","V25","To put trees in the ground is to ____ a tree.", ["plant","reuse","reduce","recycle"], 0, "Plant = put in the ground."),
+  mkQ("vocab","V26","To use something again is to ____ it.", ["reuse","reduce","litter","pollute"], 0, "Reuse = use again."),
+  mkQ("vocab","V27","To make something less is to ____ it.", ["reduce","recycle","plant","throw"], 0, "Reduce = make less."),
+  mkQ("vocab","V28","You put paper and plastic into ____.", ["recycling bins","wardrobes","stairs","carpets"], 0, "Recycling bins = places for recycling."),
+  mkQ("vocab","V29","To change paper/plastic so it can be used again is to ____.", ["recycle","reuse","plant","cut down"], 0, "Recycle = change materials to use again."),
+  mkQ("vocab","V30","Rubbish on the ground is called ____.", ["litter","waste","fridge","basin"], 0, "Litter = rubbish on the ground."),
+
+  // Phrasal verbs (6)
+  mkQ("vocab","V31","Remember to ____ your computer when you aren’t using it.", ["turn off","turn on","turn up","turn down"], 0, "Turn off = stop the device."),
+  mkQ("vocab","V32","It’s dark. Please ____ the lights.", ["turn on","turn off","give up","throw away"], 0, "Turn on = start the device."),
+  mkQ("vocab","V33","It’s too cold. Don’t ____ the heating too much.", ["turn up","turn down","pick up","cut down"], 0, "Turn up = make stronger/higher."),
+  mkQ("vocab","V34","The music is too loud. ____ it, please.", ["Turn down","Turn up","Throw away","Pick up"], 0, "Turn down = make quieter/lower."),
+  mkQ("vocab","V35","Plastic is bad for animals. We should ____ using plastic straws.", ["give up","cut down","turn on","plant"], 0, "Give up = stop doing."),
+  mkQ("vocab","V36","Please ____ that bottle from the ground and put it in the bin.", ["pick up","throw away","turn off","cut down"], 0, "Pick up = collect from the ground."),
+
+  // Extra coverage (4) to make sure every phrasal verb is tested clearly
+  mkQ("vocab","V37","Don’t ____ useful boxes. You can reuse them.", ["throw away","pick up","turn down","turn on"], 0, "Throw away = discard."),
+  mkQ("vocab","V38","They ____ trees to build new roads.", ["cut down","turn off","give up","turn up"], 0, "Cut down = remove by cutting."),
+  mkQ("vocab","V39","Which item is usually in the kitchen?", ["fridge","wardrobe","armchair","carpet"], 0, "Fridge is in the kitchen."),
+  mkQ("vocab","V40","Which place is usually outside a house?", ["garden","bathroom","office","living room"], 0, "Garden is outside.")
 ];
 
 /* =========================================================
-   GRAMMAR (NOW 30 MCQs)
+   GRAMMAR — same 30 questions (will / might / conditionals)
    ========================================================= */
-
 const grammarUnits = [
   {
-    title: "Passive Voice (Present & Past)",
-    rule: "Use <b>am/is/are + past participle</b> (present passive) and <b>was/were + past participle</b> (past passive).",
-    example: "The homework <b>is checked</b> every day. The prizes <b>were given</b> yesterday.",
-    graphic: passiveSVG("Passive Voice", "is/are/was/were + V3"),
+    title:"will for predictions (affirmative & negative)",
+    rule:"Use <b>will / won’t + verb</b> for predictions.",
+    example:"Houses will have unusual shapes. / The house won’t have any stairs.",
+    graphic: grammarSVG("will / won’t", "will + verb", "won’t + verb"),
     mcq: [
-      mkQ("grammar","G1","The photos ______ taken during the festival last week.", ["is","was","were","are"], 2, "Photos = plural → were taken."),
-      mkQ("grammar","G2","The classroom ______ cleaned every afternoon.", ["is","are","were","be"], 0, "Classroom = singular → is cleaned."),
-      mkQ("grammar","G3","The painting ______ by students every year.", ["creates","is created","was create","are created"], 1, "Every year → present passive: is created."),
-      mkQ("grammar","G4","The prizes ______ given at the end of the day.", ["is","were","was","be"], 1, "Prizes plural + past → were given."),
-      mkQ("grammar","G5","The homework ______ checked by the teacher now.", ["is","were","was","are"], 0, "Homework singular → is checked."),
-      mkQ("grammar","G6","The posters ______ made yesterday.", ["are","was","were","is"], 2, "Posters plural + yesterday → were made.")
+      mkQ("grammar","G1","Houses ____ have unusual shapes.", ["will","might","are","were"], 0, "Prediction → will."),
+      mkQ("grammar","G2","The house ____ have any stairs.", ["will","won’t","might","is"], 1, "Negative prediction → won’t."),
+      mkQ("grammar","G3","People ____ need to do housework: robots will do the cleaning.", ["won’t","don’t","isn’t","mightn’t"], 0, "Prediction → won’t need."),
+      mkQ("grammar","G4","You ____ use a key to open the door (future homes).", ["won’t","didn’t","don’t","aren’t"], 0, "Prediction → won’t use."),
+      mkQ("grammar","G5","There ____ cameras outside the house.", ["will be","are","were","is"], 0, "Future prediction → will be."),
+      mkQ("grammar","G6","The temperature ____ change automatically.", ["will","won’t","was","is"], 0, "Prediction → will change.")
     ]
   },
   {
-    title: "Relative Clauses (who/which/where/whose)",
-    rule: "Use <b>who</b> (people), <b>which</b> (things), <b>where</b> (place), <b>whose</b> (possession).",
-    example: "That’s the artist <b>whose</b> painting won. This is the museum <b>where</b> we met.",
-    graphic: relativeSVG(),
+    title:"will for predictions (questions)",
+    rule:"Wh-: <b>Wh-word + will + subject + verb?</b> Yes/No: <b>Will + subject + verb?</b>",
+    example:"How will 3D printing change things? / Will they use it in space? Yes, they will.",
+    graphic: questionsSVG(),
     mcq: [
-      mkQ("grammar","G7","A sculptor is a person ______ makes objects from clay.", ["who","which","where","when"], 0, "Person → who."),
-      mkQ("grammar","G8","A camera is a device ______ takes photos.", ["who","which","where","whose"], 1, "Thing/device → which."),
-      mkQ("grammar","G9","This is the museum ______ we saw ancient tools.", ["who","which","where","whose"], 2, "Place → where."),
-      mkQ("grammar","G10","That’s the artist ______ painting won first prize.", ["who","whose","which","where"], 1, "Possession → whose painting."),
-      mkQ("grammar","G11","I met a boy ______ loves drawing.", ["which","who","where","whose"], 1, "Boy/person → who."),
-      mkQ("grammar","G12","This is the phone ______ I bought yesterday.", ["who","which","where","when"], 1, "Thing → which.")
+      mkQ("grammar","G7","____ will 3D printing change things in the future?", ["How","Where","Who","What time"], 0, "How asks about the way something happens."),
+      mkQ("grammar","G8","Will they use 3D printing in space? — Yes, they ____.", ["do","will","are","won’t"], 1, "Short answer: Yes, they will."),
+      mkQ("grammar","G9","Will houses be the same as now? — No, they ____.", ["aren’t","won’t","don’t","didn’t"], 1, "Short answer: No, they won’t."),
+      mkQ("grammar","G10","____ you have a car when you’re 30?", ["Will","Do","Are","Did"], 0, "Future question → Will + subject + verb."),
+      mkQ("grammar","G11","Where ____ you live when you’re 30?", ["will","do","are","did"], 0, "Wh-question uses will."),
+      mkQ("grammar","G12","What ____ your job be?", ["will","do","is","was"], 0, "Future: will your job be.")
     ]
   },
   {
-    title: "Comparatives & Superlatives",
-    rule: "Comparative: <b>-er / more</b> (+ than). Superlative: <b>-est / most</b> (often with <b>the</b>).",
-    example: "This photo is <b>clearer than</b> that one. It is the <b>most famous</b> photo.",
-    graphic: compareSVG(),
+    title:"might (possibility)",
+    rule:"Use <b>might + verb</b> when something is possible but not certain.",
+    example:"3D printing might help with housing problems.",
+    graphic: grammarSVG("will vs might", "will = definite", "might = possible"),
     mcq: [
-      mkQ("grammar","G13","This photo is ______ than the old one.", ["clearer","clearest","more clear","most clear"], 0, "Comparative → clearer."),
-      mkQ("grammar","G14","That is the ______ painting in the gallery.", ["more famous","most famous","famous","famouser"], 1, "Superlative → most famous."),
-      mkQ("grammar","G15","My phone is ______ expensive than yours.", ["more","most","the","much"], 0, "Comparative with long adj → more expensive."),
-      mkQ("grammar","G16","This is the ______ day of the year for me!", ["happier","happiest","more happy","happy"], 1, "Superlative → happiest."),
-      mkQ("grammar","G17","Ali is ______ than his brother.", ["taller","tallest","more tall","most tall"], 0, "Short adjective → taller."),
-      mkQ("grammar","G18","This is the ______ book in the series.", ["better","best","more good","goodest"], 1, "Irregular superlative: best.")
+      mkQ("grammar","G13","3D printing ____ help with housing problems.", ["might","will","did","does"], 0, "Possibility → might."),
+      mkQ("grammar","G14","It’s early spring in Canada. It ____ be sunny tomorrow.", ["might","will","must","is"], 0, "Not certain → might."),
+      mkQ("grammar","G15","Tomorrow ____ be Monday. (Today is Sunday.)", ["will","might","is","was"], 0, "Certain fact → will."),
+      mkQ("grammar","G16","Jan is 14 now. He ____ be 15 next year.", ["will","might","won’t","mightn’t"], 0, "Certain → will."),
+      mkQ("grammar","G17","I’m not sure. I ____ be a pilot when I’m older.", ["might","will","am","was"], 0, "Not sure → might."),
+      mkQ("grammar","G18","It’s the middle of summer in Spain. It ____ be sunny tomorrow.", ["will","might","won’t","is"], 0, "Very likely → will (exam-style).")
     ]
   },
   {
-    title: "Modals (must / mustn't / should / might)",
-    rule: "<b>must</b> = necessary, <b>mustn't</b> = forbidden, <b>should</b> = advice, <b>might</b> = possibility.",
-    example: "You <b>mustn't</b> talk loudly. I <b>might</b> go tomorrow.",
-    graphic: passiveSVG("Modals", "must / mustn't / should / might"),
+    title:"First conditional (possible result)",
+    rule:"Form: <b>If + present simple</b>, <b>will + verb</b>.",
+    example:"If we don’t recycle plastic, it will go into the oceans.",
+    graphic: conditionalSVG("First conditional", "If + present", "will + verb"),
     mcq: [
-      mkQ("grammar","G19","I ______ finish my homework before I play.", ["must","can’t","mightn’t","mustn’t"], 0, "Must = necessary."),
-      mkQ("grammar","G20","You ______ talk loudly in the library.", ["must","mustn’t","should","may"], 1, "Library rule → mustn’t."),
-      mkQ("grammar","G21","You ______ try to revise a little every day.", ["should","mustn’t","can’t","shouldn’t"], 0, "Advice → should."),
-      mkQ("grammar","G22","I ______ go to the museum tomorrow. I’m not sure.", ["must","will","might","can’t"], 2, "Not sure → might."),
-      mkQ("grammar","G23","Students ______ wear a uniform at this school.", ["might","must","shouldn’t","can’t"], 1, "Rule/requirement → must."),
-      mkQ("grammar","G24","You ______ eat in the science lab.", ["must","mustn’t","might","should"], 1, "Forbidden → mustn’t.")
+      mkQ("grammar","G19","If we ____ litter, the streets will be cleaner.", ["pick up","will pick up","picked up","are picking up"], 0, "If-clause uses present simple."),
+      mkQ("grammar","G20","We ____ have clean air if we cut down our trees.", ["won’t","don’t","isn’t","might"], 0, "Result clause uses will/won’t."),
+      mkQ("grammar","G21","If we don’t recycle plastic, it ____ into the oceans.", ["will go","goes","went","is going"], 0, "Result clause: will + verb."),
+      mkQ("grammar","G22","If we ____ for adults to act, it’ll be too late.", ["wait","will wait","waited","are wait"], 0, "If-clause: present simple."),
+      mkQ("grammar","G23","If we recycle paper at school, we ____ less waste.", ["will produce","produce","produced","are produce"], 0, "First conditional result → will produce."),
+      mkQ("grammar","G24","The streets will be cleaner if we ____ litter.", ["pick up","will pick up","picks up","picked"], 0, "After if: present simple.")
     ]
   },
   {
-    title: "Tenses + Conditionals + Prepositions & Quantifiers",
-    rule: "Past continuous for actions in progress; present perfect for results/experience; conditionals; common prepositions; much/many.",
-    example: "They <b>were having</b> dinner when it happened. I <b>have lost</b> my keys.",
-    graphic: passiveSVG("Mixed Skills", "tenses • conditionals • prepositions"),
+    title:"Zero conditional (facts & rules)",
+    rule:"Form: <b>If + present simple</b>, <b>present simple</b>.",
+    example:"If you freeze water, it changes to ice.",
+    graphic: conditionalSVG("Zero conditional", "If + present", "present simple"),
     mcq: [
-      mkQ("grammar","G25","While I ______, my friend was taking photos.", ["walked","was walking","am walking","walk"], 1, "Past continuous with 'while' → was walking."),
-      mkQ("grammar","G26","They ______ dinner when the electricity went out.", ["had","were having","are having","have"], 1, "Action in progress → were having."),
-      mkQ("grammar","G27","She ______ her homework already.", ["finished","has finished","finishes","was finished"], 1, "Already → present perfect: has finished."),
-      mkQ("grammar","G28","We ______ to that museum before.", ["went","have gone","have been","were"], 2, "Experience → have been (to)."),
-      mkQ("grammar","G29","If it ______ tomorrow, we will stay at home.", ["rains","rained","will rain","rain"], 0, "First conditional: If + present simple → rains."),
-      mkQ("grammar","G30","There isn’t ______ milk left.", ["many","much","few","a few"], 1, "Milk uncountable → much.")
+      mkQ("grammar","G25","If you freeze water, it ____ to ice.", ["changes","will change","changed","is change"], 0, "Zero conditional = present simple."),
+      mkQ("grammar","G26","If sea animals eat plastic, they ____.", ["die","will die","died","are dying"], 0, "Fact → present simple."),
+      mkQ("grammar","G27","If you put sugar in a drink, it ____ sweet.", ["tastes","will taste","tasted","is tasting"], 0, "Fact → tastes."),
+      mkQ("grammar","G28","If it doesn’t rain for a long time, plants ____.", ["don’t grow","won’t grow","didn’t grow","aren’t grow"], 0, "Zero conditional fact."),
+      mkQ("grammar","G29","You save electricity if you ____ the fridge door.", ["close","will close","closed","are close"], 0, "Present simple in if-clause."),
+      mkQ("grammar","G30","If you don’t eat, you ____ hungry.", ["feel","will feel","felt","are feel"], 0, "Fact → feel hungry.")
     ]
   }
 ];
 
+/* =========================================================
+   READING — 2 PASSAGES (U5A2+ themes)
+   ========================================================= */
 const readingPassages = [
   {
-    title:"Reading 1: The School Art Festival",
+    title:"Reading 1: Print your own home (3D printing)",
     text:
-`Last Thursday, our school held an art festival in the main hall. Students displayed paintings, photos, and small sculptures.
-A group of volunteers guided visitors and explained each artwork. The most popular section was photography because students had used creative lighting and interesting angles.
-At the end of the day, the judges announced the winners. Although not everyone won a prize, most students felt proud because their work was seen and appreciated.`,
+`Building a house can take a long time and cost a lot of money. But 3D printing may change this.
+Engineers can use 3D technology to build parts of a house quickly, sometimes in about a day. Some companies say this method uses fewer materials than traditional building.
+3D houses can also be made from recycled materials, which is better for the environment. Architects are designing unusual shapes, and many people believe 3D homes will become more common.
+In the future, 3D printing might help solve housing problems and could even be useful in space.`,
     mcq: [
-      mkQ("reading","R1-1","Where was the art festival held?", ["In the library","In the main hall","Outside the school","In a museum"], 1, "The passage says it was held in the main hall."),
-      mkQ("reading","R1-2","Why was the photography section popular?", ["It had expensive cameras","It used creative lighting and angles","It was the smallest section","It was only for teachers"], 1, "Creative lighting and angles made it popular.")
+      mkQ("reading","R1-1","What is one advantage of 3D-printed houses?", ["They always have stairs","They can be built quickly","They need more materials","They are only for astronauts"], 1, "The passage says they can be built quickly."),
+      mkQ("reading","R1-2","Why can 3D printing be better for the environment?", ["It creates more litter","It uses recycled materials","It increases pollution","It cuts down trees"], 1, "Recycled materials are mentioned."),
+      mkQ("reading","R1-3","The word ‘might’ shows that something is ____.", ["certain","a possibility","impossible","a fact"], 1, "Might = possibility.")
     ],
     short: [
-      { id:"R1-S1", prompt:"Write ONE reason why students felt proud (5–15 words).", keywords:["seen","appreciated","work","artwork","displayed","visitors"] }
+      { id:"R1-S1", prompt:"Write ONE prediction using <b>will</b> about homes in the future (8–15 words).", keywords:["will","homes","houses","3d","printing","robots","stairs","shapes"] }
     ]
   },
   {
-    title:"Reading 2: A Visit to an Ancient Site",
+    title:"Reading 2: A school environment campaign",
     text:
-`Sara visited an archaeological site with her class. The guide showed them broken pottery, old coins, and parts of walls from an ancient city.
-Sara learned that archaeologists study objects to understand how people lived long ago.
-She also learned an important rule: visitors must not touch the objects, because even small damage can destroy valuable information.
-Sara thought the trip was a must-see experience and wanted to visit again with her family.`,
+`A group of students started an environment campaign at their school. First, they asked students to turn off computers and lights when they are not using them.
+They also placed recycling bins in the hall and the kitchen, so everyone could recycle paper and plastic. During break time, volunteers picked up litter in the garden and near the gate.
+The group shared ideas online too. They told people to reuse bottles and boxes instead of throwing them away.
+After one month, the school produced less waste, and students said the school looked cleaner. The campaign leader believes more students will join next term.`,
     mcq: [
-      mkQ("reading","R2-1","What do archaeologists study?", ["Only modern buildings","Objects to understand the past","Weather reports","Future inventions"], 1, "They study objects to understand how people lived long ago."),
-      mkQ("reading","R2-2","Why must visitors not touch the objects?", ["Because they are heavy","Because touching can damage them","Because they are new","Because the guide is strict"], 1, "Touching can cause damage and destroy information.")
+      mkQ("reading","R2-1","What did students do when they were not using computers?", ["They turned them up","They turned them off","They threw them away","They cut them down"], 1, "They turned off computers and lights."),
+      mkQ("reading","R2-2","Where did the school put recycling bins?", ["In the wardrobe","In the hall and kitchen","In the bathroom","On the stairs"], 1, "The passage says hall and kitchen."),
+      mkQ("reading","R2-3","What happened after one month?", ["More pollution","More waste","Less waste and a cleaner school","No change"], 2, "Less waste + cleaner school.")
     ],
     short: [
-      { id:"R2-S1", prompt:"Explain the ‘no touching’ rule in your own words (8–20 words).", keywords:["damage","destroy","information","valuable","protect","careful"] }
+      { id:"R2-S1", prompt:"Write ONE first conditional sentence about the environment (8–16 words).", keywords:["if","will","recycle","reduce","waste","pick","litter","pollution","turn off"] }
     ]
   }
 ];
@@ -551,83 +598,86 @@ Sara thought the trip was a must-see experience and wanted to visit again with h
 /* =========================================================
    HELPERS
    ========================================================= */
-
 function mkQ(section, id, question, choices, correctIndex, explanation){
   return { section, id, question, choices, correctIndex, explanation };
 }
-
-function passiveSVG(title, formula){
+function escapeHTML(str){
+  return String(str).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+function svgIcon(icon, hue){
+  const bg1 = `hsla(${hue}, 90%, 80%, .9)`;
+  const bg2 = `hsla(${(hue+40)%360}, 90%, 85%, .9)`;
+  return `
+  <svg viewBox="0 0 120 120" role="img" aria-label="icon" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="g" x1="0" x2="1">
+        <stop offset="0" stop-color="${bg1}"/>
+        <stop offset="1" stop-color="${bg2}"/>
+      </linearGradient>
+    </defs>
+    <rect x="8" y="8" width="104" height="104" rx="24" fill="url(#g)" />
+    <text x="60" y="72" text-anchor="middle" font-size="46">${escapeHTML(icon)}</text>
+  </svg>`;
+}
+function grammarSVG(title, left, right){
   return `
   <div class="gGraphic" aria-label="Grammar graphic">
-    <svg viewBox="0 0 900 200" role="img">
+    <svg viewBox="0 0 900 220" role="img">
       <defs>
-        <linearGradient id="g1" x1="0" x2="1">
+        <linearGradient id="gg" x1="0" x2="1">
           <stop offset="0" stop-color="rgba(90,167,255,.65)"/>
           <stop offset="1" stop-color="rgba(167,243,208,.75)"/>
         </linearGradient>
       </defs>
-      <rect x="20" y="25" width="860" height="150" rx="24" fill="rgba(255,255,255,.65)" stroke="rgba(230,238,247,1)"/>
-      <circle cx="120" cy="100" r="42" fill="url(#g1)"/>
-      <text x="200" y="88" font-size="26" font-weight="800" fill="rgba(31,42,55,.9)">${title}</text>
-      <text x="200" y="125" font-size="20" fill="rgba(91,107,122,.95)">${formula}</text>
-      <text x="560" y="88" font-size="18" fill="rgba(91,107,122,.95)">Read → Practice → Check</text>
-      <text x="560" y="125" font-size="18" fill="rgba(91,107,122,.95)">Learn from feedback</text>
+      <rect x="20" y="25" width="860" height="170" rx="24" fill="rgba(255,255,255,.65)" stroke="rgba(230,238,247,1)"/>
+      <circle cx="120" cy="110" r="44" fill="url(#gg)"/>
+      <text x="200" y="90" font-size="28" font-weight="900" fill="rgba(31,42,55,.92)">${escapeHTML(title)}</text>
+      <text x="200" y="135" font-size="20" fill="rgba(91,107,122,.95)">${escapeHTML(left)}</text>
+      <text x="520" y="135" font-size="20" fill="rgba(91,107,122,.95)">${escapeHTML(right)}</text>
+      <text x="520" y="90" font-size="18" fill="rgba(91,107,122,.95)">Keep verbs simple</text>
     </svg>
   </div>`;
 }
-function relativeSVG(){
+function conditionalSVG(title, ifPart, resultPart){
   return `
-  <div class="gGraphic" aria-label="Relative clause graphic">
-    <svg viewBox="0 0 900 200" role="img">
-      <rect x="20" y="25" width="860" height="150" rx="24" fill="rgba(255,255,255,.65)" stroke="rgba(230,238,247,1)"/>
-      <text x="60" y="85" font-size="22" font-weight="800" fill="rgba(31,42,55,.9)">People →</text>
-      <text x="190" y="85" font-size="22" font-weight="900" fill="rgba(90,167,255,.95)">who</text>
-      <text x="60" y="135" font-size="22" font-weight="800" fill="rgba(31,42,55,.9)">Things →</text>
-      <text x="190" y="135" font-size="22" font-weight="900" fill="rgba(167,243,208,.95)">which</text>
-      <text x="420" y="95" font-size="20" fill="rgba(91,107,122,.95)">Place →</text>
-      <text x="520" y="95" font-size="20" font-weight="900" fill="rgba(253,230,138,.95)">where</text>
-      <text x="420" y="135" font-size="20" fill="rgba(91,107,122,.95)">Possession →</text>
-      <text x="580" y="135" font-size="20" font-weight="900" fill="rgba(90,167,255,.95)">whose</text>
+  <div class="gGraphic" aria-label="Conditional graphic">
+    <svg viewBox="0 0 900 220" role="img">
+      <rect x="20" y="25" width="860" height="170" rx="24" fill="rgba(255,255,255,.65)" stroke="rgba(230,238,247,1)"/>
+      <text x="60" y="85" font-size="28" font-weight="900" fill="rgba(31,42,55,.92)">${escapeHTML(title)}</text>
+      <rect x="60" y="110" width="330" height="60" rx="16" fill="rgba(90,167,255,.18)" stroke="rgba(90,167,255,.35)"/>
+      <rect x="510" y="110" width="330" height="60" rx="16" fill="rgba(167,243,208,.20)" stroke="rgba(167,243,208,.45)"/>
+      <text x="225" y="148" text-anchor="middle" font-size="20" font-weight="800" fill="rgba(31,42,55,.9)">${escapeHTML(ifPart)}</text>
+      <text x="675" y="148" text-anchor="middle" font-size="20" font-weight="800" fill="rgba(31,42,55,.9)">${escapeHTML(resultPart)}</text>
+      <path d="M405 140 L495 140" stroke="rgba(91,107,122,.7)" stroke-width="6" />
+      <polygon points="495,140 480,132 480,148" fill="rgba(91,107,122,.7)"/>
     </svg>
   </div>`;
 }
-function compareSVG(){
+function questionsSVG(){
   return `
-  <div class="gGraphic" aria-label="Comparatives graphic">
-    <svg viewBox="0 0 900 200" role="img">
-      <rect x="20" y="25" width="860" height="150" rx="24" fill="rgba(255,255,255,.65)" stroke="rgba(230,238,247,1)"/>
-      <path d="M80 150 L260 90 L440 120 L620 70 L820 50" fill="none" stroke="rgba(90,167,255,.7)" stroke-width="6"/>
-      <circle cx="260" cy="90" r="10" fill="rgba(167,243,208,.95)"/>
-      <circle cx="620" cy="70" r="10" fill="rgba(167,243,208,.95)"/>
-      <circle cx="820" cy="50" r="10" fill="rgba(167,243,208,.95)"/>
-      <text x="80" y="70" font-size="22" font-weight="900" fill="rgba(31,42,55,.9)">Comparative</text>
-      <text x="80" y="100" font-size="18" fill="rgba(91,107,122,.95)">-er / more + than</text>
-      <text x="520" y="70" font-size="22" font-weight="900" fill="rgba(31,42,55,.9)">Superlative</text>
-      <text x="520" y="100" font-size="18" fill="rgba(91,107,122,.95)">the + -est / most</text>
+  <div class="gGraphic" aria-label="Question form graphic">
+    <svg viewBox="0 0 900 220" role="img">
+      <rect x="20" y="25" width="860" height="170" rx="24" fill="rgba(255,255,255,.65)" stroke="rgba(230,238,247,1)"/>
+      <text x="60" y="78" font-size="26" font-weight="900" fill="rgba(31,42,55,.92)">Question forms</text>
+      <text x="60" y="118" font-size="20" fill="rgba(91,107,122,.95)">Wh-: Wh-word + will + subject + verb?</text>
+      <text x="60" y="150" font-size="20" fill="rgba(91,107,122,.95)">Yes/No: Will + subject + verb? → Yes, subject will / No, subject won’t</text>
+      <circle cx="820" cy="110" r="40" fill="rgba(253,230,138,.55)"/>
+      <text x="820" y="122" text-anchor="middle" font-size="40">?</text>
     </svg>
   </div>`;
-}
-
-function escapeHTML(str){
-  return str.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 }
 
 /* =========================================================
    RENDER
    ========================================================= */
-
-const allQuestions = [];   // MCQs for progress/score
-const shortQuestions = []; // short answers for coach feedback
+const allQuestions = [];
+const shortQuestions = [];
 
 function renderVocab(){
   const cards = document.getElementById("vocabCards");
   cards.innerHTML = vocabList.map(v => `
     <div class="vcard">
-      <div class="vimg">
-        <img src="${v.img}" alt="${escapeHTML(v.word)} image"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="fallback" style="display:none;">Image failed<br/>Replace URL or check internet</div>
-      </div>
+      <div class="vimg">${svgIcon(v.icon, v.hue)}</div>
       <div>
         <p class="vword">${escapeHTML(v.word)}</p>
         <p class="vdef"><b>Definition:</b> ${escapeHTML(v.def)}</p>
@@ -651,7 +701,7 @@ function renderGrammar(){
       </div>
       <div class="muted small">${unit.rule}</div>
       ${unit.graphic}
-      <div class="small"><b>Example:</b> ${unit.example}</div>
+      <div class="small"><b>Example:</b> ${escapeHTML(unit.example)}</div>
     </div>
     ${unit.mcq.map(q => renderMCQ(q)).join("")}
     <div class="divider"></div>
@@ -702,12 +752,11 @@ function renderMCQ(q){
     </div>
   `;
 }
-
 function renderShort(s){
   return `
     <div class="q" data-shortid="${s.id}" data-section="reading">
       <div class="qhead">
-        <p class="qtitle">${escapeHTML(s.id)}. ${escapeHTML(s.prompt)}</p>
+        <p class="qtitle">${escapeHTML(s.id)}. ${s.prompt}</p>
         <span class="tag">Short Answer</span>
       </div>
       <textarea id="short-${s.id}" placeholder="Write here…"></textarea>
@@ -719,12 +768,10 @@ function renderShort(s){
 /* =========================================================
    TAB NAV
    ========================================================= */
-
 document.querySelectorAll(".tab").forEach(t => {
   t.addEventListener("click", () => {
     document.querySelectorAll(".tab").forEach(x => x.classList.remove("active"));
     t.classList.add("active");
-
     const tab = t.dataset.tab;
     document.getElementById("pane-vocab").style.display = tab==="vocab" ? "block" : "none";
     document.getElementById("pane-grammar").style.display = tab==="grammar" ? "block" : "none";
@@ -735,9 +782,9 @@ document.querySelectorAll(".tab").forEach(t => {
 /* =========================================================
    GRADING + PROGRESS
    ========================================================= */
-
 function gradeSection(section){
   let score = 0, total = 0;
+
   document.querySelectorAll(`.q[data-section="${section}"][data-correct]`).forEach(block => {
     const qid = block.dataset.qid;
     const correct = Number(block.dataset.correct);
@@ -772,6 +819,7 @@ function gradeAll(){
   const s = computeTotalScore();
   alert(`All graded!\nTotal MCQ Score: ${s.score} / ${s.total}`);
 }
+
 function gradeSectionSilent(section){
   document.querySelectorAll(`.q[data-section="${section}"][data-correct]`).forEach(block => {
     const qid = block.dataset.qid;
@@ -784,6 +832,7 @@ function gradeSectionSilent(section){
       block.classList.add("wrong");
     }
   });
+
   if(section==="reading"){
     shortQuestions.forEach(s => {
       const ans = (document.getElementById(`short-${s.id}`)?.value || "").trim();
@@ -834,7 +883,6 @@ function updateProgress(){
   document.getElementById("totalCount").textContent = String(s.total);
   document.getElementById("scoreNow").textContent = String(s.score);
   document.getElementById("totalMCQ").textContent = String(s.total);
-
   const pct = s.total ? (s.answered / s.total) * 100 : 0;
   document.getElementById("progressBar").style.width = `${pct}%`;
 }
@@ -842,7 +890,6 @@ function updateProgress(){
 /* =========================================================
    OFFLINE COACH
    ========================================================= */
-
 function runCoach(){
   const txt = (document.getElementById("coachInput").value || "").trim();
   document.getElementById("coachOut").innerHTML = coachFreeText(txt);
@@ -850,27 +897,26 @@ function runCoach(){
 
 function coachFreeText(txt){
   if(!txt) return "Type something above, then click <b>Get Coach Feedback</b>.";
+
   const notes = [];
   const lower = txt.toLowerCase();
+  const wc = txt.split(/\s+/).filter(Boolean).length;
 
   if(!/[.!?]$/.test(txt)) notes.push("Add an ending punctuation mark (., !, or ?).");
-  if(txt.length < 15) notes.push("Try to write a little more detail (one more idea).");
+  if(wc < 7) notes.push("Add one more idea (aim for 8–12 words).");
   if(/\bi\b/.test(lower)) notes.push("Remember: write <b>I</b> as a capital letter.");
-  if(/\bteh\b/.test(lower)) notes.push("Spelling: it should be <b>the</b>, not <b>teh</b>.");
 
-  if(/\b(is|are|am|was|were)\s+\w+ed\b/.test(lower)){
-    notes.push("Nice! I can see a passive structure (be + V3). Make sure subject matches (is/are/was/were).");
-  }
-  if(/\bwho\b|\bwhich\b|\bthat\b|\bwhose\b|\bwhere\b/.test(lower)){
-    notes.push("Good use of a relative clause. Check: who=people, which=things, where=place, whose=possession.");
-  }
-  if(/\bmore\b|\bmost\b|\bthan\b|\ber\b|\best\b/.test(lower)){
-    notes.push("Comparatives: use <b>than</b>. Superlatives: often use <b>the</b>.");
+  if(/\bwill\b/.test(lower)) notes.push("Good: <b>will</b> shows a prediction/definite future.");
+  if(/\bmight\b/.test(lower)) notes.push("Good: <b>might</b> shows a possibility (not certain).");
+
+  if(/\bif\b/.test(lower)){
+    if(/\bif\b.*\bwill\b/.test(lower)) notes.push("Nice first conditional pattern: If + present, will + verb.");
+    else notes.push("If you use <b>if</b>, check your tense (first or zero conditional).");
   }
 
   const rubric = [];
-  rubric.push(`<b>Clarity:</b> ${txt.split(" ").length >= 8 ? "Good" : "Needs more detail"}`);
-  rubric.push(`<b>Sentence control:</b> ${/[A-Za-z]/.test(txt) && txt.split(/[.!?]/).filter(x=>x.trim()).length<=2 ? "Good" : "Try 1–2 clear sentences"}`);
+  rubric.push(`<b>Clarity:</b> ${wc >= 8 ? "Good" : "Needs more detail"}`);
+  rubric.push(`<b>U5A2+ grammar:</b> ${( /\bwill\b|\bmight\b|\bif\b/.test(lower) ) ? "On topic ✅" : "Try using will / might / if"}`);
 
   return `
     <div><b>Coach feedback:</b></div>
@@ -882,33 +928,30 @@ function coachFreeText(txt){
 }
 
 function coachShortAnswer(ans, keywords){
-  if(!ans) return "⚠️ Please write an answer. (Coach: add 1–2 sentences.)";
+  if(!ans) return "⚠️ Please write an answer.";
   const lower = ans.toLowerCase();
-
   const hits = keywords.filter(k => lower.includes(k.toLowerCase()));
-  const lengthOk = ans.split(/\s+/).filter(Boolean).length;
+  const words = ans.split(/\s+/).filter(Boolean).length;
 
   let band = "Needs improvement";
-  if(hits.length >= 2 && lengthOk >= 6) band = "Good";
-  if(hits.length >= 3 && lengthOk >= 8) band = "Very good";
+  if(words >= 8 && (/\bwill\b/.test(lower) || /\bif\b/.test(lower))) band = "Good";
+  if(words >= 10 && hits.length >= 1 && (/\bwill\b/.test(lower) || /\bif\b/.test(lower))) band = "Very good";
 
   const tips = [];
-  if(hits.length === 0) tips.push("Include key idea(s) from the passage.");
-  if(lengthOk < 6) tips.push("Write a longer answer (add one more detail).");
+  if(words < 8) tips.push("Write 8–16 words.");
   if(!/[.!?]$/.test(ans)) tips.push("Add punctuation at the end.");
-  if(/\bi\b/.test(lower)) tips.push("Capitalize <b>I</b>.");
+  if(hits.length === 0) tips.push("Use key words from the question/topic (recycle, waste, will, if...).");
 
   return `
     <b>Coach:</b> ${band}<br/>
-    <span class="muted">Matched keywords:</span> ${hits.length ? hits.join(", ") : "none"}<br/>
-    ${tips.length ? `<span class="muted">Tips:</span> ${tips.join(" • ")}` : "✅ Clear answer. Nice work!"}
+    <span class="muted">Matched topic words:</span> ${hits.length ? hits.join(", ") : "none"}<br/>
+    ${tips.length ? `<span class="muted">Tips:</span> ${tips.join(" • ")}` : "✅ Great answer!"}
   `;
 }
 
 /* =========================================================
    INIT
    ========================================================= */
-
 renderVocab();
 renderGrammar();
 renderReading();
