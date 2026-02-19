@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Unit 5 B1 Revision – Art, Photography & The Passive</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #eef2ff, #fdf2f8);
+      color: #111827;
+    }
+    header {
+      background: linear-gradient(90deg, #1e293b, #0f766e);
+      color: #fff;
+      padding: 15px 20px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(15,23,42,0.4);
+    }
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h2 {
+      background: #e0f2fe;
+      padding: 8px 12px;
+      border-left: 4px solid #0ea5e9;
+      margin-top: 30px;
+      border-radius: 4px;
+    }
+    h3 {
+      margin-top: 20px;
+      color: #0f172a;
+    }
+    h4 {
+      margin-top: 10px;
+      color: #0f172a;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 15px 18px;
+      margin: 12px 0;
+      box-shadow: 0 3px 8px rgba(15,23,42,0.12);
+      border: 1px solid #e5e7eb;
+    }
+    .word-block {
+      display: grid;
+      grid-template-columns: minmax(0,2fr) minmax(0,1fr);
+      gap: 12px;
+      align-items: center;
+    }
+    .word-entry {
+      display: grid;
+      grid-template-columns: 1fr 2fr 2fr;
+      gap: 8px;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+    .word-entry div {
+      padding: 4px 6px;
+    }
+    .word-head {
+      font-weight: bold;
+      color: #0f766e;
+      background: #ecfdf5;
+      border-radius: 4px;
+    }
+
+    /* Vocab icon cards (no external images needed) */
+    .vocab-icon-card {
+      width: 100%;
+      max-width: 220px;
+      aspect-ratio: 4 / 3;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(15,23,42,0.35);
+      color: #eff6ff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .vocab-icon-main {
+      font-size: 2.2rem;
+      margin-bottom: 6px;
+    }
+    .vocab-icon-label {
+      font-weight: bold;
+      letter-spacing: 0.03em;
+      margin-bottom: 4px;
+    }
+    .icon-professions {
+      background: radial-gradient(circle at top left, #a5b4fc, #4f46e5);
+    }
+    .icon-artworks {
+      background: radial-gradient(circle at top left, #fca5a5, #b91c1c);
+    }
+    .icon-camera {
+      background: radial-gradient(circle at top left, #6ee7b7, #047857);
+    }
+    .icon-editing {
+      background: radial-gradient(circle at top left, #f9a8d4, #be185d);
+    }
+
+    .mcq-item {
+      margin: 10px 0;
+      padding-bottom: 6px;
+      border-bottom: 1px dashed #cbd5f5;
+    }
+    .mcq-item p {
+      margin: 0 0 5px 0;
+    }
+    .options label {
+      display: block;
+      margin: 2px 0;
+      cursor: pointer;
+    }
+    .btn-row {
+      margin-top: 10px;
+    }
+    button {
+      background: linear-gradient(90deg, #0f766e, #16a34a);
+      border: none;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-right: 6px;
+      box-shadow: 0 2px 4px rgba(22,163,74,0.3);
+    }
+    button.secondary {
+      background: linear-gradient(90deg, #64748b, #475569);
+      box-shadow: 0 2px 4px rgba(71,85,105,0.3);
+    }
+    button:disabled {
+      background: #94a3b8;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    .result {
+      margin-top: 8px;
+      font-weight: bold;
+    }
+    .correct {
+      color: #15803d;
+    }
+    .incorrect {
+      color: #b91c1c;
+    }
+    .reading-text {
+      background: #f9fafb;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      max-height: 230px;
+      overflow-y: auto;
+      font-size: 0.95rem;
+    }
+    .short-answer {
+      width: 95%;
+      max-width: 600px;
+      padding: 4px 6px;
+      margin-top: 4px;
+      border-radius: 6px;
+      border: 1px solid #cbd5f5;
+    }
+    .short-answer:focus {
+      outline: 2px solid #0ea5e9;
+      border-color: #0ea5e9;
+    }
+    .ai-note {
+      font-size: 0.8rem;
+      color: #475569;
+      margin-top: 4px;
+    }
+    details {
+      margin-top: 8px;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .highlight {
+      background: #fef9c3;
+      padding: 1px 3px;
+      border-radius: 3px;
+    }
+
+    /* Grammar graphics */
+    .grammar-box {
+      margin-top: 8px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #ecfeff, #e0f2fe);
+      border: 1px solid #38bdf8;
+      position: relative;
+      overflow: hidden;
+    }
+    .grammar-box::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      right: -40px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle at center, rgba(14,165,233,0.15), transparent 60%);
+    }
+    .grammar-title {
+      font-weight: bold;
+      color: #0369a1;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .grammar-title span.icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #0ea5e9;
+      display: inline-block;
+      position: relative;
+    }
+    .grammar-title span.icon::after {
+      content: "≡";
+      font-size: 12px;
+      color: #f9fafb;
+      position: absolute;
+      top: 1px;
+      left: 4px;
+    }
+    .grammar-flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+      font-size: 0.95rem;
+    }
+    .flow-block {
+      padding: 3px 6px;
+      border-radius: 999px;
+      background: #f9fafb;
+      border: 1px solid #bae6fd;
+    }
+    .flow-arrow {
+      font-size: 1.1rem;
+      color: #0f766e;
+    }
+    .example-strip {
+      margin-top: 6px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: #ecfdf5;
+      border: 1px dashed #6ee7b7;
+      font-size: 0.9rem;
+    }
+    .example-strip strong {
+      color: #047857;
+    }
+
+    textarea#freeSentence {
+      border-radius: 8px;
+      border: 1px solid #cbd5f5;
+      padding: 6px;
+      width: 98%;
+      max-width: 700px;
+    }
+    textarea#freeSentence:focus {
+      outline: 2px solid #4ade80;
+      border-color: #16a34a;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Unit 5 – Art, Photography & The Passive (B1) – Interactive Revision Worksheet</h1>
+</header>
+<main>
+
+  <!-- 1. VOCABULARY -->
+  <section id="vocabulary">
+    <h2>1. Vocabulary – Art, Photography & Selfies</h2>
+
+    <h3>1.1 Study the words (word – definition – example)</h3>
+
+    <div class="card">
+      <h4>Art & design professions</h4>
+      <div class="word-block">
+        <div>
+          <div class="word-entry">
+            <div class="word-head">designer</div>
+            <div>Someone who plans and creates the look of things such as posters, clothes or websites.</div>
+            <div>Max is a graphic designer who created a modern layout for the festival posters.</div>
+          </div>
+          <div class="word-entry">
+            <div class="word-head">printmaker</div>
+            <div>An artist who makes many copies of the same image, often using a press or special machine.</div>
+            <div>The printmaker showed us how to make a print of our drawings for the school exhibition.</div>
+          </div>
+          <div class="word-entry">
+            <div class="word-head">sculptor</div>
+            <div>An artist who creates figures and forms from materials like clay, stone or wood.</div>
+            <div>The sculptor made an original sculpture for the park using only recycled wood.</div>
+          </div>
+          <div class="word-entry">
+            <div class="word-head">potter</div>
+            <div>Someone who makes pots and other objects from clay on a potter’s wheel.</div>
+            <div>The potter threw a pot quickly and turned it into a beautiful clay bowl.</div>
+          </div>
+          <div class="word-entry">
+            <div class="word-head">photographer</div>
+            <div>A person who takes photos, especially as a job.</div>
+            <div>David Slater is a wildlife photographer who travelled to Indonesia to take pictures of macaques.</div>
+          </div>
+        </div>
+        <div>
+          <div class="vocab-icon-card icon-professions">
+            <div class="vocab-icon-main">🎨</div>
+            <div class="vocab-icon-label">ART JOBS</div>
+            <div>designer · printmaker · sculptor · potter · photographer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4>Artworks & objects</h4>
+      <div class="word-block">
+        <div>
+          <div class="word-entry">
+            <div class="word-head">sculpture</div>
+            <div>A work of art made by shaping stone, wood, metal or clay into a form.</div>
+            <div>We saw a huge sculpture made of wood in the garden during the art festival.</div>
+          </div>
+          <div class="word-entry">
+            <div class="word-head">pottery</div>
+            <div>Objects made from clay and baked in a kiln, such as bowls or vases.</div>
+            <div>In the workshop, we practised pottery and created colourful clay pots.</div>
+          </div>
+          <div class="word-entry">
+            <div class="word-head">print</div>
+            <div>A copy of a picture or design produced by pressing ink onto paper or fabric.</div>
+            <div>The artist decided to make a print of her digital drawing to give copies to her students.</div>
+          </div>
+          <div class="word-entry">
+            <div class="word-head">self-portrait</div>
+            <div>A picture that an artist makes of themselves.</div>
+            <div>The first ever self-portrait was painted by an Italian artist in the sixteenth century.</div>
+          </div>
+          <div class="word-entry">
+            <div class="word-head">installation art</div>
+            <div>A large artwork that fills a space and often uses many objects or figures.</div>
+            <div>Field for the British Isles is an installation with thousands of small clay figures.</div>
+          </div>
+        </div>
+        <div>
+          <div class="vocab-icon-card icon-artworks">
+            <div class="vocab-icon-main">🗿</div>
+            <div class="vocab-icon-label">ARTWORKS</div>
+            <div>sculpture · pottery · print · self‑portrait · installation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4>Photography tools & actions</h4>
+      <div class="word-block">
+        <div>
+          <div class="word-entry">
+            <div class="word-head">tripod</div>
+            <div>A stand with three legs used to hold a camera still.</div>
+            <div>David set up his camera on a tripod to keep it perfectly still during the photo shoot.</div>
+          </div>
+          <div class="word-entry">
+            <div class="word-head">lens</div>
+            <div>The glass part of a camera that focuses light to make a clear image.</div>
+            <div>The photographer cleaned the lens before the session so the photos would be in focus.</div>
+          </div>
+          <div class="word-entry">
+            <div class="word-head">press the shutter</div>
+            <div>To push the button on a camera to take a photo.</div>
+            <div>Naruto the macaque pressed the shutter and took a famous monkey selfie.</div>
+          </div>
+          <div class="word-entry">
+            <div class="word-head">selfie-stick</div>
+            <div>A stick that holds your phone so you can take a selfie from further away.</div>
+            <div>You can’t use a selfie-stick in some museums and theme parks for safety reasons.</div>
+          </div>
+          <div class="word-entry">
+            <div class="word-head">photo shoot</div>
+            <div>A session when a photographer takes many photos, usually for a project.</div>
+            <div>Max organised a professional photo shoot for a famous fashion magazine.</div>
+          </div>
+        </div>
+        <div>
+          <div class="vocab-icon-card icon-camera">
+            <div class="vocab-icon-main">📷</div>
+            <div class="vocab-icon-label">CAMERA KIT</div>
+            <div>tripod · lens · press the shutter · selfie‑stick · photo shoot</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h4>Editing & appearance</h4>
+      <div class="word-block">
+        <div>
+          <div class="word-entry">
+            <div class="word-head">retouch / edit</div>
+            <div>To change a photo, for example by correcting colours or removing mistakes.</div>
+            <div>Max used software to retouch the photos and make the colours more vibrant.</div>
+          </div>
+          <div class="word-entry">
+            <div class="word-head">add filters</div>
+            <div>To apply special effects to a photo to change its style or colours.</div>
+            <div>Many young people add filters to their selfies before they share them online.</div>
+          </div>
+          <div class="word-entry">
+            <div class="word-head">photogenic</div>
+            <div>Looking attractive in photos.</div>
+            <div>Because Naruto is so photogenic, his selfie looks like a professional portrait.</div>
+          </div>
+          <div class="word-entry">
+            <div class="word-head">in / out of focus</div>
+            <div>In focus = clear and sharp; out of focus = not clear or blurry.</div>
+            <div>The first photo was out of focus, so we took another one with the subject in focus.</div>
+          </div>
+          <div class="word-entry">
+            <div class="word-head">go viral</div>
+            <div>To become very popular on the internet very quickly.</div>
+            <div>The monkey selfie went viral and was shared by millions of people.</div>
+          </div>
+        </div>
+        <div>
+          <div class="vocab-icon-card icon-editing">
+            <div class="vocab-icon-main">✨</div>
+            <div class="vocab-icon-label">EDITING</div>
+            <div>retouch · add filters · photogenic · focus · go viral</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3>1.2 Vocabulary practice – Multiple-choice questions</h3>
+    <p>Choose the best answer for each question. Then click <strong>Check Vocabulary</strong>.</p>
+
+    <div class="card" id="vocab-mcq">
+      <!-- 25 MCQs -->
+      <div class="mcq-item" data-answer="a">
+        <p>1. The art teacher asked us to visit a professional ______ who could show us how to make many copies of the same image.</p>
+        <div class="options">
+          <label><input type="radio" name="v1" value="a"> printmaker</label>
+          <label><input type="radio" name="v1" value="b"> potter</label>
+          <label><input type="radio" name="v1" value="c"> sculptor</label>
+          <label><input type="radio" name="v1" value="d"> designer</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="b">
+        <p>2. For the ceramics project, my friend decided to throw a ______ using clay on the wheel.</p>
+        <div class="options">
+          <label><input type="radio" name="v2" value="a"> print</label>
+          <label><input type="radio" name="v2" value="b"> pot</label>
+          <label><input type="radio" name="v2" value="c"> lens</label>
+          <label><input type="radio" name="v2" value="d"> tripod</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="d">
+        <p>3. The school needed someone to ______ a colourful poster for the arts festival.</p>
+        <div class="options">
+          <label><input type="radio" name="v3" value="a"> retouch</label>
+          <label><input type="radio" name="v3" value="b"> sculpt</label>
+          <label><input type="radio" name="v3" value="c"> throw a pot</label>
+          <label><input type="radio" name="v3" value="d"> design</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="b">
+        <p>4. The huge metal statue in the city square is an impressive piece of ______.</p>
+        <div class="options">
+          <label><input type="radio" name="v4" value="a"> pottery</label>
+          <label><input type="radio" name="v4" value="b"> sculpture</label>
+          <label><input type="radio" name="v4" value="c"> photography</label>
+          <label><input type="radio" name="v4" value="d"> printmaking</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="c">
+        <p>5. Sara enjoys taking pictures with her camera, so she chose ______ as her hobby.</p>
+        <div class="options">
+          <label><input type="radio" name="v5" value="a"> sculpture</label>
+          <label><input type="radio" name="v5" value="b"> pottery</label>
+          <label><input type="radio" name="v5" value="c"> photography</label>
+          <label><input type="radio" name="v5" value="d"> installation art</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="a">
+        <p>6. To create a unique pattern on many shirts at once, you should talk to a professional ______.</p>
+        <div class="options">
+          <label><input type="radio" name="v6" value="a"> printmaker</label>
+          <label><input type="radio" name="v6" value="b"> painter</label>
+          <label><input type="radio" name="v6" value="c"> potter</label>
+          <label><input type="radio" name="v6" value="d"> designer</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="a">
+        <p>7. The artist decided to ______ of her digital drawing so she could give copies to her students.</p>
+        <div class="options">
+          <label><input type="radio" name="v7" value="a"> make a print</label>
+          <label><input type="radio" name="v7" value="b"> throw a pot</label>
+          <label><input type="radio" name="v7" value="c"> design a lens</label>
+          <label><input type="radio" name="v7" value="d"> sculpt a tripod</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="b">
+        <p>8. Last week, I went to the mountains for a professional ______ to take landscape photos.</p>
+        <div class="options">
+          <label><input type="radio" name="v8" value="a"> selfie-stick</label>
+          <label><input type="radio" name="v8" value="b"> photo shoot</label>
+          <label><input type="radio" name="v8" value="c"> sculpture</label>
+          <label><input type="radio" name="v8" value="d"> potter</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="d">
+        <p>9. To keep the camera perfectly still in the wind, the photographer used a sturdy ______.</p>
+        <div class="options">
+          <label><input type="radio" name="v9" value="a"> lens</label>
+          <label><input type="radio" name="v9" value="b"> print</label>
+          <label><input type="radio" name="v9" value="c"> sculpture</label>
+          <label><input type="radio" name="v9" value="d"> tripod</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="a">
+        <p>10. To take a photo, you must first ______ on your camera.</p>
+        <div class="options">
+          <label><input type="radio" name="v10" value="a"> press the shutter</label>
+          <label><input type="radio" name="v10" value="b"> throw a pot</label>
+          <label><input type="radio" name="v10" value="c"> go viral</label>
+          <label><input type="radio" name="v10" value="d"> add pottery</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="c">
+        <p>11. Before the session, the photographer cleaned the ______ so the images would be sharp and clear.</p>
+        <div class="options">
+          <label><input type="radio" name="v11" value="a"> tripod</label>
+          <label><input type="radio" name="v11" value="b"> installation</label>
+          <label><input type="radio" name="v11" value="c"> lens</label>
+          <label><input type="radio" name="v11" value="d"> printmaker</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="b">
+        <p>12. The astronaut took a famous space ______ in 1966, long before smartphones existed.</p>
+        <div class="options">
+          <label><input type="radio" name="v12" value="a"> tripod</label>
+          <label><input type="radio" name="v12" value="b"> selfie</label>
+          <label><input type="radio" name="v12" value="c"> sculpture</label>
+          <label><input type="radio" name="v12" value="d"> print</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="d">
+        <p>13. Many young people ______ to their selfies before they share them online.</p>
+        <div class="options">
+          <label><input type="radio" name="v13" value="a"> press the shutter</label>
+          <label><input type="radio" name="v13" value="b"> throw pots</label>
+          <label><input type="radio" name="v13" value="c"> design sculptures</label>
+          <label><input type="radio" name="v13" value="d"> add filters</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="c">
+        <p>14. Thirty-six per cent of young people admit that they ______ their selfies to improve how they look.</p>
+        <div class="options">
+          <label><input type="radio" name="v14" value="a"> sculpt</label>
+          <label><input type="radio" name="v14" value="b"> go viral</label>
+          <label><input type="radio" name="v14" value="c"> retouch</label>
+          <label><input type="radio" name="v14" value="d"> print</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="a">
+        <p>15. The photo was so popular that it ______ and was shared around the world.</p>
+        <div class="options">
+          <label><input type="radio" name="v15" value="a"> went viral</label>
+          <label><input type="radio" name="v15" value="b"> threw a pot</label>
+          <label><input type="radio" name="v15" value="c"> designed a poster</label>
+          <label><input type="radio" name="v15" value="d"> became pottery</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="d">
+        <p>16. Naruto is very ______, so his smiling selfie looks like it was taken by a professional.</p>
+        <div class="options">
+          <label><input type="radio" name="v16" value="a"> abstract</label>
+          <label><input type="radio" name="v16" value="b"> traditional</label>
+          <label><input type="radio" name="v16" value="c"> realistic</label>
+          <label><input type="radio" name="v16" value="d"> photogenic</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="b">
+        <p>17. The first ever ______ was painted centuries ago by an Italian artist using oil paints.</p>
+        <div class="options">
+          <label><input type="radio" name="v17" value="a"> tripod</label>
+          <label><input type="radio" name="v17" value="b"> self-portrait</label>
+          <label><input type="radio" name="v17" value="c"> selfie-stick</label>
+          <label><input type="radio" name="v17" value="d"> lens</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="a">
+        <p>18. Olly used an app to ______ the old portraits and give the serious faces a big smile.</p>
+        <div class="options">
+          <label><input type="radio" name="v18" value="a"> edit</label>
+          <label><input type="radio" name="v18" value="b"> sculpt</label>
+          <label><input type="radio" name="v18" value="c"> design</label>
+          <label><input type="radio" name="v18" value="d"> print</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="c">
+        <p>19. Some modern artists create ______ with thousands of small clay figures in one room.</p>
+        <div class="options">
+          <label><input type="radio" name="v19" value="a"> pots</label>
+          <label><input type="radio" name="v19" value="b"> lenses</label>
+          <label><input type="radio" name="v19" value="c"> installation artworks</label>
+          <label><input type="radio" name="v19" value="d"> tripods</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="d">
+        <p>20. When he shared his work online, millions of people praised his ______ style.</p>
+        <div class="options">
+          <label><input type="radio" name="v20" value="a"> tripod</label>
+          <label><input type="radio" name="v20" value="b"> printed</label>
+          <label><input type="radio" name="v20" value="c"> potter</label>
+          <label><input type="radio" name="v20" value="d"> original</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="b">
+        <p>21. In graphic design, a computer is just a ______ the most important thing is the idea.</p>
+        <div class="options">
+          <label><input type="radio" name="v21" value="a"> sculpture</label>
+          <label><input type="radio" name="v21" value="b"> tool</label>
+          <label><input type="radio" name="v21" value="c"> photographer</label>
+          <label><input type="radio" name="v21" value="d"> tripod</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="c">
+        <p>22. The gallery showed a mix of ______ paintings and very modern, abstract ones.</p>
+        <div class="options">
+          <label><input type="radio" name="v22" value="a"> photogenic</label>
+          <label><input type="radio" name="v22" value="b"> viral</label>
+          <label><input type="radio" name="v22" value="c"> traditional</label>
+          <label><input type="radio" name="v22" value="d"> lens</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="a">
+        <p>23. The painting is so ______ that it looks exactly like a real photograph.</p>
+        <div class="options">
+          <label><input type="radio" name="v23" value="a"> realistic</label>
+          <label><input type="radio" name="v23" value="b"> boring</label>
+          <label><input type="radio" name="v23" value="c"> shocking</label>
+          <label><input type="radio" name="v23" value="d"> traditional</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="d">
+        <p>24. When you zoom in too much, your pictures can become ______ and look unclear.</p>
+        <div class="options">
+          <label><input type="radio" name="v24" value="a"> brilliant</label>
+          <label><input type="radio" name="v24" value="b"> colourful</label>
+          <label><input type="radio" name="v24" value="c"> in focus</label>
+          <label><input type="radio" name="v24" value="d"> out of focus</label>
+        </div>
+      </div>
+
+      <div class="mcq-item" data-answer="b">
+        <p>25. Some people think graffiti is ______, but others think it is shocking and ugly.</p>
+        <div class="options">
+          <label><input type="radio" name="v25" value="a"> pottery</label>
+          <label><input type="radio" name="v25" value="b"> art</label>
+          <label><input type="radio" name="v25" value="c"> lens</label>
+          <label><input type="radio" name="v25" value="d"> tripod</label>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button onclick="checkMCQSection('vocab-mcq','vocab-result')">Check Vocabulary</button>
+        <button class="secondary" onclick="resetSection('vocab-mcq','vocab-result')">Reset</button>
+        <div id="vocab-result" class="result"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. GRAMMAR -->
+  <section id="grammar">
+    <h2>2. Grammar – The Passive & both / neither / either</h2>
+
+    <div class="card">
+      <h3>2.1 Passive – present simple & past simple</h3>
+
+      <div class="grammar-box">
+        <div class="grammar-title">
+          <span class="icon"></span>
+          <span>Graphic: How we build the passive</span>
+        </div>
+        <div class="grammar-flow">
+          <div class="flow-block">Subject</div>
+          <div class="flow-arrow">➜</div>
+          <div class="flow-block">be (am / is / are / was / were)</div>
+          <div class="flow-arrow">➜</div>
+          <div class="flow-block">V<sub>3</sub> (past participle)</div>
+        </div>
+        <div class="example-strip">
+          <strong>Present:</strong> The photos <u>are taken</u>. &nbsp;&nbsp;
+          <strong>Past:</strong> The selfie <u>was taken</u>.
+        </div>
+      </div>
+
+      <p>We use the <span class="highlight">passive</span> when the action or result is more important than the person who does it.</p>
+
+      <div id="g1-mcq">
+        <div class="mcq-item" data-answer="a">
+          <p>1. The first monkey selfie ______ by Naruto during a photo shoot.</p>
+          <div class="options">
+            <label><input type="radio" name="g1_1" value="a"> was taken</label>
+            <label><input type="radio" name="g1_1" value="b"> is taking</label>
+            <label><input type="radio" name="g1_1" value="c"> were taken</label>
+            <label><input type="radio" name="g1_1" value="d"> took</label>
+          </div>
+        </div>
+
+        <div class="mcq-item" data-answer="b">
+          <p>2. Nowadays, millions of photos ______ to social media every minute.</p>
+          <div class="options">
+            <label><input type="radio" name="g1_2" value="a"> is uploaded</label>
+            <label><input type="radio" name="g1_2" value="b"> are uploaded</label>
+            <label><input type="radio" name="g1_2" value="c"> were uploaded</label>
+            <label><input type="radio" name="g1_2" value="d"> upload</label>
+          </div>
+        </div>
+
+        <div class="mcq-item" data-answer="c">
+          <p>3. Many beautiful portraits ______ in this studio since it opened last year.</p>
+          <div class="options">
+            <label><input type="radio" name="g1_3" value="a"> is painting</label>
+            <label><input type="radio" name="g1_3" value="b"> has painted</label>
+            <label><input type="radio" name="g1_3" value="c"> were painted</label>
+            <label><input type="radio" name="g1_3" value="d"> was paint</label>
+          </div>
+        </div>
+
+        <div class="mcq-item" data-answer="c">
+          <p>4. The painting on the school wall ______ by a local artist last summer.</p>
+          <div class="options">
+            <label><input type="radio" name="g1_4" value="a"> is designed</label>
+            <label><input type="radio" name="g1_4" value="b"> were designed</label>
+            <label><input type="radio" name="g1_4" value="c"> was designed</label>
+            <label><input type="radio" name="g1_4" value="d"> was design</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button onclick="checkMCQSection('g1-mcq','g1-result')">Check Rule 1</button>
+        <button class="secondary" onclick="resetSection('g1-mcq','g1-result')">Reset</button>
+        <div id="g1-result" class="result"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>2.2 Active or passive?</h3>
+
+      <div class="grammar-box" style="background:linear-gradient(135deg,#fef9c3,#fffbeb);border-color:#facc15;">
+        <div class="grammar-title">
+          <span class="icon" style="background:#facc15;"></span>
+          <span>Graphic: Focus of the sentence</span>
+        </div>
+        <div class="grammar-flow">
+          <div class="flow-block">Active: <em>Who does it?</em></div>
+          <div class="flow-arrow">⇄</div>
+          <div class="flow-block">Passive: <em>What happens?</em></div>
+        </div>
+        <div class="example-strip" style="background:#fefce8;border-color:#fde68a;">
+          <strong>Active:</strong> The monkey <u>took</u> the selfie.<br>
+          <strong>Passive:</strong> The selfie <u>was taken</u> (by the monkey).
+        </div>
+      </div>
+
+      <p>Choose <span class="highlight">active</span> when you want to focus on the person; choose <span class="highlight">passive</span> when you want to focus on the result.</p>
+
+      <div id="g2-mcq">
+        <div class="mcq-item" data-answer="d">
+          <p>1. Choose the correct passive sentence.</p>
+          <div class="options">
+            <label><input type="radio" name="g2_1" value="a"> The monkey pressed the shutter.</label>
+            <label><input type="radio" name="g2_1" value="b"> David shares the photo online.</label>
+            <label><input type="radio" name="g2_1" value="c"> Millions of people saw the selfie.</label>
+            <label><input type="radio" name="g2_1" value="d"> The selfie was taken by a curious monkey.</label>
+          </div>
+        </div>
+
+        <div class="mcq-item" data-answer="b">
+          <p>2. Which sentence is passive?</p>
+          <div class="options">
+            <label><input type="radio" name="g2_2" value="a"> Max edited the photos himself.</label>
+            <label><input type="radio" name="g2_2" value="b"> The photos were edited carefully.</label>
+            <label><input type="radio" name="g2_2" value="c"> Max added filters to the images.</label>
+            <label><input type="radio" name="g2_2" value="d"> Max retouched every selfie.</label>
+          </div>
+        </div>
+
+        <div class="mcq-item" data-answer="a">
+          <p>3. Rewrite in the passive: “People share the image online.”</p>
+          <div class="options">
+            <label><input type="radio" name="g2_3" value="a"> The image is shared online.</label>
+            <label><input type="radio" name="g2_3" value="b"> The image shares online.</label>
+            <label><input type="radio" name="g2_3" value="c"> The image was share online.</label>
+            <label><input type="radio" name="g2_3" value="d"> People are shared by the image online.</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button onclick="checkMCQSection('g2-mcq','g2-result')">Check Rule 2</button>
+        <button class="secondary" onclick="resetSection('g2-mcq','g2-result')">Reset</button>
+        <div id="g2-result" class="result"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>2.3 Passive – questions & short answers</h3>
+
+      <div class="grammar-box" style="background:linear-gradient(135deg,#f5f3ff,#e0e7ff);border-color:#a855f7;">
+        <div class="grammar-title">
+          <span class="icon" style="background:#a855f7;"></span>
+          <span>Graphic: Passive question pattern</span>
+        </div>
+        <div class="grammar-flow">
+          <div class="flow-block">Be (Is / Are / Was / Were)</div>
+          <div class="flow-arrow">➜</div>
+          <div class="flow-block">Object</div>
+          <div class="flow-arrow">➜</div>
+          <div class="flow-block">V<sub>3</sub> ?</div>
+        </div>
+        <div class="example-strip" style="background:#fdf4ff;border-color:#e9d5ff;">
+          <strong>Example:</strong> <u>Is</u> the photo <u>exhibited</u> in London? – Yes, it is.
+        </div>
+      </div>
+
+      <div id="g3-mcq">
+        <div class="mcq-item" data-answer="d">
+          <p>1. ______ the monkey selfie exhibited in many galleries around the world?</p>
+          <div class="options">
+            <label><input type="radio" name="g3_1" value="a"> Do</label>
+            <label><input type="radio" name="g3_1" value="b"> Did</label>
+            <label><input type="radio" name="g3_1" value="c"> Are</label>
+            <label><input type="radio" name="g3_1" value="d"> Is</label>
+          </div>
+        </div>
+
+        <div class="mcq-item" data-answer="b">
+          <p>2. ______ the clay figures made by schoolchildren?</p>
+          <div class="options">
+            <label><input type="radio" name="g3_2" value="a"> Was</label>
+            <label><input type="radio" name="g3_2" value="b"> Were</label>
+            <label><input type="radio" name="g3_2" value="c"> Are</label>
+            <label><input type="radio" name="g3_2" value="d"> Is</label>
+          </div>
+        </div>
+
+        <div class="mcq-item" data-answer="c">
+          <p>3. Choose the correct question: “Field for the British Isles / design / by Antony Gormley?”</p>
+          <div class="options">
+            <label><input type="radio" name="g3_3" value="a"> Who Field for the British Isles was designed?</label>
+            <label><input type="radio" name="g3_3" value="b"> Field for the British Isles was designed by who?</label>
+            <label><input type="radio" name="g3_3" value="c"> Who was Field for the British Isles designed by?</label>
+            <label><input type="radio" name="g3_3" value="d"> Field for the British Isles who designed?</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button onclick="checkMCQSection('g3-mcq','g3-result')">Check Rule 3</button>
+        <button class="secondary" onclick="resetSection('g3-mcq','g3-result')">Reset</button>
+        <div id="g3-result" class="result"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>2.4 both / neither / either (of)</h3>
+
+      <div class="grammar-box" style="background:linear-gradient(135deg,#ecfccb,#dcfce7);border-color:#84cc16;">
+        <div class="grammar-title">
+          <span class="icon" style="background:#84cc16;"></span>
+          <span>Graphic: Comparing two things</span>
+        </div>
+        <div class="grammar-flow">
+          <div class="flow-block">both (of)</div>
+          <div class="flow-arrow">=</div>
+          <div class="flow-block">2 / 2 ✔</div>
+        </div>
+        <div class="grammar-flow">
+          <div class="flow-block">neither (of)</div>
+          <div class="flow-arrow">=</div>
+          <div class="flow-block">0 / 2 ✖</div>
+        </div>
+        <div class="grammar-flow">
+          <div class="flow-block">either (of)</div>
+          <div class="flow-arrow">=</div>
+          <div class="flow-block">1 / 2 (we don’t know which)</div>
+        </div>
+        <div class="example-strip" style="background:#f0fdf4;border-color:#bbf7d0;">
+          <strong>Examples:</strong> Both artists are famous. / Neither of the galleries was open. / Either of the designs is fine.
+        </div>
+      </div>
+
+      <div id="g4-mcq">
+        <div class="mcq-item" data-answer="b">
+          <p>1. I visited two art galleries last weekend, but ______ of them was open.</p>
+          <div class="options">
+            <label><input type="radio" name="g4_1" value="a"> both</label>
+            <label><input type="radio" name="g4_1" value="b"> neither</label>
+            <label><input type="radio" name="g4_1" value="c"> either</label>
+            <label><input type="radio" name="g4_1" value="d"> all</label>
+          </div>
+        </div>
+
+        <div class="mcq-item" data-answer="c">
+          <p>2. I like ______ of the two sketches, so I will buy one of them.</p>
+          <div class="options">
+            <label><input type="radio" name="g4_2" value="a"> neither</label>
+            <label><input type="radio" name="g4_2" value="b"> all</label>
+            <label><input type="radio" name="g4_2" value="c"> either</label>
+            <label><input type="radio" name="g4_2" value="d"> much</label>
+          </div>
+        </div>
+
+        <div class="mcq-item" data-answer="a">
+          <p>3. ______ of the two artists is smiling in their portraits – they both look sad.</p>
+          <div class="options">
+            <label><input type="radio" name="g4_3" value="a"> Neither</label>
+            <label><input type="radio" name="g4_3" value="b"> Both</label>
+            <label><input type="radio" name="g4_3" value="c"> All</label>
+            <label><input type="radio" name="g4_3" value="d"> Either</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button onclick="checkMCQSection('g4-mcq','g4-result')">Check Rule 4</button>
+        <button class="secondary" onclick="resetSection('g4-mcq','g4-result')">Reset</button>
+        <div id="g4-result" class="result"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. READING -->
+  <section id="reading">
+    <h2>3. Reading Comprehension – Exam Style</h2>
+
+    <div class="card">
+      <h3>3.1 Reading 1 – The Famous Monkey Selfie</h3>
+      <div class="reading-text">
+        <p><strong>The Story of the Famous Monkey Selfie</strong></p>
+        <p>
+          In 2011, a British wildlife photographer named David Slater travelled to Indonesia for a professional photo shoot. He wanted to capture the perfect images of crested macaques, which are rare monkeys known locally as yaki. To get the best results, David set up his camera on a professional tripod and checked the lens to make sure the light was perfect.
+        </p>
+        <p>
+          While David was busy, a curious macaque called Naruto approached the equipment. Naruto looked at his own reflection in the glass and began to play. Suddenly, Naruto decided to press the shutter himself. The result was an amazing self-portrait of a smiling monkey. Because Naruto was naturally photogenic, the picture looked professional and was perfectly in focus.
+        </p>
+        <p>
+          David decided to share the photo online, and it did not take long for the image to go viral. Millions of people saw the monkey selfie on social media. However, a big problem started when people asked who owned the photo. A group called PETA sued the photographer, arguing that Naruto should own the copyright. Eventually, a settlement was reached. David remained the owner, but he agreed to donate twenty-five per cent of his future earnings to protect the macaques’ habitat.
+        </p>
+      </div>
+
+      <h4>A. Are the sentences true (T) or false (F)?</h4>
+      <div id="r1-tf">
+        <div class="mcq-item" data-answer="t">
+          <p>1. David Slater went to Indonesia to take photos of monkeys.</p>
+          <div class="options">
+            <label><input type="radio" name="r1_1" value="t"> T</label>
+            <label><input type="radio" name="r1_1" value="f"> F</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-answer="f">
+          <p>2. The monkey used a selfie-stick to take the famous photo.</p>
+          <div class="options">
+            <label><input type="radio" name="r1_2" value="t"> T</label>
+            <label><input type="radio" name="r1_2" value="f"> F</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-answer="t">
+          <p>3. The photo became very popular and went viral online.</p>
+          <div class="options">
+            <label><input type="radio" name="r1_3" value="t"> T</label>
+            <label><input type="radio" name="r1_3" value="f"> F</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-answer="f">
+          <p>4. David had to give all of his money to wildlife charities.</p>
+          <div class="options">
+            <label><input type="radio" name="r1_4" value="t"> T</label>
+            <label><input type="radio" name="r1_4" value="f"> F</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-answer="t">
+          <p>5. The yaki is a type of rare monkey found in Indonesia.</p>
+          <div class="options">
+            <label><input type="radio" name="r1_5" value="t"> T</label>
+            <label><input type="radio" name="r1_5" value="f"> F</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-answer="f">
+          <p>6. The monkey’s name in the story is David.</p>
+          <div class="options">
+            <label><input type="radio" name="r1_6" value="t"> T</label>
+            <label><input type="radio" name="r1_6" value="f"> F</label>
+          </div>
+        </div>
+      </div>
+
+      <h4>B. Answer the questions in complete sentences.</h4>
+      <ol>
+        <li>
+          Why did David use a tripod during his photo shoot?<br>
+          <input type="text" class="short-answer" id="r1_q7" placeholder="Type your answer here..." />
+        </li>
+        <li>
+          What did David agree to do with 25% of his earnings?<br>
+          <input type="text" class="short-answer" id="r1_q8" placeholder="Type your answer here..." />
+        </li>
+      </ol>
+
+      <div class="btn-row">
+        <button onclick="checkTFSection('r1-tf','r1-tf-result')">Check T/F</button>
+        <button class="secondary" onclick="showShortAnswerHint('r1_q7','He used a tripod to keep the camera perfectly still and get the best results.')">Hint Q7</button>
+        <button class="secondary" onclick="showShortAnswerHint('r1_q8','He agreed to donate 25% of his future earnings to protect the macaques’ habitat.')">Hint Q8</button>
+        <div id="r1-tf-result" class="result"></div>
+        <div class="ai-note">Compare your answers with the hints and underline key words in the text.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>3.2 Reading 2 – The Career of a Graphic Designer</h3>
+      <div class="reading-text">
+        <p><strong>The Career of a Graphic Designer</strong></p>
+        <p>
+          In the modern world, a designer does more than just draw. Today, digital graphic design is used in everything from book covers to social media advertisements. Max is a professional designer who started his career by studying traditional painting and pottery, but he soon discovered a passion for technology.
+        </p>
+        <p>
+          Last year, Max was hired for a major project: a professional photo shoot for a fashion magazine. He did not just take the photos; he used his skills to retouch the images, making the colours more vibrant and ensuring every detail was in focus. He also added creative filters to give the photos an abstract look.
+        </p>
+        <p>
+          When Max shared his work online, it did not take long for the images to go viral. Millions of people praised his original style. However, Max believes that even with modern technology, the most important part of art is the idea behind it. “A computer is just a tool,” he says. “Whether you are a sculptor working with clay or a designer using a screen, you must first have a brilliant vision.”
+        </p>
+      </div>
+
+      <h4>A. Are the sentences true (T) or false (F)?</h4>
+      <div id="r2-tf">
+        <div class="mcq-item" data-answer="f">
+          <p>1. Max started his artistic career by working only with digital computers.</p>
+          <div class="options">
+            <label><input type="radio" name="r2_1" value="t"> T</label>
+            <label><input type="radio" name="r2_1" value="f"> F</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-answer="t">
+          <p>2. During the project, Max edited the photos to make them look abstract.</p>
+          <div class="options">
+            <label><input type="radio" name="r2_2" value="t"> T</label>
+            <label><input type="radio" name="r2_2" value="f"> F</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-answer="f">
+          <p>3. Max believes that the tools are more important than the artist’s idea.</p>
+          <div class="options">
+            <label><input type="radio" name="r2_3" value="t"> T</label>
+            <label><input type="radio" name="r2_3" value="f"> F</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-answer="t">
+          <p>4. The photos became very popular after they were shared on the internet.</p>
+          <div class="options">
+            <label><input type="radio" name="r2_4" value="t"> T</label>
+            <label><input type="radio" name="r2_4" value="f"> F</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-answer="t">
+          <p>5. Max has experience in traditional arts like pottery.</p>
+          <div class="options">
+            <label><input type="radio" name="r2_5" value="t"> T</label>
+            <label><input type="radio" name="r2_5" value="f"> F</label>
+          </div>
+        </div>
+        <div class="mcq-item" data-answer="f">
+          <p>6. The text suggests that graphic design is only used for magazines.</p>
+          <div class="options">
+            <label><input type="radio" name="r2_6" value="t"> T</label>
+            <label><input type="radio" name="r2_6" value="f"> F</label>
+          </div>
+        </div>
+      </div>
+
+      <h4>B. Answer the questions in complete sentences.</h4>
+      <ol>
+        <li>
+          What did Max do to the photos to ensure they were of high quality?<br>
+          <input type="text" class="short-answer" id="r2_q7" placeholder="Type your answer here..." />
+        </li>
+        <li>
+          In Max’s opinion, what is the role of a computer in the world of art?<br>
+          <input type="text" class="short-answer" id="r2_q8" placeholder="Type your answer here..." />
+        </li>
+      </ol>
+
+      <div class="btn-row">
+        <button onclick="checkTFSection('r2-tf','r2-tf-result')">Check T/F</button>
+        <button class="secondary" onclick="showShortAnswerHint('r2_q7','He retouched and edited the images, making the colours more vibrant and every detail in focus.')">Hint Q7</button>
+        <button class="secondary" onclick="showShortAnswerHint('r2_q8','He says a computer is just a tool; the idea or vision is the most important part.')">Hint Q8</button>
+        <div id="r2-tf-result" class="result"></div>
+        <div class="ai-note">Use the hints to self-correct your answers.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. AI-LIKE CORRECTION -->
+  <section id="ai-like">
+    <h2>4. AI-like Correction Helper (Offline)</h2>
+    <div class="card">
+      <p>Type one grammar sentence from this unit (for example, a passive sentence). The tool will highlight possible problems and give a short comment.</p>
+      <textarea id="freeSentence" rows="3" placeholder="Example: The selfie was take by the monkey."></textarea>
+      <div class="btn-row">
+        <button onclick="analyzeSentence()">Analyze Sentence</button>
+      </div>
+      <div id="analysisResult" class="result"></div>
+
+      <details>
+        <summary>How this offline AI-like checker works</summary>
+        <p>
+          This simple checker uses rules in JavaScript. It looks for common mistakes from your exam, like missing <em>was/were</em>, using <em>take</em> instead of <em>taken</em>, or confusing <em>both/neither/either</em>. It is not perfect, but it helps you think like a real AI grammar tool even when you are offline.
+        </p>
+      </details>
+    </div>
+  </section>
+</main>
+
+<script>
+  function checkMCQSection(sectionId, resultId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    const items = section.querySelectorAll('.mcq-item');
+    let correct = 0;
+    let total = items.length;
+    items.forEach(item => {
+      const correctAnswer = item.getAttribute('data-answer');
+      const input = item.querySelector('input[type="radio"]');
+      if (!input) return;
+      const name = input.name;
+      const chosen = section.querySelector('input[name="' + name + '"]:checked');
+      if (chosen && chosen.value === correctAnswer) correct++;
+    });
+    const result = document.getElementById(resultId);
+    if (!result) return;
+    result.textContent = 'Score: ' + correct + ' / ' + total;
+    result.className = 'result ' + (correct === total ? 'correct' : 'incorrect');
+  }
+
+  function resetSection(sectionId, resultId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const radios = section.querySelectorAll('input[type="radio"]');
+      radios.forEach(r => r.checked = false);
+    }
+    const result = document.getElementById(resultId);
+    if (result) {
+      result.textContent = '';
+      result.className = 'result';
+    }
+  }
+
+  function checkTFSection(sectionId, resultId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    const items = section.querySelectorAll('.mcq-item');
+    let correct = 0;
+    let total = items.length;
+    items.forEach(item => {
+      const correctAnswer = item.getAttribute('data-answer');
+      const input = item.querySelector('input[type="radio"]');
+      if (!input) return;
+      const name = input.name;
+      const chosen = section.querySelector('input[name="' + name + '"]:checked');
+      if (chosen && chosen.value === correctAnswer) correct++;
+    });
+    const result = document.getElementById(resultId);
+    if (!result) return;
+    result.textContent = 'Score: ' + correct + ' / ' + total;
+    result.className = 'result ' + (correct === total ? 'correct' : 'incorrect');
+  }
+
+  function showShortAnswerHint(inputId, hintText) {
+    const input = document.getElementById(inputId);
+    if (!input) return;
+    if (input.value.trim() === '') {
+      input.value = '(Try to answer first, then compare with this hint.)';
+    }
+    alert('Hint / model answer:\n\n' + hintText);
+  }
+
+  function analyzeSentence() {
+    const sentenceBox = document.getElementById('freeSentence');
+    const result = document.getElementById('analysisResult');
+    if (!sentenceBox || !result) return;
+    let s = sentenceBox.value.trim();
+    if (!s) {
+      result.textContent = 'Please type a sentence first.';
+      result.className = 'result incorrect';
+      return;
+    }
+    let comments = [];
+    if (s.match(/\bwas take\b/i) || s.match(/\bwere take\b/i)) {
+      comments.push('Use the past participle: "was taken" / "were taken", not "was take" / "were take".');
+    }
+    if (s.match(/\bboth of them is\b/i)) {
+      comments.push('With "both of them", use a plural verb: "both of them are ...".');
+    }
+    if (s.match(/\bneither of them are\b/i)) {
+      comments.push('With "neither of them", we usually use singular: "neither of them is ...".');
+    }
+    if (s.match(/\beither of them are\b/i)) {
+      comments.push('With "either of them", use singular: "either of them is ...".');
+    }
+    if (s.match(/\bwas created\b/i) && !s.match(/\bby\b/i)) {
+      comments.push('If who did the action is important, add "by + person": "was created by a famous artist".');
+    }
+    if (comments.length === 0) {
+      result.textContent = 'No common exam mistakes found. The sentence looks good for this level.';
+      result.className = 'result correct';
+    } else {
+      result.innerHTML = '<span class="highlight">Suggestions:</span><br>' + comments.join('<br>');
+      result.className = 'result incorrect';
+    }
+  }
+</script>
+</body>
+</html>

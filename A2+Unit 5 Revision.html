@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Study Worksheet (Vocab + Grammar + Reading)</title>
+  <style>
+    :root{
+      --bg:#f6fbff;
+      --card:#ffffff;
+      --ink:#1f2a37;
+      --muted:#5b6b7a;
+      --primary:#5aa7ff;
+      --primary2:#7dd3fc;
+      --accent:#a7f3d0;
+      --warn:#fde68a;
+      --good:#86efac;
+      --bad:#fca5a5;
+      --border:#e6eef7;
+      --shadow:0 8px 24px rgba(31,42,55,.08);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      background: radial-gradient(1200px 600px at 10% 0%, #eaf5ff 0%, transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, #eafff6 0%, transparent 55%),
+                  var(--bg);
+      color:var(--ink);
+      line-height:1.45;
+    }
+    header{
+      padding:28px 18px 10px;
+      max-width:1100px;
+      margin:0 auto;
+    }
+    .hero{
+      background: linear-gradient(135deg, rgba(90,167,255,.18), rgba(167,243,208,.22));
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:18px 18px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:-60px -80px auto auto;
+      width:220px; height:220px;
+      background: radial-gradient(circle at 30% 30%, rgba(125,211,252,.7), rgba(90,167,255,0));
+      transform: rotate(12deg);
+    }
+    h1{margin:0 0 6px; font-size: clamp(20px, 3vw, 30px);}
+    .sub{color:var(--muted); margin:0 0 10px; max-width:70ch;}
+    .toprow{
+      display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between;
+    }
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(255,255,255,.65);
+      color:var(--muted);
+      font-size:13px;
+      backdrop-filter: blur(8px);
+    }
+    main{
+      max-width:1100px;
+      margin:16px auto 70px;
+      padding:0 18px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+    }
+    @media (min-width: 900px){
+      .grid{
+        grid-template-columns: 1.6fr .9fr;
+        gap:16px;
+        align-items:start;
+      }
+    }
+    nav{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin:10px 0 0;
+    }
+    .tab{
+      cursor:pointer;
+      user-select:none;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.72);
+      color:var(--muted);
+      font-weight:600;
+      box-shadow: 0 6px 16px rgba(31,42,55,.05);
+      transition: transform .08s ease, background .2s ease;
+    }
+    .tab:hover{transform: translateY(-1px);}
+    .tab.active{
+      background: linear-gradient(135deg, rgba(90,167,255,.22), rgba(167,243,208,.22));
+      color:var(--ink);
+      border-color: rgba(90,167,255,.35);
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      padding:16px;
+    }
+    .card h2{margin:0 0 8px; font-size:18px;}
+    .muted{color:var(--muted)}
+    .row{display:flex; gap:12px; flex-wrap:wrap; align-items:center;}
+    .btn{
+      cursor:pointer;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, #fff, #f7fbff);
+      font-weight:700;
+      color:var(--ink);
+      box-shadow: 0 6px 16px rgba(31,42,55,.06);
+      transition: transform .08s ease;
+    }
+    .btn:hover{transform: translateY(-1px);}
+    .btn.primary{
+      border-color: rgba(90,167,255,.35);
+      background: linear-gradient(135deg, rgba(90,167,255,.26), rgba(125,211,252,.22));
+    }
+    .btn.good{
+      border-color: rgba(134,239,172,.55);
+      background: linear-gradient(135deg, rgba(134,239,172,.26), rgba(167,243,208,.22));
+    }
+    .btn.warn{
+      border-color: rgba(253,230,138,.7);
+      background: linear-gradient(135deg, rgba(253,230,138,.35), rgba(255,255,255,.9));
+    }
+
+    .progressWrap{
+      margin-top:12px;
+      width:100%;
+      background:#eef6ff;
+      border:1px solid var(--border);
+      border-radius:999px;
+      overflow:hidden;
+      height:12px;
+    }
+    .bar{height:100%; width:0%; background: linear-gradient(90deg, var(--primary), var(--accent));}
+    .scoreLine{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-top:8px; color:var(--muted); font-size:13px}
+
+    .q{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:12px;
+      background: linear-gradient(180deg, rgba(255,255,255,1), rgba(246,251,255,.7));
+      margin:10px 0;
+    }
+    .qhead{
+      display:flex; gap:10px; align-items:flex-start; justify-content:space-between;
+    }
+    .qtitle{ margin:0; font-weight:800; }
+    .tag{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.7);
+      color:var(--muted);
+      white-space:nowrap;
+    }
+    .choices{margin-top:8px; display:grid; gap:8px;}
+    .choice{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:10px 10px;
+      background:rgba(255,255,255,.85);
+      display:flex; gap:10px; align-items:flex-start;
+      cursor:pointer;
+      transition: transform .08s ease, background .15s ease;
+    }
+    .choice:hover{transform: translateY(-1px);}
+    .choice input{margin-top:2px}
+    .explain{
+      margin-top:8px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px dashed rgba(90,167,255,.35);
+      background: rgba(90,167,255,.10);
+      color:var(--muted);
+      display:none;
+    }
+    .q.correct{border-color: rgba(134,239,172,.7); background: rgba(134,239,172,.10);}
+    .q.wrong{border-color: rgba(252,165,165,.8); background: rgba(252,165,165,.08);}
+    .q.correct .explain{display:block; border-color: rgba(134,239,172,.7); background: rgba(134,239,172,.12);}
+    .q.wrong .explain{display:block; border-color: rgba(252,165,165,.8); background: rgba(252,165,165,.12);}
+
+    .vocabGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+    }
+    @media (min-width: 700px){
+      .vocabGrid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    .vcard{
+      display:grid;
+      grid-template-columns: 92px 1fr;
+      gap:12px;
+      align-items:center;
+      padding:12px;
+      border-radius:18px;
+      border:1px solid var(--border);
+      background: linear-gradient(135deg, rgba(125,211,252,.16), rgba(167,243,208,.14));
+    }
+    .vimg{
+      width:92px; height:92px;
+      border-radius:18px;
+      border:1px solid rgba(90,167,255,.25);
+      background:#fff;
+      overflow:hidden;
+      box-shadow: 0 10px 22px rgba(31,42,55,.10);
+      display:flex; align-items:center; justify-content:center;
+      position:relative;
+    }
+    .vimg img{width:100%; height:100%; object-fit:cover; display:block;}
+    .vimg .fallback{
+      position:absolute; inset:0;
+      display:flex; align-items:center; justify-content:center;
+      font-size:12px;
+      color:var(--muted);
+      background: linear-gradient(135deg, rgba(90,167,255,.12), rgba(167,243,208,.18));
+      text-align:center;
+      padding:8px;
+    }
+    .vword{margin:0; font-size:16px; font-weight:900;}
+    .vdef{margin:4px 0 0; color:var(--muted); font-size:13px;}
+    .vex{margin:6px 0 0; font-size:13px;}
+    .small{font-size:13px}
+
+    .gGraphic{
+      width:100%;
+      height:120px;
+      border-radius:18px;
+      border:1px solid var(--border);
+      background: linear-gradient(135deg, rgba(253,230,138,.30), rgba(90,167,255,.14));
+      overflow:hidden;
+      position:relative;
+      margin:10px 0;
+    }
+    .gGraphic svg{width:100%; height:100%}
+    .divider{height:1px; background:var(--border); margin:12px 0;}
+
+    textarea{
+      width:100%;
+      min-height:90px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      padding:10px 12px;
+      font-family:inherit;
+      font-size:14px;
+      outline:none;
+      background: rgba(255,255,255,.9);
+    }
+    .coach{
+      border-radius:16px;
+      border:1px solid rgba(90,167,255,.25);
+      background: rgba(90,167,255,.08);
+      padding:12px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .sideCardTitle{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .kbd{
+      font-size:12px;
+      padding:4px 8px;
+      border-radius:10px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.8);
+      color:var(--muted);
+    }
+    .footerNote{ margin-top:10px; color:var(--muted); font-size:12px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hero">
+    <div class="toprow">
+      <div>
+        <h1>Interactive Study Worksheet</h1>
+        <p class="sub">Practice <b>Vocabulary</b>, <b>Grammar</b>, and <b>Reading Comprehension</b>. Get instant feedback and an offline “AI-like” coach.</p>
+        <nav>
+          <div class="tab active" data-tab="vocab">Vocabulary</div>
+          <div class="tab" data-tab="grammar">Grammar</div>
+          <div class="tab" data-tab="reading">Reading</div>
+        </nav>
+      </div>
+      <div class="pill" title="Works offline once saved">✅ Offline friendly • ⚡ Instant grading • 🧠 Coach feedback</div>
+    </div>
+
+    <div class="progressWrap" aria-label="Progress">
+      <div class="bar" id="progressBar"></div>
+    </div>
+    <div class="scoreLine">
+      <div>Answered: <b id="answeredCount">0</b> / <b id="totalCount">0</b></div>
+      <div>Score: <b id="scoreNow">0</b> / <b id="totalMCQ">0</b></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="grid">
+
+    <section id="mainArea">
+
+      <!-- VOCAB TAB -->
+      <div class="card tabPane" id="pane-vocab">
+        <h2>Vocabulary Study</h2>
+        <p class="muted small">First, study the words (with visuals). Then answer the MCQ questions like the exam.</p>
+
+        <div class="divider"></div>
+
+        <h3 style="margin:0 0 10px;">Study the words</h3>
+        <div class="vocabGrid" id="vocabCards"></div>
+
+        <div class="divider"></div>
+
+        <h3 style="margin:0 0 10px;">Vocabulary MCQ (20 Questions)</h3>
+        <div id="vocabQuiz"></div>
+
+        <div class="row" style="margin-top:12px;">
+          <button class="btn primary" onclick="gradeSection('vocab')">Grade Vocabulary</button>
+          <button class="btn" onclick="resetSection('vocab')">Reset Vocabulary</button>
+        </div>
+        <p class="footerNote">Tip: Click a choice to select it. Feedback appears after grading.</p>
+      </div>
+
+      <!-- GRAMMAR TAB -->
+      <div class="card tabPane" id="pane-grammar" style="display:none;">
+        <h2>Grammar Review</h2>
+        <p class="muted small">Read each rule, look at the graphic, then answer the MCQs (30 questions total).</p>
+
+        <div id="grammarBlocks"></div>
+
+        <div class="row" style="margin-top:12px;">
+          <button class="btn primary" onclick="gradeSection('grammar')">Grade Grammar</button>
+          <button class="btn" onclick="resetSection('grammar')">Reset Grammar</button>
+        </div>
+      </div>
+
+      <!-- READING TAB -->
+      <div class="card tabPane" id="pane-reading" style="display:none;">
+        <h2>Reading Comprehension</h2>
+        <p class="muted small">Read the passages and answer questions. MCQs are auto-graded. Short answers get “coach” feedback offline.</p>
+
+        <div id="readingBlocks"></div>
+
+        <div class="row" style="margin-top:12px;">
+          <button class="btn primary" onclick="gradeSection('reading')">Grade Reading</button>
+          <button class="btn" onclick="resetSection('reading')">Reset Reading</button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SIDE PANEL -->
+    <aside class="card">
+      <div class="sideCardTitle">
+        <h2 style="margin:0;">Offline Coach</h2>
+        <span class="kbd">No Internet</span>
+      </div>
+      <p class="muted small" style="margin-top:6px;">
+        This “coach” gives hints using patterns and rubrics (works offline). It is not a real AI model, but it helps students improve.
+      </p>
+
+      <div class="divider"></div>
+
+      <label class="muted small"><b>Paste any sentence or short answer here:</b></label>
+      <textarea id="coachInput" placeholder="Type a sentence…"></textarea>
+      <div class="row" style="margin-top:10px;">
+        <button class="btn good" onclick="runCoach()">Get Coach Feedback</button>
+        <button class="btn" onclick="document.getElementById('coachInput').value=''; document.getElementById('coachOut').innerHTML='';">Clear</button>
+      </div>
+
+      <div style="margin-top:10px;" class="coach" id="coachOut"></div>
+
+      <div class="divider"></div>
+
+      <button class="btn warn" onclick="gradeAll()">Grade Everything</button>
+      <p class="footerNote">Teacher tip: Save this file and share it. It will still work offline.</p>
+    </aside>
+
+  </div>
+</main>
+
+<script>
+/* =========================================================
+   DATA (Edit these to match your Word/PDF materials)
+   ========================================================= */
+
+const vocabList = [
+  { word:"vibrant", def:"full of energy and bright color", ex:"The market was vibrant and full of life.", img:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=60" },
+  { word:"archaeological", def:"related to studying ancient history using objects and ruins", ex:"They visited an archaeological site in the desert.", img:"https://images.unsplash.com/photo-1544986581-efac024faf62?auto=format&fit=crop&w=600&q=60" },
+  { word:"must-see", def:"very important to visit or watch", ex:"The museum is a must-see for tourists.", img:"https://images.unsplash.com/photo-1529421308418-eab98863cee4?auto=format&fit=crop&w=600&q=60" },
+  { word:"like-minded", def:"sharing similar interests or opinions", ex:"She met like-minded students in the art club.", img:"https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=60" },
+  { word:"spare", def:"extra; not needed right now", ex:"Do you have a spare pen I can borrow?", img:"https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=600&q=60" },
+  { word:"favorite", def:"liked more than all others", ex:"My favorite dessert is ice cream.", img:"https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=600&q=60" }
+];
+
+// Vocab MCQs (20)
+const vocabMCQ = [
+  mkQ("vocab", "V1", "The city looked ______ at night with colorful lights.", ["spare","vibrant","favorite","like-minded"], 1, "Vibrant = bright and full of energy."),
+  mkQ("vocab", "V2", "A ______ place is one you should definitely visit.", ["must-see","spare","archaeological","like-minded"], 0, "Must-see = very important to visit."),
+  mkQ("vocab", "V3", "They found old coins at an ______ site.", ["favorite","vibrant","archaeological","spare"], 2, "Archaeological relates to ancient sites and objects."),
+  mkQ("vocab", "V4", "He joined a club to meet ______ people who love chess.", ["like-minded","spare","must-see","vibrant"], 0, "Like-minded = similar interests/opinions."),
+  mkQ("vocab", "V5", "I forgot my pencil. Do you have a ______ one?", ["vibrant","spare","must-see","archaeological"], 1, "Spare = extra."),
+  mkQ("vocab", "V6", "Her ______ subject is English.", ["favorite","spare","like-minded","archaeological"], 0, "Favorite = liked the most."),
+  mkQ("vocab", "V7", "The festival was ______ with music and dancing.", ["vibrant","spare","must-see","favorite"], 0, "Vibrant describes lively energy."),
+  mkQ("vocab", "V8", "The pyramids are a ______ attraction.", ["like-minded","must-see","spare","favorite"], 1, "Must-see = strongly recommended."),
+  mkQ("vocab", "V9", "An ______ discovery can teach us about ancient life.", ["archaeological","favorite","spare","vibrant"], 0, "Archaeological = ancient remains."),
+  mkQ("vocab", "V10", "They are ______ friends because they both love art.", ["like-minded","spare","must-see","vibrant"], 0, "Like-minded = similar ideas."),
+  mkQ("vocab", "V11", "We kept a ______ charger in the car.", ["spare","vibrant","favorite","archaeological"], 0, "Spare = extra."),
+  mkQ("vocab", "V12", "His ______ hobby is photography.", ["favorite","like-minded","must-see","spare"], 0, "Favorite = most liked."),
+  mkQ("vocab", "V13", "The painting used ______ colors.", ["vibrant","spare","archaeological","like-minded"], 0, "Vibrant colors are bright."),
+  mkQ("vocab", "V14", "Visiting the old ruins was an ______ experience.", ["archaeological","spare","favorite","vibrant"], 0, "Archaeological relates to ruins."),
+  mkQ("vocab", "V15", "This book is a ______ for anyone who loves mysteries.", ["must-see","must-read","spare","like-minded"], 1, "“Must-read” fits books (exam-style trick)."),
+  mkQ("vocab", "V16", "She found ______ students who also enjoy science.", ["like-minded","vibrant","spare","archaeological"], 0, "Like-minded = same interests."),
+  mkQ("vocab", "V17", "Do you have a ______ seat next to you?", ["spare","favorite","must-see","vibrant"], 0, "Spare = available/extra."),
+  mkQ("vocab", "V18", "The museum is my ______ place in the city.", ["favorite","archaeological","spare","like-minded"], 0, "Favorite = most liked."),
+  mkQ("vocab", "V19", "The guide explained the ______ findings carefully.", ["archaeological","vibrant","spare","favorite"], 0, "Findings from ancient sites = archaeological."),
+  mkQ("vocab", "V20", "The parade was ______ and exciting.", ["vibrant","spare","must-see","like-minded"], 0, "Vibrant = lively & energetic.")
+];
+
+/* =========================================================
+   GRAMMAR (NOW 30 MCQs)
+   ========================================================= */
+
+const grammarUnits = [
+  {
+    title: "Passive Voice (Present & Past)",
+    rule: "Use <b>am/is/are + past participle</b> (present passive) and <b>was/were + past participle</b> (past passive).",
+    example: "The homework <b>is checked</b> every day. The prizes <b>were given</b> yesterday.",
+    graphic: passiveSVG("Passive Voice", "is/are/was/were + V3"),
+    mcq: [
+      mkQ("grammar","G1","The photos ______ taken during the festival last week.", ["is","was","were","are"], 2, "Photos = plural → were taken."),
+      mkQ("grammar","G2","The classroom ______ cleaned every afternoon.", ["is","are","were","be"], 0, "Classroom = singular → is cleaned."),
+      mkQ("grammar","G3","The painting ______ by students every year.", ["creates","is created","was create","are created"], 1, "Every year → present passive: is created."),
+      mkQ("grammar","G4","The prizes ______ given at the end of the day.", ["is","were","was","be"], 1, "Prizes plural + past → were given."),
+      mkQ("grammar","G5","The homework ______ checked by the teacher now.", ["is","were","was","are"], 0, "Homework singular → is checked."),
+      mkQ("grammar","G6","The posters ______ made yesterday.", ["are","was","were","is"], 2, "Posters plural + yesterday → were made.")
+    ]
+  },
+  {
+    title: "Relative Clauses (who/which/where/whose)",
+    rule: "Use <b>who</b> (people), <b>which</b> (things), <b>where</b> (place), <b>whose</b> (possession).",
+    example: "That’s the artist <b>whose</b> painting won. This is the museum <b>where</b> we met.",
+    graphic: relativeSVG(),
+    mcq: [
+      mkQ("grammar","G7","A sculptor is a person ______ makes objects from clay.", ["who","which","where","when"], 0, "Person → who."),
+      mkQ("grammar","G8","A camera is a device ______ takes photos.", ["who","which","where","whose"], 1, "Thing/device → which."),
+      mkQ("grammar","G9","This is the museum ______ we saw ancient tools.", ["who","which","where","whose"], 2, "Place → where."),
+      mkQ("grammar","G10","That’s the artist ______ painting won first prize.", ["who","whose","which","where"], 1, "Possession → whose painting."),
+      mkQ("grammar","G11","I met a boy ______ loves drawing.", ["which","who","where","whose"], 1, "Boy/person → who."),
+      mkQ("grammar","G12","This is the phone ______ I bought yesterday.", ["who","which","where","when"], 1, "Thing → which.")
+    ]
+  },
+  {
+    title: "Comparatives & Superlatives",
+    rule: "Comparative: <b>-er / more</b> (+ than). Superlative: <b>-est / most</b> (often with <b>the</b>).",
+    example: "This photo is <b>clearer than</b> that one. It is the <b>most famous</b> photo.",
+    graphic: compareSVG(),
+    mcq: [
+      mkQ("grammar","G13","This photo is ______ than the old one.", ["clearer","clearest","more clear","most clear"], 0, "Comparative → clearer."),
+      mkQ("grammar","G14","That is the ______ painting in the gallery.", ["more famous","most famous","famous","famouser"], 1, "Superlative → most famous."),
+      mkQ("grammar","G15","My phone is ______ expensive than yours.", ["more","most","the","much"], 0, "Comparative with long adj → more expensive."),
+      mkQ("grammar","G16","This is the ______ day of the year for me!", ["happier","happiest","more happy","happy"], 1, "Superlative → happiest."),
+      mkQ("grammar","G17","Ali is ______ than his brother.", ["taller","tallest","more tall","most tall"], 0, "Short adjective → taller."),
+      mkQ("grammar","G18","This is the ______ book in the series.", ["better","best","more good","goodest"], 1, "Irregular superlative: best.")
+    ]
+  },
+  {
+    title: "Modals (must / mustn't / should / might)",
+    rule: "<b>must</b> = necessary, <b>mustn't</b> = forbidden, <b>should</b> = advice, <b>might</b> = possibility.",
+    example: "You <b>mustn't</b> talk loudly. I <b>might</b> go tomorrow.",
+    graphic: passiveSVG("Modals", "must / mustn't / should / might"),
+    mcq: [
+      mkQ("grammar","G19","I ______ finish my homework before I play.", ["must","can’t","mightn’t","mustn’t"], 0, "Must = necessary."),
+      mkQ("grammar","G20","You ______ talk loudly in the library.", ["must","mustn’t","should","may"], 1, "Library rule → mustn’t."),
+      mkQ("grammar","G21","You ______ try to revise a little every day.", ["should","mustn’t","can’t","shouldn’t"], 0, "Advice → should."),
+      mkQ("grammar","G22","I ______ go to the museum tomorrow. I’m not sure.", ["must","will","might","can’t"], 2, "Not sure → might."),
+      mkQ("grammar","G23","Students ______ wear a uniform at this school.", ["might","must","shouldn’t","can’t"], 1, "Rule/requirement → must."),
+      mkQ("grammar","G24","You ______ eat in the science lab.", ["must","mustn’t","might","should"], 1, "Forbidden → mustn’t.")
+    ]
+  },
+  {
+    title: "Tenses + Conditionals + Prepositions & Quantifiers",
+    rule: "Past continuous for actions in progress; present perfect for results/experience; conditionals; common prepositions; much/many.",
+    example: "They <b>were having</b> dinner when it happened. I <b>have lost</b> my keys.",
+    graphic: passiveSVG("Mixed Skills", "tenses • conditionals • prepositions"),
+    mcq: [
+      mkQ("grammar","G25","While I ______, my friend was taking photos.", ["walked","was walking","am walking","walk"], 1, "Past continuous with 'while' → was walking."),
+      mkQ("grammar","G26","They ______ dinner when the electricity went out.", ["had","were having","are having","have"], 1, "Action in progress → were having."),
+      mkQ("grammar","G27","She ______ her homework already.", ["finished","has finished","finishes","was finished"], 1, "Already → present perfect: has finished."),
+      mkQ("grammar","G28","We ______ to that museum before.", ["went","have gone","have been","were"], 2, "Experience → have been (to)."),
+      mkQ("grammar","G29","If it ______ tomorrow, we will stay at home.", ["rains","rained","will rain","rain"], 0, "First conditional: If + present simple → rains."),
+      mkQ("grammar","G30","There isn’t ______ milk left.", ["many","much","few","a few"], 1, "Milk uncountable → much.")
+    ]
+  }
+];
+
+const readingPassages = [
+  {
+    title:"Reading 1: The School Art Festival",
+    text:
+`Last Thursday, our school held an art festival in the main hall. Students displayed paintings, photos, and small sculptures.
+A group of volunteers guided visitors and explained each artwork. The most popular section was photography because students had used creative lighting and interesting angles.
+At the end of the day, the judges announced the winners. Although not everyone won a prize, most students felt proud because their work was seen and appreciated.`,
+    mcq: [
+      mkQ("reading","R1-1","Where was the art festival held?", ["In the library","In the main hall","Outside the school","In a museum"], 1, "The passage says it was held in the main hall."),
+      mkQ("reading","R1-2","Why was the photography section popular?", ["It had expensive cameras","It used creative lighting and angles","It was the smallest section","It was only for teachers"], 1, "Creative lighting and angles made it popular.")
+    ],
+    short: [
+      { id:"R1-S1", prompt:"Write ONE reason why students felt proud (5–15 words).", keywords:["seen","appreciated","work","artwork","displayed","visitors"] }
+    ]
+  },
+  {
+    title:"Reading 2: A Visit to an Ancient Site",
+    text:
+`Sara visited an archaeological site with her class. The guide showed them broken pottery, old coins, and parts of walls from an ancient city.
+Sara learned that archaeologists study objects to understand how people lived long ago.
+She also learned an important rule: visitors must not touch the objects, because even small damage can destroy valuable information.
+Sara thought the trip was a must-see experience and wanted to visit again with her family.`,
+    mcq: [
+      mkQ("reading","R2-1","What do archaeologists study?", ["Only modern buildings","Objects to understand the past","Weather reports","Future inventions"], 1, "They study objects to understand how people lived long ago."),
+      mkQ("reading","R2-2","Why must visitors not touch the objects?", ["Because they are heavy","Because touching can damage them","Because they are new","Because the guide is strict"], 1, "Touching can cause damage and destroy information.")
+    ],
+    short: [
+      { id:"R2-S1", prompt:"Explain the ‘no touching’ rule in your own words (8–20 words).", keywords:["damage","destroy","information","valuable","protect","careful"] }
+    ]
+  }
+];
+
+/* =========================================================
+   HELPERS
+   ========================================================= */
+
+function mkQ(section, id, question, choices, correctIndex, explanation){
+  return { section, id, question, choices, correctIndex, explanation };
+}
+
+function passiveSVG(title, formula){
+  return `
+  <div class="gGraphic" aria-label="Grammar graphic">
+    <svg viewBox="0 0 900 200" role="img">
+      <defs>
+        <linearGradient id="g1" x1="0" x2="1">
+          <stop offset="0" stop-color="rgba(90,167,255,.65)"/>
+          <stop offset="1" stop-color="rgba(167,243,208,.75)"/>
+        </linearGradient>
+      </defs>
+      <rect x="20" y="25" width="860" height="150" rx="24" fill="rgba(255,255,255,.65)" stroke="rgba(230,238,247,1)"/>
+      <circle cx="120" cy="100" r="42" fill="url(#g1)"/>
+      <text x="200" y="88" font-size="26" font-weight="800" fill="rgba(31,42,55,.9)">${title}</text>
+      <text x="200" y="125" font-size="20" fill="rgba(91,107,122,.95)">${formula}</text>
+      <text x="560" y="88" font-size="18" fill="rgba(91,107,122,.95)">Read → Practice → Check</text>
+      <text x="560" y="125" font-size="18" fill="rgba(91,107,122,.95)">Learn from feedback</text>
+    </svg>
+  </div>`;
+}
+function relativeSVG(){
+  return `
+  <div class="gGraphic" aria-label="Relative clause graphic">
+    <svg viewBox="0 0 900 200" role="img">
+      <rect x="20" y="25" width="860" height="150" rx="24" fill="rgba(255,255,255,.65)" stroke="rgba(230,238,247,1)"/>
+      <text x="60" y="85" font-size="22" font-weight="800" fill="rgba(31,42,55,.9)">People →</text>
+      <text x="190" y="85" font-size="22" font-weight="900" fill="rgba(90,167,255,.95)">who</text>
+      <text x="60" y="135" font-size="22" font-weight="800" fill="rgba(31,42,55,.9)">Things →</text>
+      <text x="190" y="135" font-size="22" font-weight="900" fill="rgba(167,243,208,.95)">which</text>
+      <text x="420" y="95" font-size="20" fill="rgba(91,107,122,.95)">Place →</text>
+      <text x="520" y="95" font-size="20" font-weight="900" fill="rgba(253,230,138,.95)">where</text>
+      <text x="420" y="135" font-size="20" fill="rgba(91,107,122,.95)">Possession →</text>
+      <text x="580" y="135" font-size="20" font-weight="900" fill="rgba(90,167,255,.95)">whose</text>
+    </svg>
+  </div>`;
+}
+function compareSVG(){
+  return `
+  <div class="gGraphic" aria-label="Comparatives graphic">
+    <svg viewBox="0 0 900 200" role="img">
+      <rect x="20" y="25" width="860" height="150" rx="24" fill="rgba(255,255,255,.65)" stroke="rgba(230,238,247,1)"/>
+      <path d="M80 150 L260 90 L440 120 L620 70 L820 50" fill="none" stroke="rgba(90,167,255,.7)" stroke-width="6"/>
+      <circle cx="260" cy="90" r="10" fill="rgba(167,243,208,.95)"/>
+      <circle cx="620" cy="70" r="10" fill="rgba(167,243,208,.95)"/>
+      <circle cx="820" cy="50" r="10" fill="rgba(167,243,208,.95)"/>
+      <text x="80" y="70" font-size="22" font-weight="900" fill="rgba(31,42,55,.9)">Comparative</text>
+      <text x="80" y="100" font-size="18" fill="rgba(91,107,122,.95)">-er / more + than</text>
+      <text x="520" y="70" font-size="22" font-weight="900" fill="rgba(31,42,55,.9)">Superlative</text>
+      <text x="520" y="100" font-size="18" fill="rgba(91,107,122,.95)">the + -est / most</text>
+    </svg>
+  </div>`;
+}
+
+function escapeHTML(str){
+  return str.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+/* =========================================================
+   RENDER
+   ========================================================= */
+
+const allQuestions = [];   // MCQs for progress/score
+const shortQuestions = []; // short answers for coach feedback
+
+function renderVocab(){
+  const cards = document.getElementById("vocabCards");
+  cards.innerHTML = vocabList.map(v => `
+    <div class="vcard">
+      <div class="vimg">
+        <img src="${v.img}" alt="${escapeHTML(v.word)} image"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="fallback" style="display:none;">Image failed<br/>Replace URL or check internet</div>
+      </div>
+      <div>
+        <p class="vword">${escapeHTML(v.word)}</p>
+        <p class="vdef"><b>Definition:</b> ${escapeHTML(v.def)}</p>
+        <p class="vex"><b>Example:</b> ${escapeHTML(v.ex)}</p>
+      </div>
+    </div>
+  `).join("");
+
+  const quiz = document.getElementById("vocabQuiz");
+  quiz.innerHTML = vocabMCQ.map(q => renderMCQ(q)).join("");
+  allQuestions.push(...vocabMCQ);
+}
+
+function renderGrammar(){
+  const wrap = document.getElementById("grammarBlocks");
+  wrap.innerHTML = grammarUnits.map(unit => `
+    <div class="q" style="margin-top:0;">
+      <div class="qhead">
+        <p class="qtitle">${escapeHTML(unit.title)}</p>
+        <span class="tag">Rule</span>
+      </div>
+      <div class="muted small">${unit.rule}</div>
+      ${unit.graphic}
+      <div class="small"><b>Example:</b> ${unit.example}</div>
+    </div>
+    ${unit.mcq.map(q => renderMCQ(q)).join("")}
+    <div class="divider"></div>
+  `).join("");
+
+  grammarUnits.forEach(u => allQuestions.push(...u.mcq));
+}
+
+function renderReading(){
+  const wrap = document.getElementById("readingBlocks");
+  wrap.innerHTML = readingPassages.map(p => `
+    <div class="q" style="margin-top:0;">
+      <div class="qhead">
+        <p class="qtitle">${escapeHTML(p.title)}</p>
+        <span class="tag">Passage</span>
+      </div>
+      <div class="muted small" style="white-space:pre-line;">${escapeHTML(p.text)}</div>
+    </div>
+
+    ${p.mcq.map(q => renderMCQ(q)).join("")}
+    ${p.short.map(s => renderShort(s)).join("")}
+
+    <div class="divider"></div>
+  `).join("");
+
+  readingPassages.forEach(p => {
+    allQuestions.push(...p.mcq);
+    shortQuestions.push(...p.short);
+  });
+}
+
+function renderMCQ(q){
+  return `
+    <div class="q" data-qid="${q.id}" data-section="${q.section}" data-correct="${q.correctIndex}">
+      <div class="qhead">
+        <p class="qtitle">${escapeHTML(q.id)}. ${escapeHTML(q.question)}</p>
+        <span class="tag">MCQ</span>
+      </div>
+      <div class="choices">
+        ${q.choices.map((c, idx) => `
+          <label class="choice">
+            <input type="radio" name="${q.id}" value="${idx}">
+            <span>${escapeHTML(c)}</span>
+          </label>
+        `).join("")}
+      </div>
+      <div class="explain">${escapeHTML(q.explanation)}</div>
+    </div>
+  `;
+}
+
+function renderShort(s){
+  return `
+    <div class="q" data-shortid="${s.id}" data-section="reading">
+      <div class="qhead">
+        <p class="qtitle">${escapeHTML(s.id)}. ${escapeHTML(s.prompt)}</p>
+        <span class="tag">Short Answer</span>
+      </div>
+      <textarea id="short-${s.id}" placeholder="Write here…"></textarea>
+      <div class="explain" id="shortExp-${s.id}"></div>
+    </div>
+  `;
+}
+
+/* =========================================================
+   TAB NAV
+   ========================================================= */
+
+document.querySelectorAll(".tab").forEach(t => {
+  t.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(x => x.classList.remove("active"));
+    t.classList.add("active");
+
+    const tab = t.dataset.tab;
+    document.getElementById("pane-vocab").style.display = tab==="vocab" ? "block" : "none";
+    document.getElementById("pane-grammar").style.display = tab==="grammar" ? "block" : "none";
+    document.getElementById("pane-reading").style.display = tab==="reading" ? "block" : "none";
+  });
+});
+
+/* =========================================================
+   GRADING + PROGRESS
+   ========================================================= */
+
+function gradeSection(section){
+  let score = 0, total = 0;
+  document.querySelectorAll(`.q[data-section="${section}"][data-correct]`).forEach(block => {
+    const qid = block.dataset.qid;
+    const correct = Number(block.dataset.correct);
+    const chosen = document.querySelector(`input[name="${qid}"]:checked`);
+    total++;
+    block.classList.remove("correct","wrong");
+    if(chosen && Number(chosen.value) === correct){
+      score++;
+      block.classList.add("correct");
+    }else{
+      block.classList.add("wrong");
+    }
+  });
+
+  if(section === "reading"){
+    shortQuestions.forEach(s => {
+      const ans = (document.getElementById(`short-${s.id}`)?.value || "").trim();
+      const out = document.getElementById(`shortExp-${s.id}`);
+      if(!out) return;
+      out.style.display = "block";
+      out.innerHTML = coachShortAnswer(ans, s.keywords);
+    });
+  }
+
+  updateProgress();
+  alert(`Section graded: ${section.toUpperCase()}\nScore: ${score} / ${total}`);
+}
+
+function gradeAll(){
+  ["vocab","grammar","reading"].forEach(gradeSectionSilent);
+  updateProgress();
+  const s = computeTotalScore();
+  alert(`All graded!\nTotal MCQ Score: ${s.score} / ${s.total}`);
+}
+function gradeSectionSilent(section){
+  document.querySelectorAll(`.q[data-section="${section}"][data-correct]`).forEach(block => {
+    const qid = block.dataset.qid;
+    const correct = Number(block.dataset.correct);
+    const chosen = document.querySelector(`input[name="${qid}"]:checked`);
+    block.classList.remove("correct","wrong");
+    if(chosen && Number(chosen.value) === correct){
+      block.classList.add("correct");
+    }else{
+      block.classList.add("wrong");
+    }
+  });
+  if(section==="reading"){
+    shortQuestions.forEach(s => {
+      const ans = (document.getElementById(`short-${s.id}`)?.value || "").trim();
+      const out = document.getElementById(`shortExp-${s.id}`);
+      if(!out) return;
+      out.style.display="block";
+      out.innerHTML = coachShortAnswer(ans, s.keywords);
+    });
+  }
+}
+
+function resetSection(section){
+  document.querySelectorAll(`.q[data-section="${section}"]`).forEach(block=>{
+    block.classList.remove("correct","wrong");
+    const qid = block.dataset.qid;
+    if(qid){
+      document.querySelectorAll(`input[name="${qid}"]`).forEach(r=> r.checked=false);
+    }
+    const sid = block.dataset.shortid;
+    if(sid){
+      const ta = document.getElementById(`short-${sid}`);
+      const ex = document.getElementById(`shortExp-${sid}`);
+      if(ta) ta.value="";
+      if(ex) { ex.innerHTML=""; ex.style.display="none"; }
+    }
+  });
+  updateProgress();
+}
+
+function computeTotalScore(){
+  let score=0, total=0, answered=0;
+  document.querySelectorAll(`.q[data-correct]`).forEach(block=>{
+    const qid = block.dataset.qid;
+    const correct = Number(block.dataset.correct);
+    const chosen = document.querySelector(`input[name="${qid}"]:checked`);
+    total++;
+    if(chosen){
+      answered++;
+      if(Number(chosen.value)===correct) score++;
+    }
+  });
+  return {score,total,answered};
+}
+
+function updateProgress(){
+  const s = computeTotalScore();
+  document.getElementById("answeredCount").textContent = String(s.answered);
+  document.getElementById("totalCount").textContent = String(s.total);
+  document.getElementById("scoreNow").textContent = String(s.score);
+  document.getElementById("totalMCQ").textContent = String(s.total);
+
+  const pct = s.total ? (s.answered / s.total) * 100 : 0;
+  document.getElementById("progressBar").style.width = `${pct}%`;
+}
+
+/* =========================================================
+   OFFLINE COACH
+   ========================================================= */
+
+function runCoach(){
+  const txt = (document.getElementById("coachInput").value || "").trim();
+  document.getElementById("coachOut").innerHTML = coachFreeText(txt);
+}
+
+function coachFreeText(txt){
+  if(!txt) return "Type something above, then click <b>Get Coach Feedback</b>.";
+  const notes = [];
+  const lower = txt.toLowerCase();
+
+  if(!/[.!?]$/.test(txt)) notes.push("Add an ending punctuation mark (., !, or ?).");
+  if(txt.length < 15) notes.push("Try to write a little more detail (one more idea).");
+  if(/\bi\b/.test(lower)) notes.push("Remember: write <b>I</b> as a capital letter.");
+  if(/\bteh\b/.test(lower)) notes.push("Spelling: it should be <b>the</b>, not <b>teh</b>.");
+
+  if(/\b(is|are|am|was|were)\s+\w+ed\b/.test(lower)){
+    notes.push("Nice! I can see a passive structure (be + V3). Make sure subject matches (is/are/was/were).");
+  }
+  if(/\bwho\b|\bwhich\b|\bthat\b|\bwhose\b|\bwhere\b/.test(lower)){
+    notes.push("Good use of a relative clause. Check: who=people, which=things, where=place, whose=possession.");
+  }
+  if(/\bmore\b|\bmost\b|\bthan\b|\ber\b|\best\b/.test(lower)){
+    notes.push("Comparatives: use <b>than</b>. Superlatives: often use <b>the</b>.");
+  }
+
+  const rubric = [];
+  rubric.push(`<b>Clarity:</b> ${txt.split(" ").length >= 8 ? "Good" : "Needs more detail"}`);
+  rubric.push(`<b>Sentence control:</b> ${/[A-Za-z]/.test(txt) && txt.split(/[.!?]/).filter(x=>x.trim()).length<=2 ? "Good" : "Try 1–2 clear sentences"}`);
+
+  return `
+    <div><b>Coach feedback:</b></div>
+    <ul style="margin:8px 0 0 18px;">
+      ${(notes.length?notes:["Looks good! Keep it clear and correct."]).map(n=>`<li>${n}</li>`).join("")}
+    </ul>
+    <div style="margin-top:8px;">${rubric.join("<br/>")}</div>
+  `;
+}
+
+function coachShortAnswer(ans, keywords){
+  if(!ans) return "⚠️ Please write an answer. (Coach: add 1–2 sentences.)";
+  const lower = ans.toLowerCase();
+
+  const hits = keywords.filter(k => lower.includes(k.toLowerCase()));
+  const lengthOk = ans.split(/\s+/).filter(Boolean).length;
+
+  let band = "Needs improvement";
+  if(hits.length >= 2 && lengthOk >= 6) band = "Good";
+  if(hits.length >= 3 && lengthOk >= 8) band = "Very good";
+
+  const tips = [];
+  if(hits.length === 0) tips.push("Include key idea(s) from the passage.");
+  if(lengthOk < 6) tips.push("Write a longer answer (add one more detail).");
+  if(!/[.!?]$/.test(ans)) tips.push("Add punctuation at the end.");
+  if(/\bi\b/.test(lower)) tips.push("Capitalize <b>I</b>.");
+
+  return `
+    <b>Coach:</b> ${band}<br/>
+    <span class="muted">Matched keywords:</span> ${hits.length ? hits.join(", ") : "none"}<br/>
+    ${tips.length ? `<span class="muted">Tips:</span> ${tips.join(" • ")}` : "✅ Clear answer. Nice work!"}
+  `;
+}
+
+/* =========================================================
+   INIT
+   ========================================================= */
+
+renderVocab();
+renderGrammar();
+renderReading();
+updateProgress();
+</script>
+</body>
+</html>
