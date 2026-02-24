@@ -1,0 +1,2086 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Interactive GAT Verbal Test (68 Questions)</title>
+<style>
+  :root{
+    --bg:#ffffff; --card:#f7f7f9; --text:#111; --muted:#555; --line:#e5e5e5;
+    --ok:#0a7b34; --bad:#b00020; --warn:#8a6d00;
+  }
+  body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; background:var(--bg); color:var(--text);}
+  header{position:sticky; top:0; background:#fff; border-bottom:1px solid var(--line); z-index:10;}
+  .wrap{max-width:980px; margin:0 auto; padding:18px 16px;}
+  h1{margin:0; font-size:24px;}
+  .sub{color:var(--muted); margin-top:6px; font-size:14px;}
+  nav{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;}
+  nav a{text-decoration:none; color:#0b57d0; font-size:14px;}
+  .toolbar{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;}
+  .btn{border:1px solid var(--line); background:#fff; padding:8px 10px; border-radius:10px; cursor:pointer; font-size:14px;}
+  .btn:hover{background:#fafafa;}
+  .btn.primary{background:#0b57d0; border-color:#0b57d0; color:#fff;}
+  .btn.primary:hover{filter:brightness(0.95);}
+  .btn.ghost{background:transparent;}
+  main{padding:18px 0 60px;}
+  .section{margin-top:22px;}
+  .section h2{font-size:18px; margin:0 0 10px;}
+  .note{color:var(--muted); font-size:14px; margin:8px 0 0;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:14px; margin:12px 0;}
+  .question{background:#fff; border:1px solid var(--line); border-radius:16px; padding:14px; margin:12px 0;}
+  .qhead{display:flex; gap:10px; align-items:flex-start;}
+  .qnum{font-weight:700; min-width:34px;}
+  .qprompt{font-size:16px;}
+  .options{margin-top:10px; display:grid; gap:8px;}
+  .opt{display:flex; gap:10px; align-items:flex-start; padding:10px; border:1px solid var(--line); border-radius:12px; cursor:pointer;}
+  .opt:hover{background:#fafafa;}
+  .letter{font-weight:700; min-width:22px;}
+  .actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:10px;}
+  .result{font-size:14px;}
+  .correct .result{color:var(--ok); font-weight:700;}
+  .wrong .result{color:var(--bad); font-weight:700;}
+  .unanswered .result{color:var(--warn); font-weight:700;}
+  .pill{display:inline-block; padding:4px 10px; border-radius:999px; border:1px solid var(--line); font-size:13px; color:var(--muted);}
+  .passage{white-space:pre-wrap; line-height:1.7; font-size:15px; color:#111;}
+  details summary{cursor:pointer; font-weight:600;}
+  .dev pre{background:#0b1020; color:#e6e6e6; padding:14px; border-radius:14px; overflow:auto; border:1px solid #111827;}
+  .dev code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:13px;}
+  @media print {
+    header, .toolbar, nav, .actions button {display:none !important;}
+    body {font-size:14px;}
+    .question {break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Interactive GAT English Verbal Test (68 Questions) by Mohamed Khater 0505910882</h1>
+    <div class="sub">Choose an option, then click <b>Check</b> to verify. Use <b>Check all</b> to score the whole test.</div>
+    <nav>
+      <a href="#part1">Part 1: Sentence Completion</a>
+      <a href="#part2">Part 2: Analogy</a>
+      <a href="#part3">Part 3: Contextual Text Error</a>
+      <a href="#reading">Part 4: Reading Comprehension</a>
+      
+    </nav>
+    <div class="toolbar">
+      <button class="btn primary" type="button" onclick="checkAll()">Check all</button>
+      <button class="btn" type="button" onclick="resetAll()">Reset</button>
+      <span class="pill" id="score">Score: 0 / 68</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="section" id="part1">
+    <h2>Part 1 – Sentence Completion (Questions 1–24)</h2>
+    <div class="note">For each item, choose the word or words that best complete the sentence.</div>
+    
+<div class="question" id="wrap-q1" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">1.</div>
+    <div class="qprompt">Many students find that studying in short, regular sessions is more ______ than trying to learn everything in one night.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q1" value="A" />
+  <span class="letter">A.</span> <span class="otext">harmful</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q1" value="B" />
+  <span class="letter">B.</span> <span class="otext">effective</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q1" value="C" />
+  <span class="letter">C.</span> <span class="otext">distant</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q1" value="D" />
+  <span class="letter">D.</span> <span class="otext">temporary</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q1')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q1')">Show answer</button>
+    <span class="result" id="res-q1"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q2" data-answer="C">
+  <div class="qhead">
+    <div class="qnum">2.</div>
+    <div class="qprompt">The manager encouraged the team to speak ______, so that any problems could be solved quickly.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q2" value="A" />
+  <span class="letter">A.</span> <span class="otext">silently</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q2" value="B" />
+  <span class="letter">B.</span> <span class="otext">cautiously</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q2" value="C" />
+  <span class="letter">C.</span> <span class="otext">honestly</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q2" value="D" />
+  <span class="letter">D.</span> <span class="otext">rarely</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q2')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q2')">Show answer</button>
+    <span class="result" id="res-q2"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q3" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">3.</div>
+    <div class="qprompt">Although the experiment seemed simple, it actually required great ______ to measure the results accurately.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q3" value="A" />
+  <span class="letter">A.</span> <span class="otext">patience</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q3" value="B" />
+  <span class="letter">B.</span> <span class="otext">generosity</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q3" value="C" />
+  <span class="letter">C.</span> <span class="otext">ignorance</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q3" value="D" />
+  <span class="letter">D.</span> <span class="otext">suspicion</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q3')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q3')">Show answer</button>
+    <span class="result" id="res-q3"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q4" data-answer="D">
+  <div class="qhead">
+    <div class="qnum">4.</div>
+    <div class="qprompt">The museum’s new exhibition aims to ______ visitors’ interest in local history.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q4" value="A" />
+  <span class="letter">A.</span> <span class="otext">destroy</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q4" value="B" />
+  <span class="letter">B.</span> <span class="otext">weaken</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q4" value="C" />
+  <span class="letter">C.</span> <span class="otext">ignore</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q4" value="D" />
+  <span class="letter">D.</span> <span class="otext">stimulate</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q4')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q4')">Show answer</button>
+    <span class="result" id="res-q4"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q5" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">5.</div>
+    <div class="qprompt">When the Internet connection failed, the online meeting had to be ______ until the issue was fixed.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q5" value="A" />
+  <span class="letter">A.</span> <span class="otext">postponed</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q5" value="B" />
+  <span class="letter">B.</span> <span class="otext">ignored</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q5" value="C" />
+  <span class="letter">C.</span> <span class="otext">celebrated</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q5" value="D" />
+  <span class="letter">D.</span> <span class="otext">shortened</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q5')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q5')">Show answer</button>
+    <span class="result" id="res-q5"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q6" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">6.</div>
+    <div class="qprompt">Good leaders do not just give orders; they also ______ carefully to the opinions of their team.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q6" value="A" />
+  <span class="letter">A.</span> <span class="otext">shout</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q6" value="B" />
+  <span class="letter">B.</span> <span class="otext">listen</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q6" value="C" />
+  <span class="letter">C.</span> <span class="otext">argue</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q6" value="D" />
+  <span class="letter">D.</span> <span class="otext">blame</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q6')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q6')">Show answer</button>
+    <span class="result" id="res-q6"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q7" data-answer="C">
+  <div class="qhead">
+    <div class="qnum">7.</div>
+    <div class="qprompt">The teacher used real‑life examples to make the scientific concepts more ______ to her students.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q7" value="A" />
+  <span class="letter">A.</span> <span class="otext">abstract</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q7" value="B" />
+  <span class="letter">B.</span> <span class="otext">confusing</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q7" value="C" />
+  <span class="letter">C.</span> <span class="otext">relevant</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q7" value="D" />
+  <span class="letter">D.</span> <span class="otext">invisible</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q7')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q7')">Show answer</button>
+    <span class="result" id="res-q7"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q8" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">8.</div>
+    <div class="qprompt">Because of the heavy rain, the football match was ______, and the fans were asked to leave the stadium.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q8" value="A" />
+  <span class="letter">A.</span> <span class="otext">repeated</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q8" value="B" />
+  <span class="letter">B.</span> <span class="otext">canceled</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q8" value="C" />
+  <span class="letter">C.</span> <span class="otext">awarded</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q8" value="D" />
+  <span class="letter">D.</span> <span class="otext">decorated</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q8')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q8')">Show answer</button>
+    <span class="result" id="res-q8"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q9" data-answer="C">
+  <div class="qhead">
+    <div class="qnum">9.</div>
+    <div class="qprompt">Researchers must ______ all their sources clearly so that others can check the information.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q9" value="A" />
+  <span class="letter">A.</span> <span class="otext">exaggerate</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q9" value="B" />
+  <span class="letter">B.</span> <span class="otext">remove</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q9" value="C" />
+  <span class="letter">C.</span> <span class="otext">cite</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q9" value="D" />
+  <span class="letter">D.</span> <span class="otext">confuse</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q9')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q9')">Show answer</button>
+    <span class="result" id="res-q9"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q10" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">10.</div>
+    <div class="qprompt">The new law is expected to have a significant ______ on the way small businesses operate.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q10" value="A" />
+  <span class="letter">A.</span> <span class="otext">impact</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q10" value="B" />
+  <span class="letter">B.</span> <span class="otext">distance</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q10" value="C" />
+  <span class="letter">C.</span> <span class="otext">silence</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q10" value="D" />
+  <span class="letter">D.</span> <span class="otext">memory</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q10')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q10')">Show answer</button>
+    <span class="result" id="res-q10"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q11" data-answer="D">
+  <div class="qhead">
+    <div class="qnum">11.</div>
+    <div class="qprompt">The company launched a training program to ______ employees with the latest safety procedures.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q11" value="A" />
+  <span class="letter">A.</span> <span class="otext">punish</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q11" value="B" />
+  <span class="letter">B.</span> <span class="otext">delay</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q11" value="C" />
+  <span class="letter">C.</span> <span class="otext">dismiss</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q11" value="D" />
+  <span class="letter">D.</span> <span class="otext">equip</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q11')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q11')">Show answer</button>
+    <span class="result" id="res-q11"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q12" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">12.</div>
+    <div class="qprompt">Although the two brothers often ______, they support each other in difficult times.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q12" value="A" />
+  <span class="letter">A.</span> <span class="otext">cooperate</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q12" value="B" />
+  <span class="letter">B.</span> <span class="otext">disagree</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q12" value="C" />
+  <span class="letter">C.</span> <span class="otext">celebrate</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q12" value="D" />
+  <span class="letter">D.</span> <span class="otext">disappear</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q12')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q12')">Show answer</button>
+    <span class="result" id="res-q12"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q13" data-answer="C">
+  <div class="qhead">
+    <div class="qnum">13.</div>
+    <div class="qprompt">The doctor advised her to ______ sugar and salt in her diet to improve her health.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q13" value="A" />
+  <span class="letter">A.</span> <span class="otext">increase</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q13" value="B" />
+  <span class="letter">B.</span> <span class="otext">ignore</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q13" value="C" />
+  <span class="letter">C.</span> <span class="otext">limit</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q13" value="D" />
+  <span class="letter">D.</span> <span class="otext">advertise</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q13')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q13')">Show answer</button>
+    <span class="result" id="res-q13"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q14" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">14.</div>
+    <div class="qprompt">Because the instructions were not clear, many students ______ the first question.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q14" value="A" />
+  <span class="letter">A.</span> <span class="otext">misunderstood</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q14" value="B" />
+  <span class="letter">B.</span> <span class="otext">memorized</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q14" value="C" />
+  <span class="letter">C.</span> <span class="otext">decorated</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q14" value="D" />
+  <span class="letter">D.</span> <span class="otext">rewarded</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q14')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q14')">Show answer</button>
+    <span class="result" id="res-q14"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q15" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">15.</div>
+    <div class="qprompt">The conference brings together experts from different countries to ______ ideas about renewable energy.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q15" value="A" />
+  <span class="letter">A.</span> <span class="otext">hide</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q15" value="B" />
+  <span class="letter">B.</span> <span class="otext">exchange</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q15" value="C" />
+  <span class="letter">C.</span> <span class="otext">repeat</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q15" value="D" />
+  <span class="letter">D.</span> <span class="otext">refuse</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q15')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q15')">Show answer</button>
+    <span class="result" id="res-q15"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q16" data-answer="C">
+  <div class="qhead">
+    <div class="qnum">16.</div>
+    <div class="qprompt">If you want to improve your English vocabulary, you should read ______ and review new words regularly.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q16" value="A" />
+  <span class="letter">A.</span> <span class="otext">rarely</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q16" value="B" />
+  <span class="letter">B.</span> <span class="otext">randomly</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q16" value="C" />
+  <span class="letter">C.</span> <span class="otext">widely</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q16" value="D" />
+  <span class="letter">D.</span> <span class="otext">silently</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q16')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q16')">Show answer</button>
+    <span class="result" id="res-q16"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q17" data-answer="D">
+  <div class="qhead">
+    <div class="qnum">17.</div>
+    <div class="qprompt">The engineer designed a more ______ system that can continue working even if one part fails.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q17" value="A" />
+  <span class="letter">A.</span> <span class="otext">fragile</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q17" value="B" />
+  <span class="letter">B.</span> <span class="otext">complex</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q17" value="C" />
+  <span class="letter">C.</span> <span class="otext">flexible</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q17" value="D" />
+  <span class="letter">D.</span> <span class="otext">reliable</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q17')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q17')">Show answer</button>
+    <span class="result" id="res-q17"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q18" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">18.</div>
+    <div class="qprompt">The report was rejected because it contained ______ information that could not be verified.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q18" value="A" />
+  <span class="letter">A.</span> <span class="otext">accurate</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q18" value="B" />
+  <span class="letter">B.</span> <span class="otext">outdated</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q18" value="C" />
+  <span class="letter">C.</span> <span class="otext">honest</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q18" value="D" />
+  <span class="letter">D.</span> <span class="otext">generous</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q18')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q18')">Show answer</button>
+    <span class="result" id="res-q18"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q19" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">19.</div>
+    <div class="qprompt">Some people are afraid of change, while others see it as an ______ for personal growth.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q19" value="A" />
+  <span class="letter">A.</span> <span class="otext">obstacle</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q19" value="B" />
+  <span class="letter">B.</span> <span class="otext">opportunity</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q19" value="C" />
+  <span class="letter">C.</span> <span class="otext">excuse</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q19" value="D" />
+  <span class="letter">D.</span> <span class="otext">accident</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q19')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q19')">Show answer</button>
+    <span class="result" id="res-q19"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q20" data-answer="C">
+  <div class="qhead">
+    <div class="qnum">20.</div>
+    <div class="qprompt">To protect the environment, many cities are trying to ______ the use of single‑use plastic bags.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q20" value="A" />
+  <span class="letter">A.</span> <span class="otext">promote</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q20" value="B" />
+  <span class="letter">B.</span> <span class="otext">tolerate</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q20" value="C" />
+  <span class="letter">C.</span> <span class="otext">reduce</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q20" value="D" />
+  <span class="letter">D.</span> <span class="otext">ignore</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q20')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q20')">Show answer</button>
+    <span class="result" id="res-q20"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q21" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">21.</div>
+    <div class="qprompt">The professor asked the students to ______ the main idea of the passage in one sentence.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q21" value="A" />
+  <span class="letter">A.</span> <span class="otext">summarize</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q21" value="B" />
+  <span class="letter">B.</span> <span class="otext">translate</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q21" value="C" />
+  <span class="letter">C.</span> <span class="otext">memorize</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q21" value="D" />
+  <span class="letter">D.</span> <span class="otext">delete</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q21')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q21')">Show answer</button>
+    <span class="result" id="res-q21"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q22" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">22.</div>
+    <div class="qprompt">Even though he was ______ by the first failure, he continued working until he succeeded.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q22" value="A" />
+  <span class="letter">A.</span> <span class="otext">discouraged</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q22" value="B" />
+  <span class="letter">B.</span> <span class="otext">entertained</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q22" value="C" />
+  <span class="letter">C.</span> <span class="otext">relaxed</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q22" value="D" />
+  <span class="letter">D.</span> <span class="otext">welcomed</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q22')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q22')">Show answer</button>
+    <span class="result" id="res-q22"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q23" data-answer="C">
+  <div class="qhead">
+    <div class="qnum">23.</div>
+    <div class="qprompt">The company’s success is mainly due to its ______ to adapt quickly to market changes.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q23" value="A" />
+  <span class="letter">A.</span> <span class="otext">inability</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q23" value="B" />
+  <span class="letter">B.</span> <span class="otext">reluctance</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q23" value="C" />
+  <span class="letter">C.</span> <span class="otext">capacity</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q23" value="D" />
+  <span class="letter">D.</span> <span class="otext">habit</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q23')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q23')">Show answer</button>
+    <span class="result" id="res-q23"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q24" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">24.</div>
+    <div class="qprompt">Online education has become more ______ as technology has improved and Internet access has expanded.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q24" value="A" />
+  <span class="letter">A.</span> <span class="otext">limited</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q24" value="B" />
+  <span class="letter">B.</span> <span class="otext">accessible</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q24" value="C" />
+  <span class="letter">C.</span> <span class="otext">secret</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q24" value="D" />
+  <span class="letter">D.</span> <span class="otext">imaginary</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q24')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q24')">Show answer</button>
+    <span class="result" id="res-q24"></span>
+  </div>
+</div>
+  </section>
+
+  <section class="section" id="part2">
+    <h2>Part 2 – Analogy (Questions 25–44)</h2>
+    <div class="note">Each question shows a pair of words. Choose the pair with the closest relationship.</div>
+    
+<div class="question" id="wrap-q25" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">25.</div>
+    <div class="qprompt">TEACHER : CLASSROOM</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q25" value="A" />
+  <span class="letter">A.</span> <span class="otext">doctor : hospital</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q25" value="B" />
+  <span class="letter">B.</span> <span class="otext">pilot : steering wheel</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q25" value="C" />
+  <span class="letter">C.</span> <span class="otext">farmer : office</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q25" value="D" />
+  <span class="letter">D.</span> <span class="otext">driver : airport</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q25')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q25')">Show answer</button>
+    <span class="result" id="res-q25"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q26" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">26.</div>
+    <div class="qprompt">KEY : DOOR</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q26" value="A" />
+  <span class="letter">A.</span> <span class="otext">password : account</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q26" value="B" />
+  <span class="letter">B.</span> <span class="otext">window : glass</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q26" value="C" />
+  <span class="letter">C.</span> <span class="otext">book : library</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q26" value="D" />
+  <span class="letter">D.</span> <span class="otext">chair : table</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q26')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q26')">Show answer</button>
+    <span class="result" id="res-q26"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q27" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">27.</div>
+    <div class="qprompt">ENGINE : CAR</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q27" value="A" />
+  <span class="letter">A.</span> <span class="otext">heart : body</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q27" value="B" />
+  <span class="letter">B.</span> <span class="otext">brain : school</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q27" value="C" />
+  <span class="letter">C.</span> <span class="otext">eye : forest</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q27" value="D" />
+  <span class="letter">D.</span> <span class="otext">chair : room</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q27')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q27')">Show answer</button>
+    <span class="result" id="res-q27"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q28" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">28.</div>
+    <div class="qprompt">LIBRARY : BOOKS</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q28" value="A" />
+  <span class="letter">A.</span> <span class="otext">kitchen : plates</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q28" value="B" />
+  <span class="letter">B.</span> <span class="otext">airport : airplanes</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q28" value="C" />
+  <span class="letter">C.</span> <span class="otext">desert : trees</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q28" value="D" />
+  <span class="letter">D.</span> <span class="otext">road : cars</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q28')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q28')">Show answer</button>
+    <span class="result" id="res-q28"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q29" data-answer="C">
+  <div class="qhead">
+    <div class="qnum">29.</div>
+    <div class="qprompt">NOISE : DISTRACTION</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q29" value="A" />
+  <span class="letter">A.</span> <span class="otext">light : brightness</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q29" value="B" />
+  <span class="letter">B.</span> <span class="otext">heat : temperature</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q29" value="C" />
+  <span class="letter">C.</span> <span class="otext">smoke : pollution</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q29" value="D" />
+  <span class="letter">D.</span> <span class="otext">water : cleanliness</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q29')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q29')">Show answer</button>
+    <span class="result" id="res-q29"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q30" data-answer="C">
+  <div class="qhead">
+    <div class="qnum">30.</div>
+    <div class="qprompt">HONEST : LIE</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q30" value="A" />
+  <span class="letter">A.</span> <span class="otext">strong : power</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q30" value="B" />
+  <span class="letter">B.</span> <span class="otext">kind : generous</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q30" value="C" />
+  <span class="letter">C.</span> <span class="otext">careful : accident</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q30" value="D" />
+  <span class="letter">D.</span> <span class="otext">healthy : exercise</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q30')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q30')">Show answer</button>
+    <span class="result" id="res-q30"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q31" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">31.</div>
+    <div class="qprompt">MICROSCOPE : CELLS</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q31" value="A" />
+  <span class="letter">A.</span> <span class="otext">telescope : stars</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q31" value="B" />
+  <span class="letter">B.</span> <span class="otext">oven : food</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q31" value="C" />
+  <span class="letter">C.</span> <span class="otext">ruler : paper</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q31" value="D" />
+  <span class="letter">D.</span> <span class="otext">phone : message</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q31')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q31')">Show answer</button>
+    <span class="result" id="res-q31"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q32" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">32.</div>
+    <div class="qprompt">AUTHOR : NOVEL</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q32" value="A" />
+  <span class="letter">A.</span> <span class="otext">chef : recipe</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q32" value="B" />
+  <span class="letter">B.</span> <span class="otext">teacher : exam</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q32" value="C" />
+  <span class="letter">C.</span> <span class="otext">painter : museum</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q32" value="D" />
+  <span class="letter">D.</span> <span class="otext">driver : license</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q32')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q32')">Show answer</button>
+    <span class="result" id="res-q32"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q33" data-answer="D">
+  <div class="qhead">
+    <div class="qnum">33.</div>
+    <div class="qprompt">ROOTS : TREE</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q33" value="A" />
+  <span class="letter">A.</span> <span class="otext">wings : bird</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q33" value="B" />
+  <span class="letter">B.</span> <span class="otext">wheels : bus</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q33" value="C" />
+  <span class="letter">C.</span> <span class="otext">roof : house</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q33" value="D" />
+  <span class="letter">D.</span> <span class="otext">petals : flower</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q33')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q33')">Show answer</button>
+    <span class="result" id="res-q33"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q34" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">34.</div>
+    <div class="qprompt">SALT : SALTY</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q34" value="A" />
+  <span class="letter">A.</span> <span class="otext">sugar : sweet</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q34" value="B" />
+  <span class="letter">B.</span> <span class="otext">milk : hot</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q34" value="C" />
+  <span class="letter">C.</span> <span class="otext">water : dry</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q34" value="D" />
+  <span class="letter">D.</span> <span class="otext">ice : warm</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q34')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q34')">Show answer</button>
+    <span class="result" id="res-q34"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q35" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">35.</div>
+    <div class="qprompt">CLOCK : TIME</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q35" value="A" />
+  <span class="letter">A.</span> <span class="otext">thermometer : temperature</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q35" value="B" />
+  <span class="letter">B.</span> <span class="otext">mirror : sound</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q35" value="C" />
+  <span class="letter">C.</span> <span class="otext">radio : smell</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q35" value="D" />
+  <span class="letter">D.</span> <span class="otext">pillow : dream</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q35')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q35')">Show answer</button>
+    <span class="result" id="res-q35"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q36" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">36.</div>
+    <div class="qprompt">PRAISE : ENCOURAGE</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q36" value="A" />
+  <span class="letter">A.</span> <span class="otext">ignore : notice</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q36" value="B" />
+  <span class="letter">B.</span> <span class="otext">punish : correct</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q36" value="C" />
+  <span class="letter">C.</span> <span class="otext">shout : whisper</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q36" value="D" />
+  <span class="letter">D.</span> <span class="otext">confuse : explain</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q36')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q36')">Show answer</button>
+    <span class="result" id="res-q36"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q37" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">37.</div>
+    <div class="qprompt">STETHOSCOPE : DOCTOR</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q37" value="A" />
+  <span class="letter">A.</span> <span class="otext">keyboard : computer</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q37" value="B" />
+  <span class="letter">B.</span> <span class="otext">hammer : carpenter</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q37" value="C" />
+  <span class="letter">C.</span> <span class="otext">brush : tooth</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q37" value="D" />
+  <span class="letter">D.</span> <span class="otext">steering wheel : bicycle</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q37')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q37')">Show answer</button>
+    <span class="result" id="res-q37"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q38" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">38.</div>
+    <div class="qprompt">SEED : PLANT</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q38" value="A" />
+  <span class="letter">A.</span> <span class="otext">egg : bird</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q38" value="B" />
+  <span class="letter">B.</span> <span class="otext">stone : river</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q38" value="C" />
+  <span class="letter">C.</span> <span class="otext">cloud : raincoat</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q38" value="D" />
+  <span class="letter">D.</span> <span class="otext">candle : smoke</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q38')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q38')">Show answer</button>
+    <span class="result" id="res-q38"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q39" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">39.</div>
+    <div class="qprompt">MAP : DIRECTION</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q39" value="A" />
+  <span class="letter">A.</span> <span class="otext">dictionary : meaning</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q39" value="B" />
+  <span class="letter">B.</span> <span class="otext">novel : rule</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q39" value="C" />
+  <span class="letter">C.</span> <span class="otext">poem : number</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q39" value="D" />
+  <span class="letter">D.</span> <span class="otext">song : distance</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q39')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q39')">Show answer</button>
+    <span class="result" id="res-q39"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q40" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">40.</div>
+    <div class="qprompt">OXYGEN : BREATHING</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q40" value="A" />
+  <span class="letter">A.</span> <span class="otext">fuel : engine</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q40" value="B" />
+  <span class="letter">B.</span> <span class="otext">glass : reading</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q40" value="C" />
+  <span class="letter">C.</span> <span class="otext">paint : music</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q40" value="D" />
+  <span class="letter">D.</span> <span class="otext">floor : sleeping</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q40')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q40')">Show answer</button>
+    <span class="result" id="res-q40"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q41" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">41.</div>
+    <div class="qprompt">QUESTION : ANSWER</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q41" value="A" />
+  <span class="letter">A.</span> <span class="otext">problem : solution</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q41" value="B" />
+  <span class="letter">B.</span> <span class="otext">table : chair</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q41" value="C" />
+  <span class="letter">C.</span> <span class="otext">paper : pencil</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q41" value="D" />
+  <span class="letter">D.</span> <span class="otext">door : key</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q41')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q41')">Show answer</button>
+    <span class="result" id="res-q41"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q42" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">42.</div>
+    <div class="qprompt">SHADOW : LIGHT</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q42" value="A" />
+  <span class="letter">A.</span> <span class="otext">mirror : reflection</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q42" value="B" />
+  <span class="letter">B.</span> <span class="otext">wave : sound</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q42" value="C" />
+  <span class="letter">C.</span> <span class="otext">cloud : ground</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q42" value="D" />
+  <span class="letter">D.</span> <span class="otext">rain : desert</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q42')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q42')">Show answer</button>
+    <span class="result" id="res-q42"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q43" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">43.</div>
+    <div class="qprompt">NURSE : HOSPITAL</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q43" value="A" />
+  <span class="letter">A.</span> <span class="otext">captain : ship</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q43" value="B" />
+  <span class="letter">B.</span> <span class="otext">student : homework</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q43" value="C" />
+  <span class="letter">C.</span> <span class="otext">artist : exam</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q43" value="D" />
+  <span class="letter">D.</span> <span class="otext">tourist : passport</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q43')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q43')">Show answer</button>
+    <span class="result" id="res-q43"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q44" data-answer="D">
+  <div class="qhead">
+    <div class="qnum">44.</div>
+    <div class="qprompt">FILTER : CLEAN</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q44" value="A" />
+  <span class="letter">A.</span> <span class="otext">fan : noise</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q44" value="B" />
+  <span class="letter">B.</span> <span class="otext">lock : open</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q44" value="C" />
+  <span class="letter">C.</span> <span class="otext">battery : charge</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q44" value="D" />
+  <span class="letter">D.</span> <span class="otext">soap : wash</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q44')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q44')">Show answer</button>
+    <span class="result" id="res-q44"></span>
+  </div>
+</div>
+  </section>
+
+  <section class="section" id="part3">
+    <h2>Part 3 – Contextual Text Error (Questions 45–54)</h2>
+    <div class="note">In each sentence, one underlined word does <b>NOT</b> fit the meaning of the text. Choose the wrong word.</div>
+    <div class="card">
+      <b>Note:</b> In the uploaded document, questions <b>51</b> and <b>52</b> look correct as written. To enable answer-checking, I selected a best-fit “least fitting” option. If you want different keys for 51–52, tell me the intended answers and I’ll update the file.
+    </div>
+    
+<div class="question" id="wrap-q45" data-answer="D">
+  <div class="qhead">
+    <div class="qnum">45.</div>
+    <div class="qprompt">When you prepare for an exam, it is important to plan your time, choose a quiet environment, and take regular breaks so that your mind can collapse.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q45" value="A" />
+  <span class="letter">A.</span> <span class="otext">plan</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q45" value="B" />
+  <span class="letter">B.</span> <span class="otext">environment</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q45" value="C" />
+  <span class="letter">C.</span> <span class="otext">breaks</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q45" value="D" />
+  <span class="letter">D.</span> <span class="otext">collapse</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q45')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q45')">Show answer</button>
+    <span class="result" id="res-q45"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q46" data-answer="C">
+  <div class="qhead">
+    <div class="qnum">46.</div>
+    <div class="qprompt">Many people believe that daily exercise improves both physical health and mental clarity, while a completely active lifestyle may increase the risk of serious diseases in the long term.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q46" value="A" />
+  <span class="letter">A.</span> <span class="otext">health</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q46" value="B" />
+  <span class="letter">B.</span> <span class="otext">clarity</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q46" value="C" />
+  <span class="letter">C.</span> <span class="otext">active</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q46" value="D" />
+  <span class="letter">D.</span> <span class="otext">diseases</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q46')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q46')">Show answer</button>
+    <span class="result" id="res-q46"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q47" data-answer="D">
+  <div class="qhead">
+    <div class="qnum">47.</div>
+    <div class="qprompt">Online learning platforms allow students to watch lectures, submit assignments, and participate in discussions without needing to transport to a physical campus.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q47" value="A" />
+  <span class="letter">A.</span> <span class="otext">lectures</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q47" value="B" />
+  <span class="letter">B.</span> <span class="otext">assignments</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q47" value="C" />
+  <span class="letter">C.</span> <span class="otext">discussions</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q47" value="D" />
+  <span class="letter">D.</span> <span class="otext">transport</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q47')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q47')">Show answer</button>
+    <span class="result" id="res-q47"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q48" data-answer="D">
+  <div class="qhead">
+    <div class="qnum">48.</div>
+    <div class="qprompt">Scientists collect data, analyze the results, and then write reports to entertain their findings with other researchers around the world.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q48" value="A" />
+  <span class="letter">A.</span> <span class="otext">data</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q48" value="B" />
+  <span class="letter">B.</span> <span class="otext">results</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q48" value="C" />
+  <span class="letter">C.</span> <span class="otext">reports</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q48" value="D" />
+  <span class="letter">D.</span> <span class="otext">entertain</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q48')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q48')">Show answer</button>
+    <span class="result" id="res-q48"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q49" data-answer="D">
+  <div class="qhead">
+    <div class="qnum">49.</div>
+    <div class="qprompt">In many cities, public transportation helps reduce traffic congestion, lower air pollution, and make daily commutes more expensive for residents.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q49" value="A" />
+  <span class="letter">A.</span> <span class="otext">transportation</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q49" value="B" />
+  <span class="letter">B.</span> <span class="otext">congestion</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q49" value="C" />
+  <span class="letter">C.</span> <span class="otext">pollution</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q49" value="D" />
+  <span class="letter">D.</span> <span class="otext">expensive</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q49')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q49')">Show answer</button>
+    <span class="result" id="res-q49"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q50" data-answer="D">
+  <div class="qhead">
+    <div class="qnum">50.</div>
+    <div class="qprompt">Good communication skills are essential in the workplace; they help employees avoid misunderstandings, build strong relationships, and damage problems before they become serious.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q50" value="A" />
+  <span class="letter">A.</span> <span class="otext">skills</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q50" value="B" />
+  <span class="letter">B.</span> <span class="otext">misunderstandings</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q50" value="C" />
+  <span class="letter">C.</span> <span class="otext">relationships</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q50" value="D" />
+  <span class="letter">D.</span> <span class="otext">damage</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q50')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q50')">Show answer</button>
+    <span class="result" id="res-q50"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q51" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">51.</div>
+    <div class="qprompt">The new smartphone model features a larger screen, a faster processor, and an improved camera that can capture clear photos even in darkness.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q51" value="A" />
+  <span class="letter">A.</span> <span class="otext">screen</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q51" value="B" />
+  <span class="letter">B.</span> <span class="otext">processor</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q51" value="C" />
+  <span class="letter">C.</span> <span class="otext">camera</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q51" value="D" />
+  <span class="letter">D.</span> <span class="otext">darkness</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q51')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q51')">Show answer</button>
+    <span class="result" id="res-q51"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q52" data-answer="D">
+  <div class="qhead">
+    <div class="qnum">52.</div>
+    <div class="qprompt">Volunteering allows individuals to support their communities, develop new skills, and gain valuable experience without receiving any direct salary.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q52" value="A" />
+  <span class="letter">A.</span> <span class="otext">communities</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q52" value="B" />
+  <span class="letter">B.</span> <span class="otext">skills</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q52" value="C" />
+  <span class="letter">C.</span> <span class="otext">experience</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q52" value="D" />
+  <span class="letter">D.</span> <span class="otext">salary</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q52')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q52')">Show answer</button>
+    <span class="result" id="res-q52"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q53" data-answer="D">
+  <div class="qhead">
+    <div class="qnum">53.</div>
+    <div class="qprompt">To protect personal information online, users should create strong passwords, avoid clicking on suspicious links, and regularly update their antivirus vitamins.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q53" value="A" />
+  <span class="letter">A.</span> <span class="otext">passwords</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q53" value="B" />
+  <span class="letter">B.</span> <span class="otext">links</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q53" value="C" />
+  <span class="letter">C.</span> <span class="otext">update</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q53" value="D" />
+  <span class="letter">D.</span> <span class="otext">vitamins</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q53')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q53')">Show answer</button>
+    <span class="result" id="res-q53"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q54" data-answer="D">
+  <div class="qhead">
+    <div class="qnum">54.</div>
+    <div class="qprompt">Environmental organizations work to raise awareness, influence policy, and promote sustainable habits to increase damage to natural ecosystems.</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q54" value="A" />
+  <span class="letter">A.</span> <span class="otext">raise</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q54" value="B" />
+  <span class="letter">B.</span> <span class="otext">influence</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q54" value="C" />
+  <span class="letter">C.</span> <span class="otext">promote</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q54" value="D" />
+  <span class="letter">D.</span> <span class="otext">increase</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q54')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q54')">Show answer</button>
+    <span class="result" id="res-q54"></span>
+  </div>
+</div>
+  </section>
+
+  <section class="section" id="reading">
+    <h2>Part 4 – Reading Comprehension (Questions 55–68)</h2>
+    <div class="note">Read each passage, then answer the questions that follow.</div>
+
+    <div class="card">
+      <h3 style="margin:0 0 8px;">Passage 1 (Questions 55–59)</h3>
+      <div class="passage">Many people believe that multitasking makes them more productive, especially when they face a large number of assignments and strict deadlines. They often imagine that handling several tasks at the same time will help them finish everything more quickly and impress their teachers or employers. As a result, students may listen to music, answer messages, and work on homework simultaneously, thinking they are using their time wisely. However, research in psychology suggests the opposite. Studies indicate that the human brain is not designed to focus deeply on several demanding tasks at once.
+
+When individuals try to concentrate on more than one task, their brains must constantly switch from one activity to another. A student, for example, may move from a message on the phone to a paragraph in a textbook, then quickly check a social‑media notification before returning to the assignment. Each time this switch happens, the brain needs a moment to remember what it was doing and to decide what to do next. Although this pause is short, it is repeated many times, which quietly wastes time and mental energy.
+
+This frequent switching has several negative effects. People are more likely to lose track of their progress, repeat steps they have already completed, and make unnecessary mistakes. Their work may also feel more stressful because they never reach a state of deep concentration. In contrast, focusing on a single important task allows the brain to work more deeply and consistently, which usually leads to higher‑quality results and a calmer feeling. For this reason, experts often recommend that students turn off notifications, close unnecessary tabs, and create a quiet, organized study space when working on major assignments, especially before important exams. By doing one thing at a time, students can often finish faster and perform better than when they try to multitask.</div>
+    </div>
+    
+<div class="question" id="wrap-q55" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">55.</div>
+    <div class="qprompt">What is one negative effect of multitasking mentioned in the passage?</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q55" value="A" />
+  <span class="letter">A.</span> <span class="otext">It improves memory.</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q55" value="B" />
+  <span class="letter">B.</span> <span class="otext">It increases the number of mistakes.</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q55" value="C" />
+  <span class="letter">C.</span> <span class="otext">It saves time and energy.</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q55" value="D" />
+  <span class="letter">D.</span> <span class="otext">It helps the brain work more deeply.</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q55')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q55')">Show answer</button>
+    <span class="result" id="res-q55"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q56" data-answer="C">
+  <div class="qhead">
+    <div class="qnum">56.</div>
+    <div class="qprompt">The word “switch” in paragraph 2 is closest in meaning to:</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q56" value="A" />
+  <span class="letter">A.</span> <span class="otext">divide</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q56" value="B" />
+  <span class="letter">B.</span> <span class="otext">measure</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q56" value="C" />
+  <span class="letter">C.</span> <span class="otext">change</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q56" value="D" />
+  <span class="letter">D.</span> <span class="otext">protect</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q56')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q56')">Show answer</button>
+    <span class="result" id="res-q56"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q57" data-answer="C">
+  <div class="qhead">
+    <div class="qnum">57.</div>
+    <div class="qprompt">Why do experts recommend turning off notifications while studying?</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q57" value="A" />
+  <span class="letter">A.</span> <span class="otext">To make devices run faster</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q57" value="B" />
+  <span class="letter">B.</span> <span class="otext">To prevent the brain from learning new tasks</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q57" value="C" />
+  <span class="letter">C.</span> <span class="otext">To reduce distractions and improve focus</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q57" value="D" />
+  <span class="letter">D.</span> <span class="otext">To increase the number of assignments</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q57')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q57')">Show answer</button>
+    <span class="result" id="res-q57"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q58" data-answer="C">
+  <div class="qhead">
+    <div class="qnum">58.</div>
+    <div class="qprompt">Which action would BEST support the main idea of the passage?</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q58" value="A" />
+  <span class="letter">A.</span> <span class="otext">Listening to loud music while studying</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q58" value="B" />
+  <span class="letter">B.</span> <span class="otext">Working on homework and chatting with friends at the same time</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q58" value="C" />
+  <span class="letter">C.</span> <span class="otext">Doing one assignment at a time in a quiet place</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q58" value="D" />
+  <span class="letter">D.</span> <span class="otext">Checking social media every five minutes</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q58')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q58')">Show answer</button>
+    <span class="result" id="res-q58"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q59" data-answer="D">
+  <div class="qhead">
+    <div class="qnum">59.</div>
+    <div class="qprompt">The passage mainly suggests that students should:</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q59" value="A" />
+  <span class="letter">A.</span> <span class="otext">avoid using technology in their studies</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q59" value="B" />
+  <span class="letter">B.</span> <span class="otext">practice doing many tasks at the same time</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q59" value="C" />
+  <span class="letter">C.</span> <span class="otext">study only for short periods</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q59" value="D" />
+  <span class="letter">D.</span> <span class="otext">focus on one task to be more effective</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q59')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q59')">Show answer</button>
+    <span class="result" id="res-q59"></span>
+  </div>
+</div>
+
+    <div class="card">
+      <h3 style="margin:0 0 8px;">Passage 2 (Questions 60–64)</h3>
+      <div class="passage">Urban farming is becoming increasingly popular in cities around the world, from small industrial towns to large international capitals. Instead of buying all their food from supermarkets, some city residents grow vegetables, fruits, and herbs on balconies, rooftops, and in small community gardens that are shared by several families. These spaces are often created in unused areas, such as the roofs of apartment buildings, the corners of schoolyards, or narrow empty lots between houses. For many people, urban farming provides fresher produce, reduces transportation costs, and offers a pleasant break from concrete streets and crowded traffic.
+
+One of the main challenges of farming in the city is the lack of open land. Apartments are stacked on top of one another, and outdoor space is limited and expensive. To solve this problem, urban farmers use creative methods to grow more plants in less space. Vertical gardens, for example, allow plants to grow up walls or on tall frames rather than spreading out across the ground. Hanging baskets and containers placed on windowsills or balconies make it possible to grow herbs and small vegetables even in very small areas. Some projects recycle materials such as plastic bottles, wooden boxes, or old metal cans to create low‑cost containers.
+
+Urban farming offers benefits beyond fresh food. Community gardens bring neighbors together and help build stronger relationships among residents who might not otherwise meet. Schools sometimes organize visits to these gardens so that students can see how food is produced and understand how soil, water, and sunlight work together to support plant life. In this way, urban farms provide valuable lessons about nutrition, sustainability, and the environment. Even if a single rooftop garden cannot feed an entire city, it can still improve the quality of life for the people who plant, care for, and enjoy it.</div>
+    </div>
+    
+<div class="question" id="wrap-q60" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">60.</div>
+    <div class="qprompt">What is the main idea of the passage?</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q60" value="A" />
+  <span class="letter">A.</span> <span class="otext">Urban farming is difficult and expensive.</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q60" value="B" />
+  <span class="letter">B.</span> <span class="otext">Urban farming allows city residents to grow food in limited spaces.</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q60" value="C" />
+  <span class="letter">C.</span> <span class="otext">Urban farming is only possible in large backyards.</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q60" value="D" />
+  <span class="letter">D.</span> <span class="otext">Urban farming increases supermarket profits.</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q60')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q60')">Show answer</button>
+    <span class="result" id="res-q60"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q61" data-answer="C">
+  <div class="qhead">
+    <div class="qnum">61.</div>
+    <div class="qprompt">Which is NOT mentioned as a benefit of urban farming?</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q61" value="A" />
+  <span class="letter">A.</span> <span class="otext">Fresher produce</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q61" value="B" />
+  <span class="letter">B.</span> <span class="otext">Reduced transportation costs</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q61" value="C" />
+  <span class="letter">C.</span> <span class="otext">Increased noise levels</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q61" value="D" />
+  <span class="letter">D.</span> <span class="otext">Educational opportunities</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q61')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q61')">Show answer</button>
+    <span class="result" id="res-q61"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q62" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">62.</div>
+    <div class="qprompt">The phrase “space is limited” in the passage means that:</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q62" value="A" />
+  <span class="letter">A.</span> <span class="otext">there is very little room available</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q62" value="B" />
+  <span class="letter">B.</span> <span class="otext">plants cannot grow in cities</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q62" value="C" />
+  <span class="letter">C.</span> <span class="otext">there are too many parks</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q62" value="D" />
+  <span class="letter">D.</span> <span class="otext">people refuse to share land</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q62')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q62')">Show answer</button>
+    <span class="result" id="res-q62"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q63" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">63.</div>
+    <div class="qprompt">What is one creative solution for growing plants in small areas?</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q63" value="A" />
+  <span class="letter">A.</span> <span class="otext">Throwing away old containers</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q63" value="B" />
+  <span class="letter">B.</span> <span class="otext">Using vertical gardens</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q63" value="C" />
+  <span class="letter">C.</span> <span class="otext">Moving to the countryside</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q63" value="D" />
+  <span class="letter">D.</span> <span class="otext">Planting only trees</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q63')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q63')">Show answer</button>
+    <span class="result" id="res-q63"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q64" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">64.</div>
+    <div class="qprompt">Urban farms can help people learn more about:</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q64" value="A" />
+  <span class="letter">A.</span> <span class="otext">fashion and design</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q64" value="B" />
+  <span class="letter">B.</span> <span class="otext">nutrition and sustainability</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q64" value="C" />
+  <span class="letter">C.</span> <span class="otext">sports and entertainment</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q64" value="D" />
+  <span class="letter">D.</span> <span class="otext">history and politics</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q64')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q64')">Show answer</button>
+    <span class="result" id="res-q64"></span>
+  </div>
+</div>
+
+    <div class="card">
+      <h3 style="margin:0 0 8px;">Passage 3 (Questions 65–68)</h3>
+      <div class="passage">Many companies are beginning to allow employees to work from home for part of the week while spending the rest of their time in the office. This mixed arrangement, often called a “hybrid” model, has become more common as communication technology has improved. High‑speed Internet connections, cloud‑storage services, and video‑conferencing tools make it possible for teams to share documents and hold meetings online, even when members are in different cities or countries. For office workers, the option to work from home can offer several advantages.
+
+One clear benefit is the reduction of daily travel. Employees who no longer need to commute to the office every day may save both time and money. Instead of spending long hours in traffic or on crowded buses, they can use that time to rest, exercise, or focus on their tasks. Working from home can also provide more flexibility in managing the day. Some employees may prefer to start earlier in the morning, while others feel more productive in the evening, as long as they complete their work and attend important online meetings.
+
+However, remote work also presents challenges. Some employees feel isolated from their colleagues and miss informal conversations that naturally happen in the office, such as short talks during breaks. Managers may find it more difficult to monitor performance or to notice when someone is struggling with a task. In addition, not every home is a suitable work environment; noise, family responsibilities, or limited space can all reduce productivity. To succeed with remote or hybrid work, both employers and employees must establish clear expectations, maintain regular communication through emails and virtual meetings, and create a productive work environment at home that includes a quiet workspace and a stable routine.</div>
+    </div>
+    
+<div class="question" id="wrap-q65" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">65.</div>
+    <div class="qprompt">One advantage of working from home mentioned in the passage is that employees can:</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q65" value="A" />
+  <span class="letter">A.</span> <span class="otext">attend more office meetings</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q65" value="B" />
+  <span class="letter">B.</span> <span class="otext">avoid daily travel to the workplace</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q65" value="C" />
+  <span class="letter">C.</span> <span class="otext">receive higher salaries automatically</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q65" value="D" />
+  <span class="letter">D.</span> <span class="otext">use slower Internet connections</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q65')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q65')">Show answer</button>
+    <span class="result" id="res-q65"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q66" data-answer="A">
+  <div class="qhead">
+    <div class="qnum">66.</div>
+    <div class="qprompt">The word “flexibility” is closest in meaning to:</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q66" value="A" />
+  <span class="letter">A.</span> <span class="otext">freedom to choose</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q66" value="B" />
+  <span class="letter">B.</span> <span class="otext">physical strength</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q66" value="C" />
+  <span class="letter">C.</span> <span class="otext">job security</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q66" value="D" />
+  <span class="letter">D.</span> <span class="otext">technical ability</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q66')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q66')">Show answer</button>
+    <span class="result" id="res-q66"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q67" data-answer="B">
+  <div class="qhead">
+    <div class="qnum">67.</div>
+    <div class="qprompt">Which of the following is a challenge of remote work?</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q67" value="A" />
+  <span class="letter">A.</span> <span class="otext">Too many face‑to‑face conversations</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q67" value="B" />
+  <span class="letter">B.</span> <span class="otext">Difficulty in monitoring performance</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q67" value="C" />
+  <span class="letter">C.</span> <span class="otext">Lack of communication technology</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q67" value="D" />
+  <span class="letter">D.</span> <span class="otext">Higher transportation costs</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q67')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q67')">Show answer</button>
+    <span class="result" id="res-q67"></span>
+  </div>
+</div>
+<div class="question" id="wrap-q68" data-answer="C">
+  <div class="qhead">
+    <div class="qnum">68.</div>
+    <div class="qprompt">According to the passage, what is necessary for remote work to be successful?</div>
+  </div>
+  <div class="options">
+<label class="opt">
+  <input type="radio" name="q68" value="A" />
+  <span class="letter">A.</span> <span class="otext">Closing the main office permanently</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q68" value="B" />
+  <span class="letter">B.</span> <span class="otext">Reducing all communication</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q68" value="C" />
+  <span class="letter">C.</span> <span class="otext">Clear expectations and regular communication</span>
+</label>
+<label class="opt">
+  <input type="radio" name="q68" value="D" />
+  <span class="letter">D.</span> <span class="otext">Longer working hours for all employees</span>
+</label></div>
+  <div class="actions">
+    <button type="button" class="btn" onclick="checkOne('q68')">Check</button>
+    <button type="button" class="btn ghost" onclick="showAnswer('q68')">Show answer</button>
+    <span class="result" id="res-q68"></span>
+  </div>
+</div>
+  </section>
+
+
+</main>
+
+<script>
+function getSelected(name) {
+  const el = document.querySelector('input[name="'+name+'"]:checked');
+  return el ? el.value : null;
+}
+function mark(name, state, msg) {
+  const wrap = document.getElementById('wrap-'+name);
+  wrap.classList.remove('correct','wrong','unanswered');
+  wrap.classList.add(state);
+  document.getElementById('res-'+name).textContent = msg;
+}
+function checkOne(name) {
+  const wrap = document.getElementById('wrap-'+name);
+  const correct = wrap.dataset.answer;
+  const sel = getSelected(name);
+  if(!sel) { mark(name, 'unanswered', 'Please choose an option.'); updateScore(); return; }
+  if(sel === correct) mark(name, 'correct', 'Correct ✅');
+  else mark(name, 'wrong', 'Wrong ❌  (Correct: '+correct+')');
+  updateScore();
+}
+function showAnswer(name) {
+  const wrap = document.getElementById('wrap-'+name);
+  const correct = wrap.dataset.answer;
+  mark(name, 'unanswered', 'Answer: '+correct);
+  updateScore();
+}
+function checkAll() {
+  document.querySelectorAll('.question').forEach(q => checkOne(q.id.replace('wrap-','')));
+}
+function resetAll() {
+  document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+  document.querySelectorAll('.question').forEach(q => {
+    q.classList.remove('correct','wrong','unanswered');
+    const id = q.id.replace('wrap-','');
+    document.getElementById('res-'+id).textContent = '';
+  });
+  updateScore();
+}
+function updateScore() {
+  const all = document.querySelectorAll('.question');
+  let score = 0;
+  all.forEach(q => { if(q.classList.contains('correct')) score++; });
+  document.getElementById('score').textContent = 'Score: ' + score + ' / ' + all.length;
+}
+updateScore();
+</script>
+</body>
+</html>
