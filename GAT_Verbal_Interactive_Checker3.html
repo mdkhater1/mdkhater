@@ -1,0 +1,2609 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>GAT English Verbal — by Mohamed Khater 0505910882</title>
+<style>
+  :root {
+    --bg:#ffffff; --card:#f7f7f9; --text:#111; --muted:#555; --line:#e5e5e5;
+    --ok:#0a7b34; --bad:#b00020; --warn:#8a6d00; --brand:#0b57d0;
+  }
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:var(--bg);color:var(--text);}
+  header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:10}
+  .wrap{max-width:1060px;margin:0 auto;padding:16px}
+  h1{margin:0;font-size:22px}
+  .sub{color:var(--muted);margin-top:6px;font-size:14px;line-height:1.4}
+  nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+  nav a{text-decoration:none;color:var(--brand);font-size:13px}
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
+  .pill{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid var(--line);font-size:13px;color:var(--muted)}
+  .btn{border:1px solid var(--line);background:#fff;padding:8px 10px;border-radius:10px;cursor:pointer;font-size:14px}
+  .btn:hover{background:#fafafa}
+  .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  .btn.primary:hover{filter:brightness(.95)}
+  .btn.ghost{background:transparent}
+  main{padding:16px 0 60px}
+  .section{margin-top:26px}
+  .section h2{margin:0 0 6px;font-size:18px}
+  .inst{margin:0 0 12px;color:var(--muted);font-size:14px}
+  .passage-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin:14px 0}
+  .passage-card h3{margin:0 0 10px;font-size:16px}
+  .passage-text{white-space:pre-wrap;line-height:1.78;font-size:15px}
+  .question{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;margin:12px 0}
+  .qstem{font-size:16px;line-height:1.45}
+  .qnum{font-weight:800;margin-right:6px}
+  .options{display:grid;gap:8px;margin-top:10px}
+  .opt{display:flex;gap:10px;align-items:flex-start;padding:10px;border:1px solid var(--line);border-radius:12px;cursor:pointer}
+  .opt:hover{background:#fafafa}
+  .letter{font-weight:800;min-width:22px}
+  .qactions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
+  .result{font-size:14px}
+  .correct .result{color:var(--ok);font-weight:800}
+  .wrong .result{color:var(--bad);font-weight:800}
+  .unanswered .result{color:var(--warn);font-weight:800}
+  .explanation{margin-top:10px;background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:10px;font-size:14px;line-height:1.55}
+  footer{color:var(--muted);font-size:12px;margin-top:30px}
+  @media print {
+    header, .qactions button, nav, .toolbar {display:none !important}
+    .question {break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>GAT English Verbal — by Mohamed Khater 0505910882</h1>
+    <div class="sub">
+          <nav><a href="#sec1">Sentence Completion (Questions 1–12)</a> <a href="#sec2">Analogies (Questions 13–20)</a> <a href="#sec3">Contextual Precision (Questions 21–28)</a> <a href="#sec4">Reading Comprehension (Questions 29–68) • Real Exam Flow</a></nav>
+    <div class="toolbar">
+      <button class="btn primary" type="button" onclick="checkAll()">Check all</button>
+      <button class="btn" type="button" onclick="resetAll()">Reset</button>
+      <span class="pill" id="score">Score: 0 / 68</span>
+      <span class="pill" id="timer">Timer: 65:00</span>
+      <button class="btn ghost" type="button" onclick="toggleTimer()"><span id="tbtn">Start</span> timer</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="sec1" class="section"><h2>Sentence Completion (Questions 1–12)</h2><p class="inst">Choose the option that best completes the sentence.</p>
+    <div class="question" id="wrap-q1" data-answer="B">
+      <div class="qstem"><span class="qnum">1.</span> Although the proposal appeared pragmatic, its assumptions were so ______ that even minor economic shifts could undermine its projections.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q1" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">resilient</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q1" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">precarious</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q1" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">empirical</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q1" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">negligible</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(1)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(1)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(1)">Explanation</button>
+        <span class="result" id="res-q1"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q1" style="display:none;">
+        <b>Explanation:</b> ‘Minor shifts could undermine’ implies fragile foundations → precarious.
+      </div>
+    </div>
+    <div class="question" id="wrap-q2" data-answer="C">
+      <div class="qstem"><span class="qnum">2.</span> The philosopher rejected moral relativism not because it tolerated diversity, but because it rendered ethical criticism ______.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q2" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">coherent</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q2" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">redundant</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q2" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">untenable</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q2" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">explicit</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(2)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(2)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(2)">Explanation</button>
+        <span class="result" id="res-q2"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q2" style="display:none;">
+        <b>Explanation:</b> If all views are equally valid, criticism loses footing → untenable.
+      </div>
+    </div>
+    <div class="question" id="wrap-q3" data-answer="B">
+      <div class="qstem"><span class="qnum">3.</span> What initially seemed like methodological rigor was later exposed as selective sampling designed to ______ a predetermined conclusion.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q3" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">obscure</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q3" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">corroborate</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q3" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">inflate</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q3" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">dismantle</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(3)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(3)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(3)">Explanation</button>
+        <span class="result" id="res-q3"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q3" style="display:none;">
+        <b>Explanation:</b> Selective sampling is used to support what you already want → corroborate.
+      </div>
+    </div>
+    <div class="question" id="wrap-q4" data-answer="B">
+      <div class="qstem"><span class="qnum">4.</span> The committee’s decision was less a reflection of evidence than of institutional ______, as dissenting voices were systematically excluded.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q4" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">neutrality</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q4" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">capture</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q4" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">volatility</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q4" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">transparency</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(4)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(4)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(4)">Explanation</button>
+        <span class="result" id="res-q4"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q4" style="display:none;">
+        <b>Explanation:</b> Excluding dissent suggests the institution is controlled/biased → capture.
+      </div>
+    </div>
+    <div class="question" id="wrap-q5" data-answer="B">
+      <div class="qstem"><span class="qnum">5.</span> The historian cautioned against interpreting silence in the archives as proof of absence, noting that records are often ______ rather than comprehensive.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q5" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">exhaustive</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q5" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">fragmentary</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q5" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">impartial</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q5" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">redundant</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(5)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(5)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(5)">Explanation</button>
+        <span class="result" id="res-q5"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q5" style="display:none;">
+        <b>Explanation:</b> Archives can be incomplete pieces → fragmentary.
+      </div>
+    </div>
+    <div class="question" id="wrap-q6" data-answer="A">
+      <div class="qstem"><span class="qnum">6.</span> While the theory offers an elegant framework, its explanatory power remains ______ in the absence of empirical validation.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q6" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">speculative</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q6" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">decisive</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q6" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">comprehensive</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q6" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">terminal</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(6)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(6)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(6)">Explanation</button>
+        <span class="result" id="res-q6"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q6" style="display:none;">
+        <b>Explanation:</b> Without validation, it’s still conjectural → speculative.
+      </div>
+    </div>
+    <div class="question" id="wrap-q7" data-answer="B">
+      <div class="qstem"><span class="qnum">7.</span> The speaker’s tone was not overtly hostile, yet its ______ undertones suggested quiet disapproval.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q7" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">conciliatory</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q7" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">sardonic</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q7" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">benign</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q7" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">reassuring</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(7)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(7)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(7)">Explanation</button>
+        <span class="result" id="res-q7"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q7" style="display:none;">
+        <b>Explanation:</b> Sardonic = subtly mocking/critical; fits ‘undertones’ of disapproval.
+      </div>
+    </div>
+    <div class="question" id="wrap-q8" data-answer="B">
+      <div class="qstem"><span class="qnum">8.</span> The data seem to support the hypothesis; however, the margin of error is sufficiently large to render the conclusion ______.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q8" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">definitive</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q8" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">provisional</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q8" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">incontrovertible</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q8" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">categorical</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(8)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(8)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(8)">Explanation</button>
+        <span class="result" id="res-q8"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q8" style="display:none;">
+        <b>Explanation:</b> Large error → you can’t be final; only provisional.
+      </div>
+    </div>
+    <div class="question" id="wrap-q9" data-answer="B">
+      <div class="qstem"><span class="qnum">9.</span> Her critique was not dismissive but ______, acknowledging strengths while questioning assumptions.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q9" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">vitriolic</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q9" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">nuanced</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q9" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">perfunctory</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q9" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">indifferent</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(9)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(9)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(9)">Explanation</button>
+        <span class="result" id="res-q9"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q9" style="display:none;">
+        <b>Explanation:</b> Balanced, subtle evaluation → nuanced.
+      </div>
+    </div>
+    <div class="question" id="wrap-q10" data-answer="C">
+      <div class="qstem"><span class="qnum">10.</span> The innovation was celebrated as transformative, though its long-term consequences remain largely ______.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q10" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">predictable</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q10" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">irreversible</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q10" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">indeterminate</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q10" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">incidental</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(10)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(10)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(10)">Explanation</button>
+        <span class="result" id="res-q10"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q10" style="display:none;">
+        <b>Explanation:</b> Unknown long-term results → indeterminate.
+      </div>
+    </div>
+    <div class="question" id="wrap-q11" data-answer="A">
+      <div class="qstem"><span class="qnum">11.</span> The argument collapses if one rejects the underlying premise that rational actors always behave ______.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q11" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">optimally</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q11" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">altruistically</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q11" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">impulsively</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q11" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">erratically</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(11)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(11)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(11)">Explanation</button>
+        <span class="result" id="res-q11"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q11" style="display:none;">
+        <b>Explanation:</b> Rational-actor models assume optimization → optimally.
+      </div>
+    </div>
+    <div class="question" id="wrap-q12" data-answer="B">
+      <div class="qstem"><span class="qnum">12.</span> Though framed as reform, the legislation effectively preserved the status quo under the guise of incremental ______.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q12" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">upheaval</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q12" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">adjustment</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q12" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">defiance</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q12" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">rupture</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(12)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(12)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(12)">Explanation</button>
+        <span class="result" id="res-q12"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q12" style="display:none;">
+        <b>Explanation:</b> Incremental implies small changes → adjustment.
+      </div>
+    </div></section><section id="sec2" class="section"><h2>Analogies (Questions 13–20)</h2><p class="inst">Choose the option with the closest relationship to the original pair.</p>
+    <div class="question" id="wrap-q13" data-answer="B">
+      <div class="qstem"><span class="qnum">13.</span> PARADIGM : FRAMEWORK ::</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q13" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">hypothesis : conjecture</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q13" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">lens : perspective</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q13" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">doctrine : dissent</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q13" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">premise : skepticism</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(13)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(13)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(13)">Explanation</button>
+        <span class="result" id="res-q13"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q13" style="display:none;">
+        <b>Explanation:</b> A paradigm functions as a framework; a lens functions as a perspective.
+      </div>
+    </div>
+    <div class="question" id="wrap-q14" data-answer="A">
+      <div class="qstem"><span class="qnum">14.</span> EQUIVOCATE : CLARITY ::</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q14" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">distort : accuracy</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q14" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">illuminate : darkness</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q14" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">concede : defeat</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q14" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">refine : detail</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(14)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(14)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(14)">Explanation</button>
+        <span class="result" id="res-q14"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q14" style="display:none;">
+        <b>Explanation:</b> To equivocate reduces clarity; to distort reduces accuracy.
+      </div>
+    </div>
+    <div class="question" id="wrap-q15" data-answer="A">
+      <div class="qstem"><span class="qnum">15.</span> EPHEMERAL : TRANSIENCE ::</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q15" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">perennial : longevity</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q15" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">opaque : visibility</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q15" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">coherent : logic</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q15" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">tacit : speech</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(15)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(15)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(15)">Explanation</button>
+        <span class="result" id="res-q15"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q15" style="display:none;">
+        <b>Explanation:</b> Ephemeral relates to transience; perennial relates to longevity.
+      </div>
+    </div>
+    <div class="question" id="wrap-q16" data-answer="A">
+      <div class="qstem"><span class="qnum">16.</span> ANOMALY : PATTERN ::</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q16" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">exception : rule</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q16" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">fragment : whole</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q16" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">premise : conclusion</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q16" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">cause : effect</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(16)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(16)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(16)">Explanation</button>
+        <span class="result" id="res-q16"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q16" style="display:none;">
+        <b>Explanation:</b> An anomaly is an exception to a pattern; an exception is to a rule.
+      </div>
+    </div>
+    <div class="question" id="wrap-q17" data-answer="B">
+      <div class="qstem"><span class="qnum">17.</span> CAVEAT : CLAIM ::</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q17" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">footnote : book</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q17" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">qualification : assertion</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q17" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">conclusion : premise</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q17" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">rebuttal : proof</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(17)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(17)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(17)">Explanation</button>
+        <span class="result" id="res-q17"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q17" style="display:none;">
+        <b>Explanation:</b> A caveat qualifies a claim; a qualification qualifies an assertion.
+      </div>
+    </div>
+    <div class="question" id="wrap-q18" data-answer="B">
+      <div class="qstem"><span class="qnum">18.</span> INFER : IMPLICIT ::</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q18" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">deduce : explicit</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q18" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">observe : visible</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q18" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">speculate : uncertain</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q18" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">analyze : structured</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(18)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(18)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(18)">Explanation</button>
+        <span class="result" id="res-q18"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q18" style="display:none;">
+        <b>Explanation:</b> To infer is to draw from what is implicit; to observe is to note what is visible.
+      </div>
+    </div>
+    <div class="question" id="wrap-q19" data-answer="A">
+      <div class="qstem"><span class="qnum">19.</span> ORTHODOX : DEVIATION ::</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q19" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">norm : violation</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q19" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">custom : ritual</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q19" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">belief : conviction</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q19" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">value : price</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(19)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(19)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(19)">Explanation</button>
+        <span class="result" id="res-q19"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q19" style="display:none;">
+        <b>Explanation:</b> Orthodox relates to the norm; deviation relates to violation.
+      </div>
+    </div>
+    <div class="question" id="wrap-q20" data-answer="A">
+      <div class="qstem"><span class="qnum">20.</span> PROVISIONAL : FINAL ::</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q20" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">temporary : permanent</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q20" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">cautious : bold</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q20" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">limited : expansive</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q20" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">complex : simple</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(20)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(20)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(20)">Explanation</button>
+        <span class="result" id="res-q20"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q20" style="display:none;">
+        <b>Explanation:</b> Provisional contrasts with final; temporary contrasts with permanent.
+      </div>
+    </div></section><section id="sec3" class="section"><h2>Contextual Precision (Questions 21–28)</h2><p class="inst">Choose the option (word/phrase) that makes the sentence least logical in context.</p>
+    <div class="question" id="wrap-q21" data-answer="C">
+      <div class="qstem"><span class="qnum">21.</span> The editor praised the article’s rigor, noting that its conclusions were supported by ______ rather than speculation.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q21" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">evidence</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q21" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">data</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q21" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">conjecture</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q21" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">analysis</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(21)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(21)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(21)">Explanation</button>
+        <span class="result" id="res-q21"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q21" style="display:none;">
+        <b>Explanation:</b> Conjecture is speculation; it contradicts the contrast ‘rather than speculation’.
+      </div>
+    </div>
+    <div class="question" id="wrap-q22" data-answer="C">
+      <div class="qstem"><span class="qnum">22.</span> To make the findings reproducible, the researchers carefully documented each step; this level of detail made the procedure ______ to replicate.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q22" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">easier</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q22" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">transparent</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q22" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">harder</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q22" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">straightforward</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(22)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(22)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(22)">Explanation</button>
+        <span class="result" id="res-q22"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q22" style="display:none;">
+        <b>Explanation:</b> Documentation makes replication easier, not harder.
+      </div>
+    </div>
+    <div class="question" id="wrap-q23" data-answer="C">
+      <div class="qstem"><span class="qnum">23.</span> The diplomat delivered a measured response, avoiding insults and choosing language that remained ______ throughout the negotiation.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q23" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">temperate</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q23" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">restrained</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q23" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">inflammatory</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q23" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">civil</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(23)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(23)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(23)">Explanation</button>
+        <span class="result" id="res-q23"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q23" style="display:none;">
+        <b>Explanation:</b> Inflammatory conflicts with avoiding insults and being measured.
+      </div>
+    </div>
+    <div class="question" id="wrap-q24" data-answer="C">
+      <div class="qstem"><span class="qnum">24.</span> Because the sample size was extremely small, the results should be treated as ______, not conclusive.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q24" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">preliminary</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q24" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">tentative</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q24" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">definitive</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q24" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">provisional</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(24)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(24)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(24)">Explanation</button>
+        <span class="result" id="res-q24"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q24" style="display:none;">
+        <b>Explanation:</b> Small sample → not definitive; ‘definitive’ breaks meaning.
+      </div>
+    </div>
+    <div class="question" id="wrap-q25" data-answer="A">
+      <div class="qstem"><span class="qnum">25.</span> The proposal aimed to reduce bureaucracy, yet it introduced several new layers of approval that made the process more ______.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q25" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">streamlined</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q25" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">cumbersome</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q25" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">complex</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q25" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">time-consuming</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(25)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(25)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(25)">Explanation</button>
+        <span class="result" id="res-q25"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q25" style="display:none;">
+        <b>Explanation:</b> New approval layers make it less streamlined; ‘streamlined’ contradicts.
+      </div>
+    </div>
+    <div class="question" id="wrap-q26" data-answer="D">
+      <div class="qstem"><span class="qnum">26.</span> The critic admired the novel’s subtlety, arguing that its meaning was enriched by what remained ______ rather than stated plainly.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q26" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">implicit</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q26" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">suggested</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q26" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">unspoken</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q26" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">obvious</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(26)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(26)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(26)">Explanation</button>
+        <span class="result" id="res-q26"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q26" style="display:none;">
+        <b>Explanation:</b> Subtlety + implicit meaning conflicts with ‘obvious’.
+      </div>
+    </div>
+    <div class="question" id="wrap-q27" data-answer="D">
+      <div class="qstem"><span class="qnum">27.</span> The training program was designed to improve performance, but its poorly defined metrics made progress difficult to ______.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q27" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">measure</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q27" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">track</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q27" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">quantify</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q27" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">ignore</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(27)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(27)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(27)">Explanation</button>
+        <span class="result" id="res-q27"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q27" style="display:none;">
+        <b>Explanation:</b> Poor metrics make progress hard to measure/track, not hard to ignore.
+      </div>
+    </div>
+    <div class="question" id="wrap-q28" data-answer="D">
+      <div class="qstem"><span class="qnum">28.</span> The speaker conceded several weaknesses in her position; this candor increased her ______ with the audience.</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q28" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">credibility</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q28" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">authority</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q28" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">trustworthiness</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q28" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">insincerity</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(28)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(28)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(28)">Explanation</button>
+        <span class="result" id="res-q28"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q28" style="display:none;">
+        <b>Explanation:</b> Candor increases credibility, not insincerity.
+      </div>
+    </div></section><section id="sec4" class="section"><h2>Reading Comprehension (Questions 29–68) • Real Exam Flow</h2><p class="inst">Read each passage carefully. Answer its 10 questions before moving to the next passage.</p>
+            <div class="passage-card">
+              <h3>Passage 1: Economic Rationality and Behavioral Evidence (Questions 29–38)</h3>
+              <div class="passage-text">Modern economic theory often models individuals as rational maximizers of utility. Within this framework,
+choices are assumed to reflect stable preferences ordered consistently across contexts. Yet a broad body of
+behavioral research documents systematic departures from these assumptions. Individuals overweight immediate
+rewards, exhibit loss aversion, and respond to framing effects in which equivalent options appear more or
+less attractive depending on how they are presented. These regularities have prompted debate not merely
+about isolated “biases” but about the adequacy of the rational-actor model as the backbone of explanation.
+
+Critics argue that the model is descriptively inaccurate: people are neither omniscient nor internally
+consistent, and their reasoning is shaped by limited attention and incomplete information. Defenders respond
+that the model’s value lies less in psychological realism than in predictive simplicity. Abstraction can be
+an asset: by ignoring some cognitive complexity, economists derive tractable models that generate clear,
+testable hypotheses. The dispute, therefore, concerns the trade-off between descriptive fidelity and
+analytical usefulness.
+
+However, abandoning rationality entirely risks dissolving explanation into a list of context-specific
+heuristics. If every deviation is treated as idiosyncratic, coherent theory becomes elusive. Some scholars
+therefore advocate bounded rationality, which preserves purposive behavior while acknowledging computational
+and informational limits. Under this view, individuals aim to optimize, but they do so with shortcuts and
+under constraints; the task for theory is to specify when those constraints matter and how they
+systematically shape outcomes.
+
+The methodological implications are practical as well as philosophical. In policy design, small behavioral
+frictions—defaults, salience, timing—can have outsized effects, so realism may matter. In large-scale market
+analysis, by contrast, aggregation may wash out some individual quirks, allowing simplified assumptions to
+remain informative. Ultimately, the legitimacy of a model may depend less on whether it mirrors cognition
+and more on whether it answers the question being asked, while remaining honest about its limits.</div>
+            </div>
+            
+    <div class="question" id="wrap-q29" data-answer="B">
+      <div class="qstem"><span class="qnum">29.</span> The passage’s central issue is the tension between:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q29" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">morality and profit</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q29" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">descriptive realism and analytical usefulness</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q29" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">markets and governments</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q29" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">psychology and statistics</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(29)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(29)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(29)">Explanation</button>
+        <span class="result" id="res-q29"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q29" style="display:none;">
+        <b>Explanation:</b> Trade-off framed explicitly in paragraph 2.
+      </div>
+    </div>
+    <div class="question" id="wrap-q30" data-answer="C">
+      <div class="qstem"><span class="qnum">30.</span> Critics of the rational-actor model argue it is primarily:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q30" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">computationally impossible</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q30" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">politically biased</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q30" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">descriptively inaccurate</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q30" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">empirically untestable</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(30)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(30)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(30)">Explanation</button>
+        <span class="result" id="res-q30"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q30" style="display:none;">
+        <b>Explanation:</b> Critics: not omniscient/consistent.
+      </div>
+    </div>
+    <div class="question" id="wrap-q31" data-answer="B">
+      <div class="qstem"><span class="qnum">31.</span> Defenders value the model mainly because it enables:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q31" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">ethical policy</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q31" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">tractable, testable hypotheses</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q31" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">perfect prediction</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q31" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">elimination of uncertainty</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(31)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(31)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(31)">Explanation</button>
+        <span class="result" id="res-q31"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q31" style="display:none;">
+        <b>Explanation:</b> Abstraction yields tractable models with testable hypotheses.
+      </div>
+    </div>
+    <div class="question" id="wrap-q32" data-answer="B">
+      <div class="qstem"><span class="qnum">32.</span> The passage suggests abandoning rationality entirely would:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q32" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">increase realism without cost</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q32" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">make theory incoherent</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q32" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">eliminate heuristics</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q32" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">improve aggregation</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(32)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(32)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(32)">Explanation</button>
+        <span class="result" id="res-q32"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q32" style="display:none;">
+        <b>Explanation:</b> Would dissolve explanation into context-specific heuristics.
+      </div>
+    </div>
+    <div class="question" id="wrap-q33" data-answer="B">
+      <div class="qstem"><span class="qnum">33.</span> ‘Bounded rationality’ is presented as:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q33" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">a rejection of purposive behavior</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q33" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">a compromise acknowledging limits while preserving optimization aims</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q33" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">a synonym for irrationality</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q33" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">a purely moral framework</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(33)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(33)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(33)">Explanation</button>
+        <span class="result" id="res-q33"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q33" style="display:none;">
+        <b>Explanation:</b> Middle ground: purposive but constrained.
+      </div>
+    </div>
+    <div class="question" id="wrap-q34" data-answer="A">
+      <div class="qstem"><span class="qnum">34.</span> Behavioral frictions are said to matter especially for:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q34" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">policy design</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q34" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">astronomy</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q34" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">geometry</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q34" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">archival history</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(34)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(34)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(34)">Explanation</button>
+        <span class="result" id="res-q34"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q34" style="display:none;">
+        <b>Explanation:</b> Policy paragraph: defaults/salience/timing matter.
+      </div>
+    </div>
+    <div class="question" id="wrap-q35" data-answer="A">
+      <div class="qstem"><span class="qnum">35.</span> ‘Aggregation may wash out’ most nearly means:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q35" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">large groups reduce individual quirks’ impact</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q35" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">markets always fail</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q35" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">data becomes unusable</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q35" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">preferences become unstable</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(35)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(35)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(35)">Explanation</button>
+        <span class="result" id="res-q35"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q35" style="display:none;">
+        <b>Explanation:</b> Aggregation can dilute individual-level deviations.
+      </div>
+    </div>
+    <div class="question" id="wrap-q36" data-answer="B">
+      <div class="qstem"><span class="qnum">36.</span> The tone is best described as:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q36" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">polemic</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q36" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">analytical and qualifying</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q36" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">sarcastic</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q36" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">hostile</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(36)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(36)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(36)">Explanation</button>
+        <span class="result" id="res-q36"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q36" style="display:none;">
+        <b>Explanation:</b> Balanced with caveats.
+      </div>
+    </div>
+    <div class="question" id="wrap-q37" data-answer="B">
+      <div class="qstem"><span class="qnum">37.</span> The author’s view of model legitimacy is closest to:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q37" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">realism is the only standard</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q37" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">usefulness depends on the question, with honesty about limits</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q37" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">models should never abstract</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q37" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">behavioral findings are irrelevant</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(37)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(37)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(37)">Explanation</button>
+        <span class="result" id="res-q37"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q37" style="display:none;">
+        <b>Explanation:</b> Final sentence: depends on question, be honest about limits.
+      </div>
+    </div>
+    <div class="question" id="wrap-q38" data-answer="C">
+      <div class="qstem"><span class="qnum">38.</span> Which assumption is required by the argument?</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q38" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">All biases disappear in markets</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q38" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">Any abstraction is deception</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q38" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">Modeling involves trade-offs between goals</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q38" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">People never optimize</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(38)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(38)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(38)">Explanation</button>
+        <span class="result" id="res-q38"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q38" style="display:none;">
+        <b>Explanation:</b> Argument relies on trade-offs.
+      </div>
+    </div>
+            <div class="passage-card">
+              <h3>Passage 2: Paradigms, Anomalies, and Scientific Change (Questions 39–48)</h3>
+              <div class="passage-text">Scientific revolutions are often narrated as triumphs of evidence, in which new data compels the abandonment
+of old ideas. Yet many historians and philosophers of science argue that the transition is rarely so
+straightforward. Within an established paradigm, anomalies are commonly treated as puzzles to be resolved
+rather than as immediate refutations. Researchers may adjust auxiliary assumptions, refine instruments, or
+reinterpret results so that the broader framework remains intact. In this phase, persistence is rational:
+discarding a successful paradigm too quickly would make inquiry unstable.
+
+Crisis emerges only when anomalies accumulate beyond what the paradigm can plausibly absorb, or when a rival
+framework offers an alternative that organizes the same evidence more coherently. Crucially, rival paradigms
+can be incommensurable. They differ not only in conclusions but also in foundational assumptions, key terms,
+and standards of methodological adequacy. What counts as a decisive test under one paradigm may be dismissed
+as irrelevant under another, because the two frameworks ask different questions or measure success by
+different criteria.
+
+For this reason, paradigm change involves conceptual reorientation as well as empirical revision. Scientists
+must learn to “see” phenomena differently: categories shift, problems are redescribed, and familiar results
+take on new meaning. This does not entail that science is arbitrary, but it does imply that rational
+evaluation is partly internal to a framework. Evidence constrains theory, yet the interpretation of evidence
+is guided by background commitments about what is worth measuring and how to measure it.
+
+Sociological forces can amplify these dynamics. Professional networks, institutional incentives, publication
+norms, and generational turnover influence which ideas receive attention and which careers flourish. Novel
+approaches may face skepticism not because they are false, but because they disrupt established training and
+tools. Still, sociological influence does not erase the role of reasons; rather, it shows that reasons are
+assessed within communities with histories, incentives, and limited time. On this view, scientific progress
+is neither mere accumulation nor mere fashion, but a complex interaction between data, concepts, and
+institutions.</div>
+            </div>
+            
+    <div class="question" id="wrap-q39" data-answer="B">
+      <div class="qstem"><span class="qnum">39.</span> Anomalies within a paradigm are usually treated as:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q39" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">instant falsifications</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q39" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">puzzles to be resolved</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q39" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">proof of deception</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q39" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">irrelevant errors</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(39)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(39)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(39)">Explanation</button>
+        <span class="result" id="res-q39"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q39" style="display:none;">
+        <b>Explanation:</b> Paragraph 1: anomalies as puzzles.
+      </div>
+    </div>
+    <div class="question" id="wrap-q40" data-answer="C">
+      <div class="qstem"><span class="qnum">40.</span> Crisis arises when:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q40" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">one anomaly appears</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q40" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">evidence disappears</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q40" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">anomalies accumulate or a rival organizes evidence better</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q40" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">institutions ban a theory</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(40)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(40)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(40)">Explanation</button>
+        <span class="result" id="res-q40"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q40" style="display:none;">
+        <b>Explanation:</b> Paragraph 2: accumulation or rival coherence.
+      </div>
+    </div>
+    <div class="question" id="wrap-q41" data-answer="B">
+      <div class="qstem"><span class="qnum">41.</span> ‘Incommensurable’ paradigms differ mainly in:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q41" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">political ideology only</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q41" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">foundational assumptions and standards</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q41" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">number of experiments</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q41" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">funding levels</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(41)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(41)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(41)">Explanation</button>
+        <span class="result" id="res-q41"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q41" style="display:none;">
+        <b>Explanation:</b> Different assumptions, terms, criteria.
+      </div>
+    </div>
+    <div class="question" id="wrap-q42" data-answer="B">
+      <div class="qstem"><span class="qnum">42.</span> Paradigm change involves:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q42" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">only new instruments</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q42" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">conceptual reorientation and empirical revision</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q42" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">only sociology</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q42" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">removing all commitments</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(42)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(42)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(42)">Explanation</button>
+        <span class="result" id="res-q42"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q42" style="display:none;">
+        <b>Explanation:</b> Paragraph 3: reorientation + revision.
+      </div>
+    </div>
+    <div class="question" id="wrap-q43" data-answer="C">
+      <div class="qstem"><span class="qnum">43.</span> Rational evaluation is described as:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q43" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">impossible</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q43" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">entirely external</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q43" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">partly internal to frameworks</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q43" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">identical across paradigms</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(43)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(43)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(43)">Explanation</button>
+        <span class="result" id="res-q43"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q43" style="display:none;">
+        <b>Explanation:</b> Paragraph 3: internal to a framework.
+      </div>
+    </div>
+    <div class="question" id="wrap-q44" data-answer="C">
+      <div class="qstem"><span class="qnum">44.</span> Sociological forces are mentioned to show:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q44" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">science is arbitrary</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q44" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">reasons are irrelevant</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q44" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">institutions shape which ideas thrive</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q44" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">data never matters</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(44)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(44)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(44)">Explanation</button>
+        <span class="result" id="res-q44"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q44" style="display:none;">
+        <b>Explanation:</b> Networks/incentives affect attention/careers.
+      </div>
+    </div>
+    <div class="question" id="wrap-q45" data-answer="C">
+      <div class="qstem"><span class="qnum">45.</span> Scientific progress is portrayed as:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q45" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">pure accumulation</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q45" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">pure fashion</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q45" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">interaction of data, concepts, institutions</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q45" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">a conspiracy</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(45)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(45)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(45)">Explanation</button>
+        <span class="result" id="res-q45"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q45" style="display:none;">
+        <b>Explanation:</b> Last sentence: complex interaction.
+      </div>
+    </div>
+    <div class="question" id="wrap-q46" data-answer="B">
+      <div class="qstem"><span class="qnum">46.</span> The tone is:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q46" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">dismissive</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q46" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">measured and explanatory</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q46" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">mocking</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q46" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">indignant</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(46)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(46)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(46)">Explanation</button>
+        <span class="result" id="res-q46"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q46" style="display:none;">
+        <b>Explanation:</b> Balanced exposition.
+      </div>
+    </div>
+    <div class="question" id="wrap-q47" data-answer="B">
+      <div class="qstem"><span class="qnum">47.</span> The author would most likely endorse:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q47" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">Data alone always forces change</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q47" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">Background commitments shape evidence interpretation</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q47" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">Sociology replaces evidence</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q47" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">Paradigms are identical</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(47)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(47)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(47)">Explanation</button>
+        <span class="result" id="res-q47"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q47" style="display:none;">
+        <b>Explanation:</b> Paragraph 3: commitments guide interpretation.
+      </div>
+    </div>
+    <div class="question" id="wrap-q48" data-answer="A">
+      <div class="qstem"><span class="qnum">48.</span> The organization is best described as:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q48" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">narrative → complication → explanation → sociological qualification → synthesis</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q48" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">anecdote → moral</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q48" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">data table</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q48" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">instructions</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(48)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(48)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(48)">Explanation</button>
+        <span class="result" id="res-q48"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q48" style="display:none;">
+        <b>Explanation:</b> Moves from common story to nuance and synthesis.
+      </div>
+    </div>
+            <div class="passage-card">
+              <h3>Passage 3: Representation and Democratic Legitimacy (Questions 49–58)</h3>
+              <div class="passage-text">Modern democracies justify political authority by appealing to representation: citizens authorize officials
+to decide on their behalf. Yet representation introduces distance between public preferences and public
+policy. Elections provide authorization, but authorization does not guarantee alignment. Officials may face
+incentives—party discipline, donor influence, bureaucratic constraints—that pull them away from median voter
+preferences. Moreover, electoral accountability is episodic. Between elections, citizens often have limited
+leverage, and by the time they vote again, policy consequences may be difficult to trace to particular
+decisions.
+
+Defenders of representative institutions respond that this distance is not purely a defect. Institutional
+mediation can protect minority rights, reduce volatility, and enable long-term planning that would be
+difficult under constant plebiscites. A system that mirrors opinion instantly may also mirror
+misinformation, panic, or temporary anger. From this perspective, a measure of insulation is a feature that
+stabilizes governance, provided that channels of correction remain credible.
+
+Deliberative theorists propose supplementing electoral mechanisms with participatory forums—citizens’
+assemblies, deliberative polls, structured public hearings—designed to improve the quality of collective
+judgment. The aim is not simply to count preferences but to refine them through exposure to evidence and
+argument. Skeptics reply that participation without expertise can empower demagogic appeals, while
+participation with heavy expert control can replicate elitism under a different name. The challenge is to
+design participation that is informed without being captured.
+
+The legitimacy question therefore becomes multidimensional. Responsiveness matters, but so do rights,
+competence, and stability. A democracy may fail if it ignores citizens, but it may also fail if it treats
+momentary opinion as sovereign. Legitimate authority, on this view, depends on institutions that transform
+inputs—preferences, grievances, information—into decisions through procedures that citizens can recognize as
+fair, even when outcomes disappoint them.</div>
+            </div>
+            
+    <div class="question" id="wrap-q49" data-answer="B">
+      <div class="qstem"><span class="qnum">49.</span> A key problem of representation is:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q49" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">too much expertise</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q49" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">distance between authorization and alignment</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q49" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">no elections</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q49" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">too many parties</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(49)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(49)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(49)">Explanation</button>
+        <span class="result" id="res-q49"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q49" style="display:none;">
+        <b>Explanation:</b> Authorization does not guarantee alignment.
+      </div>
+    </div>
+    <div class="question" id="wrap-q50" data-answer="B">
+      <div class="qstem"><span class="qnum">50.</span> Electoral accountability is ‘episodic’ because:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q50" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">it happens daily</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q50" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">citizens have limited leverage between elections</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q50" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">votes are public</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q50" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">officials resign often</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(50)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(50)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(50)">Explanation</button>
+        <span class="result" id="res-q50"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q50" style="display:none;">
+        <b>Explanation:</b> Between elections, leverage is limited.
+      </div>
+    </div>
+    <div class="question" id="wrap-q51" data-answer="B">
+      <div class="qstem"><span class="qnum">51.</span> Defenders say institutional mediation can:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q51" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">increase volatility</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q51" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">protect minorities and enable long-term planning</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q51" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">eliminate rights</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q51" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">guarantee perfect alignment</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(51)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(51)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(51)">Explanation</button>
+        <span class="result" id="res-q51"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q51" style="display:none;">
+        <b>Explanation:</b> Second paragraph.
+      </div>
+    </div>
+    <div class="question" id="wrap-q52" data-answer="B">
+      <div class="qstem"><span class="qnum">52.</span> Deliberative forums aim to:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q52" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">replace elections entirely</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q52" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">refine preferences through evidence and argument</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q52" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">reduce participation</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q52" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">increase donor influence</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(52)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(52)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(52)">Explanation</button>
+        <span class="result" id="res-q52"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q52" style="display:none;">
+        <b>Explanation:</b> Third paragraph.
+      </div>
+    </div>
+    <div class="question" id="wrap-q53" data-answer="B">
+      <div class="qstem"><span class="qnum">53.</span> Skeptics fear participation without expertise may produce:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q53" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">apathy</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q53" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">demagogic appeals</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q53" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">judicial review</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q53" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">censorship</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(53)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(53)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(53)">Explanation</button>
+        <span class="result" id="res-q53"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q53" style="display:none;">
+        <b>Explanation:</b> Third paragraph.
+      </div>
+    </div>
+    <div class="question" id="wrap-q54" data-answer="B">
+      <div class="qstem"><span class="qnum">54.</span> The author’s stance is best described as:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q54" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">one-sided anti-representation</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q54" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">balanced, emphasizing multiple legitimacy dimensions</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q54" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">purely pro-plebiscite</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q54" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">anti-deliberation</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(54)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(54)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(54)">Explanation</button>
+        <span class="result" id="res-q54"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q54" style="display:none;">
+        <b>Explanation:</b> Final paragraph: multidimensional legitimacy.
+      </div>
+    </div>
+    <div class="question" id="wrap-q55" data-answer="B">
+      <div class="qstem"><span class="qnum">55.</span> ‘Channels of correction’ most nearly means:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q55" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">TV channels</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q55" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">mechanisms to adjust policy/leadership credibly</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q55" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">military courts</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q55" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">tax loopholes</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(55)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(55)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(55)">Explanation</button>
+        <span class="result" id="res-q55"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q55" style="display:none;">
+        <b>Explanation:</b> Correction mechanisms.
+      </div>
+    </div>
+    <div class="question" id="wrap-q56" data-answer="A">
+      <div class="qstem"><span class="qnum">56.</span> The author implies democracy may fail if it:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q56" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">insulates itself completely from citizens</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q56" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">protects minorities</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q56" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">plans long-term</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q56" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">holds elections</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(56)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(56)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(56)">Explanation</button>
+        <span class="result" id="res-q56"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q56" style="display:none;">
+        <b>Explanation:</b> Ignoring citizens is failure mode.
+      </div>
+    </div>
+    <div class="question" id="wrap-q57" data-answer="B">
+      <div class="qstem"><span class="qnum">57.</span> The conclusion emphasizes legitimacy as:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q57" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">only responsiveness</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q57" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">procedures seen as fair even when outcomes disappoint</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q57" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">economic growth</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q57" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">expert rule</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(57)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(57)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(57)">Explanation</button>
+        <span class="result" id="res-q57"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q57" style="display:none;">
+        <b>Explanation:</b> Last sentence.
+      </div>
+    </div>
+    <div class="question" id="wrap-q58" data-answer="A">
+      <div class="qstem"><span class="qnum">58.</span> The structure is mainly:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q58" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">problem → defense → supplement → synthesis</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q58" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">history → biography</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q58" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">data analysis</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q58" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">satire</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(58)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(58)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(58)">Explanation</button>
+        <span class="result" id="res-q58"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q58" style="display:none;">
+        <b>Explanation:</b> Clear progression.
+      </div>
+    </div>
+            <div class="passage-card">
+              <h3>Passage 4: Language, Cognition, and Interaction (Questions 59–68)</h3>
+              <div class="passage-text">Language does not merely transmit thought; it can shape it by directing attention to certain distinctions
+while leaving others less salient. Linguists and psychologists have long debated how far this influence
+extends. Strong versions of linguistic determinism claim that grammar and vocabulary rigidly structure
+cognition, making some concepts difficult to grasp unless a language encodes them. Weaker interactionist
+views, by contrast, hold that language nudges habitual perception and memory without imprisoning the mind.
+
+Evidence for interaction often comes from tasks that measure attention and categorization. Speakers of
+languages that obligatorily mark spatial relations may become faster at noticing those relations, not
+because others cannot perceive them, but because their language trains repeated attention. Similarly, color-
+label studies suggest that naming can sharpen boundary judgments near category edges. Yet these effects are
+usually modest and context-sensitive, and they coexist with cognitive universals: humans across communities
+track number, agency, and causal relations even when languages differ widely.
+
+The debate therefore shifts from an all-or-nothing question to one of degree and mechanism. How does
+language interact with perception—through memory rehearsal, attentional habits, or social coordination? And
+when do non-linguistic factors dominate, such as shared sensory systems or common problem-solving demands?
+Researchers increasingly emphasize bidirectional influence. Culture and cognition shape language over time,
+while language, once learned, can feed back into cognition by stabilizing patterns of categorization that
+become socially shared.
+
+A practical implication is methodological caution. Demonstrating linguistic influence requires separating
+language effects from cultural practice, education, and task design. When experiments conflate these
+factors, determinism appears stronger than it is. A more credible conclusion is that language and thought
+are mutually influential: language provides tools that can sharpen or blur distinctions, but human cognition
+retains flexibility to operate beyond any one linguistic system.</div>
+            </div>
+            
+    <div class="question" id="wrap-q59" data-answer="B">
+      <div class="qstem"><span class="qnum">59.</span> The passage primarily aims to:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q59" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">prove strong determinism</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q59" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">evaluate degrees and mechanisms of language–cognition interaction</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q59" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">describe grammar history</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q59" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">argue translation is impossible</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(59)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(59)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(59)">Explanation</button>
+        <span class="result" id="res-q59"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q59" style="display:none;">
+        <b>Explanation:</b> It contrasts views and argues for degree/mechanism.
+      </div>
+    </div>
+    <div class="question" id="wrap-q60" data-answer="B">
+      <div class="qstem"><span class="qnum">60.</span> Strong determinism claims language:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q60" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">has no effect</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q60" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">rigidly structures cognition</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q60" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">only affects memory</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q60" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">only affects pronunciation</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(60)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(60)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(60)">Explanation</button>
+        <span class="result" id="res-q60"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q60" style="display:none;">
+        <b>Explanation:</b> First paragraph definition.
+      </div>
+    </div>
+    <div class="question" id="wrap-q61" data-answer="B">
+      <div class="qstem"><span class="qnum">61.</span> The spatial/color studies are used to show:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q61" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">total cognitive imprisonment</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q61" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">language can nudge habitual attention</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q61" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">culture is irrelevant</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q61" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">universals do not exist</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(61)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(61)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(61)">Explanation</button>
+        <span class="result" id="res-q61"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q61" style="display:none;">
+        <b>Explanation:</b> Language trains attention; effects modest.
+      </div>
+    </div>
+    <div class="question" id="wrap-q62" data-answer="B">
+      <div class="qstem"><span class="qnum">62.</span> Cognitive universals are mentioned to argue that:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q62" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">language differences are illusions</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q62" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">some cognition persists across languages</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q62" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">determinism is always correct</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q62" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">labels eliminate perception</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(62)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(62)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(62)">Explanation</button>
+        <span class="result" id="res-q62"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q62" style="display:none;">
+        <b>Explanation:</b> Universals persist despite linguistic differences.
+      </div>
+    </div>
+    <div class="question" id="wrap-q63" data-answer="B">
+      <div class="qstem"><span class="qnum">63.</span> The debate shifts toward:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q63" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">which language is best</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q63" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">degree and mechanism of influence</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q63" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">whether words exist</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q63" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">whether grammar should be banned</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(63)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(63)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(63)">Explanation</button>
+        <span class="result" id="res-q63"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q63" style="display:none;">
+        <b>Explanation:</b> Paragraph 3.
+      </div>
+    </div>
+    <div class="question" id="wrap-q64" data-answer="B">
+      <div class="qstem"><span class="qnum">64.</span> ‘Bidirectional influence’ means:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q64" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">language only shapes culture</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q64" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">culture/cognition shape language and language feeds back into cognition</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q64" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">language destroys universals</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q64" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">experiments are biased</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(64)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(64)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(64)">Explanation</button>
+        <span class="result" id="res-q64"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q64" style="display:none;">
+        <b>Explanation:</b> Explicit in paragraph 3.
+      </div>
+    </div>
+    <div class="question" id="wrap-q65" data-answer="B">
+      <div class="qstem"><span class="qnum">65.</span> Determinism can appear stronger when experiments:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q65" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">separate factors carefully</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q65" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">conflate language with culture/education/task design</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q65" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">use large samples</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q65" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">avoid measurement</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(65)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(65)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(65)">Explanation</button>
+        <span class="result" id="res-q65"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q65" style="display:none;">
+        <b>Explanation:</b> Methodological caution.
+      </div>
+    </div>
+    <div class="question" id="wrap-q66" data-answer="B">
+      <div class="qstem"><span class="qnum">66.</span> The tone is:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q66" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">dogmatic</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q66" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">analytical and cautious</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q66" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">sarcastic</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q66" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">indignant</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(66)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(66)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(66)">Explanation</button>
+        <span class="result" id="res-q66"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q66" style="display:none;">
+        <b>Explanation:</b> Balanced and cautious.
+      </div>
+    </div>
+    <div class="question" id="wrap-q67" data-answer="B">
+      <div class="qstem"><span class="qnum">67.</span> The final position is that language and thought are:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q67" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">unrelated</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q67" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">mutually influential with cognitive flexibility preserved</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q67" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">identical</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q67" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">hierarchical with language dominant</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(67)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(67)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(67)">Explanation</button>
+        <span class="result" id="res-q67"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q67" style="display:none;">
+        <b>Explanation:</b> Final sentence.
+      </div>
+    </div>
+    <div class="question" id="wrap-q68" data-answer="A">
+      <div class="qstem"><span class="qnum">68.</span> A necessary assumption for the conclusion is that:</div>
+      <div class="options">
+        <label class="opt">
+          <input type="radio" name="q68" value="A">
+          <span class="letter">A.</span>
+          <span class="otext">cognition has flexibility beyond language</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q68" value="B">
+          <span class="letter">B.</span>
+          <span class="otext">all experiments are flawed</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q68" value="C">
+          <span class="letter">C.</span>
+          <span class="otext">culture never affects language</span>
+        </label>
+        <label class="opt">
+          <input type="radio" name="q68" value="D">
+          <span class="letter">D.</span>
+          <span class="otext">universals are impossible</span>
+        </label></div>
+      <div class="qactions">
+        <button type="button" class="btn" onclick="checkOne(68)">Check</button>
+        <button type="button" class="btn ghost" onclick="revealAnswer(68)">Show Answer</button>
+        <button type="button" class="btn ghost" onclick="toggleExpl(68)">Explanation</button>
+        <span class="result" id="res-q68"></span>
+      </div>
+      
+      <div class="explanation" id="exp-q68" style="display:none;">
+        <b>Explanation:</b> Conclusion depends on flexibility.
+      </div>
+    </div></section>
+  <footer>
+      </footer>
+</main>
+
+<script>
+let timerRunning = false;
+let remaining = 65*60;
+let intervalId = null;
+
+function fmt(n) {
+  const m = Math.floor(n/60);
+  const s = n % 60;
+  return String(m).padStart(2,'0') + ":" + String(s).padStart(2,'0');
+}
+
+function tick() {
+  if (!timerRunning) return;
+  remaining = Math.max(0, remaining - 1);
+  document.getElementById('timer').textContent = "Timer: " + fmt(remaining);
+  if (remaining === 0) {
+    timerRunning = false;
+    document.getElementById('tbtn').textContent = "Start";
+    alert("Time is up. You can still review and check your answers.");
+  }
+}
+
+function toggleTimer() {
+  timerRunning = !timerRunning;
+  document.getElementById('tbtn').textContent = timerRunning ? "Pause" : "Start";
+  if (timerRunning && !intervalId) {
+    intervalId = setInterval(tick, 1000);
+  }
+}
+
+function getSelected(qn) {
+  const el = document.querySelector('input[name="q'+qn+'"]:checked');
+  return el ? el.value : null;
+}
+
+function setState(qn, state, msg) {
+  const wrap = document.getElementById('wrap-q'+qn);
+  wrap.classList.remove('correct','wrong','unanswered');
+  wrap.classList.add(state);
+  document.getElementById('res-q'+qn).textContent = msg;
+}
+
+function checkOne(qn) {
+  const wrap = document.getElementById('wrap-q'+qn);
+  const correct = wrap.dataset.answer;
+  const sel = getSelected(qn);
+  if (!sel) {
+    setState(qn, 'unanswered', 'Choose an option.');
+    updateScore();
+    return;
+  }
+  if (sel === correct) setState(qn, 'correct', 'Correct ✅');
+  else setState(qn, 'wrong', 'Wrong ❌ (Correct: ' + correct + ')');
+  updateScore();
+}
+
+function revealAnswer(qn) {
+  const wrap = document.getElementById('wrap-q'+qn);
+  const correct = wrap.dataset.answer;
+  setState(qn, 'unanswered', 'Answer: ' + correct);
+  updateScore();
+}
+
+function toggleExpl(qn) {
+  const el = document.getElementById('exp-q'+qn);
+  if (!el) return;
+  el.style.display = (el.style.display === 'none') ? 'block' : 'none';
+}
+
+function checkAll() {
+  document.querySelectorAll('.question').forEach(q => {
+    const qn = q.id.replace('wrap-q','');
+    checkOne(parseInt(qn));
+  });
+}
+
+function resetAll() {
+  document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+  document.querySelectorAll('.question').forEach(q => {
+    q.classList.remove('correct','wrong','unanswered');
+    const qn = q.id.replace('wrap-q','');
+    document.getElementById('res-q'+qn).textContent = '';
+    const exp = document.getElementById('exp-q'+qn);
+    if (exp) exp.style.display = 'none';
+  });
+  remaining = 65*60;
+  document.getElementById('timer').textContent = "Timer: " + fmt(remaining);
+  timerRunning = false;
+  document.getElementById('tbtn').textContent = "Start";
+  updateScore();
+}
+
+function updateScore() {
+  const all = document.querySelectorAll('.question');
+  let score = 0;
+  all.forEach(q => { if (q.classList.contains('correct')) score++; });
+  document.getElementById('score').textContent = "Score: " + score + " / " + all.length;
+}
+
+updateScore();
+</script>
+</body>
+</html>
