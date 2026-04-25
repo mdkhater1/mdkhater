@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Reported Speech – Think Like a Reporter</title>
+<style>
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#e0f2fe 0%, #fef3c7 50%, #fce7f3 100%);overflow:hidden}
+  .slide{display:none;box-sizing:border-box;width:100vw;height:100vh;padding:44px 54px;background:rgba(255,255,255,.88)}
+  .slide.active{display:block}
+  h1,h2{margin:0 0 14px 0;color:#0f766e}
+  h1{font-size:42px}
+  h2{font-size:32px}
+  p,li,button,input{font-size:24px;line-height:1.35}
+  ul{margin:10px 0 0 24px}
+  .pill{display:inline-block;margin:8px 10px 0 0;padding:10px 16px;border-radius:999px;font-size:18px;font-weight:700}
+  .goal{background:#c7f9cc;color:#166534}
+  .key{background:#fde68a;color:#92400e}
+  .lens{background:#ddd6fe;color:#5b21b6}
+  .nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;gap:12px;padding:14px;background:rgba(15,23,42,.8);backdrop-filter:blur(8px);z-index:20}
+  button{font-size:18px;padding:10px 18px;border:0;border-radius:10px;background:linear-gradient(135deg,#ec4899,#8b5cf6);color:#fff;cursor:pointer}
+  button:disabled{opacity:.4;cursor:not-allowed}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .card{background:#ffffff;border-radius:18px;padding:22px;box-shadow:0 10px 30px rgba(59,130,246,.15);border:2px solid #e2e8f0}
+  .big{font-size:28px}
+  .small{font-size:20px}
+  .icon{font-size:36px;margin-right:10px}
+  .answer{margin-top:14px;padding:14px;border-radius:12px;background:#ecfeff;color:#0f766e;display:none}
+  .qbox{padding:12px 0}
+  .gamebtn{background:linear-gradient(135deg,#22c55e,#14b8a6)}
+  .choice{display:block;margin:10px 0;padding:12px 14px;border:2px solid #cbd5e1;border-radius:12px;background:#fff;color:#111827;text-align:left;width:100%;background:#fff7ed}
+</style>
+</head>
+<body>
+
+<section class="slide active" id="s0">
+  <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/a01d950b-92fe-4efe-9025-ccc0e6892531.png" alt="Reported speech illustrations" style="width:220px;float:right;border-radius:18px;box-shadow:0 10px 26px rgba(0,0,0,.15);margin-left:18px;">
+  <h1>Reported Speech – Think Like a Reporter</h1>
+  <div class="pill goal">Today’s Goal: Change speech and explain your thinking</div>
+  <p class="small">35-minute lesson • Students discover the rule</p>
+  <div class="card"><p class="big">Lesson Objectives</p>
+
+
+<div class="card">
+  <p><b>By the end of the lesson, you will be able to:</b></p>
+  <ul>
+    <li>✔ Change direct speech into reported speech</li>
+    <li>✔ Identify tense, pronoun, and time changes</li>
+    <li>✔ Explain WHY these changes happen</li>
+  </ul>
+</div>
+
+<p>Start with a game.</p></div>
+</section>
+
+<section class="slide" id="s1">
+  <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/a01d950b-92fe-4efe-9025-ccc0e6892531.png" alt="Reporter illustration" style="width:170px;float:right;border-radius:18px;box-shadow:0 10px 26px rgba(0,0,0,.15);margin-left:18px;">
+  <h2><span class="icon">🎮</span>Warm-up Game</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="qbox"><p class="big" id="gameQ">“I love studying grammar,” said Ali.</p></div>
+      <button class="gamebtn" onclick="toggleHint()">Show Hint</button>
+      <div class="answer" id="gameHint">Think: change the present simple to past simple.</div>
+    </div>
+    <div class="card">
+      <p class="big">Choose the best report:</p>
+      <button class="choice" onclick="checkChoice(this,false)">Ali said that he loves studying grammar.</button>
+      <button class="choice" onclick="checkChoice(this,true)">Ali said that he loved studying grammar.</button>
+      <button class="choice" onclick="checkChoice(this,false)">Ali says that he loved studying grammar.</button>
+      <div class="answer" id="gameFeed"></div>
+    </div>
+  </div>
+  <div class="pill key">Thinker’s Key: Question Key</div>
+  <div class="pill lens">Thinking Lens: Truth Lens</div>
+</section>
+
+<section class="slide" id="s2">
+  <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/a01d950b-92fe-4efe-9025-ccc0e6892531.png" alt="Thinking illustration" style="width:150px;float:right;border-radius:18px;box-shadow:0 10px 26px rgba(0,0,0,.15);margin-left:18px;">
+  <h2>Discover the Pattern</h2>
+  <div class="card">
+    <p>“Fresh mountain air improves exam results.” → The reporter said that fresh mountain air improved exam results.</p>
+    <p>“We’re offering readers a discount.” → Noah Kidding said that they were offering a discount.</p>
+    <p class="big">What changed?</p>
+  </div>
+  <div class="pill key">Thinker’s Key: Brainstorming Key</div>
+  <div class="pill lens">Thinking Lens: Evidence Lens</div>
+</section>
+
+<section class="slide" id="s3">
+  <h2>Student Thinking</h2>
+  <div class="grid">
+    <div class="card"><ul><li>tense change</li><li>pronouns</li><li>structure</li></ul></div>
+    <div class="card"><p class="big">Which words changed?</p><p>Which words stayed the same?</p></div>
+  </div>
+  <div class="pill key">Thinker’s Key: Brainstorming Key</div>
+  <div class="pill lens">Thinking Lens: Evidence Lens</div>
+</section>
+
+<section class="slide" id="s4">
+  <h2>Rule Building</h2>
+  <div class="card">
+    <p class="big">Present → Past</p>
+    <p class="big">Now → Then</p>
+    <p class="big">Here → There</p>
+    <p>Why do we change these?</p>
+  </div>
+</section>
+
+<section class="slide" id="s5">
+  <h2>Guided Practice</h2>
+  <div class="card">
+    <p>“We love studying grammar,” said my classmates.</p>
+    <p>“I haven’t studied reported speech before,” I said.</p>
+    <p class="big">Rewrite the sentences.</p>
+  </div>
+  <div class="pill key">Thinker’s Key: Info Key</div>
+</section>
+
+<section class="slide" id="s6">
+  <h2>Deeper Thinking</h2>
+  <div class="card">
+    <ul>
+      <li>We report a past event.</li>
+      <li>The speaker’s words are not happening now.</li>
+      <li>The message is what matters most.</li>
+    </ul>
+  </div>
+  <div class="pill key">Thinker’s Key: Consequences Key</div>
+  <div class="pill lens">Thinking Lens: Reliability Lens</div>
+</section>
+
+<section class="slide" id="s7">
+  <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/a01d950b-92fe-4efe-9025-ccc0e6892531.png" alt="Pair activity illustration" style="width:150px;float:right;border-radius:18px;box-shadow:0 10px 26px rgba(0,0,0,.15);margin-left:18px;">
+  <h2>Pair Activity</h2>
+  <div class="grid">
+    <div class="card"><p>Do you watch the news?</p><p>Are you reading a book?</p></div>
+    <div class="card"><p>Ask your partner.</p><p>Report the answers.</p></div>
+  </div>
+  <div class="pill key">Thinker’s Key: Perspectives Key</div>
+</section>
+
+<section class="slide" id="s8">
+  <h2>Challenge Task</h2>
+  <div class="card">
+    <p class="big">“I can’t do this exercise,” said Pablo.</p>
+    <p>Rewrite it.</p>
+    <p>Explain why the tense changes.</p>
+  </div>
+  <div class="pill key">Thinker’s Key: Consequences Key</div>
+</section>
+
+<section class="slide" id="s9">
+  <h2>Exit Ticket</h2>
+  <div class="card">
+    <p class="big">Change: “I am tired,” she said.</p>
+    <p>What changed?</p>
+    <p>Why do we change tense?</p>
+  </div>
+  <div class="pill key">Thinker’s Key: Reflection Key</div>
+</section>
+
+<section class="slide" id="s10">
+  <h2>Closing</h2>
+  <div class="card"><p class="big">“Good speakers report ideas, not just words.”</p></div>
+</section>
+
+<div class="nav">
+  <button id="prevBtn" onclick="prevSlide()">Previous</button>
+  <button id="nextBtn" onclick="nextSlide()">Next</button>
+</div>
+
+
+<section class="slide" id="s11">
+  <h2>Textbook Match: Ex 1</h2>
+  <div class="grid">
+    <div class="card"><p class="big">Noah Kidding</p><p>the reporter</p><p>Wayne</p></div>
+    <div class="card"><p class="big">1. Kidding carried out a survey</p><p>2. My memory has improved.</p><p>3. We’ll send a free gift.</p><p>4. We can send it anywhere.</p></div>
+  </div>
+</section>
+
+<section class="slide" id="s12">
+  <h2>Textbook Match: Ex 2 & 3</h2>
+  <div class="grid">
+    <div class="card"><p class="big">Tense table</p><p>present simple → past simple</p><p>present continuous → past continuous</p><p>past simple → past perfect</p><p>present perfect → past perfect</p><p>future with will → would</p><p>can → could</p></div>
+    <div class="card"><p class="big">Practice sentences</p><p>We love studying grammar.</p><p>I haven’t studied reported speech before.</p><p>It isn’t easy.</p><p>I can’t do this exercise.</p><p>The test will be on Monday.</p></div>
+  </div>
+</section>
+
+<section class="slide" id="s13">
+  <h2>Textbook Match: Ex 4, 5, 8</h2>
+  <div class="grid">
+    <div class="card"><p class="big">Other changes</p><p>pronouns</p><p>time expressions</p><p>possessive adjectives</p><p>adverbs of place</p></div>
+    <div class="card"><p class="big">Reverse + brain teaser</p><p>reported → direct speech</p><p>What is the most likely date for the wedding?</p></div>
+  </div>
+</section>
+
+<script>
+const slides = [...document.querySelectorAll('.slide')];
+let current = 0;
+function show(i){
+  slides[current].classList.remove('active');
+  current = Math.max(0, Math.min(i, slides.length - 1));
+  slides[current].classList.add('active');
+  prevBtn.disabled = current === 0;
+  nextBtn.disabled = current === slides.length - 1;
+}
+function nextSlide(){ show(current + 1); }
+function prevSlide(){ show(current - 1); }
+document.addEventListener('keydown', e => {
+  if(['ArrowRight','PageDown',' '].includes(e.key)) nextSlide();
+  if(['ArrowLeft','PageUp'].includes(e.key)) prevSlide();
+});
+function toggleHint(){
+  const el = document.getElementById('gameHint');
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function checkChoice(btn, correct){
+  const feed = document.getElementById('gameFeed');
+  feed.style.display = 'block';
+  feed.innerHTML = correct ? 'Correct! Ali said that he loved studying grammar.' : 'Try again. Look at the tense change.';
+}
+show(0);
+</script>
+</body>
+</html>
